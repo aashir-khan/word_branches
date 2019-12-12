@@ -1,5 +1,4 @@
 import 'package:dr_words/core/services/navigation/concrete_navigation_service.dart';
-import 'package:dr_words/core/services/navigation/fake_navigation_service.dart';
 import 'package:dr_words/core/services/navigation/navigation_service.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,9 +10,8 @@ const bool USE_FAKE_IMPLEMENTATION = true;
 
 void setupLocator() {
   // Services
-  locator.registerLazySingleton<NavigationService>(() => USE_FAKE_IMPLEMENTATION
-      ? ConcreteNavigationService()
-      : FakeNavigationService());
+  locator.registerLazySingleton<NavigationService>(
+      () => ConcreteNavigationService());
 
   // View Models
   locator.registerLazySingleton(() => HomeModel());
