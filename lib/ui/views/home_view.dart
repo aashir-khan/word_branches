@@ -1,16 +1,17 @@
-import '../../core/viewmodels/home_model.dart';
 import 'package:flutter/material.dart';
 
-import 'base_view.dart';
+import '../widgets/base_responsive_widget.dart';
 
 class HomeView extends StatelessWidget {
+  const HomeView({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return BaseView<HomeModel>(
-      builder: (context, model, child) => Scaffold(
+    return BaseResponsiveWidget(builder: (context, sizingInformation) {
+      return Scaffold(
           body: Center(
-        child: Text('Hello World'),
-      )),
-    );
+        child: Text(sizingInformation.toString()),
+      ));
+    });
   }
 }

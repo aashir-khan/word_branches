@@ -1,14 +1,15 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'core/services/navigation_service.dart';
 import 'lifecycle_manager.dart';
 import 'locator.dart';
 import 'ui/router.dart' as router;
-import 'core/constants/routes_path.dart' as routes;
+import 'ui/views/home_view.dart';
 
 void main() {
   setupLocator();
-  runApp(MyApp());
+  runApp(DevicePreview(builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,10 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return LifeCycleManager(
       child: MaterialApp(
+        builder: DevicePreview.appBuilder,
         title: 'Dr. Words',
         navigatorKey: locator<NavigationService>().navigatorKey,
         onGenerateRoute: router.generateRoute,
-        initialRoute: routes.HomeRoute,
+        home: HomeView(),
         debugShowCheckedModeBanner: false,
       ),
     );
