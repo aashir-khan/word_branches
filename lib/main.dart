@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import './ui/router.dart' as router;
-import './core/constants/routes_path.dart' as routes;
-import './locator.dart';
-import './core/services/navigation/concrete_navigation_service.dart';
+import 'core/services/navigation_service.dart';
+import 'lifecycle_manager.dart';
+import 'locator.dart';
+import 'ui/router.dart' as router;
+import 'core/constants/routes_path.dart' as routes;
 
 void main() {
   setupLocator();
@@ -13,12 +14,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Dr. Words',
-      navigatorKey: locator<ConcreteNavigationService>().navigatorKey,
-      onGenerateRoute: router.generateRoute,
-      initialRoute: routes.HomeRoute,
-      debugShowCheckedModeBanner: false,
+    return LifeCycleManager(
+      child: MaterialApp(
+        title: 'Dr. Words',
+        navigatorKey: locator<NavigationService>().navigatorKey,
+        onGenerateRoute: router.generateRoute,
+        initialRoute: routes.HomeRoute,
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

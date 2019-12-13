@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import '../../core/viewmodels/home_model.dart';
+import 'package:flutter/material.dart';
 
 import 'base_view.dart';
 
