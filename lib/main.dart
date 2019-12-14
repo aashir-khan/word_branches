@@ -1,11 +1,11 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:dr_words/services/navigation_service.dart';
+import 'package:dr_words/views/home/home_view.dart';
 import 'package:flutter/material.dart';
 
-import 'core/services/navigation_service.dart';
 import 'lifecycle_manager.dart';
 import 'locator.dart';
-import 'ui/router.dart' as router;
-import 'ui/views/home/home_view.dart';
+import 'router.dart' as router;
 
 void main() {
   setupLocator();

@@ -1,5 +1,5 @@
-import '../core/enums/device_screen_type.dart';
-import 'package:flutter/widgets.dart';
+import 'package:dr_words/enums/device_screen_type.dart';
+import 'package:flutter/material.dart';
 
 class SizingInformation {
   final DeviceScreenType deviceScreenType;
@@ -14,6 +14,6 @@ class SizingInformation {
 
   @override
   String toString() {
-    return 'DeviceScreenType:$deviceScreenType ScreenSize:$screenSize LocalWidgetSize:$localWidgetSize';
+    return 'DeviceType:$deviceScreenType ScreenSize:$screenSize LocalWidgetSize:$localWidgetSize';
   }
 }

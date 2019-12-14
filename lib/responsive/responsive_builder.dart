@@ -1,23 +1,24 @@
-import '../utils/ui_utils.dart';
+import 'package:dr_words/responsive/sizing_information.dart';
+import 'package:dr_words/utils/ui_utils.dart';
 import 'package:flutter/material.dart';
-
-import 'sizing_information.dart';
 
 class ResponsiveBuilder extends StatelessWidget {
   final Widget Function(
-      BuildContext context, SizingInformation sizingInformation) builder;
+    BuildContext context,
+    SizingInformation sizingInformation,
+  ) builder;
   const ResponsiveBuilder({Key key, this.builder}) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context);
-
-    return LayoutBuilder(builder: (context, boxSizing) {
+    return LayoutBuilder(builder: (context, boxConstraints) {
+      var mediaQuery = MediaQuery.of(context);
       var sizingInformation = SizingInformation(
         deviceScreenType: getDeviceType(mediaQuery),
         screenSize: mediaQuery.size,
-        localWidgetSize: Size(boxSizing.maxWidth, boxSizing.maxHeight),
+        localWidgetSize:
+            Size(boxConstraints.maxWidth, boxConstraints.maxHeight),
       );
-
       return builder(context, sizingInformation);
     });
   }

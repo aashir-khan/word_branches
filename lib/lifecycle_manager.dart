@@ -1,7 +1,7 @@
+import 'package:dr_words/services/navigation_service.dart';
+import 'package:dr_words/services/stoppable_service.dart';
 import 'package:flutter/material.dart';
 
-import 'core/services/navigation_service.dart';
-import 'core/services/stoppable_service.dart';
 import 'locator.dart';
 
 /// Stop and start long running services
