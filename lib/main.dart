@@ -5,7 +5,7 @@ import 'core/services/navigation_service.dart';
 import 'lifecycle_manager.dart';
 import 'locator.dart';
 import 'ui/router.dart' as router;
-import 'ui/views/home_view.dart';
+import 'ui/views/home/home_view.dart';
 
 void main() {
   setupLocator();
