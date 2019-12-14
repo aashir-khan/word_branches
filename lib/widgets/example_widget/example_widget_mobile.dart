@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class ExampleWidgetMobilePortrait extends BaseModelWidget<ExampleItemData> {
   @override
   Widget build(BuildContext context, ExampleItemData data) {
-    print(data);
     return Container(
       child: Center(
         child: Text(

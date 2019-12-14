@@ -1,3 +1,4 @@
+import 'package:dr_words/responsive/responsive_builder.dart';
 import 'package:dr_words/viewmodels/home_viewmodel.dart';
 import 'package:dr_words/views/home/home_view.dart';
 import 'package:dr_words/widgets/base_model_widget.dart';
@@ -19,37 +20,43 @@ class HomeMobilePortrait extends BaseModelWidget<HomeViewModel> {
           model.updateTitle();
         },
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: Center(
-              child: Text(model.title),
-            ),
-          ),
-          ...HomeView.getExampleWidgetList()
-        ],
+      body: ResponsiveBuilder(
+        builder: (context, sizingInformation) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(model.title),
+              ...HomeView.getExampleWidgetList()
+            ],
+          );
+        },
       ),
     );
   }
 }
 
 class HomeMobileLandscape extends BaseModelWidget<HomeViewModel> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context, HomeViewModel model) {
     return Scaffold(
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            child: Center(
-              child: Text(
-                model.title,
-                style: TextStyle(fontSize: 35),
-              ),
-            ),
-          ),
-          ...HomeView.getExampleWidgetList()
-        ],
+      key: _scaffoldKey,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          model.updateTitle();
+        },
+      ),
+      body: ResponsiveBuilder(
+        builder: (context, sizingInformation) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(model.title),
+              ...HomeView.getExampleWidgetList()
+            ],
+          );
+        },
       ),
     );
   }

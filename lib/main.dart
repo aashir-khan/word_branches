@@ -9,7 +9,7 @@ import 'router.dart' as router;
 
 void main() {
   setupLocator();
-  runApp(DevicePreview(builder: (context) => MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
