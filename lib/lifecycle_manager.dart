@@ -1,3 +1,4 @@
+import 'package:dr_words/services/api/api_service.dart';
 import 'package:dr_words/services/navigation_service.dart';
 import 'package:dr_words/services/stoppable_service.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class _LifeCycleManagerState extends State<LifeCycleManager>
     with WidgetsBindingObserver {
   List<StoppableService> servicesToManage = [
     locator<NavigationService>(),
+    locator<ApiService>(),
   ];
 
   // Get all services
