@@ -1,9 +1,10 @@
-import 'package:dr_words/datamodels/query_related/query_wordlist.dart';
+import 'package:dr_words/datamodels/query_related/query_search_results.dart';
 import 'package:dr_words/services/api/api_service.dart';
 
 class FakeApiService extends ApiService {
   @override
-  Future<QueryWordlist> getQueryResults([String query = '']) async {
+  Future<QuerySearchResults> getQueryResults(String query,
+      {Map<String, dynamic> options = const {}}) async {
     var response = {
       "metadata": {
         "limit": "5000",
@@ -207,7 +208,13 @@ class FakeApiService extends ApiService {
       ]
     };
 
-    return Future.delayed(
-        Duration(seconds: 1), () => QueryWordlist.fromJson(response));
+    QuerySearchResults querySearchResults =
+        QuerySearchResults.fromJson(response);
+
+    querySearchResults.results = querySearchResults.results
+        .where((querySearchResult) => querySearchResult.label.startsWith(query))
+        .toList();
+
+    return Future.delayed(Duration(seconds: 1), () => querySearchResults);
   }
 }

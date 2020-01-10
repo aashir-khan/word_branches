@@ -1,4 +1,4 @@
-import 'package:dr_words/datamodels/query_related/query_wordlist.dart';
+import 'package:dr_words/datamodels/query_related/query_search_results.dart';
 import 'package:dr_words/locator.dart';
 import 'package:dr_words/responsive/screen_type_layout.dart';
 import 'package:dr_words/services/api/api_service.dart';
@@ -38,6 +38,9 @@ class WordQuerySearch extends SearchDelegate {
   }
 
   @override
+  ThemeData appBarTheme(BuildContext context) => Theme.of(context);
+
+  @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
       icon: AnimatedIcon(
@@ -57,7 +60,8 @@ class WordQuerySearch extends SearchDelegate {
   Widget buildSuggestions(BuildContext context) {
     return FutureBuilder(
         future: getQueryResults(),
-        builder: (BuildContext context, AsyncSnapshot<QueryWordlist> snapshot) {
+        builder:
+            (BuildContext context, AsyncSnapshot<QuerySearchResults> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
               return Text('Execute a search...');
@@ -65,21 +69,29 @@ class WordQuerySearch extends SearchDelegate {
             case ConnectionState.waiting:
               return LoadingIndicator();
             default:
-              return snapshot.data == null
+              return snapshot.data.results.length == 0
                   ? Text('No results found')
                   : ListView.builder(
-                      padding: EdgeInsets.all(0),
                       itemCount: snapshot.data.results.length,
-                      itemBuilder: (context, index) => Container(
-                        padding: EdgeInsets.all(0),
-                        child: Text(snapshot.data.results[index].label),
+                      itemBuilder: (context, index) => InkWell(
+                        child: Container(
+                          child: Text(
+                            snapshot.data.results[index].label,
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 24,
+                          ),
+                        ),
+                        onTap: () =>
+                            close(context, snapshot.data.results[index].label),
                       ),
                     );
           }
         });
   }
 
-  Future<QueryWordlist> getQueryResults() async {
+  Future<QuerySearchResults> getQueryResults() async {
     final api = locator<ApiService>();
     return api.getQueryResults(query);
   }

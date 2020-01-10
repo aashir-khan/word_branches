@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
+import 'app_colors.dart' as colors;
 
-ThemeData buildThemeData() {
-  final baseTheme = ThemeData.light();
+class AppTheme {
+  AppTheme._();
 
-  return baseTheme.copyWith(
-      primaryColor: primaryColor,
-      primaryColorLight: primaryColorLight,
-      primaryColorDark: primaryColorDark,
-      accentColor: secondaryColor);
+  static final ThemeData lightTheme = ThemeData(
+    primaryColor: colors.primaryColor,
+    appBarTheme: AppBarTheme(
+      color: colors.primaryColor,
+    ),
+    textTheme: TextTheme(
+      title: TextStyle(color: colors.onPrimary),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(
+        color: colors.inputTextHint,
+      ),
+    ),
+    colorScheme: ColorScheme.light(
+      primary: colors.primaryColor,
+      primaryVariant: colors.primaryColorDark,
+      secondary: colors.secondaryColor,
+      secondaryVariant: colors.secondaryColorDark,
+    ),
+  );
 }

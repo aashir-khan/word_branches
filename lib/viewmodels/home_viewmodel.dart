@@ -17,13 +17,15 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   void beginSearch(context) async {
-    var result =
+    var wordQuerySearch =
         await showSearch(context: context, delegate: WordQuerySearch());
-    print(result);
+    if (wordQuerySearch != null) {
+      // print(wordQuerySearch);
+    }
   }
 
   void handlePopupMenuSelection(String choice) {
-    print(choice);
+    // print(choice);
   }
 
   void navigateToSearch() {
