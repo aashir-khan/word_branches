@@ -1,6 +1,5 @@
 import 'package:dr_words/locator.dart';
 import 'package:dr_words/services/navigation_service.dart';
-import 'package:dr_words/views/search/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:dr_words/constants/routes_path.dart' as routes;
 
@@ -17,11 +16,7 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   void beginSearch(context) async {
-    var wordQuerySearch =
-        await showSearch(context: context, delegate: WordQuerySearch());
-    if (wordQuerySearch != null) {
-      // print(wordQuerySearch);
-    }
+    this.navigateToSearch();
   }
 
   void handlePopupMenuSelection(String choice) {
@@ -29,6 +24,7 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   void navigateToSearch() {
-    navigationService.navigateTo(routes.SearchRoute);
+    // navigationService.navigateTo(routes.SearchRoute);
+    navigationService.navigateWithReplacement(routes.SearchRoute);
   }
 }
