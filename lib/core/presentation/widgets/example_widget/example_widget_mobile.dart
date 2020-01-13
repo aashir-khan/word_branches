@@ -1,8 +1,9 @@
-import 'package:dr_words/datamodels/example_item_data.dart';
-import 'package:dr_words/widgets/base_model_widget.dart';
+import 'package:dr_words/core/domain/entities/example_item_data.dart';
 import 'package:flutter/material.dart';
 
-class ExampleWidgetTabletPortrait extends BaseModelWidget<ExampleItemData> {
+import '../base_model_widget.dart';
+
+class ExampleWidgetMobilePortrait extends BaseModelWidget<ExampleItemData> {
   @override
   Widget build(BuildContext context, ExampleItemData data) {
     return Container(
@@ -16,7 +17,7 @@ class ExampleWidgetTabletPortrait extends BaseModelWidget<ExampleItemData> {
   }
 }
 
-class ExampleWidgetTabletLandscape extends BaseModelWidget<ExampleItemData> {
+class ExampleWidgetMobileLandscape extends BaseModelWidget<ExampleItemData> {
   @override
   Widget build(BuildContext context, ExampleItemData data) {
     return Container(

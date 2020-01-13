@@ -2,15 +2,15 @@ import 'package:dr_words/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'constants/routes_path.dart' as routes;
+import 'core/constants/routes_path.dart' as routes;
+import 'core/presentation/pages/home_page/home_page.dart';
 import 'features/query_search/presentation/bloc/query_search_bloc.dart';
 import 'features/query_search/presentation/pages/search_page.dart';
-import 'views/home/home_view.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case routes.HomeRoute:
-      return MaterialPageRoute(builder: (context) => HomeView());
+      return MaterialPageRoute(builder: (context) => HomePage());
     case routes.SearchRoute:
       return MaterialPageRoute(
           builder: (context) => BlocProvider(

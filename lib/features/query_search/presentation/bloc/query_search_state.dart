@@ -1,4 +1,4 @@
-import 'package:dr_words/datamodels/query_related/query_search_results.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class QuerySearchState extends Equatable {

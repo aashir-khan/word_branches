@@ -1,7 +1,8 @@
-import 'package:dr_words/constants/app_colors.dart';
-import 'package:dr_words/datamodels/custom_scaffold_data.dart';
-import 'package:dr_words/widgets/base_model_widget.dart';
+import 'package:dr_words/core/constants/app_colors.dart';
+import 'package:dr_words/core/domain/entities/custom_scaffold_data.dart';
 import 'package:flutter/material.dart';
+
+import '../base_model_widget.dart';
 
 class CustomScaffoldMobile extends BaseModelWidget<CustomScaffoldData> {
   @override

@@ -1,5 +1,6 @@
-import 'package:dr_words/datamodels/query_related/query_search_results.dart';
-import 'package:dr_words/services/stoppable_service.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
+
+import '../stoppable_service.dart';
 
 abstract class ApiService extends StoppableService {
   final endpointPrefix = 'https://od-api.oxforddictionaries.com/api/v2';

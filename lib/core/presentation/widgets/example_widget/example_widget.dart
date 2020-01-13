@@ -1,6 +1,6 @@
-import 'package:dr_words/datamodels/example_item_data.dart';
-import 'package:dr_words/responsive/orientation_layout.dart';
-import 'package:dr_words/responsive/screen_type_layout.dart';
+import 'package:dr_words/core/domain/entities/example_item_data.dart';
+import 'package:dr_words/core/responsive/orientation_layout.dart';
+import 'package:dr_words/core/responsive/screen_type_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

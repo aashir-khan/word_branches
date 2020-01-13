@@ -1,5 +1,6 @@
-import 'package:dr_words/datamodels/query_related/query_search_results.dart';
-import 'package:dr_words/services/api/api_service.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
+
+import 'api_service.dart';
 
 class FakeApiService extends ApiService {
   @override

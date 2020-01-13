@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
+import 'package:dr_words/core/services/api/api_service.dart';
+import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/locator.dart';
-import 'package:dr_words/services/api/api_service.dart';
-import 'package:dr_words/services/navigation_service.dart';
 import './bloc.dart';
 import 'package:rxdart/rxdart.dart';
 

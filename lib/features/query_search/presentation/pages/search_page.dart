@@ -1,9 +1,9 @@
+import 'package:dr_words/core/presentation/widgets/loading_indicator/loading_indicator.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
-import 'package:dr_words/widgets/loading_indicator/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dr_words/constants/routes_path.dart' as routes;
+import 'package:dr_words/core/constants/routes_path.dart' as routes;
 
 class SearchPage extends StatefulWidget {
   @override

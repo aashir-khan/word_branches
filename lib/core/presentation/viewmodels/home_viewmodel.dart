@@ -1,7 +1,7 @@
+import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/locator.dart';
-import 'package:dr_words/services/navigation_service.dart';
 import 'package:flutter/material.dart';
-import 'package:dr_words/constants/routes_path.dart' as routes;
+import 'package:dr_words/core/constants/routes_path.dart' as routes;
 
 class HomeViewModel extends ChangeNotifier {
   final navigationService = locator<NavigationService>();

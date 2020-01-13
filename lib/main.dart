@@ -1,12 +1,12 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:dr_words/constants/app_colors.dart' as colors;
-import 'package:dr_words/services/navigation_service.dart';
-import 'package:dr_words/views/home/home_view.dart';
+import 'package:dr_words/core/constants/app_colors.dart' as colors;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'constants/theme_data.dart';
-import 'lifecycle_manager.dart';
+import 'core/constants/theme_data.dart';
+import 'core/presentation/pages/home_page/home_page.dart';
+import 'core/presentation/widgets/lifecycle_manager.dart';
+import 'core/services/navigation_service.dart';
 import 'locator.dart';
 import 'router.dart' as router;
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         navigatorKey: locator<NavigationService>().navigatorKey,
         onGenerateRoute: router.generateRoute,
-        home: HomeView(),
+        home: HomePage(),
         debugShowCheckedModeBanner: false,
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:dr_words/enums/device_screen_type.dart';
+import 'package:dr_words/core/enums/device_screen_type.dart';
 import 'package:flutter/widgets.dart';
 
 DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {

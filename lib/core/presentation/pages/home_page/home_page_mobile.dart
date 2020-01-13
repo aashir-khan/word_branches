@@ -1,13 +1,13 @@
-import 'package:dr_words/viewmodels/home_viewmodel.dart';
-import 'package:dr_words/widgets/base_model_widget.dart';
-import 'package:dr_words/widgets/scaffold/custom_scaffold.dart';
+import 'package:dr_words/core/presentation/viewmodels/home_viewmodel.dart';
+import 'package:dr_words/core/presentation/widgets/base_model_widget.dart';
+import 'package:dr_words/core/presentation/widgets/scaffold/custom_scaffold.dart';
 
 /// Contains the widgets that will be used for Mobile layout of home,
 /// portrait and landscape
 
 import 'package:flutter/material.dart';
 
-class HomeViewMobile extends BaseModelWidget<HomeViewModel> {
+class HomePageMobile extends BaseModelWidget<HomeViewModel> {
   @override
   Widget build(BuildContext context, HomeViewModel model) {
     return CustomScaffold(

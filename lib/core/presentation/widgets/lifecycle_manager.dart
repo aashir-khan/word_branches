@@ -1,9 +1,9 @@
-import 'package:dr_words/services/api/api_service.dart';
-import 'package:dr_words/services/navigation_service.dart';
-import 'package:dr_words/services/stoppable_service.dart';
+import 'package:dr_words/core/services/api/api_service.dart';
+import 'package:dr_words/core/services/navigation_service.dart';
+import 'package:dr_words/core/services/stoppable_service.dart';
 import 'package:flutter/material.dart';
 
-import 'locator.dart';
+import '../../../locator.dart';
 
 /// Stop and start long running services
 class LifeCycleManager extends StatefulWidget {

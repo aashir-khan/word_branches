@@ -1,8 +1,9 @@
-import 'package:dr_words/datamodels/custom_scaffold_data.dart';
-import 'package:dr_words/responsive/screen_type_layout.dart';
-import 'package:dr_words/widgets/scaffold/custom_scaffold_mobile.dart';
+import 'package:dr_words/core/domain/entities/custom_scaffold_data.dart';
+import 'package:dr_words/core/responsive/screen_type_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'custom_scaffold_mobile.dart';
 
 class CustomScaffold extends StatelessWidget {
   final String appBarText;
