@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "limit": "1",
+    "offset": "0",
+    "total": "1"
+  },
+  "results": [
+    {
+      "id": "test",
+      "label": "test"
+    },
+    {
+      "id": "test2",
+      "label": "test2"
+    }
+  ]
+}
