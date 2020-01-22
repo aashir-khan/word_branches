@@ -1,3 +1,4 @@
+import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 
 import 'api_service.dart';
@@ -210,11 +211,11 @@ class FakeApiService extends ApiService {
     };
 
     QuerySearchResults querySearchResults =
-        QuerySearchResults.fromJson(response);
+        QuerySearchResultsModel.fromJson(response);
 
-    querySearchResults.results = querySearchResults.results
-        .where((querySearchResult) => querySearchResult.label.startsWith(query))
-        .toList();
+    // querySearchResults.results = querySearchResults.results
+    //     .where((querySearchResult) => querySearchResult.label.startsWith(query))
+    //     .toList();
 
     return Future.delayed(Duration(seconds: 1), () => querySearchResults);
   }

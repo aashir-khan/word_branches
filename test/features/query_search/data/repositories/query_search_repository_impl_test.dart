@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/core/network/network_info.dart';
+import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_metadata_model.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
@@ -14,18 +15,24 @@ import 'package:mockito/mockito.dart';
 class MockRemoteDataSource extends Mock implements QuerySearchRemoteDataSource {
 }
 
+class MockLocalDataSource extends Mock implements QuerySearchLocalDataSource {}
+
 class MockNetworkInfo extends Mock implements NetworkInfo {}
 
 void main() {
   QuerySearchRepositoryImpl repository;
   MockRemoteDataSource mockRemoteDataSource;
+  MockLocalDataSource mockLocalDataSource;
   MockNetworkInfo mockNetworkInfo;
 
   setUp(() {
     mockRemoteDataSource = MockRemoteDataSource();
     mockNetworkInfo = MockNetworkInfo();
     repository = QuerySearchRepositoryImpl(
-        networkInfo: mockNetworkInfo, remoteDataSource: mockRemoteDataSource);
+      networkInfo: mockNetworkInfo,
+      remoteDataSource: mockRemoteDataSource,
+      localDataSource: mockLocalDataSource,
+    );
   });
 
   group('getQuerySearchResults', () {

@@ -7,9 +7,17 @@ class QuerySearchSingleResultModel extends QuerySearchSingleResult {
     @required String label,
   }) : super(id: id, label: label);
 
-  factory QuerySearchSingleResultModel.fromJson(Map<String, dynamic> json) =>
-      QuerySearchSingleResultModel(
-        id: json['id'],
-        label: json['label'],
-      );
+  factory QuerySearchSingleResultModel.fromJson(Map<String, dynamic> json) {
+    return QuerySearchSingleResultModel(
+      id: json['id'],
+      label: json['label'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'label': label,
+    };
+  }
 }

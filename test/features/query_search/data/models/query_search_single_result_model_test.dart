@@ -31,4 +31,19 @@ void main() {
       expect(result, tQuerySearchSingleResultModel);
     });
   });
+
+  group('toJson', () {
+    test('should return a JSON map containing the proper data', () async {
+      // act
+      final result = tQuerySearchSingleResultModel.toJson();
+
+      // assert
+      final expectedJsonMap = {
+        "id": 'test',
+        "label": 'test',
+      };
+
+      expect(result, expectedJsonMap);
+    });
+  });
 }
