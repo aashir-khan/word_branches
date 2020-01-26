@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/core/error/failures.dart';
@@ -9,8 +11,11 @@ import 'package:dr_words/features/query_search/data/models/query_search_results_
 import 'package:dr_words/features/query_search/data/models/query_search_single_result_model.dart';
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_single_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+
+import '../../../../fixtures/fixture_reader.dart';
 
 class MockRemoteDataSource extends Mock implements QuerySearchRemoteDataSource {
 }
@@ -27,7 +32,9 @@ void main() {
 
   setUp(() {
     mockRemoteDataSource = MockRemoteDataSource();
+    mockLocalDataSource = MockLocalDataSource();
     mockNetworkInfo = MockNetworkInfo();
+
     repository = QuerySearchRepositoryImpl(
       networkInfo: mockNetworkInfo,
       remoteDataSource: mockRemoteDataSource,
@@ -119,6 +126,63 @@ void main() {
         verifyNoMoreInteractions(mockRemoteDataSource);
         expect(result, equals(Left(NetworkFailure())));
       });
+    });
+  });
+
+  group('getRecentlySearchedWords', () {
+    List<QuerySearchSingleResultModel> tQuerySearchSingleResultModelList = [
+      QuerySearchSingleResultModel(id: 'test', label: 'test')
+    ];
+    List<QuerySearchSingleResult> tQuerySearchSingleResultList =
+        tQuerySearchSingleResultModelList;
+
+    test('should return local data when the call to local data is successful',
+        () async {
+      // arrange
+      when(mockLocalDataSource.getRecentlySearchedWords())
+          .thenAnswer((_) async => tQuerySearchSingleResultModelList);
+
+      // act
+      final result = await repository.getRecentlySearchedWords();
+
+      // assert
+      verify(mockLocalDataSource.getRecentlySearchedWords());
+      expect(result, equals(Right(tQuerySearchSingleResultList)));
+    });
+
+    test(
+        'should return local database processing failure when the call to local data source is unsuccessful',
+        () async {
+      // arrange
+      when(mockLocalDataSource.getRecentlySearchedWords())
+          .thenThrow(LocalDatabaseProcessingException());
+
+      // act
+      final result = await repository.getRecentlySearchedWords();
+
+      // assert
+      verify(mockLocalDataSource.getRecentlySearchedWords());
+      expect(result, equals(Left(LocalDatabaseProcessingFailure())));
+    });
+  });
+  group('addNewRecentlySearchedWord', () {
+    final tNewWordToAddModel =
+        QuerySearchSingleResultModel(id: 'test', label: 'test');
+    QuerySearchSingleResult tNewWordToAdd = tNewWordToAddModel;
+    test(
+        'should return true if the recently searched word is added successfully to the repository',
+        () async {
+      // arrange
+      when(mockLocalDataSource.addNewRecentlySearchedWord(any))
+          .thenAnswer((_) async => true);
+
+      // act
+      final result = await repository.addNewRecentlySearchedWord(tNewWordToAdd);
+
+      // assert
+      verify(
+          mockLocalDataSource.addNewRecentlySearchedWord(tNewWordToAddModel));
+      expect(result, Right(true));
     });
   });
 }
