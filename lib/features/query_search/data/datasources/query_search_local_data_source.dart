@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class QuerySearchLocalDataSource {
   Future<List<QuerySearchSingleResultModel>> getRecentlySearchedWords();
-  Future<void> addNewRecentlySearchedWord(
+  Future<bool> addNewRecentlySearchedWord(
       QuerySearchSingleResultModel newWordToAdd);
 }
 
@@ -29,8 +29,8 @@ class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
   }
 
   @override
-  Future<void> addNewRecentlySearchedWord(
-      QuerySearchSingleResultModel newWordToAdd) {
+  Future<bool> addNewRecentlySearchedWord(
+      QuerySearchSingleResultModel newWordToAdd) async {
     final initialDataInSharedPreferences =
         sharedPreferences.getString(FAVORITED_WORDS) ?? [];
     Map<String, dynamic> updatedRecentlySearchedWords =
@@ -38,7 +38,7 @@ class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
     updatedRecentlySearchedWords['results'].add(newWordToAdd);
     final updatedRecentlySearchedWordsEncoded =
         json.encode(updatedRecentlySearchedWords);
-    return sharedPreferences.setString(
+    return await sharedPreferences.setString(
         FAVORITED_WORDS, updatedRecentlySearchedWordsEncoded);
   }
 }

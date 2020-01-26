@@ -2,16 +2,31 @@
   "metadata": {
     "limit": "1",
     "offset": "0",
+    "operation": "search",
+    "provider": "Oxford University Press",
+    "schema": "WordList",
+    "sourceLanguage": "en",
+    "targetLanguage": "es",
     "total": "1"
   },
   "results": [
     {
       "id": "test",
-      "label": "test"
+      "label": "test",
+      "matchString": "test",
+      "matchType": "test",
+      "region": "test",
+      "score": 1,
+      "word": "test"
     },
     {
       "id": "test2",
-      "label": "test2"
+      "label": "test2",
+      "matchString": "test2",
+      "matchType": "test2",
+      "region": "test2",
+      "score": 1,
+      "word": "test2"
     }
   ]
 }
