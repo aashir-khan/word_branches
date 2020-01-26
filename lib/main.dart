@@ -8,10 +8,12 @@ import 'core/presentation/pages/home_page/home_page.dart';
 import 'core/presentation/widgets/lifecycle_manager.dart';
 import 'core/services/navigation_service.dart';
 import 'locator.dart';
+import 'injection/injection_container.dart' as di;
 import 'router.dart' as router;
 
-void main() {
-  setupLocator();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 
