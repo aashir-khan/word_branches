@@ -27,12 +27,3 @@ class AddNewRecentlySearchedWordEvent extends QuerySearchEvent {
   @override
   List<Object> get props => [newRecentlySearchedWord];
 }
-
-class CancelSearchEvent extends QuerySearchEvent {
-  final String routeNameToReturnTo;
-
-  CancelSearchEvent({this.routeNameToReturnTo});
-
-  @override
-  List<Object> get props => [routeNameToReturnTo];
-}

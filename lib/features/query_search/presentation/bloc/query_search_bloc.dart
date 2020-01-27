@@ -39,18 +39,23 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
     QuerySearchEvent event,
   ) async* {
     if (event is ModifyQueryEvent) {
-      yield Loading();
-      final resultEither = await getQuerySearchResults
-          .call(getResultsUsecase.Params(query: event.query));
+      if (event.query.isEmpty) {
+        yield Empty();
+        return;
+      } else {
+        yield Loading();
+        final resultEither = await getQuerySearchResults
+            .call(getResultsUsecase.Params(query: event.query));
 
-      yield* resultEither.fold(
-        (failure) async* {
-          yield QuerySearchErrorState(message: _mapFailureToMessage(failure));
-        },
-        (results) async* {
-          yield QuerySearchLoadedState(querySearchResults: results);
-        },
-      );
+        yield* resultEither.fold(
+          (failure) async* {
+            yield QuerySearchErrorState(message: _mapFailureToMessage(failure));
+          },
+          (results) async* {
+            yield QuerySearchLoadedState(querySearchResults: results);
+          },
+        );
+      }
     } else if (event is AddNewRecentlySearchedWordEvent) {
       yield Loading();
       final resultEither = await addNewRecentlySearchedWord.call(

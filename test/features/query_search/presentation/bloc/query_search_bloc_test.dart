@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/core/error/failures.dart';
@@ -64,51 +65,43 @@ void main() {
         verify(mockGetRecentlySearchedWords.call(NoParams()));
       });
 
-      test(
-          'should emit [Loading, QuerySearchErrorState] when there is an issue adding the recently searched word to the usecase - local database processing failure',
-          () async {
-        // arrange
-        when(mockGetRecentlySearchedWords.call(any))
-            .thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
-
-        // assert later
-        final expected = [
+      blocTest(
+        'should emit [Loading, QuerySearchErrorState] when there is an issue adding the recently searched word to the usecase - local database processing failure',
+        build: () {
+          when(mockGetRecentlySearchedWords.call(any))
+              .thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
+          return bloc;
+        },
+        act: (bloc) => bloc.add(GetRecentlySearchedWordsEvent()),
+        expect: [
           Empty(),
           Loading(),
           QuerySearchErrorState(
               message: LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE)
-        ];
-        expectLater(bloc, emitsInOrder(expected));
+        ],
+      );
 
-        // act
-        bloc.add(GetRecentlySearchedWordsEvent());
-      });
-
-      test(
-          'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
-          () async {
-        // arrange
-        when(mockGetRecentlySearchedWords.call(any))
-            .thenAnswer((_) async => Right(tListOfQuerySearchSingleResult));
-
-        // assert later
-        final expected = [
+      blocTest(
+        'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
+        build: () {
+          when(mockGetRecentlySearchedWords.call(any))
+              .thenAnswer((_) async => Right(tListOfQuerySearchSingleResult));
+          return bloc;
+        },
+        act: (bloc) => bloc.add(GetRecentlySearchedWordsEvent()),
+        expect: [
           Empty(),
           Loading(),
           QuerySearchRecentlySearchedWordsLoadedState(
               tListOfQuerySearchSingleResult)
-        ];
-
-        expectLater(bloc, emitsInOrder(expected));
-
-        // act
-        bloc.add(GetRecentlySearchedWordsEvent());
-      }, timeout: Timeout(Duration(seconds: 4)));
+        ],
+      );
     },
   );
 
   group('ModifyQueryEvent', () {
     final tQuery = 'test';
+    final tEmptyQuery = '';
 
     final tQuerySearchMetadata = QuerySearchMetadata(
       limit: 1,
@@ -136,63 +129,75 @@ void main() {
           .call(getQueryUsecase.Params(query: tQuery)));
     });
 
-    test(
-        'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - server failure',
-        () async {
-      // arrange
-      when(mockGetQuerySearchResults.call(any))
-          .thenAnswer((_) async => Left(ServerFailure()));
+    blocTest(
+      'should emit [Empty] when query is empty',
+      build: () => bloc,
+      act: (bloc) => bloc.add(ModifyQueryEvent(query: tEmptyQuery)),
+      expect: [Empty()],
+    );
 
-      // assert later
-      final expected = [
+    blocTest(
+      'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - server failure',
+      build: () {
+        when(mockGetQuerySearchResults.call(any))
+            .thenAnswer((_) async => Left(ServerFailure()));
+
+        return bloc;
+      },
+      act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
+      expect: [
         Empty(),
         Loading(),
         QuerySearchErrorState(message: SERVER_FAILURE_MESSAGE)
-      ];
-      expectLater(bloc, emitsInOrder(expected));
+      ],
+    );
 
-      // act
-      bloc.add(ModifyQueryEvent(query: tQuery));
-    });
+    blocTest(
+      'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - server failure',
+      build: () {
+        when(mockGetQuerySearchResults.call(any))
+            .thenAnswer((_) async => Left(ServerFailure()));
+        return bloc;
+      },
+      act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
+      expect: [
+        Empty(),
+        Loading(),
+        QuerySearchErrorState(message: SERVER_FAILURE_MESSAGE)
+      ],
+    );
 
-    test(
-        'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - network failure',
-        () async {
-      // arrange
-      when(mockGetQuerySearchResults.call(any))
-          .thenAnswer((_) async => Left(NetworkFailure()));
+    blocTest(
+      'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - network failure',
+      build: () {
+        when(mockGetQuerySearchResults.call(any))
+            .thenAnswer((_) async => Left(NetworkFailure()));
 
-      // assert later
-      final expected = [
+        return bloc;
+      },
+      act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
+      expect: [
         Empty(),
         Loading(),
         QuerySearchErrorState(message: NETWORK_FAILURE_MESSAGE)
-      ];
-      expectLater(bloc, emitsInOrder(expected));
+      ],
+    );
 
-      // act
-      bloc.add(ModifyQueryEvent(query: tQuery));
-    });
+    blocTest(
+      'should emit [Loading, QuerySearchLoadedState] when data is gotten successfully',
+      build: () {
+        when(mockGetQuerySearchResults.call(any))
+            .thenAnswer((_) async => Right(tQuerySearchResults));
 
-    test(
-        'should emit [Loading, QuerySearchLoadedState] when data is gotten successfully',
-        () async {
-      // arrange
-      when(mockGetQuerySearchResults.call(any))
-          .thenAnswer((_) async => Right(tQuerySearchResults));
-
-      // assert later
-      final expected = [
+        return bloc;
+      },
+      act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
+      expect: [
         Empty(),
         Loading(),
         QuerySearchLoadedState(querySearchResults: tQuerySearchResults)
-      ];
-
-      expectLater(bloc, emitsInOrder(expected));
-
-      // act
-      bloc.add(ModifyQueryEvent(query: tQuery));
-    });
+      ],
+    );
   });
 
   group('AddNewRecentlySearchedWordEvent', () {
@@ -213,42 +218,35 @@ void main() {
           .call(addNewWordUsecase.Params(newWordToAdd: tNewWordToAdd)));
     });
 
-    test(
-        'should emit [Loading, QuerySearchErrorState] when there is an issue adding the recently searched word to the usecase - local database processing failure',
-        () async {
-      // arrange
-      when(mockAddNewRecentlySearchedWord.call(any))
-          .thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
+    blocTest(
+      'should emit [Loading, QuerySearchErrorState] when there is an issue adding the recently searched word to the usecase - local database processing failure',
+      build: () {
+        when(mockAddNewRecentlySearchedWord.call(any))
+            .thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
 
-      // assert later
-      final expected = [
+        return bloc;
+      },
+      act: (bloc) => bloc.add(AddNewRecentlySearchedWordEvent(
+          newRecentlySearchedWord: tNewWordToAdd)),
+      expect: [
         Empty(),
         Loading(),
         QuerySearchErrorState(
             message: LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE)
-      ];
-      expectLater(bloc, emitsInOrder(expected));
+      ],
+    );
 
-      // act
-      bloc.add(AddNewRecentlySearchedWordEvent(
-          newRecentlySearchedWord: tNewWordToAdd));
-    });
+    blocTest(
+      'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
+      build: () {
+        when(mockAddNewRecentlySearchedWord.call(any))
+            .thenAnswer((_) async => Right(true));
 
-    test(
-        'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
-        () async {
-      // arrange
-      when(mockAddNewRecentlySearchedWord.call(any))
-          .thenAnswer((_) async => Right(true));
-
-      // assert later
-      final expected = [Empty(), Loading(), QuerySearchNewWordAddedState()];
-
-      expectLater(bloc, emitsInOrder(expected));
-
-      // act
-      bloc.add(AddNewRecentlySearchedWordEvent(
-          newRecentlySearchedWord: tNewWordToAdd));
-    });
+        return bloc;
+      },
+      act: (bloc) => bloc.add(AddNewRecentlySearchedWordEvent(
+          newRecentlySearchedWord: tNewWordToAdd)),
+      expect: [Empty(), Loading(), QuerySearchNewWordAddedState()],
+    );
   });
 }
