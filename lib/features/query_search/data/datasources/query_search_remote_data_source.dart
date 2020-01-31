@@ -27,7 +27,7 @@ class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
     String query,
     Map<String, dynamic> options = const {},
   }) async {
-    final headers = accountDetails.oxfordAPIDetails['developer'];
+    final headers = accountDetails.oxfordAPIDetails['prototype'];
 
     final response = await client.get(
       'https://od-api.oxforddictionaries.com/api/v2/search/en-gb?q=$query',

@@ -1,9 +1,7 @@
-import 'package:dr_words/core/services/api/api_service.dart';
 import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/core/services/stoppable_service.dart';
+import 'package:dr_words/injection/injection_container.dart';
 import 'package:flutter/material.dart';
-
-import '../../../locator.dart';
 
 /// Stop and start long running services
 class LifeCycleManager extends StatefulWidget {
@@ -16,8 +14,7 @@ class LifeCycleManager extends StatefulWidget {
 class _LifeCycleManagerState extends State<LifeCycleManager>
     with WidgetsBindingObserver {
   List<StoppableService> servicesToManage = [
-    locator<NavigationService>(),
-    locator<ApiService>(),
+    sl<NavigationService>(),
   ];
 
   // Get all services

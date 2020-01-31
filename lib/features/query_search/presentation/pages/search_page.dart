@@ -3,7 +3,6 @@ import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dr_words/core/constants/routes_path.dart' as routes;
 
 class SearchPage extends StatefulWidget {
   @override
@@ -19,11 +18,6 @@ class _SearchPageState extends State<SearchPage> {
       result = await showSearch(
           context: context,
           delegate: WordQuerySearch(BlocProvider.of<QuerySearchBloc>(context)));
-
-      if (result.isEmpty) {
-        BlocProvider.of<QuerySearchBloc>(context)
-            .add(CancelSearchEvent(routeNameToReturnTo: routes.HomeRoute));
-      }
     });
 
     super.didChangeDependencies();
@@ -32,22 +26,22 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text('Results'),
-            leading: result['singleResult'] != null
-                ? IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: () => BlocProvider.of<QuerySearchBloc>(context)
-                        .add(CancelSearchEvent(
-                            routeNameToReturnTo: routes.HomeRoute)))
-                : null),
-        body: result.isEmpty
-            ? Container()
-            : Container(
-                child: Center(
-                  child: Text(result['singleResult'].label),
-                ),
-              ));
+      appBar: AppBar(
+          title: Text('Results'),
+          leading: result['singleResult'] != null
+              ? IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () => {},
+                )
+              : null),
+      body: result.isEmpty
+          ? Container()
+          : Container(
+              child: Center(
+                child: Text(result['singleResult'].label),
+              ),
+            ),
+    );
   }
 }
 
@@ -100,14 +94,14 @@ class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
     return BlocBuilder(
       bloc: bloc,
       builder: (context, state) {
-        if (state is QuerySearchStateInitial) {
+        if (state is Empty) {
           return Center(
             child: Text('Enter a query to search from'),
           );
         }
-        if (state is QuerySearchStateLoading) {
+        if (state is Loading) {
           return LoadingIndicator();
-        }
+        } else if (state is QuerySearchErrorState) {}
         return state.querySearchResults.results.length == 0
             ? Center(
                 child: Text('No results found'),
@@ -128,8 +122,6 @@ class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
                       final querySingleSearchResult =
                           state.querySearchResults.results[index];
                       close(context, {'singleResult': querySingleSearchResult});
-                      // querySearchSingleResult = state.results.results[index];
-                      // showResults(context);
                     }),
               );
       },

@@ -1,4 +1,4 @@
-import 'package:dr_words/locator.dart';
+import 'package:dr_words/injection/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +14,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.SearchRoute:
       return MaterialPageRoute(
           builder: (context) => BlocProvider(
-                create: (_) => locator<QuerySearchBloc>(),
+                create: (_) => sl<QuerySearchBloc>(),
                 child: SearchPage(),
               ));
     default:

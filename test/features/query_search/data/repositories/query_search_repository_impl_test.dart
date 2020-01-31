@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/core/error/failures.dart';
@@ -14,8 +12,6 @@ import 'package:dr_words/features/query_search/domain/entities/query_search/quer
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_single_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-
-import '../../../../fixtures/fixture_reader.dart';
 
 class MockRemoteDataSource extends Mock implements QuerySearchRemoteDataSource {
 }

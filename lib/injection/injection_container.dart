@@ -1,5 +1,6 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dr_words/core/network/network_info.dart';
+import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/injection/query_search_injection.dart';
 import 'package:dr_words/internal/account_details.dart';
 import 'package:get_it/get_it.dart';
@@ -15,6 +16,8 @@ Future<void> init() async {
   //! Core
   sl.registerLazySingleton(() => AccountDetails());
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+
+  sl.registerLazySingleton(() => NavigationService());
 
   //! External
   final sharedPreferences = await SharedPreferences.getInstance();

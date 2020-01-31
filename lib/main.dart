@@ -7,7 +7,6 @@ import 'core/constants/theme_data.dart';
 import 'core/presentation/pages/home_page/home_page.dart';
 import 'core/presentation/widgets/lifecycle_manager.dart';
 import 'core/services/navigation_service.dart';
-import 'locator.dart';
 import 'injection/injection_container.dart' as di;
 import 'router.dart' as router;
 
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         title: 'Dr. Words',
         theme: AppTheme.lightTheme,
-        navigatorKey: locator<NavigationService>().navigatorKey,
+        navigatorKey: di.sl<NavigationService>().navigatorKey,
         onGenerateRoute: router.generateRoute,
         home: HomePage(),
         debugShowCheckedModeBanner: false,
