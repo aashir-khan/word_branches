@@ -1,20 +1,20 @@
 import 'dart:convert';
 
-import 'package:dr_words/features/query_search/data/models/query_search_single_result_model.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_single_result.dart';
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
+import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final tQuerySearchSingleResultModel = QuerySearchSingleResultModel(
+  final tDictionaryWordModel = DictionaryWordModel(
     id: 'test',
     label: 'test',
   );
 
-  test('should be a subclass of QuerySearchSingleResult entity', () async {
+  test('should be a subclass of DictionaryWord entity', () async {
     // assert
-    expect(tQuerySearchSingleResultModel, isA<QuerySearchSingleResult>());
+    expect(tDictionaryWordModel, isA<DictionaryWord>());
   });
 
   group('fromJson', () {
@@ -22,20 +22,20 @@ void main() {
         () async {
       // arrange
       final Map<String, dynamic> jsonMap =
-          json.decode(fixture('query_search/query_search_single_result.json'));
+          json.decode(fixture('core/dictionary_word.json'));
 
       // act
-      final result = QuerySearchSingleResultModel.fromJson(jsonMap);
+      final result = DictionaryWordModel.fromJson(jsonMap);
 
       // assert
-      expect(result, tQuerySearchSingleResultModel);
+      expect(result, tDictionaryWordModel);
     });
   });
 
   group('toJson', () {
     test('should return a JSON map containing the proper data', () async {
       // act
-      final result = tQuerySearchSingleResultModel.toJson();
+      final result = tDictionaryWordModel.toJson();
 
       // assert
       final expectedJsonMap = {

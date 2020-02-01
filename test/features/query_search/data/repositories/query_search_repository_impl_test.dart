@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/core/network/network_info.dart';
 import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
+import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_metadata_model.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
-import 'package:dr_words/features/query_search/data/models/query_search_single_result_model.dart';
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_single_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -42,19 +42,14 @@ void main() {
     final tQuery = 'test';
     final tQuerySearchMetadata =
         QuerySearchMetadataModel(limit: 1, offset: 0, total: 1);
-    final tQuerySearchSingleResult1 =
-        QuerySearchSingleResultModel(id: 'test', label: 'test');
-    final tQuerySearchSingleResult2 =
-        QuerySearchSingleResultModel(id: 'test2', label: 'test2');
+    final tDictionaryWord1 = DictionaryWordModel(id: 'test', label: 'test');
+    final tDictionaryWord2 = DictionaryWordModel(id: 'test2', label: 'test2');
 
-    final tQuerySearchSingleResultList = [
-      tQuerySearchSingleResult1,
-      tQuerySearchSingleResult2
-    ];
+    final tDictionaryWordList = [tDictionaryWord1, tDictionaryWord2];
 
     final tQuerySearchResultsModel = QuerySearchResultsModel(
       metadata: tQuerySearchMetadata,
-      results: tQuerySearchSingleResultList,
+      results: tDictionaryWordList,
     );
 
     final QuerySearchResults tQuerySearchResults = tQuerySearchResultsModel;
@@ -126,24 +121,23 @@ void main() {
   });
 
   group('getRecentlySearchedWords', () {
-    List<QuerySearchSingleResultModel> tQuerySearchSingleResultModelList = [
-      QuerySearchSingleResultModel(id: 'test', label: 'test')
+    List<DictionaryWordModel> tDictionaryWordModelList = [
+      DictionaryWordModel(id: 'test', label: 'test')
     ];
-    List<QuerySearchSingleResult> tQuerySearchSingleResultList =
-        tQuerySearchSingleResultModelList;
+    List<DictionaryWord> tDictionaryWordList = tDictionaryWordModelList;
 
     test('should return local data when the call to local data is successful',
         () async {
       // arrange
       when(mockLocalDataSource.getRecentlySearchedWords())
-          .thenAnswer((_) async => tQuerySearchSingleResultModelList);
+          .thenAnswer((_) async => tDictionaryWordModelList);
 
       // act
       final result = await repository.getRecentlySearchedWords();
 
       // assert
       verify(mockLocalDataSource.getRecentlySearchedWords());
-      expect(result, equals(Right(tQuerySearchSingleResultList)));
+      expect(result, equals(Right(tDictionaryWordList)));
     });
 
     test(
@@ -162,9 +156,8 @@ void main() {
     });
   });
   group('addNewRecentlySearchedWord', () {
-    final tNewWordToAddModel =
-        QuerySearchSingleResultModel(id: 'test', label: 'test');
-    QuerySearchSingleResult tNewWordToAdd = tNewWordToAddModel;
+    final tNewWordToAddModel = DictionaryWordModel(id: 'test', label: 'test');
+    DictionaryWord tNewWordToAdd = tNewWordToAddModel;
     test(
         'should return true if the recently searched word is added successfully to the repository',
         () async {

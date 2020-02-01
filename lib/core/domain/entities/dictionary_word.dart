@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-class QuerySearchSingleResult extends Equatable {
+class DictionaryWord extends Equatable {
   final String id;
   final String label;
 
-  QuerySearchSingleResult({
+  DictionaryWord({
     this.id,
     this.label,
   });

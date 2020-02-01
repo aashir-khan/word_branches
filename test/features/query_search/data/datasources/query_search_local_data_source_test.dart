@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
-import 'package:dr_words/features/query_search/data/models/query_search_single_result_model.dart';
+import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,18 +21,17 @@ void main() {
   });
 
   group('getRecentlySearchedWords', () {
-    List<QuerySearchSingleResultModel> tQuerySearchSingleResultModelList = [];
+    List<DictionaryWordModel> tDictionaryWordModelList = [];
     final Map<String, dynamic> jsonList = json.decode(fixture(
-        'query_search/query_search_single_result_recently_searched_words_saved_locally.json'));
+        'query_search/dictionary_word_recently_searched_words_saved_locally.json'));
     jsonList["results"].forEach((e) {
-      return tQuerySearchSingleResultModelList
-          .add(QuerySearchSingleResultModel.fromJson(e));
+      return tDictionaryWordModelList.add(DictionaryWordModel.fromJson(e));
     });
     test(
-        'should return List<QuerySearchSingleResultModel> from SharedPreferences when there are favorited words stored in the preferences',
+        'should return List<DictionaryWordModel> from SharedPreferences when there are favorited words stored in the preferences',
         () async {
       var tLocallyStoredData = fixture(
-          'query_search/query_search_single_result_recently_searched_words_saved_locally.json');
+          'query_search/dictionary_word_recently_searched_words_saved_locally.json');
 
       // arrange
       when(mockSharedPreferences.getString(any)).thenReturn(tLocallyStoredData);
@@ -42,7 +41,7 @@ void main() {
 
       // assert
       verify(mockSharedPreferences.getString(FAVORITED_WORDS));
-      expect(result, equals(tQuerySearchSingleResultModelList));
+      expect(result, equals(tDictionaryWordModelList));
     });
   });
 
@@ -52,12 +51,12 @@ void main() {
         () async {
       // arrange
       final initialDataInSharedPreferences = fixture(
-          'query_search/query_search_single_result_recently_searched_words_saved_locally.json');
+          'query_search/dictionary_word_recently_searched_words_saved_locally.json');
       final tNewRecentlySearchedWord =
-          QuerySearchSingleResultModel(id: 'test3', label: 'test3');
+          DictionaryWordModel(id: 'test3', label: 'test3');
       // Need to re-encode the string to remove any formatting done in the initial json string acquired from calling `fixture(...)`
       final expectedJsonString = json.encode(json.decode(fixture(
-          'query_search/query_search_single_result_recently_searched_words_saved_locally_more_results.json')));
+          'query_search/dictionary_word_recently_searched_words_saved_locally_more_results.json')));
       when(mockSharedPreferences.getString(any))
           .thenReturn(initialDataInSharedPreferences);
       // act

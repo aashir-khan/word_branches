@@ -1,5 +1,5 @@
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_single_result.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
@@ -41,7 +41,7 @@ class QuerySearchNewWordAddedState extends QuerySearchState {
 }
 
 class QuerySearchRecentlySearchedWordsLoadedState extends QuerySearchState {
-  final List<QuerySearchSingleResult> recentlySearchedWords;
+  final List<DictionaryWord> recentlySearchedWords;
 
   QuerySearchRecentlySearchedWordsLoadedState(this.recentlySearchedWords);
 

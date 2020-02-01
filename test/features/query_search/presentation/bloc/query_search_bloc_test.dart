@@ -1,10 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_metadata.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_single_result.dart';
 import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart'
     as addNewWordUsecase;
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart'
@@ -51,9 +51,7 @@ void main() {
   group(
     'GetRecentlySearchedWordsEvent',
     () {
-      final tListOfQuerySearchSingleResult = [
-        QuerySearchSingleResult(id: 'test', label: 'test')
-      ];
+      final tListOfDictionaryWord = [DictionaryWord(id: 'test', label: 'test')];
 
       test('should get data using the GetRecentlySearchedWords use case',
           () async {
@@ -85,15 +83,14 @@ void main() {
         'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
         build: () {
           when(mockGetRecentlySearchedWords.call(any))
-              .thenAnswer((_) async => Right(tListOfQuerySearchSingleResult));
+              .thenAnswer((_) async => Right(tListOfDictionaryWord));
           return bloc;
         },
         act: (bloc) => bloc.add(GetRecentlySearchedWordsEvent()),
         expect: [
           Empty(),
           Loading(),
-          QuerySearchRecentlySearchedWordsLoadedState(
-              tListOfQuerySearchSingleResult)
+          QuerySearchRecentlySearchedWordsLoadedState(tListOfDictionaryWord)
         ],
       );
     },
@@ -109,14 +106,14 @@ void main() {
       total: 1,
     );
 
-    final tQuerySearchSingleResult = QuerySearchSingleResult(
+    final tDictionaryWord = DictionaryWord(
       id: '1',
       label: 'test',
     );
 
     final tQuerySearchResults = QuerySearchResults(
       metadata: tQuerySearchMetadata,
-      results: [tQuerySearchSingleResult],
+      results: [tDictionaryWord],
     );
 
     test('should get data from the GetQuerySearchResults use case', () async {
@@ -201,7 +198,7 @@ void main() {
   });
 
   group('AddNewRecentlySearchedWordEvent', () {
-    final tNewWordToAdd = QuerySearchSingleResult(
+    final tNewWordToAdd = DictionaryWord(
       id: 'test',
       label: 'test',
     );

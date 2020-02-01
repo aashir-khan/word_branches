@@ -1,4 +1,4 @@
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_single_result.dart';
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class QuerySearchEvent extends Equatable {
@@ -20,7 +20,7 @@ class ModifyQueryEvent extends QuerySearchEvent {
 }
 
 class AddNewRecentlySearchedWordEvent extends QuerySearchEvent {
-  final QuerySearchSingleResult newRecentlySearchedWord;
+  final DictionaryWord newRecentlySearchedWord;
 
   AddNewRecentlySearchedWordEvent({this.newRecentlySearchedWord});
 
