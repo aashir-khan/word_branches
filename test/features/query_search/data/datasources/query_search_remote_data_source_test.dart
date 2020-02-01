@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:dr_words/core/error/exceptions.dart';
-import 'package:dr_words/features/query_search/data/datasources/query_search_remote_data_source.dart';
+import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
+import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_impl.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:dr_words/internal/account_details.dart';
 import 'package:http/http.dart' as http;

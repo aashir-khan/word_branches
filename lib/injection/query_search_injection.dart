@@ -1,5 +1,6 @@
 import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
-import 'package:dr_words/features/query_search/data/datasources/query_search_remote_data_source.dart';
+import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
+import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_impl.dart';
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart';

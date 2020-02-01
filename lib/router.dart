@@ -1,3 +1,4 @@
+import 'package:dr_words/features/query_search/presentation/pages/word_result_page.dart';
 import 'package:dr_words/injection/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,10 +14,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => HomePage());
     case routes.SearchRoute:
       return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-                create: (_) => sl<QuerySearchBloc>(),
-                child: SearchPage(),
-              ));
+        builder: (context) => BlocProvider(
+          create: (_) => sl<QuerySearchBloc>(),
+          child: SearchPage(),
+        ),
+      );
+    case routes.WordResultRoute:
+      final result = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (context) => WordResultPage(result),
+      );
+
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(
