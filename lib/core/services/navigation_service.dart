@@ -8,8 +8,8 @@ class NavigationService extends StoppableService {
     return navigatorKey.currentState.pushNamed(routeName, arguments: arguments);
   }
 
-  Future<dynamic> navigateWithReplacement(String routeName) {
-    return navigatorKey.currentState.pushReplacementNamed(routeName);
+  Future<dynamic> navigateWithReplacement(String routeName, {dynamic arguments}) {
+    return navigatorKey.currentState.pushReplacementNamed(routeName, arguments: arguments);
   }
 
   bool goBack() {

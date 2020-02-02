@@ -15,14 +15,22 @@ class DictionaryWordModelFake extends DictionaryWordModel {
   }) {
     final defaultLabel = faker.lorem.word();
 
-    Map<String, dynamic> defaultFieldValues = {
-      'id': defaultLabel,
-      'label': defaultLabel
-    };
+    Map<String, dynamic> defaultFieldValues = {'id': defaultLabel, 'label': defaultLabel};
 
     final id = customFieldValues['id'] ?? defaultFieldValues['id'];
     final label = customFieldValues['label'] ?? defaultFieldValues['label'];
 
     return DictionaryWordModelFake(id: id, label: label);
+  }
+
+  factory DictionaryWordModelFake.fromJson(Map<String, dynamic> json) {
+    return DictionaryWordModelFake(
+      id: json['id'],
+      label: json['label'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return super.toJson();
   }
 }

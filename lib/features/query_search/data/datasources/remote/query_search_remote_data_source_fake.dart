@@ -1,34 +1,42 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model_fake.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model_fake.dart';
-import 'package:hive/hive.dart';
 import 'package:faker/faker.dart';
+import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
-  @override
-  Future<QuerySearchResultsModel> getQuerySearchResults({String query, Map<String, dynamic> options = const {}}) async {
-    final querySearchResultsModelFakeBox = await Hive.openBox(QuerySearchResultsModelFake.DB_IDENTIFIER);
-    if (querySearchResultsModelFakeBox.isEmpty) {
-      return _getQueryResultsHelper(query, querySearchResultsModelFakeBox);
-    } else {
-      final querySearchFakeModel = querySearchResultsModelFakeBox.get(0) as QuerySearchResultsModelFake;
-      if (querySearchFakeModel?.results == null) {
-        return _getQueryResultsHelper(query, querySearchResultsModelFakeBox);
-      }
+  final SharedPreferences sharedPreferences;
 
-      List<DictionaryWordModelFake> wordsList = (querySearchFakeModel?.results as List<DictionaryWordModelFake> ?? [])
-          .where((word) => word.label.startsWith(query))
-          .toList();
+  QuerySearchRemoteDataSourceFake({@required this.sharedPreferences});
+
+  static const QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER = 'query_search_results_model';
+
+  @override
+  Future<QuerySearchResultsModel> getQuerySearchResults({
+    String query,
+    Map<String, dynamic> options = const {},
+  }) async {
+    final initialRawStringStoredData = sharedPreferences.getString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER) ?? '{}';
+    Map<String, dynamic> initialStoredData = json.decode(initialRawStringStoredData);
+    if (initialStoredData.isEmpty) {
+      return _getQueryResultsHelper(query);
+    } else {
+      final nonEmptyExistingData = QuerySearchResultsModelFake.fromJson(initialStoredData);
+
+      List<DictionaryWordModelFake> wordsList =
+          (nonEmptyExistingData?.results ?? []).where((word) => word.label.startsWith(query)).toList();
 
       return Future.delayed(Duration(milliseconds: 1),
           () => QuerySearchResultsModelFake.fromFakeData(customFieldValues: {'results': wordsList}));
     }
   }
 
-  Future<QuerySearchResultsModel> _getQueryResultsHelper(String query, Box querySearchResultsModelFakeBox) async {
+  Future<QuerySearchResultsModel> _getQueryResultsHelper(String query) async {
     QuerySearchResultsModelFake result;
     List<DictionaryWordModelFake> wordsList = [];
 
@@ -49,9 +57,8 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
     }
 
     result = QuerySearchResultsModelFake.fromFakeData(customFieldValues: {'results': wordsList});
-    querySearchResultsModelFakeBox.isEmpty
-        ? await querySearchResultsModelFakeBox.add(result)
-        : await querySearchResultsModelFakeBox.putAt(0, result);
+    final resultEncoded = json.encode(result.toJson());
+    sharedPreferences.setString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER, resultEncoded);
     return Future.delayed(Duration(milliseconds: 1), () => result);
   }
 }

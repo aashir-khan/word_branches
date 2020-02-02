@@ -1,4 +1,3 @@
-import 'package:dr_words/core/services/fake_database_service.dart';
 import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/core/services/stoppable_service.dart';
 import 'package:dr_words/injection/injection_container.dart';
@@ -15,7 +14,6 @@ class LifeCycleManager extends StatefulWidget {
 class _LifeCycleManagerState extends State<LifeCycleManager> with WidgetsBindingObserver {
   List<StoppableService> servicesToManage = [
     sl<NavigationService>(),
-    sl<FakeDatabaseService>(),
   ];
 
   // Get all services

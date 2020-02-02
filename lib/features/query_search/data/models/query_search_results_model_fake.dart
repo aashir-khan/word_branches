@@ -3,15 +3,11 @@ import 'package:dr_words/features/query_search/data/models/query_search_metadata
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:faker/faker.dart';
-import 'package:hive/hive.dart';
 
-part 'query_search_results_model_fake.g.dart';
-
-@HiveType(typeId: 0)
 class QuerySearchResultsModelFake extends QuerySearchResultsModel {
   QuerySearchResultsModelFake({
-    @HiveField(0) @required QuerySearchMetadataModel metadata,
-    @HiveField(1) @required List<DictionaryWordModelFake> results,
+    @required QuerySearchMetadataModel metadata,
+    @required List<DictionaryWordModelFake> results,
   }) : super(metadata: metadata, results: results);
 
   static const DB_IDENTIFIER = 'query_search_results_model_fake';
@@ -33,5 +29,22 @@ class QuerySearchResultsModelFake extends QuerySearchResultsModel {
     );
 
     return QuerySearchResultsModelFake(results: results, metadata: metadata);
+  }
+
+  factory QuerySearchResultsModelFake.fromJson(Map<String, dynamic> json) {
+    List<DictionaryWordModelFake> results = [];
+
+    json['results'].forEach((result) {
+      results.add(DictionaryWordModelFake.fromJson(result));
+    });
+
+    return QuerySearchResultsModelFake(
+      metadata: json['metadata'] == null ? null : QuerySearchMetadataModel.fromJson(json['metadata']),
+      results: results,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return super.toJson();
   }
 }

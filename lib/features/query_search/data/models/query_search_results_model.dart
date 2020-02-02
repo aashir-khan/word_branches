@@ -21,4 +21,13 @@ class QuerySearchResultsModel extends QuerySearchResults {
       results: results,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    List<Map<String, dynamic>> _results = [];
+    results.cast<DictionaryWordModel>().forEach((s) => _results.add(s.toJson()));
+    return {
+      'metadata': (metadata as QuerySearchMetadataModel).toJson(),
+      'results': _results,
+    };
+  }
 }

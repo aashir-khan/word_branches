@@ -75,7 +75,11 @@ void main() {
           return bloc;
         },
         act: (bloc) => bloc.add(GetRecentlySearchedWordsEvent()),
-        expect: [Empty(), Loading(), QuerySearchRecentlySearchedWordsLoadedState(tListOfDictionaryWord)],
+        expect: [
+          Empty(),
+          Loading(),
+          QuerySearchRecentlySearchedWordsLoadedState(recentlySearchedWords: tListOfDictionaryWord)
+        ],
       );
     },
   );

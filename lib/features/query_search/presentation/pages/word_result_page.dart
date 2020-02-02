@@ -1,9 +1,10 @@
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:flutter/material.dart';
 
 class WordResultPage extends StatefulWidget {
-  final Map<String, dynamic> result;
+  final DictionaryWord wordSelected;
 
-  WordResultPage(this.result);
+  WordResultPage(this.wordSelected);
 
   @override
   _WordResultPageState createState() => _WordResultPageState();
@@ -12,6 +13,10 @@ class WordResultPage extends StatefulWidget {
 class _WordResultPageState extends State<WordResultPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.wordSelected.label),
+      ),
+    );
   }
 }

@@ -43,7 +43,7 @@ class QuerySearchNewWordAddedState extends QuerySearchState {
 class QuerySearchRecentlySearchedWordsLoadedState extends QuerySearchState {
   final List<DictionaryWord> recentlySearchedWords;
 
-  QuerySearchRecentlySearchedWordsLoadedState(this.recentlySearchedWords);
+  QuerySearchRecentlySearchedWordsLoadedState({this.recentlySearchedWords});
 
   @override
   List<Object> get props => [recentlySearchedWords];

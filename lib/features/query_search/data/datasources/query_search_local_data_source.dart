@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:flutter/foundation.dart';
-import 'package:hive/hive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class QuerySearchLocalDataSource {
   Future<List<DictionaryWordModel>> getRecentlySearchedWords();
@@ -8,25 +10,32 @@ abstract class QuerySearchLocalDataSource {
 }
 
 class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
-  final Box<List<DictionaryWordModel>> hiveBox;
+  final SharedPreferences sharedPreferences;
 
   static const FAVORITED_WORDS_DB_IDENTIFIER = 'favorited_words';
 
-  QuerySearchLocalDataSourceImpl({@required this.hiveBox});
+  QuerySearchLocalDataSourceImpl({@required this.sharedPreferences});
 
   @override
   Future<List<DictionaryWordModel>> getRecentlySearchedWords() {
-    List<DictionaryWordModel> result = hiveBox.get(FAVORITED_WORDS_DB_IDENTIFIER, defaultValue: []);
+    List<DictionaryWordModel> result = [];
+    final jsonString = sharedPreferences.getString(FAVORITED_WORDS_DB_IDENTIFIER) ?? '';
+    if (jsonString.isEmpty) {
+      result = [];
+    } else {
+      List<dynamic> jsonMap = json.decode(jsonString);
+      jsonMap.forEach((s) => result.add(DictionaryWordModel.fromJson(s)));
+    }
 
     return Future.value(result);
   }
 
   @override
   Future<bool> addNewRecentlySearchedWord(DictionaryWordModel newWordToAdd) async {
-    final currentSavedRecentlySearchedWords =
-        hiveBox.get(FAVORITED_WORDS_DB_IDENTIFIER, defaultValue: [].cast<DictionaryWordModel>());
-    currentSavedRecentlySearchedWords.add(newWordToAdd);
-    await hiveBox.put(FAVORITED_WORDS_DB_IDENTIFIER, currentSavedRecentlySearchedWords);
-    return Future.value(true);
+    final initialDataInSharedPreferences = sharedPreferences.getString(FAVORITED_WORDS_DB_IDENTIFIER) ?? '[]';
+    List<dynamic> updatedRecentlySearchedWords = json.decode(initialDataInSharedPreferences);
+    updatedRecentlySearchedWords.add(newWordToAdd);
+    final updatedRecentlySearchedWordsEncoded = json.encode(updatedRecentlySearchedWords);
+    return await sharedPreferences.setString(FAVORITED_WORDS_DB_IDENTIFIER, updatedRecentlySearchedWordsEncoded);
   }
 }

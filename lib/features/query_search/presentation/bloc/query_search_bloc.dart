@@ -3,20 +3,15 @@ import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/core/error/failures.dart';
-import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart'
-    as addNewUsecase;
-import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart'
-    as getResultsUsecase;
-import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words.dart'
-    as getRecentUsecase;
+import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart' as addNewUsecase;
+import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart' as getResultsUsecase;
+import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words.dart' as getRecentUsecase;
 import 'package:flutter/foundation.dart';
 import './bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
-const SERVER_FAILURE_MESSAGE =
-    'An error occurred trying to fetch search results';
-const NETWORK_FAILURE_MESSAGE =
-    'Seems like you are not connected to the Internet';
+const SERVER_FAILURE_MESSAGE = 'An error occurred trying to fetch search results';
+const NETWORK_FAILURE_MESSAGE = 'Seems like you are not connected to the Internet';
 const LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE =
     'An error occurred trying to access/store a recently searched word on your device for retrieving';
 
@@ -44,8 +39,7 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
         return;
       } else {
         yield Loading();
-        final resultEither = await getQuerySearchResults
-            .call(getResultsUsecase.Params(query: event.query));
+        final resultEither = await getQuerySearchResults.call(getResultsUsecase.Params(query: event.query));
 
         yield* resultEither.fold(
           (failure) async* {
@@ -58,8 +52,8 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
       }
     } else if (event is AddNewRecentlySearchedWordEvent) {
       yield Loading();
-      final resultEither = await addNewRecentlySearchedWord.call(
-          addNewUsecase.Params(newWordToAdd: event.newRecentlySearchedWord));
+      final resultEither =
+          await addNewRecentlySearchedWord.call(addNewUsecase.Params(newWordToAdd: event.newRecentlySearchedWord));
 
       yield* resultEither.fold(
         (failure) async* {
@@ -78,22 +72,20 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
           yield QuerySearchErrorState(message: _mapFailureToMessage(failure));
         },
         (results) async* {
-          yield QuerySearchRecentlySearchedWordsLoadedState(results);
+          yield results.length == 0
+              ? Empty()
+              : QuerySearchRecentlySearchedWordsLoadedState(recentlySearchedWords: results);
         },
       );
     }
   }
 
   @override
-  Stream<QuerySearchState> transformEvents(Stream<QuerySearchEvent> events,
-      Stream<QuerySearchState> Function(QuerySearchEvent) next) {
-    final debounceStream = events
-        .where((event) => event is ModifyQueryEvent)
-        .debounceTime(Duration(milliseconds: 500));
-    final nonDebounceStream =
-        events.where((event) => event is! ModifyQueryEvent);
-    return super.transformEvents(
-        StreamGroup.merge([debounceStream, nonDebounceStream]), next);
+  Stream<QuerySearchState> transformEvents(
+      Stream<QuerySearchEvent> events, Stream<QuerySearchState> Function(QuerySearchEvent) next) {
+    final debounceStream = events.where((event) => event is ModifyQueryEvent).debounceTime(Duration(milliseconds: 500));
+    final nonDebounceStream = events.where((event) => event is! ModifyQueryEvent);
+    return super.transformEvents(StreamGroup.merge([debounceStream, nonDebounceStream]), next);
   }
 }
 
