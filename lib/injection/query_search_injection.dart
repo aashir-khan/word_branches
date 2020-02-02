@@ -2,6 +2,7 @@ import 'package:dr_words/features/query_search/data/datasources/query_search_loc
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_impl.dart';
+import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model_fake.dart';
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
@@ -49,12 +50,10 @@ Future<void> querySearchInjectionInit(GetIt sl) async {
   );
 
   sl.registerLazySingleton<QuerySearchLocalDataSource>(
-    () => QuerySearchLocalDataSourceImpl(
-      sharedPreferences: sl(),
-    ),
+    () => QuerySearchLocalDataSourceImpl(hiveBox: sl()),
   );
   // External
   Hive.registerAdapter(QuerySearchResultsModelFakeAdapter());
-  // final querySearchResultsModelFakeBox = await Hive.openBox(QuerySearchResultsModelFake.DB_IDENTIFIER);
-  // await querySearchResultsModelFakeBox.clear();
+  sl.registerLazySingleton(
+      () => Hive.openBox<List<DictionaryWordModel>>(QuerySearchLocalDataSourceImpl.FAVORITED_WORDS_DB_IDENTIFIER));
 }
