@@ -1,29 +1,25 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/core/domain/entities/dictionary_word.dart';
+import 'package:dr_words/core/domain/entities/dictionary_word_fake.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/core/error/failures.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_metadata.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results_fake.dart';
 import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart'
     as addNewWordUsecase;
-import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart'
-    as getQueryUsecase;
+import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart' as getQueryUsecase;
 import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words.dart'
     as getRecentlySearchedUsecase;
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-class MockGetRecentlySearchedWords extends Mock
-    implements getRecentlySearchedUsecase.GetRecentlySearchedWords {}
+class MockGetRecentlySearchedWords extends Mock implements getRecentlySearchedUsecase.GetRecentlySearchedWords {}
 
-class MockGetQuerySearchResults extends Mock
-    implements getQueryUsecase.GetQuerySearchResults {}
+class MockGetQuerySearchResults extends Mock implements getQueryUsecase.GetQuerySearchResults {}
 
-class MockAddNewRecentlySearchedWord extends Mock
-    implements addNewWordUsecase.AddNewRecentlySearchedWord {}
+class MockAddNewRecentlySearchedWord extends Mock implements addNewWordUsecase.AddNewRecentlySearchedWord {}
 
 void main() {
   QuerySearchBloc bloc;
@@ -51,10 +47,9 @@ void main() {
   group(
     'GetRecentlySearchedWordsEvent',
     () {
-      final tListOfDictionaryWord = [DictionaryWord(id: 'test', label: 'test')];
+      final tListOfDictionaryWord = [DictionaryWordFake.fromFakeData()];
 
-      test('should get data using the GetRecentlySearchedWords use case',
-          () async {
+      test('should get data using the GetRecentlySearchedWords use case', () async {
         // act
         bloc.add(GetRecentlySearchedWordsEvent());
         await untilCalled(mockGetRecentlySearchedWords.call(any));
@@ -66,55 +61,30 @@ void main() {
       blocTest(
         'should emit [Loading, QuerySearchErrorState] when there is an issue adding the recently searched word to the usecase - local database processing failure',
         build: () {
-          when(mockGetRecentlySearchedWords.call(any))
-              .thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
+          when(mockGetRecentlySearchedWords.call(any)).thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
           return bloc;
         },
         act: (bloc) => bloc.add(GetRecentlySearchedWordsEvent()),
-        expect: [
-          Empty(),
-          Loading(),
-          QuerySearchErrorState(
-              message: LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE)
-        ],
+        expect: [Empty(), Loading(), QuerySearchErrorState(message: LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE)],
       );
 
       blocTest(
         'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
         build: () {
-          when(mockGetRecentlySearchedWords.call(any))
-              .thenAnswer((_) async => Right(tListOfDictionaryWord));
+          when(mockGetRecentlySearchedWords.call(any)).thenAnswer((_) async => Right(tListOfDictionaryWord));
           return bloc;
         },
         act: (bloc) => bloc.add(GetRecentlySearchedWordsEvent()),
-        expect: [
-          Empty(),
-          Loading(),
-          QuerySearchRecentlySearchedWordsLoadedState(tListOfDictionaryWord)
-        ],
+        expect: [Empty(), Loading(), QuerySearchRecentlySearchedWordsLoadedState(tListOfDictionaryWord)],
       );
     },
   );
 
   group('ModifyQueryEvent', () {
-    final tQuery = 'test';
+    final tQuery = faker.lorem.word();
     final tEmptyQuery = '';
 
-    final tQuerySearchMetadata = QuerySearchMetadata(
-      limit: 1,
-      offset: 1,
-      total: 1,
-    );
-
-    final tDictionaryWord = DictionaryWord(
-      id: '1',
-      label: 'test',
-    );
-
-    final tQuerySearchResults = QuerySearchResults(
-      metadata: tQuerySearchMetadata,
-      results: [tDictionaryWord],
-    );
+    final tQuerySearchResults = QuerySearchResultsFake.fromFakeData();
 
     test('should get data from the GetQuerySearchResults use case', () async {
       // act
@@ -122,8 +92,7 @@ void main() {
       await untilCalled(mockGetQuerySearchResults.call(any));
 
       // assert
-      verify(mockGetQuerySearchResults
-          .call(getQueryUsecase.Params(query: tQuery)));
+      verify(mockGetQuerySearchResults.call(getQueryUsecase.Params(query: tQuery)));
     });
 
     blocTest(
@@ -136,113 +105,78 @@ void main() {
     blocTest(
       'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - server failure',
       build: () {
-        when(mockGetQuerySearchResults.call(any))
-            .thenAnswer((_) async => Left(ServerFailure()));
+        when(mockGetQuerySearchResults.call(any)).thenAnswer((_) async => Left(ServerFailure()));
 
         return bloc;
       },
       act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
-      expect: [
-        Empty(),
-        Loading(),
-        QuerySearchErrorState(message: SERVER_FAILURE_MESSAGE)
-      ],
+      expect: [Empty(), Loading(), QuerySearchErrorState(message: SERVER_FAILURE_MESSAGE)],
     );
 
     blocTest(
       'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - server failure',
       build: () {
-        when(mockGetQuerySearchResults.call(any))
-            .thenAnswer((_) async => Left(ServerFailure()));
+        when(mockGetQuerySearchResults.call(any)).thenAnswer((_) async => Left(ServerFailure()));
         return bloc;
       },
       act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
-      expect: [
-        Empty(),
-        Loading(),
-        QuerySearchErrorState(message: SERVER_FAILURE_MESSAGE)
-      ],
+      expect: [Empty(), Loading(), QuerySearchErrorState(message: SERVER_FAILURE_MESSAGE)],
     );
 
     blocTest(
       'should emit [Loading, QuerySearchErrorState] when there is an issue getting the query results from the usecase - network failure',
       build: () {
-        when(mockGetQuerySearchResults.call(any))
-            .thenAnswer((_) async => Left(NetworkFailure()));
+        when(mockGetQuerySearchResults.call(any)).thenAnswer((_) async => Left(NetworkFailure()));
 
         return bloc;
       },
       act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
-      expect: [
-        Empty(),
-        Loading(),
-        QuerySearchErrorState(message: NETWORK_FAILURE_MESSAGE)
-      ],
+      expect: [Empty(), Loading(), QuerySearchErrorState(message: NETWORK_FAILURE_MESSAGE)],
     );
 
     blocTest(
       'should emit [Loading, QuerySearchLoadedState] when data is gotten successfully',
       build: () {
-        when(mockGetQuerySearchResults.call(any))
-            .thenAnswer((_) async => Right(tQuerySearchResults));
+        when(mockGetQuerySearchResults.call(any)).thenAnswer((_) async => Right(tQuerySearchResults));
 
         return bloc;
       },
       act: (bloc) => bloc.add(ModifyQueryEvent(query: tQuery)),
-      expect: [
-        Empty(),
-        Loading(),
-        QuerySearchLoadedState(querySearchResults: tQuerySearchResults)
-      ],
+      expect: [Empty(), Loading(), QuerySearchLoadedState(querySearchResults: tQuerySearchResults)],
     );
   });
 
   group('AddNewRecentlySearchedWordEvent', () {
-    final tNewWordToAdd = DictionaryWord(
-      id: 'test',
-      label: 'test',
-    );
+    final tNewWordToAdd = DictionaryWordFake.fromFakeData();
 
-    test('should add new data using the AddNewRecentlySearchedWord use case',
-        () async {
+    test('should add new data using the AddNewRecentlySearchedWord use case', () async {
       // act
-      bloc.add(AddNewRecentlySearchedWordEvent(
-          newRecentlySearchedWord: tNewWordToAdd));
+      bloc.add(AddNewRecentlySearchedWordEvent(newRecentlySearchedWord: tNewWordToAdd));
       await untilCalled(mockAddNewRecentlySearchedWord.call(any));
 
       // assert
-      verify(mockAddNewRecentlySearchedWord
-          .call(addNewWordUsecase.Params(newWordToAdd: tNewWordToAdd)));
+      verify(mockAddNewRecentlySearchedWord.call(addNewWordUsecase.Params(newWordToAdd: tNewWordToAdd)));
     });
 
     blocTest(
       'should emit [Loading, QuerySearchErrorState] when there is an issue adding the recently searched word to the usecase - local database processing failure',
       build: () {
-        when(mockAddNewRecentlySearchedWord.call(any))
-            .thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
+        when(mockAddNewRecentlySearchedWord.call(any)).thenAnswer((_) async => Left(LocalDatabaseProcessingFailure()));
 
         return bloc;
       },
-      act: (bloc) => bloc.add(AddNewRecentlySearchedWordEvent(
-          newRecentlySearchedWord: tNewWordToAdd)),
-      expect: [
-        Empty(),
-        Loading(),
-        QuerySearchErrorState(
-            message: LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE)
-      ],
+      act: (bloc) => bloc.add(AddNewRecentlySearchedWordEvent(newRecentlySearchedWord: tNewWordToAdd)),
+      expect: [Empty(), Loading(), QuerySearchErrorState(message: LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE)],
     );
 
     blocTest(
       'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
       build: () {
-        when(mockAddNewRecentlySearchedWord.call(any))
-            .thenAnswer((_) async => Right(true));
+        when(mockAddNewRecentlySearchedWord.call(any)).thenAnswer((_) async => Right(true));
 
         return bloc;
       },
-      act: (bloc) => bloc.add(AddNewRecentlySearchedWordEvent(
-          newRecentlySearchedWord: tNewWordToAdd)),
+      act: (bloc) => bloc.add(AddNewRecentlySearchedWordEvent(newRecentlySearchedWord: tNewWordToAdd)),
       expect: [Empty(), Loading(), QuerySearchNewWordAddedState()],
     );
   });

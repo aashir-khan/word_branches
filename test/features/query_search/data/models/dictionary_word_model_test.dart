@@ -18,11 +18,9 @@ void main() {
   });
 
   group('fromJson', () {
-    test('should return a valid model for an error-free JSON fixture',
-        () async {
+    test('should return a valid model for an error-free JSON fixture', () async {
       // arrange
-      final Map<String, dynamic> jsonMap =
-          json.decode(fixture('core/dictionary_word.json'));
+      final Map<String, dynamic> jsonMap = json.decode(fixture('core/dictionary_word.json'));
 
       // act
       final result = DictionaryWordModel.fromJson(jsonMap);

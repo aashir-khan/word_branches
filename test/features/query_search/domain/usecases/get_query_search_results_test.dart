@@ -1,9 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/core/domain/entities/dictionary_word.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_metadata.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results_fake.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -18,26 +17,10 @@ void main() {
     usecase = GetQuerySearchResults(mockQuerySearchRepository);
   });
 
-  final tQuery = 'test';
+  final tQuery = faker.lorem.word();
+  final tQuerySearchResults = QuerySearchResultsFake.fromFakeData();
 
-  final tQuerySearchMetadata = QuerySearchMetadata(
-    limit: 1,
-    offset: 1,
-    total: 1,
-  );
-
-  final tDictionaryWord = DictionaryWord(
-    id: '1',
-    label: 'test',
-  );
-
-  final tQuerySearchResults = QuerySearchResults(
-    metadata: tQuerySearchMetadata,
-    results: [tDictionaryWord],
-  );
-
-  test('should get query search results for the query from the repository',
-      () async {
+  test('should get query search results for the query from the repository', () async {
     // arrange
     when(mockQuerySearchRepository.getQuerySearchResults(
       query: anyNamed('query'),

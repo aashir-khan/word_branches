@@ -6,15 +6,15 @@ import 'package:dr_words/core/network/network_info.dart';
 import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
-import 'package:dr_words/features/query_search/data/models/query_search_metadata_model.dart';
-import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
+import 'package:dr_words/features/query_search/data/models/dictionary_word_model_fake.dart';
+import 'package:dr_words/features/query_search/data/models/query_search_results_model_fake.dart';
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-class MockRemoteDataSource extends Mock implements QuerySearchRemoteDataSource {
-}
+class MockRemoteDataSource extends Mock implements QuerySearchRemoteDataSource {}
 
 class MockLocalDataSource extends Mock implements QuerySearchLocalDataSource {}
 
@@ -39,19 +39,8 @@ void main() {
   });
 
   group('getQuerySearchResults', () {
-    final tQuery = 'test';
-    final tQuerySearchMetadata =
-        QuerySearchMetadataModel(limit: 1, offset: 0, total: 1);
-    final tDictionaryWord1 = DictionaryWordModel(id: 'test', label: 'test');
-    final tDictionaryWord2 = DictionaryWordModel(id: 'test2', label: 'test2');
-
-    final tDictionaryWordList = [tDictionaryWord1, tDictionaryWord2];
-
-    final tQuerySearchResultsModel = QuerySearchResultsModel(
-      metadata: tQuerySearchMetadata,
-      results: tDictionaryWordList,
-    );
-
+    final tQuery = faker.lorem.word();
+    final tQuerySearchResultsModel = QuerySearchResultsModelFake.fromFakeData();
     final QuerySearchResults tQuerySearchResults = tQuerySearchResultsModel;
 
     test('should check if the device is online', () async {
@@ -70,12 +59,9 @@ void main() {
         when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
       });
 
-      test(
-          'should return remote data when the call to remote data source is successful',
-          () async {
+      test('should return remote data when the call to remote data source is successful', () async {
         // arrange
-        when(mockRemoteDataSource.getQuerySearchResults(
-                query: anyNamed('query')))
+        when(mockRemoteDataSource.getQuerySearchResults(query: anyNamed('query')))
             .thenAnswer((_) async => tQuerySearchResultsModel);
 
         // act
@@ -86,13 +72,9 @@ void main() {
         expect(result, equals(Right(tQuerySearchResults)));
       });
 
-      test(
-          'should return server failure when the call to remote data source is unsuccessful',
-          () async {
+      test('should return server failure when the call to remote data source is unsuccessful', () async {
         // arrange
-        when(mockRemoteDataSource.getQuerySearchResults(
-                query: anyNamed('query')))
-            .thenThrow(ServerException());
+        when(mockRemoteDataSource.getQuerySearchResults(query: anyNamed('query'))).thenThrow(ServerException());
 
         // act
         final result = await repository.getQuerySearchResults(query: tQuery);
@@ -108,8 +90,7 @@ void main() {
         when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
       });
 
-      test('should return NetworkFailure when there is no internet connection',
-          () async {
+      test('should return NetworkFailure when there is no internet connection', () async {
         // act
         final result = await repository.getQuerySearchResults(query: tQuery);
 
@@ -121,16 +102,12 @@ void main() {
   });
 
   group('getRecentlySearchedWords', () {
-    List<DictionaryWordModel> tDictionaryWordModelList = [
-      DictionaryWordModel(id: 'test', label: 'test')
-    ];
+    List<DictionaryWordModel> tDictionaryWordModelList = [DictionaryWordModel(id: 'test', label: 'test')];
     List<DictionaryWord> tDictionaryWordList = tDictionaryWordModelList;
 
-    test('should return local data when the call to local data is successful',
-        () async {
+    test('should return local data when the call to local data is successful', () async {
       // arrange
-      when(mockLocalDataSource.getRecentlySearchedWords())
-          .thenAnswer((_) async => tDictionaryWordModelList);
+      when(mockLocalDataSource.getRecentlySearchedWords()).thenAnswer((_) async => tDictionaryWordModelList);
 
       // act
       final result = await repository.getRecentlySearchedWords();
@@ -140,12 +117,10 @@ void main() {
       expect(result, equals(Right(tDictionaryWordList)));
     });
 
-    test(
-        'should return local database processing failure when the call to local data source is unsuccessful',
+    test('should return local database processing failure when the call to local data source is unsuccessful',
         () async {
       // arrange
-      when(mockLocalDataSource.getRecentlySearchedWords())
-          .thenThrow(LocalDatabaseProcessingException());
+      when(mockLocalDataSource.getRecentlySearchedWords()).thenThrow(LocalDatabaseProcessingException());
 
       // act
       final result = await repository.getRecentlySearchedWords();
@@ -156,21 +131,17 @@ void main() {
     });
   });
   group('addNewRecentlySearchedWord', () {
-    final tNewWordToAddModel = DictionaryWordModel(id: 'test', label: 'test');
+    final tNewWordToAddModel = DictionaryWordModelFake.fromFakeData();
     DictionaryWord tNewWordToAdd = tNewWordToAddModel;
-    test(
-        'should return true if the recently searched word is added successfully to the repository',
-        () async {
+    test('should return true if the recently searched word is added successfully to the repository', () async {
       // arrange
-      when(mockLocalDataSource.addNewRecentlySearchedWord(any))
-          .thenAnswer((_) async => true);
+      when(mockLocalDataSource.addNewRecentlySearchedWord(any)).thenAnswer((_) async => true);
 
       // act
       final result = await repository.addNewRecentlySearchedWord(tNewWordToAdd);
 
       // assert
-      verify(
-          mockLocalDataSource.addNewRecentlySearchedWord(tNewWordToAddModel));
+      verify(mockLocalDataSource.addNewRecentlySearchedWord(tNewWordToAddModel));
       expect(result, Right(true));
     });
   });

@@ -17,7 +17,7 @@ class QuerySearchResultsModel extends QuerySearchResults {
     });
 
     return QuerySearchResultsModel(
-      metadata: QuerySearchMetadataModel.fromJson(json['metadata']),
+      metadata: json['metadata'] == null ? null : QuerySearchMetadataModel.fromJson(json['metadata']),
       results: results,
     );
   }
