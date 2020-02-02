@@ -61,31 +61,29 @@ class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
           return LoadingIndicator();
         } else if (state is QuerySearchErrorState) {
           return Text(state.message);
-        } else if (state is QuerySearchLoadedState) {
-          return (state?.querySearchResults?.results ?? []).length == 0
-              ? Center(
-                  child: Text('No results found'),
-                )
-              : ListView.builder(
-                  itemCount: state.querySearchResults.results.length,
-                  itemBuilder: (context, index) => InkWell(
-                    child: Container(
-                      child: Text(
-                        state.querySearchResults.results[index].label,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16,
-                        horizontal: 24,
-                      ),
-                    ),
-                    onTap: () {
-                      final querySingleSearchResult =
-                          state.querySearchResults.results[index];
-                      close(context, {'singleResult': querySingleSearchResult});
-                    },
-                  ),
-                );
         }
+        return (state?.querySearchResults?.results ?? []).length == 0
+            ? Center(
+                child: Text('No results found'),
+              )
+            : ListView.builder(
+                itemCount: state.querySearchResults.results.length,
+                itemBuilder: (context, index) => InkWell(
+                  child: Container(
+                    child: Text(
+                      state.querySearchResults.results[index].label,
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 16,
+                      horizontal: 24,
+                    ),
+                  ),
+                  onTap: () {
+                    final querySingleSearchResult = state.querySearchResults.results[index];
+                    close(context, {'singleResult': querySingleSearchResult});
+                  },
+                ),
+              );
       },
     );
   }

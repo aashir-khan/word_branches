@@ -5,12 +5,14 @@ class StoppableService {
   bool get serviceStopped => _serviceStoped;
 
   @mustCallSuper
-  void stop() {
+  Future<void> stop() {
     _serviceStoped = true;
+    return Future.value();
   }
 
   @mustCallSuper
-  void start() {
+  Future<void> start() {
     _serviceStoped = false;
+    return Future.value();
   }
 }

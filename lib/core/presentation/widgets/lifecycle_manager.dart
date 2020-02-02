@@ -1,3 +1,4 @@
+import 'package:dr_words/core/services/fake_database_service.dart';
 import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/core/services/stoppable_service.dart';
 import 'package:dr_words/injection/injection_container.dart';
@@ -11,10 +12,10 @@ class LifeCycleManager extends StatefulWidget {
   _LifeCycleManagerState createState() => _LifeCycleManagerState();
 }
 
-class _LifeCycleManagerState extends State<LifeCycleManager>
-    with WidgetsBindingObserver {
+class _LifeCycleManagerState extends State<LifeCycleManager> with WidgetsBindingObserver {
   List<StoppableService> servicesToManage = [
     sl<NavigationService>(),
+    sl<FakeDatabaseService>(),
   ];
 
   // Get all services
@@ -37,13 +38,13 @@ class _LifeCycleManagerState extends State<LifeCycleManager>
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
     super.didChangeAppLifecycleState(state);
-    servicesToManage.forEach((service) {
+    servicesToManage.forEach((service) async {
       if (state == AppLifecycleState.resumed) {
-        service.start();
+        await service.start();
       } else {
-        service.stop();
+        await service.stop();
       }
     });
   }
