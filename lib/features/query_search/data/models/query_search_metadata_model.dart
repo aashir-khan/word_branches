@@ -17,9 +17,9 @@ class QuerySearchMetadataModel extends QuerySearchMetadata {
 
   Map<String, dynamic> toJson() {
     return {
-      'limit': limit.toString(),
-      'offset': offset.toString(),
-      'total': total.toString(),
+      'limit': limit,
+      'offset': offset,
+      'total': total,
     };
   }
 }

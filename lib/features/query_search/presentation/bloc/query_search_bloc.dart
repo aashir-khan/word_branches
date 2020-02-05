@@ -7,6 +7,7 @@ import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart' as getResultsUsecase;
 import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words.dart' as getRecentUsecase;
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 import './bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -15,6 +16,7 @@ const NETWORK_FAILURE_MESSAGE = 'Seems like you are not connected to the Interne
 const LOCAL_DATABASE_PROCESSING_FAILURE_MESSAGE =
     'An error occurred trying to access/store a recently searched word on your device for retrieving';
 
+@injectable
 class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
   final getRecentUsecase.GetRecentlySearchedWords getRecentlySearchedWords;
   final getResultsUsecase.GetQuerySearchResults getQuerySearchResults;

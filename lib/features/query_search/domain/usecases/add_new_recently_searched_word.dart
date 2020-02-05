@@ -5,7 +5,10 @@ import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
+@injectable
 class AddNewRecentlySearchedWord extends UseCase<bool, Params> {
   final QuerySearchRepository repository;
 

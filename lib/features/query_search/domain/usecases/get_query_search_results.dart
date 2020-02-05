@@ -5,7 +5,10 @@ import 'package:dr_words/features/query_search/domain/entities/query_search/quer
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
+@injectable
 class GetQuerySearchResults extends UseCase<QuerySearchResults, Params> {
   final QuerySearchRepository repository;
 

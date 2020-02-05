@@ -8,7 +8,10 @@ import 'package:dr_words/features/query_search/data/datasources/remote/query_sea
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
+@injectable
 class QuerySearchRepositoryImpl implements QuerySearchRepository {
   final QuerySearchRemoteDataSource remoteDataSource;
   final QuerySearchLocalDataSource localDataSource;
@@ -38,8 +41,7 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
   }
 
   @override
-  Future<Either<Failure, List<DictionaryWord>>>
-      getRecentlySearchedWords() async {
+  Future<Either<Failure, List<DictionaryWord>>> getRecentlySearchedWords() async {
     try {
       return Right(await localDataSource.getRecentlySearchedWords());
     } on LocalDatabaseProcessingException {
@@ -48,11 +50,9 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> addNewRecentlySearchedWord(
-      DictionaryWord newWordToAdd) async {
+  Future<Either<Failure, bool>> addNewRecentlySearchedWord(DictionaryWord newWordToAdd) async {
     try {
-      return Right(
-          await localDataSource.addNewRecentlySearchedWord(newWordToAdd));
+      return Right(await localDataSource.addNewRecentlySearchedWord(newWordToAdd));
     } on LocalDatabaseProcessingException {
       return Left(LocalDatabaseProcessingFailure());
     }

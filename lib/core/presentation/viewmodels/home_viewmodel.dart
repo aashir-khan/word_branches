@@ -1,10 +1,10 @@
 import 'package:dr_words/core/services/navigation_service.dart';
-import 'package:dr_words/injection/injection_container.dart';
+import 'package:dr_words/injection.iconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:dr_words/core/constants/routes_path.dart' as routes;
 
 class HomeViewModel extends ChangeNotifier {
-  final navigationService = sl<NavigationService>();
+  final navigationService = getIt<NavigationService>();
 
   String appBarText;
   List<String> popupMenuChoices;
