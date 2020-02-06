@@ -1,17 +1,17 @@
-import 'package:dr_words/core/network/connection_checker_wrapper.dart';
+import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dr_words/core/network/network_info.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-class MockDataConnectionCheckerWrapper extends Mock implements ConnectionCheckerWrapper {}
+class MockDataConnectionChecker extends Mock implements DataConnectionChecker {}
 
 void main() {
   NetworkInfoImpl networkInfo;
-  MockDataConnectionCheckerWrapper mockConnectionCheckerWrapper;
+  MockDataConnectionChecker mockDataConnectionChecker;
 
   setUp(() {
-    mockConnectionCheckerWrapper = MockDataConnectionCheckerWrapper();
-    networkInfo = NetworkInfoImpl(mockConnectionCheckerWrapper);
+    mockDataConnectionChecker = MockDataConnectionChecker();
+    networkInfo = NetworkInfoImpl(mockDataConnectionChecker);
   });
 
   group('isConnected', () {
@@ -20,13 +20,13 @@ void main() {
       final tHasConnectionFuture = Future.value(true);
 
       // Figure out how to pick properly
-      when(mockConnectionCheckerWrapper.instance.hasConnection).thenAnswer((_) => tHasConnectionFuture);
+      when(mockDataConnectionChecker.hasConnection).thenAnswer((_) => tHasConnectionFuture);
 
       // act
       final result = networkInfo.isConnected;
 
       // assert
       expect(result, tHasConnectionFuture);
-    }, skip: 'TODO: Figure out how to mock mockConnectionCheckerWrapper properly');
+    });
   });
 }

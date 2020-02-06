@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:dr_words/core/data/shared_preferences_wrapper.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model_fake.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
@@ -9,13 +8,14 @@ import 'package:dr_words/features/query_search/data/models/query_search_results_
 import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @lazySingleton
 @injectable
 class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
-  final SharedPreferencesWrapper sharedPreferencesWrapper;
+  final SharedPreferences sharedPreferences;
 
-  QuerySearchRemoteDataSourceFake({@required this.sharedPreferencesWrapper});
+  QuerySearchRemoteDataSourceFake({@required this.sharedPreferences});
 
   static const QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER = 'query_search_results_model';
 
@@ -24,8 +24,7 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
     String query,
     Map<String, dynamic> options = const {},
   }) async {
-    final initialRawStringStoredData =
-        (await sharedPreferencesWrapper.instance).getString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER) ?? '{}';
+    final initialRawStringStoredData = sharedPreferences.getString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER) ?? '{}';
     Map<String, dynamic> initialStoredData = json.decode(initialRawStringStoredData);
     if (initialStoredData.isEmpty) {
       return _getQueryResultsHelper(query);
@@ -62,7 +61,7 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
 
     result = QuerySearchResultsModelFake.fromFakeData(customFieldValues: {'results': wordsList});
     final resultEncoded = json.encode(result.toJson());
-    (await sharedPreferencesWrapper.instance).setString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER, resultEncoded);
+    sharedPreferences.setString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER, resultEncoded);
     return Future.delayed(Duration(milliseconds: 1), () => result);
   }
 }

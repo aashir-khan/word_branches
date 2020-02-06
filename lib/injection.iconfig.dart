@@ -5,12 +5,12 @@
 // **************************************************************************
 
 import 'package:dr_words/core/network/network_info.dart';
-import 'package:dr_words/core/network/connection_checker_wrapper.dart';
+import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
-import 'package:dr_words/core/data/shared_preferences_wrapper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_impl.dart';
-import 'package:dr_words/core/network/network_client_wrapper.dart';
+import 'package:http/src/client.dart';
 import 'package:dr_words/internal/account_details.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
@@ -26,20 +26,19 @@ final getIt = GetIt.instance;
 void $initGetIt({String environment}) {
   getIt
     ..registerLazySingleton<NetworkInfo>(
-        () => NetworkInfoImpl(getIt<ConnectionCheckerWrapper>()))
+        () => NetworkInfoImpl(getIt<DataConnectionChecker>()))
     ..registerLazySingleton<NetworkInfoImpl>(
-        () => NetworkInfoImpl(getIt<ConnectionCheckerWrapper>()))
+        () => NetworkInfoImpl(getIt<DataConnectionChecker>()))
     ..registerLazySingleton<NavigationService>(() => NavigationService())
     ..registerLazySingleton<QuerySearchLocalDataSource>(() =>
         QuerySearchLocalDataSourceImpl(
-            sharedPreferencesWrapper: getIt<SharedPreferencesWrapper>()))
+            sharedPreferences: getIt<SharedPreferences>()))
     ..registerLazySingleton<QuerySearchRemoteDataSourceImpl>(() =>
         QuerySearchRemoteDataSourceImpl(
-            networkClient: getIt<NetworkClientWrapper>(),
-            accountDetails: getIt<AccountDetails>()))
+            client: getIt<Client>(), accountDetails: getIt<AccountDetails>()))
     ..registerLazySingleton<QuerySearchRemoteDataSourceFake>(() =>
         QuerySearchRemoteDataSourceFake(
-            sharedPreferencesWrapper: getIt<SharedPreferencesWrapper>()))
+            sharedPreferences: getIt<SharedPreferences>()))
     ..registerLazySingleton<QuerySearchRepositoryImpl>(
         () => QuerySearchRepositoryImpl(
               remoteDataSource: getIt<QuerySearchRemoteDataSource>(),
@@ -63,10 +62,7 @@ void $initGetIt({String environment}) {
           getQuerySearchResults: getIt<GetQuerySearchResults>(),
           addNewRecentlySearchedWord: getIt<AddNewRecentlySearchedWord>(),
         ))
-    ..registerLazySingleton<AccountDetails>(() => AccountDetails())
-    ..registerLazySingleton<ConnectionCheckerWrapper>(() => ConnectionCheckerWrapper())
-    ..registerLazySingleton<NetworkClientWrapper>(() => NetworkClientWrapper())
-    ..registerLazySingleton<SharedPreferencesWrapper>(() => SharedPreferencesWrapper());
+    ..registerLazySingleton<AccountDetails>(() => AccountDetails());
   if (environment == 'production') {
     _registerProductionDependencies();
   }
@@ -79,13 +75,12 @@ void _registerProductionDependencies() {
   getIt
     ..registerLazySingleton<QuerySearchRemoteDataSource>(() =>
         QuerySearchRemoteDataSourceImpl(
-            networkClient: getIt<NetworkClientWrapper>(),
-            accountDetails: getIt<AccountDetails>()));
+            client: getIt<Client>(), accountDetails: getIt<AccountDetails>()));
 }
 
 void _registerDevelopmentDependencies() {
   getIt
     ..registerLazySingleton<QuerySearchRemoteDataSource>(() =>
         QuerySearchRemoteDataSourceFake(
-            sharedPreferencesWrapper: getIt<SharedPreferencesWrapper>()));
+            sharedPreferences: getIt<SharedPreferences>()));
 }

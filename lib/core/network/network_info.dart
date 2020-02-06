@@ -1,4 +1,4 @@
-import 'package:dr_words/core/network/connection_checker_wrapper.dart';
+import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:injectable/injectable.dart';
 
 @Bind.toType(NetworkInfoImpl)
@@ -11,10 +11,10 @@ abstract class NetworkInfo {
 @lazySingleton
 @injectable
 class NetworkInfoImpl implements NetworkInfo {
-  final ConnectionCheckerWrapper connectionChecker;
+  final DataConnectionChecker connectionChecker;
 
   NetworkInfoImpl(this.connectionChecker);
 
   @override
-  Future<bool> get isConnected => connectionChecker.instance.hasConnection;
+  Future<bool> get isConnected => connectionChecker.hasConnection;
 }
