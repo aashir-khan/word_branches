@@ -3,39 +3,38 @@ import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/core/network/network_info.dart';
-import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
+import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model_fake.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model_fake.dart';
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
+import 'package:dr_words/injection.dart';
+import 'package:dr_words/injection.iconfig.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-class MockRemoteDataSource extends Mock implements QuerySearchRemoteDataSource {}
-
-class MockLocalDataSource extends Mock implements QuerySearchLocalDataSource {}
-
-class MockNetworkInfo extends Mock implements NetworkInfo {}
-
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(() async {
+    await configureManualInjection(Env.test);
+    configureAutomaticInjection(Env.test);
+  });
+
   QuerySearchRepositoryImpl repository;
-  MockRemoteDataSource mockRemoteDataSource;
-  MockLocalDataSource mockLocalDataSource;
-  MockNetworkInfo mockNetworkInfo;
+  QuerySearchRemoteDataSource mockRemoteDataSource;
+  QuerySearchLocalDataSource mockLocalDataSource;
+  NetworkInfo mockNetworkInfo;
 
   setUp(() {
-    mockRemoteDataSource = MockRemoteDataSource();
-    mockLocalDataSource = MockLocalDataSource();
-    mockNetworkInfo = MockNetworkInfo();
+    mockRemoteDataSource = getIt<QuerySearchRemoteDataSource>();
+    mockLocalDataSource = getIt<QuerySearchLocalDataSource>();
+    mockNetworkInfo = getIt<NetworkInfo>();
 
-    repository = QuerySearchRepositoryImpl(
-      networkInfo: mockNetworkInfo,
-      remoteDataSource: mockRemoteDataSource,
-      localDataSource: mockLocalDataSource,
-    );
+    repository = getIt<QuerySearchRepositoryImpl>();
   });
 
   group('getQuerySearchResults', () {

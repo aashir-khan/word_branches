@@ -11,26 +11,29 @@ import 'package:dr_words/features/query_search/domain/usecases/get_recently_sear
     as getRecentlySearchedUsecase;
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
+import 'package:dr_words/injection.dart';
+import 'package:dr_words/injection.iconfig.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-class MockGetRecentlySearchedWords extends Mock implements getRecentlySearchedUsecase.GetRecentlySearchedWords {}
-
-class MockGetQuerySearchResults extends Mock implements getQueryUsecase.GetQuerySearchResults {}
-
-class MockAddNewRecentlySearchedWord extends Mock implements addNewWordUsecase.AddNewRecentlySearchedWord {}
-
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   QuerySearchBloc bloc;
-  MockGetRecentlySearchedWords mockGetRecentlySearchedWords;
-  MockGetQuerySearchResults mockGetQuerySearchResults;
-  MockAddNewRecentlySearchedWord mockAddNewRecentlySearchedWord;
+  getRecentlySearchedUsecase.GetRecentlySearchedWords mockGetRecentlySearchedWords;
+  getQueryUsecase.GetQuerySearchResults mockGetQuerySearchResults;
+  addNewWordUsecase.AddNewRecentlySearchedWord mockAddNewRecentlySearchedWord;
+
+  setUpAll(() async {
+    await configureManualInjection(Env.test);
+    configureAutomaticInjection(Env.test);
+  });
 
   setUp(() {
-    mockGetRecentlySearchedWords = MockGetRecentlySearchedWords();
-    mockGetQuerySearchResults = MockGetQuerySearchResults();
-    mockAddNewRecentlySearchedWord = MockAddNewRecentlySearchedWord();
+    mockGetRecentlySearchedWords = getIt<getRecentlySearchedUsecase.GetRecentlySearchedWords>();
+    mockGetQuerySearchResults = getIt<getQueryUsecase.GetQuerySearchResults>();
+    mockAddNewRecentlySearchedWord = getIt<addNewWordUsecase.AddNewRecentlySearchedWord>();
 
     bloc = QuerySearchBloc(
       getRecentlySearchedWords: mockGetRecentlySearchedWords,

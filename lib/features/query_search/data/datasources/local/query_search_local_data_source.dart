@@ -1,11 +1,15 @@
 import 'dart:convert';
 
+import 'package:dr_words/features/query_search/data/datasources/local/mock_query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
+import 'package:dr_words/injection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@Bind.toType(QuerySearchLocalDataSourceImpl)
+@Bind.toType(QuerySearchLocalDataSourceImpl, env: Env.production)
+@Bind.toType(QuerySearchLocalDataSourceImpl, env: Env.development)
+@Bind.toType(MockQuerySearchLocalDataSource, env: Env.test)
 @lazySingleton
 @injectable
 abstract class QuerySearchLocalDataSource {
@@ -13,6 +17,8 @@ abstract class QuerySearchLocalDataSource {
   Future<bool> addNewRecentlySearchedWord(DictionaryWordModel newWordToAdd);
 }
 
+@lazySingleton
+@injectable
 class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
   final SharedPreferences sharedPreferences;
 

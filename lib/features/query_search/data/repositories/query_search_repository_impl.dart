@@ -3,7 +3,7 @@ import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/core/network/network_info.dart';
-import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
+import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';

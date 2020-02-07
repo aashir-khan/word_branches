@@ -1,25 +1,27 @@
 import 'dart:convert';
 
-import 'package:dr_words/features/query_search/data/datasources/query_search_local_data_source.dart';
+import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
+import 'package:dr_words/injection.dart';
+import 'package:dr_words/injection.iconfig.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 
-class MockSharedPreferences extends Mock implements SharedPreferences {}
-
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   QuerySearchLocalDataSourceImpl dataSource;
-  MockSharedPreferences mockSharedPreferences;
+  SharedPreferences mockSharedPreferences;
 
-  setUp(() {
-    mockSharedPreferences = MockSharedPreferences();
+  setUpAll(() async {
+    await configureManualInjection(Env.test);
+    configureAutomaticInjection(Env.test);
 
-    dataSource = QuerySearchLocalDataSourceImpl(
-      sharedPreferences: mockSharedPreferences,
-    );
+    mockSharedPreferences = getIt<SharedPreferences>();
+    dataSource = getIt<QuerySearchLocalDataSourceImpl>();
   });
 
   group('getRecentlySearchedWords', () {
@@ -47,7 +49,7 @@ void main() {
 
   group('addNewRecentlySearchedWord', () {
     test(
-        'should call Box with the current data upon adding a new recently searched word to a box that already has some data saved',
+        'should call SharedPreferences with the current data upon adding a new recently searched word to a box that already has some data saved',
         () async {
       // arrange
       final initialDataStored = fixture('query_search/dictionary_word_recently_searched_words_saved_locally.json');

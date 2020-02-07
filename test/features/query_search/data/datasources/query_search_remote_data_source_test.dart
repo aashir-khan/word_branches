@@ -4,6 +4,8 @@ import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_impl.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
+import 'package:dr_words/injection.dart';
+import 'package:dr_words/injection.iconfig.dart';
 import 'package:dr_words/internal/account_details.dart';
 import 'package:faker/faker.dart';
 import 'package:http/http.dart' as http;
@@ -13,22 +15,23 @@ import 'package:matcher/matcher.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 
-class MockHttpClient extends Mock implements http.Client {}
-
-class MockAccountDetails extends Mock implements AccountDetails {}
-
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   QuerySearchRemoteDataSource dataSource;
-  MockHttpClient mockHttpClient;
-  MockAccountDetails mockAccountDetails;
+  http.Client mockHttpClient;
+  AccountDetails mockAccountDetails;
+
+  setUpAll(() async {
+    await configureManualInjection(Env.test);
+    configureAutomaticInjection(Env.test);
+  });
 
   setUp(() {
-    mockHttpClient = MockHttpClient();
-    mockAccountDetails = MockAccountDetails();
-    dataSource = QuerySearchRemoteDataSourceImpl(
-      client: mockHttpClient,
-      accountDetails: mockAccountDetails,
-    );
+    mockHttpClient = getIt<http.Client>();
+    // mockHttpClient = Foo();
+    mockAccountDetails = getIt<AccountDetails>();
+    dataSource = getIt<QuerySearchRemoteDataSourceImpl>();
 
     when(mockAccountDetails.oxfordAPIDetails).thenReturn({});
   });
