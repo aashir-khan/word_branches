@@ -13,10 +13,15 @@ abstract class Env {
   static const production = 'production';
 }
 
-@injectableInit
-void configureAutomaticInjection([String environment = Env.production]) => $initGetIt(environment: environment);
+Future<void> configureInjection(String environment) async {
+  configureAutomaticInjection(environment);
+  await configureManualInjection(environment);
+}
 
-Future<void> configureManualInjection([String environment = Env.production]) async {
+@injectableInit
+void configureAutomaticInjection(String environment) => $initGetIt(environment: environment);
+
+Future<void> configureManualInjection(String environment) async {
   if (environment == Env.production) {
     await _registerProductionDependencies();
   }

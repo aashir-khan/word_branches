@@ -17,8 +17,7 @@ void main() {
   SharedPreferences mockSharedPreferences;
 
   setUpAll(() async {
-    await configureManualInjection(Env.test);
-    configureAutomaticInjection(Env.test);
+    await configureInjection(Env.test);
 
     mockSharedPreferences = getIt<SharedPreferences>();
     dataSource = getIt<QuerySearchLocalDataSourceImpl>();

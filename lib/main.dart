@@ -13,10 +13,7 @@ import 'router.dart' as router;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  final environment = Env.development;
-  await configureManualInjection(environment);
-  configureAutomaticInjection(environment);
+  await configureInjection(Env.development);
 
   runApp(MyApp());
 }

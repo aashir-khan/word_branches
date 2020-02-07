@@ -23,8 +23,7 @@ void main() {
   AccountDetails mockAccountDetails;
 
   setUpAll(() async {
-    await configureManualInjection(Env.test);
-    configureAutomaticInjection(Env.test);
+    await configureInjection(Env.test);
   });
 
   setUp(() {

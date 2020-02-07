@@ -26,8 +26,7 @@ void main() {
   addNewWordUsecase.AddNewRecentlySearchedWord mockAddNewRecentlySearchedWord;
 
   setUpAll(() async {
-    await configureManualInjection(Env.test);
-    configureAutomaticInjection(Env.test);
+    await configureInjection(Env.test);
   });
 
   setUp(() {

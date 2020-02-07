@@ -9,8 +9,7 @@ void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUpAll(() async {
-    await configureManualInjection(Env.test);
-    configureAutomaticInjection(Env.test);
+    await configureInjection(Env.test);
   });
 
   group('isConnected', () {
