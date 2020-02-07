@@ -2,9 +2,8 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
-import 'package:dr_words/features/query_search/data/models/dictionary_word_model_fake.dart';
+import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
-import 'package:dr_words/features/query_search/data/models/query_search_results_model_fake.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -29,19 +28,19 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
     if (initialStoredData.isEmpty) {
       return _getQueryResultsHelper(query);
     } else {
-      final nonEmptyExistingData = QuerySearchResultsModelFake.fromJson(initialStoredData);
+      final nonEmptyExistingData = QuerySearchResultsModel.fromJson(initialStoredData);
 
-      List<DictionaryWordModelFake> wordsList =
+      List<DictionaryWordModel> wordsList =
           (nonEmptyExistingData?.results ?? []).where((word) => word.label.startsWith(query)).toList();
 
       return Future.delayed(Duration(milliseconds: 1),
-          () => QuerySearchResultsModelFake.fromFakeData(customFieldValues: {'results': wordsList}));
+          () => QuerySearchResultsModel.fromFakeData(customFieldValues: {'results': wordsList}));
     }
   }
 
   Future<QuerySearchResultsModel> _getQueryResultsHelper(String query) async {
-    QuerySearchResultsModelFake result;
-    List<DictionaryWordModelFake> wordsList = [];
+    QuerySearchResultsModel result;
+    List<DictionaryWordModel> wordsList = [];
 
     for (var i = 0; i < faker.randomGenerator.integer(100, min: 5); i++) {
       final probabilityOfWordContainingQuery = 100 / query.length / 100;
@@ -49,7 +48,7 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
       var wordLabel = isWordContainQuery ? '$query${faker.lorem.word()}' : faker.lorem.word();
       if (isWordContainQuery) {
         wordsList.add(
-          DictionaryWordModelFake.fromFakeData(
+          DictionaryWordModel.fromFakeData(
             customFieldValues: {
               'id': wordLabel,
               'label': wordLabel,
@@ -59,7 +58,7 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
       }
     }
 
-    result = QuerySearchResultsModelFake.fromFakeData(customFieldValues: {'results': wordsList});
+    result = QuerySearchResultsModel.fromFakeData(customFieldValues: {'results': wordsList});
     final resultEncoded = json.encode(result.toJson());
     sharedPreferences.setString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER, resultEncoded);
     return Future.delayed(Duration(milliseconds: 1), () => result);

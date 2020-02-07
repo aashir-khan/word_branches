@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/core/domain/entities/dictionary_word_fake.dart';
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart';
 import 'package:dr_words/injection.dart';
@@ -22,7 +22,7 @@ void main() {
     usecase = getIt<AddNewRecentlySearchedWordImpl>();
   });
 
-  final tNewWordToAdd = DictionaryWordFake.fromFakeData();
+  final tNewWordToAdd = DictionaryWord.fromFakeData();
 
   test('should return Right(true) when new recently searched word is successfully added to the repository', () async {
     // arrange

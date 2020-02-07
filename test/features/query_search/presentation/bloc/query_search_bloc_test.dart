@@ -1,9 +1,9 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/core/domain/entities/dictionary_word_fake.dart';
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/core/error/failures.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results_fake.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart'
     as addNewWordUsecase;
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart' as getQueryUsecase;
@@ -49,7 +49,7 @@ void main() {
   group(
     'GetRecentlySearchedWordsEvent',
     () {
-      final tListOfDictionaryWord = [DictionaryWordFake.fromFakeData()];
+      final tListOfDictionaryWord = [DictionaryWord.fromFakeData()];
 
       test('should get data using the GetRecentlySearchedWords use case', () async {
         // act
@@ -90,7 +90,7 @@ void main() {
     final tQuery = faker.lorem.word();
     final tEmptyQuery = '';
 
-    final tQuerySearchResults = QuerySearchResultsFake.fromFakeData();
+    final tQuerySearchResults = QuerySearchResults.fromFakeData();
 
     test('should get data from the GetQuerySearchResults use case', () async {
       // act
@@ -153,7 +153,7 @@ void main() {
   });
 
   group('AddNewRecentlySearchedWordEvent', () {
-    final tNewWordToAdd = DictionaryWordFake.fromFakeData();
+    final tNewWordToAdd = DictionaryWord.fromFakeData();
 
     test('should add new data using the AddNewRecentlySearchedWord use case', () async {
       // act

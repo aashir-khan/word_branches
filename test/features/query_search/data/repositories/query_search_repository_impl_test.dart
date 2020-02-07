@@ -6,8 +6,7 @@ import 'package:dr_words/core/network/network_info.dart';
 import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
-import 'package:dr_words/features/query_search/data/models/dictionary_word_model_fake.dart';
-import 'package:dr_words/features/query_search/data/models/query_search_results_model_fake.dart';
+import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/injection.dart';
@@ -38,7 +37,7 @@ void main() {
 
   group('getQuerySearchResults', () {
     final tQuery = faker.lorem.word();
-    final tQuerySearchResultsModel = QuerySearchResultsModelFake.fromFakeData();
+    final tQuerySearchResultsModel = QuerySearchResultsModel.fromFakeData();
     final QuerySearchResults tQuerySearchResults = tQuerySearchResultsModel;
 
     test('should check if the device is online', () async {
@@ -129,7 +128,7 @@ void main() {
     });
   });
   group('addNewRecentlySearchedWord', () {
-    final tNewWordToAddModel = DictionaryWordModelFake.fromFakeData();
+    final tNewWordToAddModel = DictionaryWordModel.fromFakeData();
     DictionaryWord tNewWordToAdd = tNewWordToAddModel;
     test('should return true if the recently searched word is added successfully to the repository', () async {
       // arrange

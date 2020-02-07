@@ -14,4 +14,13 @@ class QuerySearchResults extends Equatable {
 
   @override
   List<Object> get props => [metadata, results];
+
+  factory QuerySearchResults.fromFakeData() {
+    final results = List<DictionaryWord>.generate(1, (_) => DictionaryWord.fromFakeData());
+    final metadata = QuerySearchMetadata.fromFakeData();
+    return QuerySearchResults(
+      results: results,
+      metadata: metadata,
+    );
+  }
 }

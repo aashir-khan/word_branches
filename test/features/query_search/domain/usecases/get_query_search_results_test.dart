@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results_fake.dart';
+import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart';
 import 'package:dr_words/injection.dart';
@@ -24,7 +24,7 @@ void main() {
   setUp(() {});
 
   final tQuery = faker.lorem.word();
-  final tQuerySearchResults = QuerySearchResultsFake.fromFakeData();
+  final tQuerySearchResults = QuerySearchResults.fromFakeData();
 
   test('should get query search results for the query from the repository', () async {
     // arrange
