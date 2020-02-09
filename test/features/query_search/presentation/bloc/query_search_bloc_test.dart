@@ -4,10 +4,11 @@ import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
-import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart'
+import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word/add_new_recently_searched_word.dart'
     as addNewWordUsecase;
-import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart' as getQueryUsecase;
-import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words.dart'
+import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results.dart'
+    as getQueryUsecase;
+import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words/get_recently_searched_words.dart'
     as getRecentlySearchedUsecase;
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';

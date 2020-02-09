@@ -3,13 +3,16 @@ import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/core/error/failures.dart';
-import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word.dart' as addNewUsecase;
-import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results.dart' as getResultsUsecase;
-import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words.dart' as getRecentUsecase;
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import './bloc.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words/get_recently_searched_words.dart'
+    as getRecentUsecase;
+import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word/add_new_recently_searched_word.dart'
+    as addNewUsecase;
+import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results.dart'
+    as getResultsUsecase;
 
 const SERVER_FAILURE_MESSAGE = 'An error occurred trying to fetch search results';
 const NETWORK_FAILURE_MESSAGE = 'Seems like you are not connected to the Internet';

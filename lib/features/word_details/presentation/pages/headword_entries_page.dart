@@ -1,16 +1,16 @@
 import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:flutter/material.dart';
 
-class WordResultPage extends StatefulWidget {
+class HeadwordEntriesPage extends StatefulWidget {
   final DictionaryWord wordSelected;
 
-  WordResultPage(this.wordSelected);
+  HeadwordEntriesPage(this.wordSelected);
 
   @override
-  _WordResultPageState createState() => _WordResultPageState();
+  _HeadwordEntriesPageState createState() => _HeadwordEntriesPageState();
 }
 
-class _WordResultPageState extends State<WordResultPage> {
+class _HeadwordEntriesPageState extends State<HeadwordEntriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
