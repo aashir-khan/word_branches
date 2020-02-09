@@ -3,6 +3,7 @@ import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/domain/usecases/usecase.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words.dart';
+import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words_impl.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/injection.iconfig.dart';
 import 'package:flutter_test/flutter_test.dart';
