@@ -24,7 +24,6 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   void navigateToSearch() {
-    // navigationService.navigateTo(routes.SearchRoute);
     navigationService.navigateWithReplacement(routes.SearchRoute);
   }
 }

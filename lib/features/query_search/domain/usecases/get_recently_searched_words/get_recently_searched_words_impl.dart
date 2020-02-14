@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 
 @lazySingleton
 @injectable
-class GetRecentlySearchedWordsImpl extends GetRecentlySearchedWords {
+class GetRecentlySearchedWordsImpl implements GetRecentlySearchedWords {
   final QuerySearchRepository repository;
 
   GetRecentlySearchedWordsImpl(this.repository);

@@ -2,6 +2,7 @@ import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dr_words/core/data/mock_http_client.dart';
 import 'package:dr_words/core/data/mock_shared_preferences.dart';
 import 'package:dr_words/core/network/mock_data_connection_checker.dart';
+import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/injection.iconfig.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
@@ -47,6 +48,9 @@ Future _registerDevelopmentDependencies() async {
 
   final sharedPreferences = await SharedPreferences.getInstance();
   getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+
+  // Clear any local storage data
+  await sharedPreferences.remove(QuerySearchRemoteDataSourceFake.QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER);
 }
 
 Future _registerTestDependencies() async {

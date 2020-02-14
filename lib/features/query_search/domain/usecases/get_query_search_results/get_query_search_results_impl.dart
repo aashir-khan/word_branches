@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 
 @lazySingleton
 @injectable
-class GetQuerySearchResultsImpl extends GetQuerySearchResults {
+class GetQuerySearchResultsImpl implements GetQuerySearchResults {
   final QuerySearchRepository repository;
 
   GetQuerySearchResultsImpl(this.repository);

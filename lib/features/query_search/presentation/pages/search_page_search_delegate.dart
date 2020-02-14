@@ -1,10 +1,12 @@
+import 'package:dr_words/core/domain/entities/dictionary_word.dart';
+import 'package:dr_words/core/presentation/utils/icon_utils.dart';
 import 'package:dr_words/core/presentation/widgets/loading_indicator/loading_indicator.dart';
-import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
+class WordQuerySearch extends SearchDelegate<DictionaryWord> {
   final Bloc<QuerySearchEvent, QuerySearchState> bloc;
 
   WordQuerySearch(this.bloc);
@@ -37,7 +39,7 @@ class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
         icon: AnimatedIcons.menu_arrow,
         progress: transitionAnimation,
       ),
-      onPressed: () => close(context, Map()),
+      onPressed: () => close(context, null),
     );
   }
 
@@ -70,14 +72,33 @@ class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
             itemCount: state.recentlySearchedWords.length,
             itemBuilder: (context, index) => InkWell(
               child: Container(
-                child: Text(state.recentlySearchedWords[index].label),
+                child: Row(
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      IconUtils.timeIcon,
+                      placeholderBuilder: (_) => CircularProgressIndicator(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2, bottom: 2, left: 24),
+                      child: Text(
+                        state.recentlySearchedWords[index].label,
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 // child: Text('foo'),
                 padding: const EdgeInsets.symmetric(
-                  vertical: 16,
+                  vertical: 12,
                   horizontal: 24,
                 ),
               ),
-              onTap: () {},
+              onTap: () async {
+                DictionaryWord wordToGetHeadwordEntries = state.recentlySearchedWords[index];
+                close(context, wordToGetHeadwordEntries);
+              },
             ),
           );
         } else if (state is QuerySearchLoadedState) {
@@ -89,7 +110,10 @@ class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
                   itemCount: state.querySearchResults.results.length,
                   itemBuilder: (context, index) => InkWell(
                     child: Container(
-                      child: Text(state.querySearchResults.results[index].label),
+                      child: Text(
+                        state.querySearchResults.results[index].label,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                       padding: const EdgeInsets.symmetric(
                         vertical: 16,
                         horizontal: 24,
@@ -98,7 +122,7 @@ class WordQuerySearch extends SearchDelegate<Map<dynamic, dynamic>> {
                     onTap: () {
                       final querySingleSearchResult = state.querySearchResults.results[index];
                       bloc.add(AddNewRecentlySearchedWordEvent(newRecentlySearchedWord: querySingleSearchResult));
-                      close(context, (querySingleSearchResult as DictionaryWordModel).toJson());
+                      close(context, querySingleSearchResult);
                     },
                   ),
                 );

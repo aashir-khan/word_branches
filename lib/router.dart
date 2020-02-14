@@ -1,5 +1,4 @@
 import 'package:dr_words/core/domain/entities/dictionary_word.dart';
-import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/word_details/presentation/pages/headword_entries_page.dart';
 import 'package:dr_words/injection.iconfig.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +20,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           child: SearchPage(),
         ),
       );
-    case routes.WordResultRoute:
-      DictionaryWord word = DictionaryWordModel.fromJson(settings.arguments);
+    case routes.HeadwordEntriesRoute:
+      final dictionaryWord = settings.arguments as DictionaryWord;
+
       return MaterialPageRoute(
-        builder: (context) => HeadwordEntriesPage(word),
+        builder: (context) => HeadwordEntriesPage(dictionaryWord),
       );
 
     default:

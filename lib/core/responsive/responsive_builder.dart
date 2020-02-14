@@ -1,4 +1,4 @@
-import 'package:dr_words/core/utils/ui_utils.dart' as utils;
+import 'package:dr_words/core/presentation/utils/ui_utils.dart' as utils;
 import 'package:flutter/material.dart';
 
 import 'sizing_information.dart';
@@ -19,8 +19,7 @@ class ResponsiveBuilder extends StatelessWidget {
         var sizingInformation = SizingInformation(
           deviceScreenType: utils.getDeviceType(mediaQuery),
           screenSize: mediaQuery.size,
-          localWidgetSize:
-              Size(boxConstraints.biggest.width, boxConstraints.biggest.height),
+          localWidgetSize: Size(boxConstraints.biggest.width, boxConstraints.biggest.height),
         );
 
         return builder(context, sizingInformation);

@@ -11,7 +11,7 @@ class AppTheme {
       color: colors.primaryColor,
     ),
     textTheme: TextTheme(
-      title: TextStyle(color: colors.onPrimary),
+      headline6: TextStyle(color: colors.onPrimary),
     ),
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyle(

@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 class NavigationService extends StoppableService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  Future<dynamic> navigateTo(String routeName, {dynamic arguments}) {
+  Future<dynamic> navigateTo<T>(String routeName, {Object arguments}) {
     return navigatorKey.currentState.pushNamed(routeName, arguments: arguments);
   }
 
-  Future<dynamic> navigateWithReplacement(String routeName, {dynamic arguments}) {
+  Future<dynamic> navigateWithReplacement<T>(String routeName, {T arguments}) {
     return navigatorKey.currentState.pushReplacementNamed(routeName, arguments: arguments);
   }
 
