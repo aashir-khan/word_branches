@@ -1,6 +1,6 @@
 import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/core/presentation/utils/icon_utils.dart';
-import 'package:dr_words/core/presentation/widgets/loading_indicator/loading_indicator.dart';
+import 'package:dr_words/core/presentation/widgets/loading_indicator.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

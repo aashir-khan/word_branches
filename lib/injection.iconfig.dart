@@ -34,6 +34,11 @@ import 'package:dr_words/core/network/network_info/mock_network_info.dart';
 import 'package:dr_words/core/network/network_info/network_info_fake.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dr_words/core/network/network_info/network_info_impl.dart';
+import 'package:dr_words/features/word_details/domain/repositories/word_details_repository.dart';
+import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/get_headword_entries.dart';
+import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/mock_get_headword_entries.dart';
+import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/get_headword_entries_impl.dart';
+import 'package:dr_words/features/word_details/data/repositories/mock_word_details_repository.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -80,7 +85,10 @@ void $initGetIt({String environment}) {
     ..registerLazySingleton<MockGetRecentlySearchedWords>(() => MockGetRecentlySearchedWords())
     ..registerLazySingleton<MockNetworkInfo>(() => MockNetworkInfo())
     ..registerLazySingleton<NetworkInfoFake>(() => NetworkInfoFake())
-    ..registerLazySingleton<NetworkInfoImpl>(() => NetworkInfoImpl(getIt<DataConnectionChecker>()));
+    ..registerLazySingleton<NetworkInfoImpl>(() => NetworkInfoImpl(getIt<DataConnectionChecker>()))
+    ..registerLazySingleton<MockGetHeadwordEntries>(() => MockGetHeadwordEntries())
+    ..registerLazySingleton<GetHeadwordEntriesImpl>(() => GetHeadwordEntriesImpl())
+    ..registerLazySingleton<MockWordDetailsRepository>(() => MockWordDetailsRepository());
   if (environment == 'production') {
     _registerProductionDependencies();
   }
@@ -114,7 +122,8 @@ void _registerProductionDependencies() {
     ..registerLazySingleton<GetRecentlySearchedWords>(
         () => GetRecentlySearchedWordsImpl(getIt<QuerySearchRepository>()))
     ..registerLazySingleton<NetworkInfo>(
-        () => NetworkInfoImpl(getIt<DataConnectionChecker>()));
+        () => NetworkInfoImpl(getIt<DataConnectionChecker>()))
+    ..registerLazySingleton<GetHeadwordEntries>(() => GetHeadwordEntriesImpl());
 }
 
 void _registerDevelopmentDependencies() {
@@ -138,7 +147,8 @@ void _registerDevelopmentDependencies() {
         () => GetQuerySearchResultsImpl(getIt<QuerySearchRepository>()))
     ..registerLazySingleton<GetRecentlySearchedWords>(
         () => GetRecentlySearchedWordsImpl(getIt<QuerySearchRepository>()))
-    ..registerLazySingleton<NetworkInfo>(() => NetworkInfoFake());
+    ..registerLazySingleton<NetworkInfo>(() => NetworkInfoFake())
+    ..registerLazySingleton<GetHeadwordEntries>(() => GetHeadwordEntriesImpl());
 }
 
 void _registerTestDependencies() {
@@ -156,5 +166,8 @@ void _registerTestDependencies() {
         () => MockGetQuerySearchResults())
     ..registerLazySingleton<GetRecentlySearchedWords>(
         () => MockGetRecentlySearchedWords())
-    ..registerLazySingleton<NetworkInfo>(() => MockNetworkInfo());
+    ..registerLazySingleton<NetworkInfo>(() => MockNetworkInfo())
+    ..registerLazySingleton<WordDetailsRepository>(
+        () => MockWordDetailsRepository())
+    ..registerLazySingleton<GetHeadwordEntries>(() => MockGetHeadwordEntries());
 }

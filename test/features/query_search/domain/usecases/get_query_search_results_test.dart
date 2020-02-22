@@ -22,8 +22,6 @@ void main() {
     usecase = getIt<GetQuerySearchResultsImpl>();
   });
 
-  setUp(() {});
-
   final tQuery = faker.lorem.word();
   final tQuerySearchResults = QuerySearchResults.fromFakeData();
 
