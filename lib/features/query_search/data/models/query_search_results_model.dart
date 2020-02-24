@@ -35,7 +35,6 @@ class QuerySearchResultsModel extends QuerySearchResults {
   factory QuerySearchResultsModel.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
     Map<String, dynamic> options = const {},
-    List<dynamic> traits = const [],
   }) {
     int resultsCount = (customFieldValues['results'] ?? []).length ?? options['resultsAcount'] ?? 10;
 

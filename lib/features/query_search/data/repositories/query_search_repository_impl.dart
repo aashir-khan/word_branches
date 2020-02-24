@@ -30,7 +30,6 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
       try {
         return Right(await remoteDataSource.getQuerySearchResults(
           query: query,
-          options: options,
         ));
       } on ServerException {
         return Left(ServerFailure());

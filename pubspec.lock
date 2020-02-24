@@ -70,7 +70,7 @@ packages:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1+1"
+    version: "0.4.2"
   build_daemon:
     dependency: transitive
     description:
@@ -91,14 +91,14 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.3"
+    version: "1.7.4"
   build_runner_core:
     dependency: transitive
     description:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.0"
+    version: "4.4.0"
   built_collection:
     dependency: transitive
     description:
@@ -113,13 +113,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.0.8"
-  characters:
-    dependency: transitive
-    description:
-      name: characters
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.1"
   charcode:
     dependency: transitive
     description:
@@ -190,13 +183,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.3"
-  dartx:
-    dependency: transitive
-    description:
-      name: dartx
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0"
   dartz:
     dependency: "direct main"
     description:
@@ -289,27 +275,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0"
-  hive:
-    dependency: "direct main"
-    description:
-      name: hive
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.0"
-  hive_flutter:
-    dependency: "direct main"
-    description:
-      name: hive_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0+1"
-  hive_generator:
-    dependency: "direct dev"
-    description:
-      name: hive_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.0"
   html:
     dependency: transitive
     description:
@@ -513,13 +478,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
-  pointycastle:
-    dependency: transitive
-    description:
-      name: pointycastle
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2"
   pool:
     dependency: transitive
     description:
@@ -707,13 +665,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.15"
-  time:
-    dependency: transitive
-    description:
-      name: time
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0"
   timing:
     dependency: transitive
     description:

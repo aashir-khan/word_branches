@@ -31,8 +31,6 @@ dependencies:
   data_connection_checker:
   # For OS-specific directory paths
   path_provider:
-  hive:
-  hive_flutter:
   shared_preferences: ^0.5.6+1
   shared_preferences_web: ^0.1.2+3
   injectable: ^0.1.0
@@ -49,7 +47,6 @@ dev_dependencies:
   mockito:
   bloc_test:
   build_runner:
-  hive_generator:
   injectable_generator: ^0.1.0
 
 # For information on the generic Dart part of this file, see the

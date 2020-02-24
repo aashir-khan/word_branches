@@ -15,7 +15,6 @@ import 'package:injectable/injectable.dart';
 abstract class QuerySearchRepository {
   Future<dartz.Either<Failure, QuerySearchResults>> getQuerySearchResults({
     String query,
-    Map<String, dynamic> options = const {},
   });
 
   Future<dartz.Either<Failure, List<DictionaryWord>>> getRecentlySearchedWords();

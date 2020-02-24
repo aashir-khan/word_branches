@@ -21,7 +21,6 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
   @override
   Future<QuerySearchResultsModel> getQuerySearchResults({
     String query,
-    Map<String, dynamic> options = const {},
   }) async {
     final initialRawStringStoredData = sharedPreferences.getString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER) ?? '{}';
     Map<String, dynamic> initialStoredData = json.decode(initialRawStringStoredData);

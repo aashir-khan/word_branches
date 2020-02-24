@@ -4,6 +4,8 @@ import 'package:dr_words/core/data/mock_shared_preferences.dart';
 import 'package:dr_words/core/network/mock_data_connection_checker.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/injection.iconfig.dart';
+import 'package:dr_words/internal/account_details/account_details.dart';
+import 'package:dr_words/internal/account_details/mock_account_details.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,8 +17,8 @@ abstract class Env {
 }
 
 Future<void> configureInjection(String environment) async {
-  configureAutomaticInjection(environment);
   await configureManualInjection(environment);
+  configureAutomaticInjection(environment);
 }
 
 @injectableInit
@@ -57,4 +59,5 @@ Future _registerTestDependencies() async {
   getIt.registerLazySingleton<http.Client>(() => MockHttpClient());
   getIt.registerLazySingleton<DataConnectionChecker>(() => MockDataConnectionChecker());
   getIt.registerLazySingleton<SharedPreferences>(() => MockSharedPreferences());
+  getIt.registerLazySingleton<AccountDetails>(() => MockAccountDetails());
 }

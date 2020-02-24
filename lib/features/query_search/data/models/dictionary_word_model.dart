@@ -22,14 +22,13 @@ class DictionaryWordModel extends DictionaryWord {
     };
   }
 
-  factory DictionaryWordModel.fromFakeData({
-    Map<String, dynamic> customFieldValues = const {},
-    Map<String, dynamic> options = const {},
-    List<dynamic> traits = const [],
-  }) {
+  factory DictionaryWordModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
     final defaultLabel = faker.lorem.word();
 
-    Map<String, dynamic> defaultFieldValues = {'id': defaultLabel, 'label': defaultLabel};
+    Map<String, dynamic> defaultFieldValues = {
+      'id': defaultLabel,
+      'label': defaultLabel,
+    };
 
     final id = customFieldValues['id'] ?? defaultFieldValues['id'];
     final label = customFieldValues['label'] ?? defaultFieldValues['label'];

@@ -13,5 +13,9 @@ class IdTextType extends Equatable {
   });
 
   @override
-  List<Object> get props => [id, text];
+  List<Object> get props => [
+        id,
+        text,
+        type,
+      ];
 }

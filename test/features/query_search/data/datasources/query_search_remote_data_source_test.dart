@@ -6,7 +6,7 @@ import 'package:dr_words/features/query_search/data/datasources/remote/query_sea
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/injection.iconfig.dart';
-import 'package:dr_words/internal/account_details.dart';
+import 'package:dr_words/internal/account_details/account_details.dart';
 import 'package:faker/faker.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_test/flutter_test.dart';
@@ -64,7 +64,6 @@ void main() {
       expect(
           () => call(
                 query: tQuery,
-                options: {},
               ),
           throwsA(TypeMatcher<ServerException>()));
     });

@@ -11,7 +11,7 @@ class LexicalEntry extends Equatable {
   final List<RelatedEntry> derivatives;
   final List<Entry> entries;
   final List<IdTextType> grammaticalFeatures;
-  final String langauge;
+  final String language;
   final IdText lexicalCategory;
   final IdTextType notes;
   final List<Pronunciation> pronunciations;
@@ -23,7 +23,7 @@ class LexicalEntry extends Equatable {
     this.derivatives,
     this.entries,
     this.grammaticalFeatures,
-    this.langauge,
+    this.language,
     this.lexicalCategory,
     this.notes,
     this.pronunciations,

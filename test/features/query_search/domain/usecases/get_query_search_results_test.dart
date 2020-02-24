@@ -29,7 +29,6 @@ void main() {
     // arrange
     when(mockQuerySearchRepository.getQuerySearchResults(
       query: anyNamed('query'),
-      options: anyNamed('options'),
     )).thenAnswer((_) async => Right(tQuerySearchResults));
 
     // act
@@ -40,7 +39,6 @@ void main() {
 
     verify(mockQuerySearchRepository.getQuerySearchResults(
       query: tQuery,
-      options: anyNamed('options'),
     ));
 
     verifyNoMoreInteractions(mockQuerySearchRepository);
