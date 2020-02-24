@@ -53,7 +53,7 @@ void $initGetIt({String environment}) {
     ..registerLazySingleton<MockWordDetailsRepository>(
         () => MockWordDetailsRepository())
     ..registerLazySingleton<GetHeadwordEntriesImpl>(
-        () => GetHeadwordEntriesImpl())
+        () => GetHeadwordEntriesImpl(getIt<WordDetailsRepository>()))
     ..registerLazySingleton<MockGetHeadwordEntries>(
         () => MockGetHeadwordEntries())
     ..registerLazySingleton<QuerySearchLocalDataSourceImpl>(() =>
@@ -77,12 +77,9 @@ void $initGetIt({String environment}) {
             ))
     ..registerLazySingleton<MockQuerySearchRepository>(
         () => MockQuerySearchRepository())
-    ..registerLazySingleton<GetRecentlySearchedWordsImpl>(
-        () => GetRecentlySearchedWordsImpl(getIt<QuerySearchRepository>()))
-    ..registerLazySingleton<MockGetRecentlySearchedWords>(
-        () => MockGetRecentlySearchedWords())
-    ..registerLazySingleton<GetQuerySearchResultsImpl>(
-        () => GetQuerySearchResultsImpl(getIt<QuerySearchRepository>()))
+    ..registerLazySingleton<GetRecentlySearchedWordsImpl>(() => GetRecentlySearchedWordsImpl(getIt<QuerySearchRepository>()))
+    ..registerLazySingleton<MockGetRecentlySearchedWords>(() => MockGetRecentlySearchedWords())
+    ..registerLazySingleton<GetQuerySearchResultsImpl>(() => GetQuerySearchResultsImpl(getIt<QuerySearchRepository>()))
     ..registerLazySingleton<MockGetQuerySearchResults>(() => MockGetQuerySearchResults())
     ..registerLazySingleton<AddNewRecentlySearchedWordImpl>(() => AddNewRecentlySearchedWordImpl(getIt<QuerySearchRepository>()))
     ..registerLazySingleton<MockAddNewRecentlySearchedWord>(() => MockAddNewRecentlySearchedWord())
@@ -108,7 +105,8 @@ void _registerProductionDependencies() {
   getIt
     ..registerLazySingleton<NetworkInfo>(
         () => NetworkInfoImpl(getIt<DataConnectionChecker>()))
-    ..registerLazySingleton<GetHeadwordEntries>(() => GetHeadwordEntriesImpl())
+    ..registerLazySingleton<GetHeadwordEntries>(
+        () => GetHeadwordEntriesImpl(getIt<WordDetailsRepository>()))
     ..registerLazySingleton<QuerySearchLocalDataSource>(() =>
         QuerySearchLocalDataSourceImpl(
             sharedPreferences: getIt<SharedPreferences>()))
@@ -132,7 +130,8 @@ void _registerProductionDependencies() {
 void _registerDevelopmentDependencies() {
   getIt
     ..registerLazySingleton<NetworkInfo>(() => NetworkInfoFake())
-    ..registerLazySingleton<GetHeadwordEntries>(() => GetHeadwordEntriesImpl())
+    ..registerLazySingleton<GetHeadwordEntries>(
+        () => GetHeadwordEntriesImpl(getIt<WordDetailsRepository>()))
     ..registerLazySingleton<QuerySearchLocalDataSource>(() =>
         QuerySearchLocalDataSourceImpl(
             sharedPreferences: getIt<SharedPreferences>()))

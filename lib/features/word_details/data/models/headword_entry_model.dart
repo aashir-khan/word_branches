@@ -26,7 +26,7 @@ class HeadwordEntryModel extends HeadwordEntry {
 
     Map<String, dynamic> defaultFieldValues = {
       'id': defaultType,
-      'language': faker.lorem.words(faker.randomGenerator.integer(10)),
+      'language': faker.lorem.word(),
       'lexicalEntries':
           List<LexicalEntry>.generate(faker.randomGenerator.integer(10), (index) => LexicalEntryModel.fromFakeData()),
       'pronunciations':

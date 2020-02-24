@@ -1,6 +1,7 @@
 import 'package:dr_words/features/word_details/data/models/entry_model.dart';
 import 'package:dr_words/features/word_details/data/models/id_text_model.dart';
 import 'package:dr_words/features/word_details/data/models/id_text_type_model.dart';
+import 'package:dr_words/features/word_details/data/models/pronunciation_model.dart';
 import 'package:dr_words/features/word_details/data/models/related_entry_model.dart';
 import 'package:dr_words/features/word_details/data/models/variant_form_model.dart';
 import 'package:dr_words/features/word_details/domain/entities/entry.dart';
@@ -49,7 +50,8 @@ class LexicalEntryModel extends LexicalEntry {
       'language': faker.lorem.word(),
       'lexicalCategory': IdTextModel.fromFakeData(),
       'notes': IdTextTypeModel.fromFakeData(),
-      'pronunciations': faker.lorem.word(),
+      'pronunciations':
+          List<Pronunciation>.generate(faker.randomGenerator.integer(10), (index) => PronunciationModel.fromFakeData()),
       'text': faker.lorem.word(),
       'variantForms':
           List<VariantForm>.generate(faker.randomGenerator.integer(10), (index) => VariantFormModel.fromFakeData()),
