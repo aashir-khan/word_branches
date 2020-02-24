@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:faker/faker.dart';
 
 class QuerySearchMetadata extends Equatable {
   final int limit;
@@ -14,12 +13,4 @@ class QuerySearchMetadata extends Equatable {
 
   @override
   List<Object> get props => [limit, offset, total];
-
-  factory QuerySearchMetadata.fromFakeData() {
-    return QuerySearchMetadata(
-      limit: faker.randomGenerator.integer(1),
-      offset: faker.randomGenerator.integer(1),
-      total: faker.randomGenerator.integer(1),
-    );
-  }
 }

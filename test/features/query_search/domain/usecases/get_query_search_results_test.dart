@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results.dart';
@@ -23,7 +24,7 @@ void main() {
   });
 
   final tQuery = faker.lorem.word();
-  final tQuerySearchResults = QuerySearchResults.fromFakeData();
+  QuerySearchResults tQuerySearchResults = QuerySearchResultsModel.fromFakeData();
 
   test('should get query search results for the query from the repository', () async {
     // arrange
