@@ -3,7 +3,7 @@ import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
 import 'package:dr_words/features/query_search/presentation/pages/search_page_search_delegate.dart';
-import 'package:dr_words/injection.iconfig.dart';
+import 'package:dr_words/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dr_words/core/constants/routes_path.dart' as routes;

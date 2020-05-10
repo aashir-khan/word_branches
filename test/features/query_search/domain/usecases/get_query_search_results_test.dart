@@ -5,7 +5,6 @@ import 'package:dr_words/features/query_search/domain/repositories/query_search_
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results.dart';
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results_impl.dart';
 import 'package:dr_words/injection.dart';
-import 'package:dr_words/injection.iconfig.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

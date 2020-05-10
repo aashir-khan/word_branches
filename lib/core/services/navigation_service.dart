@@ -16,7 +16,7 @@ class NavigationService extends StoppableService {
     return navigatorKey.currentState.pushReplacementNamed(routeName, arguments: arguments);
   }
 
-  bool goBack() {
+  void goBack() {
     return navigatorKey.currentState.pop();
   }
 }

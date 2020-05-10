@@ -10,7 +10,6 @@ import 'package:dr_words/features/query_search/data/models/query_search_results_
 import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/injection.dart';
-import 'package:dr_words/injection.iconfig.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

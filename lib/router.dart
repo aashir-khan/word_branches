@@ -1,6 +1,6 @@
 import 'package:dr_words/core/domain/entities/dictionary_word.dart';
 import 'package:dr_words/features/word_details/presentation/pages/headword_entries_page.dart';
-import 'package:dr_words/injection.iconfig.dart';
+import 'package:dr_words/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

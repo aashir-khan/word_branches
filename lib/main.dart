@@ -1,7 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:dr_words/core/constants/app_colors.dart' as colors;
 import 'package:dr_words/injection.dart';
-import 'package:dr_words/injection.iconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

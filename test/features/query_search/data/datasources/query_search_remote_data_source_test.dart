@@ -5,7 +5,6 @@ import 'package:dr_words/features/query_search/data/datasources/remote/query_sea
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_impl.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
 import 'package:dr_words/injection.dart';
-import 'package:dr_words/injection.iconfig.dart';
 import 'package:dr_words/internal/account_details/account_details.dart';
 import 'package:faker/faker.dart';
 import 'package:http/http.dart' as http;

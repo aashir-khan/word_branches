@@ -7,7 +7,7 @@ import 'package:dr_words/features/query_search/domain/usecases/get_recently_sear
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
-@injectable
+@RegisterAs(GetRecentlySearchedWords)
 class GetRecentlySearchedWordsImpl implements GetRecentlySearchedWords {
   final QuerySearchRepository repository;
 

@@ -11,7 +11,7 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
-@injectable
+@RegisterAs(QuerySearchRepository)
 class QuerySearchRepositoryImpl implements QuerySearchRepository {
   final QuerySearchRemoteDataSource remoteDataSource;
   final QuerySearchLocalDataSource localDataSource;

@@ -3,10 +3,11 @@ import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/features/word_details/domain/entities/headword_entry.dart';
 import 'package:dr_words/features/word_details/domain/repositories/word_details_repository.dart';
 import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/get_headword_entries.dart';
+
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
-@injectable
+@RegisterAs(GetHeadwordEntries)
 class GetHeadwordEntriesImpl implements GetHeadwordEntries {
   final WordDetailsRepository repository;
 

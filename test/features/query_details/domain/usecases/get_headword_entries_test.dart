@@ -7,8 +7,6 @@ import 'package:dr_words/features/word_details/domain/repositories/word_details_
 import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/get_headword_entries.dart';
 import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/get_headword_entries_impl.dart';
 import 'package:dr_words/injection.dart';
-import 'package:dr_words/injection.iconfig.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

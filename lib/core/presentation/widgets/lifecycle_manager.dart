@@ -1,6 +1,6 @@
 import 'package:dr_words/core/services/navigation_service.dart';
 import 'package:dr_words/core/services/stoppable_service.dart';
-import 'package:dr_words/injection.iconfig.dart';
+import 'package:dr_words/injection.dart';
 import 'package:flutter/material.dart';
 
 /// Stop and start long running services

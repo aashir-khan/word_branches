@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:dr_words/core/error/exceptions.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
+import 'package:dr_words/injection.dart';
 import 'package:dr_words/internal/account_details/account_details.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 
 @lazySingleton
-@injectable
+@RegisterAs(QuerySearchRemoteDataSource, env: Env.production)
 class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
   final AccountDetails accountDetails;
   final http.Client client;

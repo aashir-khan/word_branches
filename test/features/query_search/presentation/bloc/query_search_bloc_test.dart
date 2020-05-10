@@ -14,7 +14,6 @@ import 'package:dr_words/features/query_search/domain/usecases/get_recently_sear
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
 import 'package:dr_words/injection.dart';
-import 'package:dr_words/injection.iconfig.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source_impl.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/injection.dart';
-import 'package:dr_words/injection.iconfig.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';

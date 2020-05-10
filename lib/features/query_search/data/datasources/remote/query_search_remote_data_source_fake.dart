@@ -4,13 +4,14 @@ import 'dart:math';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/query_search/data/models/query_search_results_model.dart';
+import 'package:dr_words/injection.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @lazySingleton
-@injectable
+@RegisterAs(QuerySearchRemoteDataSource, env: Env.development)
 class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
   final SharedPreferences sharedPreferences;
 

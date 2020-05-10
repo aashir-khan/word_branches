@@ -1,12 +1,7 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:dr_words/core/data/mock_http_client.dart';
 import 'package:dr_words/core/data/mock_shared_preferences.dart';
-import 'package:dr_words/core/network/mock_data_connection_checker.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/injection.iconfig.dart';
-import 'package:dr_words/internal/account_details/account_details.dart';
-import 'package:dr_words/internal/account_details/mock_account_details.dart';
-import 'package:http/http.dart' as http;
+import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,8 +16,10 @@ Future<void> configureInjection(String environment) async {
   configureAutomaticInjection(environment);
 }
 
+final GetIt getIt = GetIt.instance;
+
 @injectableInit
-void configureAutomaticInjection(String environment) => $initGetIt(environment: environment);
+void configureAutomaticInjection(String environment) => $initGetIt(getIt, environment: environment);
 
 Future<void> configureManualInjection(String environment) async {
   if (environment == Env.production) {
@@ -37,17 +34,11 @@ Future<void> configureManualInjection(String environment) async {
 }
 
 Future _registerProductionDependencies() async {
-  getIt.registerLazySingleton<http.Client>(() => http.Client());
-  getIt.registerLazySingleton<DataConnectionChecker>(() => DataConnectionChecker());
-
   final sharedPreferences = await SharedPreferences.getInstance();
   getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 }
 
 Future _registerDevelopmentDependencies() async {
-  getIt.registerLazySingleton<http.Client>(() => http.Client());
-  getIt.registerLazySingleton<DataConnectionChecker>(() => DataConnectionChecker());
-
   final sharedPreferences = await SharedPreferences.getInstance();
   getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 
@@ -56,8 +47,5 @@ Future _registerDevelopmentDependencies() async {
 }
 
 Future _registerTestDependencies() async {
-  getIt.registerLazySingleton<http.Client>(() => MockHttpClient());
-  getIt.registerLazySingleton<DataConnectionChecker>(() => MockDataConnectionChecker());
   getIt.registerLazySingleton<SharedPreferences>(() => MockSharedPreferences());
-  getIt.registerLazySingleton<AccountDetails>(() => MockAccountDetails());
 }
