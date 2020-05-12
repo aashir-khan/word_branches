@@ -14,9 +14,9 @@ class ResponsiveBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: LayoutBuilder(builder: (context, boxConstraints) {
-        var mediaQuery = MediaQuery.of(context);
+        final mediaQuery = MediaQuery.of(context);
 
-        var sizingInformation = SizingInformation(
+        final sizingInformation = SizingInformation(
           deviceScreenType: utils.getDeviceType(mediaQuery),
           screenSize: mediaQuery.size,
           localWidgetSize: Size(boxConstraints.biggest.width, boxConstraints.biggest.height),

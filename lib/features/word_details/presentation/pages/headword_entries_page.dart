@@ -7,7 +7,7 @@ import 'package:dr_words/core/constants/routes_path.dart' as routes;
 class HeadwordEntriesPage extends StatefulWidget {
   final DictionaryWord wordSelected;
 
-  HeadwordEntriesPage(this.wordSelected);
+  const HeadwordEntriesPage(this.wordSelected);
 
   @override
   _HeadwordEntriesPageState createState() => _HeadwordEntriesPageState();
@@ -21,7 +21,7 @@ class _HeadwordEntriesPageState extends State<HeadwordEntriesPage> {
         title: Text(widget.wordSelected.label),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () async => await getIt<NavigationService>().navigateWithReplacement(routes.HomeRoute),
+          onPressed: () async => getIt<NavigationService>().navigateWithReplacement(routes.homeRoute),
         ),
       ),
     );

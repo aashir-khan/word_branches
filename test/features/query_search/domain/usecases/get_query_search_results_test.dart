@@ -23,7 +23,7 @@ void main() {
   });
 
   final tQuery = faker.lorem.word();
-  QuerySearchResults tQuerySearchResults = QuerySearchResultsModel.fromFakeData();
+  final QuerySearchResults tQuerySearchResults = QuerySearchResultsModel.fromFakeData();
 
   test('should get query search results for the query from the repository', () async {
     // arrange

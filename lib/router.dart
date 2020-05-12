@@ -11,16 +11,16 @@ import 'features/query_search/presentation/pages/search_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case routes.HomeRoute:
+    case routes.homeRoute:
       return MaterialPageRoute(builder: (context) => HomePage());
-    case routes.SearchRoute:
+    case routes.searchRoute:
       return MaterialPageRoute(
         builder: (context) => BlocProvider(
           create: (_) => getIt<QuerySearchBloc>(),
           child: SearchPage(),
         ),
       );
-    case routes.HeadwordEntriesRoute:
+    case routes.headwordEntriesRoute:
       final dictionaryWord = settings.arguments as DictionaryWord;
 
       return MaterialPageRoute(

@@ -4,11 +4,11 @@ import 'package:faker/faker.dart';
 import '../../domain/entities/query_search/query_search_metadata.dart';
 
 class QuerySearchMetadataModel extends QuerySearchMetadata {
-  QuerySearchMetadataModel({
+  const QuerySearchMetadataModel({
     @required int limit,
     @required int offset,
     @required int total,
-  }) : super(limit: limit, offset: offset, total: offset);
+  }) : super(limit: limit, offset: offset, total: total);
 
   factory QuerySearchMetadataModel.fromJson(Map<String, dynamic> json) => QuerySearchMetadataModel(
         limit: int.parse(json['limit'].toString()),

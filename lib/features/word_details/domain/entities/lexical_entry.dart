@@ -18,7 +18,7 @@ class LexicalEntry extends Equatable {
   final String text;
   final List<VariantForm> variantForms;
 
-  LexicalEntry({
+  const LexicalEntry({
     this.derivativeOf,
     this.derivatives,
     this.entries,

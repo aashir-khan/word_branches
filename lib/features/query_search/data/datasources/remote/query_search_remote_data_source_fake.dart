@@ -17,35 +17,37 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
 
   QuerySearchRemoteDataSourceFake({@required this.sharedPreferences});
 
-  static const QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER = 'query_search_results_model';
+  static const querySearchResultsModelDbIdentifer = 'query_search_results_model';
 
   @override
   Future<QuerySearchResultsModel> getQuerySearchResults({
     String query,
   }) async {
-    final initialRawStringStoredData = sharedPreferences.getString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER) ?? '{}';
-    Map<String, dynamic> initialStoredData = json.decode(initialRawStringStoredData);
+    final initialRawStringStoredData = sharedPreferences.getString(querySearchResultsModelDbIdentifer) ?? '{}';
+    final Map<String, dynamic> initialStoredData = json.decode(initialRawStringStoredData) as Map<String, dynamic>;
     if (initialStoredData.isEmpty) {
       return _getQueryResultsHelper(query);
     } else {
       final nonEmptyExistingData = QuerySearchResultsModel.fromJson(initialStoredData);
 
-      List<DictionaryWordModel> wordsList =
-          (nonEmptyExistingData?.results ?? []).where((word) => word.label.startsWith(query)).toList();
+      final List<DictionaryWordModel> wordsList = (nonEmptyExistingData?.results ?? [])
+          .where((word) => word.label.startsWith(query))
+          .map((model) => DictionaryWordModel.fromSuperclass(model))
+          .toList();
 
-      return Future.delayed(Duration(milliseconds: 1),
+      return Future.delayed(const Duration(milliseconds: 1),
           () => QuerySearchResultsModel.fromFakeData(customFieldValues: {'results': wordsList}));
     }
   }
 
   Future<QuerySearchResultsModel> _getQueryResultsHelper(String query) async {
     QuerySearchResultsModel result;
-    List<DictionaryWordModel> wordsList = [];
+    final List<DictionaryWordModel> wordsList = [];
 
     for (var i = 0; i < faker.randomGenerator.integer(100, min: 5); i++) {
       final probabilityOfWordContainingQuery = 100 / query.length / 100;
       final isWordContainQuery = Random().nextDouble() < probabilityOfWordContainingQuery;
-      var wordLabel = isWordContainQuery ? '$query${faker.lorem.word()}' : faker.lorem.word();
+      final wordLabel = isWordContainQuery ? '$query${faker.lorem.word()}' : faker.lorem.word();
       if (isWordContainQuery) {
         wordsList.add(
           DictionaryWordModel.fromFakeData(
@@ -60,7 +62,7 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
 
     result = QuerySearchResultsModel.fromFakeData(customFieldValues: {'results': wordsList});
     final resultEncoded = json.encode(result.toJson());
-    sharedPreferences.setString(QUERY_SEARCH_RESULTS_MODEL_DB_IDENTIFIER, resultEncoded);
-    return Future.delayed(Duration(milliseconds: 1), () => result);
+    sharedPreferences.setString(querySearchResultsModelDbIdentifer, resultEncoded);
+    return Future.delayed(const Duration(milliseconds: 1), () => result);
   }
 }

@@ -98,8 +98,8 @@ void main() {
   });
 
   group('getRecentlySearchedWords', () {
-    List<DictionaryWordModel> tDictionaryWordModelList = [DictionaryWordModel(id: 'test', label: 'test')];
-    List<DictionaryWord> tDictionaryWordList = tDictionaryWordModelList;
+    final List<DictionaryWordModel> tDictionaryWordModelList = [DictionaryWordModel(id: 'test', label: 'test')];
+    final List<DictionaryWord> tDictionaryWordList = tDictionaryWordModelList;
 
     test('should return local data when the call to local data is successful', () async {
       // arrange
@@ -128,7 +128,7 @@ void main() {
   });
   group('addNewRecentlySearchedWord', () {
     final tNewWordToAddModel = DictionaryWordModel.fromFakeData();
-    DictionaryWord tNewWordToAdd = tNewWordToAddModel;
+    final DictionaryWord tNewWordToAdd = tNewWordToAddModel;
     test('should return true if the recently searched word is added successfully to the repository', () async {
       // arrange
       when(mockLocalDataSource.addNewRecentlySearchedWord(any)).thenAnswer((_) async => true);

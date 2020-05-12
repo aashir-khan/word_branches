@@ -7,7 +7,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 
 class HeadwordEntryModel extends HeadwordEntry {
-  HeadwordEntryModel({
+  const HeadwordEntryModel({
     @required String id,
     @required String language,
     @required List<LexicalEntry> lexicalEntries,
@@ -24,7 +24,7 @@ class HeadwordEntryModel extends HeadwordEntry {
   factory HeadwordEntryModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
     final defaultType = faker.lorem.word();
 
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'id': defaultType,
       'language': faker.lorem.word(),
       'lexicalEntries':
@@ -34,11 +34,13 @@ class HeadwordEntryModel extends HeadwordEntry {
       'type': defaultType,
     };
 
-    final id = customFieldValues['id'] ?? defaultFieldValues['id'];
-    final language = customFieldValues['language'] ?? defaultFieldValues['language'];
-    final lexicalEntries = customFieldValues['lexicalEntries'] ?? defaultFieldValues['lexicalEntries'];
-    final pronunciations = customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations'];
-    final type = customFieldValues['type'] ?? defaultFieldValues['type'];
+    final id = (customFieldValues['id'] ?? defaultFieldValues['id']) as String;
+    final language = (customFieldValues['language'] ?? defaultFieldValues['language']) as String;
+    final lexicalEntries =
+        (customFieldValues['lexicalEntries'] ?? defaultFieldValues['lexicalEntries']) as List<LexicalEntry>;
+    final pronunciations =
+        (customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations']) as List<Pronunciation>;
+    final type = (customFieldValues['type'] ?? defaultFieldValues['type']) as String;
 
     return HeadwordEntryModel(
       id: id,

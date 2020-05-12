@@ -12,8 +12,9 @@ class GetQuerySearchResultsImpl implements GetQuerySearchResults {
 
   GetQuerySearchResultsImpl(this.repository);
 
+  @override
   Future<dartz.Either<Failure, QuerySearchResults>> call(Params params) async {
-    return await repository.getQuerySearchResults(
+    return repository.getQuerySearchResults(
       query: params.query,
     );
   }

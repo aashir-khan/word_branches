@@ -10,7 +10,7 @@ class RelatedEntry extends Equatable {
   final List<IdText> registers;
   final String text;
 
-  RelatedEntry({
+  const RelatedEntry({
     @required this.id,
     @required this.text,
     this.language,

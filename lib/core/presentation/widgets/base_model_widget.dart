@@ -13,7 +13,7 @@ class DataProviderElement<T> extends ComponentElement {
   DataProviderElement(BaseModelWidget widget) : super(widget);
 
   @override
-  BaseModelWidget get widget => super.widget;
+  BaseModelWidget get widget => super.widget as BaseModelWidget;
 
   @override
   Widget build() => widget.build(this, Provider.of<T>(this));

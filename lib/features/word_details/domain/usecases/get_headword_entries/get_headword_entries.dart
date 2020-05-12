@@ -7,13 +7,14 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class GetHeadwordEntries extends UseCase<List<HeadwordEntry>, Params> {
+  @override
   Future<dartz.Either<Failure, List<HeadwordEntry>>> call(Params params);
 }
 
 class Params extends Equatable {
   final DictionaryWord word;
 
-  Params({@required this.word});
+  const Params({@required this.word});
 
   @override
   List<Object> get props => [word];

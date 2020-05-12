@@ -13,7 +13,8 @@ class GetRecentlySearchedWordsImpl implements GetRecentlySearchedWords {
 
   GetRecentlySearchedWordsImpl(this.repository);
 
+  @override
   Future<dartz.Either<Failure, List<DictionaryWord>>> call(NoParams params) async {
-    return await repository.getRecentlySearchedWords();
+    return repository.getRecentlySearchedWords();
   }
 }

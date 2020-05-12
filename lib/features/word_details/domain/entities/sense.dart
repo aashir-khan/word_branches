@@ -11,7 +11,7 @@ class Sense extends Equatable {
   final List<IdText> registers;
   final String text;
 
-  Sense({
+  const Sense({
     this.domains,
     this.examples,
     this.notes,

@@ -4,7 +4,7 @@ import 'package:dr_words/features/word_details/domain/entities/pronunciation.dar
 import 'package:faker/faker.dart';
 
 class PronunciationModel extends Pronunciation {
-  PronunciationModel({
+  const PronunciationModel({
     String audioFile,
     List<String> dialects,
     String phoneticNotation,
@@ -19,7 +19,7 @@ class PronunciationModel extends Pronunciation {
         );
 
   factory PronunciationModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'audioFile': faker.internet.httpsUrl(),
       'dialects': faker.lorem.words(faker.randomGenerator.integer(10)),
       'phoneticNotation': faker.lorem.word(),
@@ -27,11 +27,13 @@ class PronunciationModel extends Pronunciation {
       'registersList': List<IdText>.generate(faker.randomGenerator.integer(10), (index) => IdTextModel.fromFakeData()),
     };
 
-    final audioFile = customFieldValues['audioFile'] ?? defaultFieldValues['audioFile'];
-    final dialects = customFieldValues['dialects'] ?? defaultFieldValues['dialects'];
-    final phoneticNotation = customFieldValues['phoneticNotation'] ?? defaultFieldValues['phoneticNotation'];
-    final phoneticSpelling = customFieldValues['phoneticSpelling'] ?? defaultFieldValues['phoneticSpelling'];
-    final registersList = customFieldValues['registersList'] ?? defaultFieldValues['registersList'];
+    final audioFile = (customFieldValues['audioFile'] ?? defaultFieldValues['audioFile']) as String;
+    final dialects = (customFieldValues['dialects'] ?? defaultFieldValues['dialects']) as List<String>;
+    final phoneticNotation =
+        (customFieldValues['phoneticNotation'] ?? defaultFieldValues['phoneticNotation']) as String;
+    final phoneticSpelling =
+        (customFieldValues['phoneticSpelling'] ?? defaultFieldValues['phoneticSpelling']) as String;
+    final registersList = (customFieldValues['registersList'] ?? defaultFieldValues['registersList']) as List<IdText>;
 
     return PronunciationModel(
       audioFile: audioFile,

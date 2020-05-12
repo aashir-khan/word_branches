@@ -10,7 +10,7 @@ class HeadwordEntry extends Equatable {
   final List<Pronunciation> pronunciations;
   final String type;
 
-  HeadwordEntry({
+  const HeadwordEntry({
     @required this.id,
     @required this.language,
     @required this.lexicalEntries,

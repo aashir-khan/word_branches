@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:faker/faker.dart';
 
 class IdTextTypeModel extends IdTextType {
-  IdTextTypeModel({
+  const IdTextTypeModel({
     @required String id,
     @required String text,
     @required String type,
@@ -16,15 +16,15 @@ class IdTextTypeModel extends IdTextType {
   factory IdTextTypeModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
     final defaultText = faker.lorem.word();
 
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'id': defaultText,
       'text': defaultText,
       'type': defaultText,
     };
 
-    final id = customFieldValues['id'] ?? defaultFieldValues['id'];
-    final text = customFieldValues['text'] ?? defaultFieldValues['text'];
-    final type = customFieldValues['type'] ?? defaultFieldValues['type'];
+    final id = (customFieldValues['id'] ?? defaultFieldValues['id']) as String;
+    final text = (customFieldValues['text'] ?? defaultFieldValues['text']) as String;
+    final type = (customFieldValues['type'] ?? defaultFieldValues['type']) as String;
 
     return IdTextTypeModel(
       id: id,

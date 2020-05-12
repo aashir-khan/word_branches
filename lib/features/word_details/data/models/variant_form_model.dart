@@ -8,7 +8,7 @@ import 'package:dr_words/features/word_details/domain/entities/variant_form.dart
 import 'package:faker/faker.dart';
 
 class VariantFormModel extends VariantForm {
-  VariantFormModel({
+  const VariantFormModel({
     List<IdText> domains,
     List<IdTextType> notes,
     List<Pronunciation> pronunciations,
@@ -25,7 +25,7 @@ class VariantFormModel extends VariantForm {
         );
 
   factory VariantFormModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'domains': List<IdText>.generate(faker.randomGenerator.integer(10), (index) => IdTextModel.fromFakeData()),
       'notes': List<IdTextType>.generate(faker.randomGenerator.integer(10), (index) => IdTextTypeModel.fromFakeData()),
       'pronunciations':
@@ -35,12 +35,13 @@ class VariantFormModel extends VariantForm {
       'text': faker.lorem.word(),
     };
 
-    final domains = customFieldValues['domains'] ?? defaultFieldValues['domains'];
-    final notes = customFieldValues['notes'] ?? defaultFieldValues['notes'];
-    final pronunciations = customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations'];
-    final regions = customFieldValues['regions'] ?? defaultFieldValues['regions'];
-    final registers = customFieldValues['registers'] ?? defaultFieldValues['registers'];
-    final text = customFieldValues['text'] ?? defaultFieldValues['text'];
+    final domains = (customFieldValues['domains'] ?? defaultFieldValues['domains']) as List<IdText>;
+    final notes = (customFieldValues['notes'] ?? defaultFieldValues['notes']) as List<IdTextType>;
+    final pronunciations =
+        (customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations']) as List<Pronunciation>;
+    final regions = (customFieldValues['regions'] ?? defaultFieldValues['regions']) as List<IdText>;
+    final registers = (customFieldValues['registers'] ?? defaultFieldValues['registers']) as List<IdText>;
+    final text = (customFieldValues['text'] ?? defaultFieldValues['text']) as String;
 
     return VariantFormModel(
       domains: domains,

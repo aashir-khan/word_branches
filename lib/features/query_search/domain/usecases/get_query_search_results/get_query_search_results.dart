@@ -6,13 +6,14 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class GetQuerySearchResults extends UseCase<QuerySearchResults, Params> {
+  @override
   Future<dartz.Either<Failure, QuerySearchResults>> call(Params params);
 }
 
 class Params extends Equatable {
   final String query;
 
-  Params({
+  const Params({
     @required this.query,
   });
 

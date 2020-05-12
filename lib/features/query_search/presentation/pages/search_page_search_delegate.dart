@@ -60,7 +60,7 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
       bloc: bloc,
       builder: (context, state) {
         if (state is Empty) {
-          return Center(
+          return const Center(
             child: Text('Enter a query to search from'),
           );
         } else if (state is Loading) {
@@ -71,63 +71,63 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
           return ListView.builder(
             itemCount: state.recentlySearchedWords.length,
             itemBuilder: (context, index) => InkWell(
+              onTap: () async {
+                final DictionaryWord wordToGetHeadwordEntries = state.recentlySearchedWords[index];
+                close(context, wordToGetHeadwordEntries);
+              },
               child: Container(
+                // child: Text('foo'),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 24,
+                ),
                 child: Row(
                   children: <Widget>[
                     SvgPicture.asset(
-                      IconUtils.timeIcon,
-                      placeholderBuilder: (_) => CircularProgressIndicator(),
+                      iconUtils['timeIcon'] as String,
+                      placeholderBuilder: (_) => const CircularProgressIndicator(),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 2, bottom: 2, left: 24),
                       child: Text(
                         state.recentlySearchedWords[index].label,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                         ),
                       ),
                     ),
                   ],
                 ),
-                // child: Text('foo'),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 24,
-                ),
               ),
-              onTap: () async {
-                DictionaryWord wordToGetHeadwordEntries = state.recentlySearchedWords[index];
-                close(context, wordToGetHeadwordEntries);
-              },
             ),
           );
         } else if (state is QuerySearchLoadedState) {
-          return (state?.querySearchResults?.results ?? []).length == 0
-              ? Center(
+          return (state?.querySearchResults?.results ?? []).isEmpty
+              ? const Center(
                   child: Text('No results found'),
                 )
               : ListView.builder(
                   itemCount: state.querySearchResults.results.length,
                   itemBuilder: (context, index) => InkWell(
-                    child: Container(
-                      child: Text(
-                        state.querySearchResults.results[index].label,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16,
-                        horizontal: 24,
-                      ),
-                    ),
                     onTap: () {
                       final querySingleSearchResult = state.querySearchResults.results[index];
                       bloc.add(AddNewRecentlySearchedWordEvent(newRecentlySearchedWord: querySingleSearchResult));
                       close(context, querySingleSearchResult);
                     },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 24,
+                      ),
+                      child: Text(
+                        state.querySearchResults.results[index].label,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ),
                 );
         }
-        return Scaffold();
+        return const Scaffold();
       },
     );
   }

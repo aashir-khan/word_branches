@@ -8,7 +8,7 @@ class Pronunciation extends Equatable {
   final String phoneticSpelling;
   final List<IdText> registersList;
 
-  Pronunciation({
+  const Pronunciation({
     this.audioFile,
     this.dialects,
     this.phoneticNotation,
@@ -16,6 +16,7 @@ class Pronunciation extends Equatable {
     this.registersList,
   });
 
+  @override
   List<Object> get props => [
         audioFile,
         dialects,

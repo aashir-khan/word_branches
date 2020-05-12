@@ -5,7 +5,7 @@ class BaseWidget<T extends ChangeNotifier> extends StatefulWidget {
   final Widget child;
   final Function(T) onModelReady;
   final T viewModel;
-  BaseWidget({
+  const BaseWidget({
     Key key,
     this.child,
     this.onModelReady,

@@ -14,7 +14,7 @@ import 'package:dr_words/features/word_details/domain/entities/variant_form.dart
 import 'package:faker/faker.dart';
 
 class LexicalEntryModel extends LexicalEntry {
-  LexicalEntryModel({
+  const LexicalEntryModel({
     List<RelatedEntry> derivativeOf,
     List<RelatedEntry> derivatives,
     List<Entry> entries,
@@ -39,7 +39,7 @@ class LexicalEntryModel extends LexicalEntry {
         );
 
   factory LexicalEntryModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'derivativeOf':
           List<RelatedEntry>.generate(faker.randomGenerator.integer(10), (index) => RelatedEntryModel.fromFakeData()),
       'derivatives':
@@ -57,16 +57,19 @@ class LexicalEntryModel extends LexicalEntry {
           List<VariantForm>.generate(faker.randomGenerator.integer(10), (index) => VariantFormModel.fromFakeData()),
     };
 
-    final derivativeOf = customFieldValues['derivativeOf'] ?? defaultFieldValues['derivativeOf'];
-    final derivatives = customFieldValues['derivatives'] ?? defaultFieldValues['derivatives'];
-    final entries = customFieldValues['entries'] ?? defaultFieldValues['entries'];
-    final grammaticalFeatures = customFieldValues['grammaticalFeatures'] ?? defaultFieldValues['grammaticalFeatures'];
-    final language = customFieldValues['language'] ?? defaultFieldValues['language'];
-    final lexicalCategory = customFieldValues['lexicalCategory'] ?? defaultFieldValues['lexicalCategory'];
-    final notes = customFieldValues['notes'] ?? defaultFieldValues['notes'];
-    final pronunciations = customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations'];
-    final text = customFieldValues['text'] ?? defaultFieldValues['text'];
-    final variantForms = customFieldValues['variantForms'] ?? defaultFieldValues['variantForms'];
+    final derivativeOf =
+        (customFieldValues['derivativeOf'] ?? defaultFieldValues['derivativeOf']) as List<RelatedEntry>;
+    final derivatives = (customFieldValues['derivatives'] ?? defaultFieldValues['derivatives']) as List<RelatedEntry>;
+    final entries = (customFieldValues['entries'] ?? defaultFieldValues['entries']) as List<Entry>;
+    final grammaticalFeatures =
+        (customFieldValues['grammaticalFeatures'] ?? defaultFieldValues['grammaticalFeatures']) as List<IdTextType>;
+    final language = (customFieldValues['language'] ?? defaultFieldValues['language']) as String;
+    final lexicalCategory = (customFieldValues['lexicalCategory'] ?? defaultFieldValues['lexicalCategory']) as IdText;
+    final notes = (customFieldValues['notes'] ?? defaultFieldValues['notes']) as IdTextType;
+    final pronunciations =
+        (customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations']) as List<Pronunciation>;
+    final text = (customFieldValues['text'] ?? defaultFieldValues['text']) as String;
+    final variantForms = (customFieldValues['variantForms'] ?? defaultFieldValues['variantForms']) as List<VariantForm>;
 
     return LexicalEntryModel(
       derivativeOf: derivativeOf,

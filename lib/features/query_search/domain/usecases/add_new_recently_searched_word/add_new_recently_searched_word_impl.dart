@@ -13,6 +13,6 @@ class AddNewRecentlySearchedWordImpl implements AddNewRecentlySearchedWord {
 
   @override
   Future<dartz.Either<Failure, bool>> call(Params params) async {
-    return await repository.addNewRecentlySearchedWord(params.newWordToAdd);
+    return repository.addNewRecentlySearchedWord(params.newWordToAdd);
   }
 }

@@ -7,7 +7,7 @@ class QuerySearchResults extends Equatable {
   final QuerySearchMetadata metadata;
   final List<DictionaryWord> results;
 
-  QuerySearchResults({
+  const QuerySearchResults({
     this.metadata,
     this.results,
   });

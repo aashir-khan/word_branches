@@ -6,7 +6,7 @@ import 'package:dr_words/features/word_details/domain/entities/word_example.dart
 import 'package:faker/faker.dart';
 
 class WordExampleModel extends WordExample {
-  WordExampleModel({
+  const WordExampleModel({
     List<String> definitions,
     List<IdText> domainsList,
     List<IdTextType> notes,
@@ -23,7 +23,7 @@ class WordExampleModel extends WordExample {
         );
 
   factory WordExampleModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'definitions': faker.lorem.words(faker.randomGenerator.integer(10)),
       'domainsList': List<IdText>.generate(faker.randomGenerator.integer(10), (index) => IdTextModel.fromFakeData()),
       'notes': List<IdTextType>.generate(faker.randomGenerator.integer(10), (index) => IdTextTypeModel.fromFakeData()),
@@ -32,12 +32,12 @@ class WordExampleModel extends WordExample {
       'text': faker.lorem.word(),
     };
 
-    final definitions = customFieldValues['definitions'] ?? defaultFieldValues['definitions'];
-    final domainsList = customFieldValues['domainsList'] ?? defaultFieldValues['domainsList'];
-    final notes = customFieldValues['notes'] ?? defaultFieldValues['notes'];
-    final regions = customFieldValues['regions'] ?? defaultFieldValues['regions'];
-    final senseIds = customFieldValues['senseIds'] ?? defaultFieldValues['senseIds'];
-    final text = customFieldValues['text'] ?? defaultFieldValues['text'];
+    final definitions = (customFieldValues['definitions'] ?? defaultFieldValues['definitions']) as List<String>;
+    final domainsList = (customFieldValues['domainsList'] ?? defaultFieldValues['domainsList']) as List<IdText>;
+    final notes = (customFieldValues['notes'] ?? defaultFieldValues['notes']) as List<IdTextType>;
+    final regions = (customFieldValues['regions'] ?? defaultFieldValues['regions']) as List<IdText>;
+    final senseIds = (customFieldValues['senseIds'] ?? defaultFieldValues['senseIds']) as List<IdText>;
+    final text = (customFieldValues['text'] ?? defaultFieldValues['text']) as String;
 
     return WordExampleModel(
       definitions: definitions,

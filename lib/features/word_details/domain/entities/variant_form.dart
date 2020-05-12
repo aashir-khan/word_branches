@@ -12,7 +12,7 @@ class VariantForm extends Equatable {
   final List<IdText> registers;
   final String text;
 
-  VariantForm({
+  const VariantForm({
     this.domains,
     this.notes,
     this.pronunciations,

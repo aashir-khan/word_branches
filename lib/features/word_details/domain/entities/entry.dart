@@ -13,7 +13,7 @@ class Entry extends Equatable {
   final List<Sense> senses;
   final List<VariantForm> variantForms;
 
-  Entry({
+  const Entry({
     this.etymologies,
     this.grammaticalFeatures,
     this.homographNumber,

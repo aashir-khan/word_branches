@@ -5,7 +5,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 
 class RelatedEntryModel extends RelatedEntry {
-  RelatedEntryModel({
+  const RelatedEntryModel({
     @required String id,
     @required String language,
     List<IdText> domains,
@@ -23,7 +23,7 @@ class RelatedEntryModel extends RelatedEntry {
 
   factory RelatedEntryModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
     final defaultText = faker.lorem.word();
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'id': defaultText,
       'language': faker.lorem.word(),
       'domains': List<IdText>.generate(faker.randomGenerator.integer(10), (index) => IdTextModel.fromFakeData()),
@@ -32,12 +32,12 @@ class RelatedEntryModel extends RelatedEntry {
       'text': defaultText,
     };
 
-    final id = customFieldValues['id'] ?? defaultFieldValues['id'];
-    final language = customFieldValues['language'] ?? defaultFieldValues['language'];
-    final domains = customFieldValues['domains'] ?? defaultFieldValues['domains'];
-    final regions = customFieldValues['regions'] ?? defaultFieldValues['regions'];
-    final registers = customFieldValues['registers'] ?? defaultFieldValues['registers'];
-    final text = customFieldValues['text'] ?? defaultFieldValues['text'];
+    final id = (customFieldValues['id'] ?? defaultFieldValues['id']) as String;
+    final language = (customFieldValues['language'] ?? defaultFieldValues['language']) as String;
+    final domains = (customFieldValues['domains'] ?? defaultFieldValues['domains']) as List<IdText>;
+    final regions = (customFieldValues['regions'] ?? defaultFieldValues['regions']) as List<IdText>;
+    final registers = (customFieldValues['registers'] ?? defaultFieldValues['registers']) as List<IdText>;
+    final text = (customFieldValues['text'] ?? defaultFieldValues['text']) as String;
 
     return RelatedEntryModel(
       id: id,

@@ -15,6 +15,6 @@ class GetHeadwordEntriesImpl implements GetHeadwordEntries {
 
   @override
   Future<Either<Failure, List<HeadwordEntry>>> call(Params params) async {
-    return await repository.getHeadwordEntries(params.word);
+    return repository.getHeadwordEntries(params.word);
   }
 }

@@ -17,13 +17,13 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void didChangeDependencies() {
     Future.delayed(Duration.zero, () async {
-      DictionaryWord result =
+      final DictionaryWord result =
           await showSearch(context: context, delegate: WordQuerySearch(BlocProvider.of<QuerySearchBloc>(context)));
       if (result != null) {
         await getIt<NavigationService>()
-            .navigateWithReplacement<DictionaryWord>(routes.HeadwordEntriesRoute, arguments: result);
+            .navigateWithReplacement<DictionaryWord>(routes.headwordEntriesRoute, arguments: result);
       } else {
-        await getIt<NavigationService>().navigateWithReplacement(routes.HomeRoute);
+        await getIt<NavigationService>().navigateWithReplacement(routes.homeRoute);
       }
     });
 
@@ -32,7 +32,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         // appBar: AppBar(
         //     title: Text('Results'),
         //     leading: result['singleResult'] != null

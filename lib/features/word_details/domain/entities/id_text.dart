@@ -5,7 +5,7 @@ class IdText extends Equatable {
   final String id;
   final String text;
 
-  IdText({
+  const IdText({
     @required this.id,
     @required this.text,
   });

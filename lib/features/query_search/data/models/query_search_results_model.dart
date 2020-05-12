@@ -5,26 +5,27 @@ import 'package:flutter/foundation.dart';
 import 'package:faker/faker.dart';
 
 class QuerySearchResultsModel extends QuerySearchResults {
-  QuerySearchResultsModel({
+  const QuerySearchResultsModel({
     @required QuerySearchMetadataModel metadata,
     @required List<DictionaryWordModel> results,
   }) : super(metadata: metadata, results: results);
 
   factory QuerySearchResultsModel.fromJson(Map<String, dynamic> json) {
-    List<DictionaryWordModel> results = [];
+    final List<DictionaryWordModel> results = [];
 
     json['results'].forEach((result) {
-      results.add(DictionaryWordModel.fromJson(result));
+      results.add(DictionaryWordModel.fromJson(result as Map<String, dynamic>));
     });
 
     return QuerySearchResultsModel(
-      metadata: json['metadata'] == null ? null : QuerySearchMetadataModel.fromJson(json['metadata']),
+      metadata:
+          json['metadata'] == null ? null : QuerySearchMetadataModel.fromJson(json['metadata'] as Map<String, dynamic>),
       results: results,
     );
   }
 
   Map<String, dynamic> toJson() {
-    List<Map<String, dynamic>> _results = [];
+    final List<Map<String, dynamic>> _results = [];
     results.cast<DictionaryWordModel>().forEach((s) => _results.add(s.toJson()));
     return {
       'metadata': (metadata as QuerySearchMetadataModel).toJson(),
@@ -36,7 +37,15 @@ class QuerySearchResultsModel extends QuerySearchResults {
     Map<String, dynamic> customFieldValues = const {},
     Map<String, dynamic> options = const {},
   }) {
-    int resultsCount = (customFieldValues['results'] ?? []).length ?? options['resultsAcount'] ?? 10;
+    int resultsCount;
+
+    if (customFieldValues['results'] != null) {
+      resultsCount = (customFieldValues['results'] as List<DictionaryWordModel>).length;
+    } else if (options['resultsAcount'] != null) {
+      resultsCount = customFieldValues['results'] as int;
+    } else {
+      resultsCount = 10;
+    }
 
     final results = (customFieldValues['results'] as List<DictionaryWordModel>) ??
         List<DictionaryWordModel>.generate(resultsCount, (_) => DictionaryWordModel.fromFakeData());

@@ -10,7 +10,7 @@ import 'package:dr_words/features/word_details/domain/entities/variant_form.dart
 import 'package:faker/faker.dart';
 
 class EntryModel extends Entry {
-  EntryModel({
+  const EntryModel({
     List<String> etymologies,
     List<IdTextType> grammaticalFeatures,
     String homographNumber,
@@ -29,7 +29,7 @@ class EntryModel extends Entry {
         );
 
   factory EntryModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'etymologies': faker.lorem.words(faker.randomGenerator.integer(10)),
       'grammaticalFeatures':
           List<IdTextType>.generate(faker.randomGenerator.integer(10), (index) => IdTextTypeModel.fromFakeData()),
@@ -42,13 +42,15 @@ class EntryModel extends Entry {
           List<VariantForm>.generate(faker.randomGenerator.integer(10), (index) => VariantFormModel.fromFakeData()),
     };
 
-    final etymologies = customFieldValues['etymologies'] ?? defaultFieldValues['etymologies'];
-    final grammaticalFeatures = customFieldValues['grammaticalFeatures'] ?? defaultFieldValues['grammaticalFeatures'];
-    final homographNumber = customFieldValues['homographNumber'] ?? defaultFieldValues['homographNumber'];
-    final notes = customFieldValues['notes'] ?? defaultFieldValues['notes'];
-    final pronunciations = customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations'];
-    final senses = customFieldValues['senses'] ?? defaultFieldValues['senses'];
-    final variantForms = customFieldValues['variantForms'] ?? defaultFieldValues['variantForms'];
+    final etymologies = (customFieldValues['etymologies'] ?? defaultFieldValues['etymologies']) as List<String>;
+    final grammaticalFeatures =
+        (customFieldValues['grammaticalFeatures'] ?? defaultFieldValues['grammaticalFeatures']) as List<IdTextType>;
+    final homographNumber = (customFieldValues['homographNumber'] ?? defaultFieldValues['homographNumber']) as String;
+    final notes = (customFieldValues['notes'] ?? defaultFieldValues['notes']) as List<IdTextType>;
+    final pronunciations =
+        (customFieldValues['pronunciations'] ?? defaultFieldValues['pronunciations']) as List<Pronunciation>;
+    final senses = (customFieldValues['senses'] ?? defaultFieldValues['senses']) as List<Sense>;
+    final variantForms = (customFieldValues['variantForms'] ?? defaultFieldValues['variantForms']) as List<VariantForm>;
 
     return EntryModel(
       etymologies: etymologies,

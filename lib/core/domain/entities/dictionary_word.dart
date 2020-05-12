@@ -5,7 +5,7 @@ class DictionaryWord extends Equatable {
   final String id;
   final String label;
 
-  DictionaryWord({
+  const DictionaryWord({
     this.id,
     this.label,
   });

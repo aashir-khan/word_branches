@@ -6,13 +6,14 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class AddNewRecentlySearchedWord extends UseCase<bool, Params> {
+  @override
   Future<dartz.Either<Failure, bool>> call(Params params);
 }
 
 class Params extends Equatable {
   final DictionaryWord newWordToAdd;
 
-  Params({@required this.newWordToAdd});
+  const Params({@required this.newWordToAdd});
 
   @override
   List<Object> get props => [newWordToAdd];

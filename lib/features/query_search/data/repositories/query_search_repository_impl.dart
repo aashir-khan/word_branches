@@ -5,6 +5,7 @@ import 'package:dr_words/core/error/failures.dart';
 import 'package:dr_words/core/network/network_info/network_info.dart';
 import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
+import 'package:dr_words/features/query_search/data/models/dictionary_word_model.dart';
 import 'package:dr_words/features/query_search/domain/entities/query_search/query_search_results.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:flutter/foundation.dart';
@@ -51,7 +52,7 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
   @override
   Future<Either<Failure, bool>> addNewRecentlySearchedWord(DictionaryWord newWordToAdd) async {
     try {
-      return Right(await localDataSource.addNewRecentlySearchedWord(newWordToAdd));
+      return Right(await localDataSource.addNewRecentlySearchedWord(DictionaryWordModel.fromSuperclass(newWordToAdd)));
     } on LocalDatabaseProcessingException {
       return Left(LocalDatabaseProcessingFailure());
     }

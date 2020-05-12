@@ -1,6 +1,5 @@
+import 'package:dr_words/core/services/stoppable_service.dart';
 import 'package:injectable/injectable.dart';
-
-import 'stoppable_service.dart';
 import 'package:flutter/material.dart';
 
 @lazySingleton

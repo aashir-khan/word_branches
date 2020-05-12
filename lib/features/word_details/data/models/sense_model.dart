@@ -7,7 +7,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 
 class SenseModel extends Sense {
-  SenseModel({
+  const SenseModel({
     List<IdText> domains,
     List<String> examples,
     List<IdTextType> notes,
@@ -24,7 +24,7 @@ class SenseModel extends Sense {
         );
 
   factory SenseModel.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    Map<String, dynamic> defaultFieldValues = {
+    final Map<String, dynamic> defaultFieldValues = {
       'domains': List<IdText>.generate(faker.randomGenerator.integer(10), (index) => IdTextModel.fromFakeData()),
       'examples': faker.lorem.words(faker.randomGenerator.integer(10)),
       'notes': List<IdTextType>.generate(faker.randomGenerator.integer(10), (index) => IdTextTypeModel.fromFakeData()),
@@ -33,12 +33,12 @@ class SenseModel extends Sense {
       'text': faker.lorem.word(),
     };
 
-    final domains = customFieldValues['domains'] ?? defaultFieldValues['domains'];
-    final examples = customFieldValues['examples'] ?? defaultFieldValues['examples'];
-    final notes = customFieldValues['notes'] ?? defaultFieldValues['notes'];
-    final regions = customFieldValues['regions'] ?? defaultFieldValues['regions'];
-    final registers = customFieldValues['registers'] ?? defaultFieldValues['registers'];
-    final text = customFieldValues['text'] ?? defaultFieldValues['text'];
+    final domains = (customFieldValues['domains'] ?? defaultFieldValues['domains']) as List<IdText>;
+    final examples = (customFieldValues['examples'] ?? defaultFieldValues['examples']) as List<String>;
+    final notes = (customFieldValues['notes'] ?? defaultFieldValues['notes']) as List<IdTextType>;
+    final regions = (customFieldValues['regions'] ?? defaultFieldValues['regions']) as List<IdText>;
+    final registers = (customFieldValues['registers'] ?? defaultFieldValues['registers']) as List<IdText>;
+    final text = (customFieldValues['text'] ?? defaultFieldValues['text']) as String;
 
     return SenseModel(
       domains: domains,

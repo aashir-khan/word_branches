@@ -5,7 +5,7 @@ class QuerySearchMetadata extends Equatable {
   final int offset;
   final int total;
 
-  QuerySearchMetadata({
+  const QuerySearchMetadata({
     this.limit,
     this.offset,
     this.total,

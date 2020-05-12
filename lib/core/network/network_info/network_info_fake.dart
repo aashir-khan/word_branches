@@ -5,5 +5,6 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 @RegisterAs(NetworkInfo, env: Env.development)
 class NetworkInfoFake implements NetworkInfo {
+  @override
   Future<bool> get isConnected => Future.value(true);
 }

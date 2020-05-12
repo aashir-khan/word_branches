@@ -13,7 +13,7 @@ class GetRecentlySearchedWordsEvent extends QuerySearchEvent {
 class ModifyQueryEvent extends QuerySearchEvent {
   final String query;
 
-  ModifyQueryEvent({this.query});
+  const ModifyQueryEvent({this.query});
 
   @override
   List<Object> get props => [query];
@@ -22,7 +22,7 @@ class ModifyQueryEvent extends QuerySearchEvent {
 class AddNewRecentlySearchedWordEvent extends QuerySearchEvent {
   final DictionaryWord newRecentlySearchedWord;
 
-  AddNewRecentlySearchedWordEvent({this.newRecentlySearchedWord});
+  const AddNewRecentlySearchedWordEvent({this.newRecentlySearchedWord});
 
   @override
   List<Object> get props => [newRecentlySearchedWord];

@@ -10,7 +10,7 @@ class WordExample extends Equatable {
   final List<IdText> senseIds;
   final String text;
 
-  WordExample({
+  const WordExample({
     this.definitions,
     this.domainsList,
     this.notes,

@@ -20,7 +20,7 @@ class Loading extends QuerySearchState {
 class QuerySearchLoadedState extends QuerySearchState {
   final QuerySearchResults querySearchResults;
 
-  QuerySearchLoadedState({this.querySearchResults});
+  const QuerySearchLoadedState({this.querySearchResults});
 
   @override
   List<Object> get props => [querySearchResults];
@@ -29,7 +29,7 @@ class QuerySearchLoadedState extends QuerySearchState {
 class QuerySearchErrorState extends QuerySearchState {
   final String message;
 
-  QuerySearchErrorState({@required this.message});
+  const QuerySearchErrorState({@required this.message});
 
   @override
   List<Object> get props => [message];
@@ -43,7 +43,7 @@ class QuerySearchNewWordAddedState extends QuerySearchState {
 class QuerySearchRecentlySearchedWordsLoadedState extends QuerySearchState {
   final List<DictionaryWord> recentlySearchedWords;
 
-  QuerySearchRecentlySearchedWordsLoadedState({this.recentlySearchedWords});
+  const QuerySearchRecentlySearchedWordsLoadedState({this.recentlySearchedWords});
 
   @override
   List<Object> get props => [recentlySearchedWords];
