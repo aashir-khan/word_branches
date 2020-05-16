@@ -13,30 +13,27 @@ import 'package:mockito/mockito.dart';
 import 'package:matcher/matcher.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
+import '../../../../helpers/setup_all_for_test.dart';
 
-void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
+Future<void> main() async {
+  await setupInjectionForTest();
 
   QuerySearchRemoteDataSource dataSource;
   http.Client mockHttpClient;
   AccountDetails mockAccountDetails;
 
-  setUpAll(() async {
-    await configureInjection(Env.test);
-  });
-
   setUp(() {
     mockHttpClient = getIt<http.Client>();
     // mockHttpClient = Foo();
     mockAccountDetails = getIt<AccountDetails>();
-    dataSource = getIt<QuerySearchRemoteDataSourceImpl>();
+    dataSource = QuerySearchRemoteDataSourceImpl(client: mockHttpClient, accountDetails: mockAccountDetails);
 
     when(mockAccountDetails.oxfordAPIDetails).thenReturn({});
   });
 
   group('getQuerySearchResults', () {
-    final tQuerySearchResultsModel =
-        QuerySearchResultsModel.fromJson(json.decode(fixture('query_search/query_search_results.json')));
+    final tQuerySearchResultsModel = QuerySearchResultsModel.fromJson(
+        json.decode(fixture('query_search/query_search_results.json')) as Map<String, dynamic>);
     final tQuery = faker.lorem.word();
 
     test('should return QuerySearchResultsModel when the response code is 200 (success)', () async {
@@ -64,7 +61,7 @@ void main() {
           () => call(
                 query: tQuery,
               ),
-          throwsA(TypeMatcher<ServerException>()));
+          throwsA(const TypeMatcher<ServerException>()));
     });
   });
 }

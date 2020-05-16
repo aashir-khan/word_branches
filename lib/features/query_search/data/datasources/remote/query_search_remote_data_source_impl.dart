@@ -8,8 +8,7 @@ import 'package:dr_words/internal/account_details/account_details.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 
-@lazySingleton
-@RegisterAs(QuerySearchRemoteDataSource, env: Env.production)
+@LazySingleton(as: QuerySearchRemoteDataSource, env: Env.production)
 class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
   final AccountDetails accountDetails;
   final http.Client client;

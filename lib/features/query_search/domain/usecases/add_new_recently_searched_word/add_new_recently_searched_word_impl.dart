@@ -4,8 +4,7 @@ import 'package:dr_words/features/query_search/domain/repositories/query_search_
 import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word/add_new_recently_searched_word.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
-@RegisterAs(AddNewRecentlySearchedWord)
+@LazySingleton(as: AddNewRecentlySearchedWord)
 class AddNewRecentlySearchedWordImpl implements AddNewRecentlySearchedWord {
   final QuerySearchRepository repository;
 

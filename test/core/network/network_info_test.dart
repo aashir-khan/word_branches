@@ -1,21 +1,19 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dr_words/core/network/network_info/network_info_impl.dart';
-import 'package:dr_words/injection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-void main() async {
-  TestWidgetsFlutterBinding.ensureInitialized();
+import '../../helpers/setup_all_for_test.dart';
+import '../../test_injection.dart';
 
-  setUpAll(() async {
-    await configureInjection(Env.test);
-  });
+Future<void> main() async {
+  await setupInjectionForTest();
 
   group('isConnected', () {
     test('should forward the call to DataConnectionChecker.hasConnection', () async {
       // arrange
       final mockDataConnectionChecker = getIt<DataConnectionChecker>();
-      final networkInfo = getIt<NetworkInfoImpl>();
+      final networkInfo = NetworkInfoImpl(mockDataConnectionChecker);
       final tHasConnectionFuture = Future.value(true);
 
       when(mockDataConnectionChecker.hasConnection).thenAnswer((_) => tHasConnectionFuture);

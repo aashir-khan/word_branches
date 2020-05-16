@@ -1,11 +1,8 @@
-import 'package:dr_words/core/services/navigation_service.dart';
-import 'package:dr_words/injection.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:dr_words/core/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:dr_words/core/constants/routes_path.dart' as routes;
 
 class HomeViewModel extends ChangeNotifier {
-  final NavigationService navigationService = getIt<NavigationService>();
-
   String appBarText;
   List<String> popupMenuChoices;
 
@@ -16,14 +13,14 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   Future<void> beginSearch(BuildContext context) async {
-    await navigateToSearch();
+    await navigateToSearch(context);
   }
 
   void handlePopupMenuSelection(String choice) {
     // print(choice);
   }
 
-  Future<void> navigateToSearch() async {
-    await navigationService.navigateWithReplacement(routes.searchRoute);
+  Future<void> navigateToSearch(BuildContext context) async {
+    await ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(Routes.searchPage);
   }
 }

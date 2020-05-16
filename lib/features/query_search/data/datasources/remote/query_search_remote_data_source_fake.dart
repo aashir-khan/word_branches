@@ -10,8 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@lazySingleton
-@RegisterAs(QuerySearchRemoteDataSource, env: Env.development)
+@LazySingleton(as: QuerySearchRemoteDataSource, env: Env.development)
 class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
   final SharedPreferences sharedPreferences;
 

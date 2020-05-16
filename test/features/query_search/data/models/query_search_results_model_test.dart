@@ -9,10 +9,9 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final tQuerySearchMetadata =
-      QuerySearchMetadataModel(limit: 1, offset: 0, total: 1);
-  final tDictionaryWord1 = DictionaryWordModel(id: 'test', label: 'test');
-  final tDictionaryWord2 = DictionaryWordModel(id: 'test2', label: 'test2');
+  const tQuerySearchMetadata = QuerySearchMetadataModel(limit: 1, offset: 0, total: 1);
+  const tDictionaryWord1 = DictionaryWordModel(id: 'test', label: 'test');
+  const tDictionaryWord2 = DictionaryWordModel(id: 'test2', label: 'test2');
 
   final tDictionaryWordList = [tDictionaryWord1, tDictionaryWord2];
 
@@ -27,11 +26,10 @@ void main() {
   });
 
   group('fromJson', () {
-    test('should return a valid model for an error-free JSON fixture',
-        () async {
+    test('should return a valid model for an error-free JSON fixture', () async {
       // arrange
       final Map<String, dynamic> jsonMap =
-          json.decode(fixture('query_search/query_search_results.json'));
+          json.decode(fixture('query_search/query_search_results.json')) as Map<String, dynamic>;
 
       // act
       final result = QuerySearchResultsModel.fromJson(jsonMap);

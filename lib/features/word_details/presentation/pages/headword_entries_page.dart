@@ -1,8 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/core/domain/entities/dictionary_word.dart';
-import 'package:dr_words/core/services/navigation_service.dart';
-import 'package:dr_words/injection.dart';
+import 'package:dr_words/core/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:dr_words/core/constants/routes_path.dart' as routes;
 
 class HeadwordEntriesPage extends StatefulWidget {
   final DictionaryWord wordSelected;
@@ -21,7 +20,7 @@ class _HeadwordEntriesPageState extends State<HeadwordEntriesPage> {
         title: Text(widget.wordSelected.label),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () async => getIt<NavigationService>().navigateWithReplacement(routes.homeRoute),
+          onPressed: () async => ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(Routes.homePage),
         ),
       ),
     );

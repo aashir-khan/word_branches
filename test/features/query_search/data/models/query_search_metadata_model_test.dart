@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final tQuerySearchMetadataModel = QuerySearchMetadataModel(
+  const tQuerySearchMetadataModel = QuerySearchMetadataModel(
     limit: 1,
     offset: 0,
     total: 1,
@@ -19,11 +19,10 @@ void main() {
   });
 
   group('fromJson', () {
-    test('should return a valid model for an error-free JSON fixture',
-        () async {
+    test('should return a valid model for an error-free JSON fixture', () async {
       // arrange
       final Map<String, dynamic> jsonMap =
-          json.decode(fixture('query_search/query_search_metadata.json'));
+          json.decode(fixture('query_search/query_search_metadata.json')) as Map<String, dynamic>;
 
       // act
       final result = QuerySearchMetadataModel.fromJson(jsonMap);
@@ -42,7 +41,7 @@ void main() {
       final expectedJsonMap = {
         "limit": 1,
         "offset": 0,
-        "total": 0,
+        "total": 1,
       };
 
       expect(result, expectedJsonMap);

@@ -98,7 +98,7 @@ void main() {
   });
 
   group('getRecentlySearchedWords', () {
-    final List<DictionaryWordModel> tDictionaryWordModelList = [DictionaryWordModel(id: 'test', label: 'test')];
+    final List<DictionaryWordModel> tDictionaryWordModelList = [const DictionaryWordModel(id: 'test', label: 'test')];
     final List<DictionaryWord> tDictionaryWordList = tDictionaryWordModelList;
 
     test('should return local data when the call to local data is successful', () async {

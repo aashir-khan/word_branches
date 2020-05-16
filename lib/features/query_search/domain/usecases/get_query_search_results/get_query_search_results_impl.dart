@@ -5,8 +5,7 @@ import 'package:dr_words/features/query_search/domain/repositories/query_search_
 import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
-@RegisterAs(GetQuerySearchResults)
+@LazySingleton(as: GetQuerySearchResults)
 class GetQuerySearchResultsImpl implements GetQuerySearchResults {
   final QuerySearchRepository repository;
 

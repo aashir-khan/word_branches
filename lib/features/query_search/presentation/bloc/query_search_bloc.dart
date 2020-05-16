@@ -85,12 +85,14 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
   }
 
   @override
-  Stream<QuerySearchState> transformEvents(
-      Stream<QuerySearchEvent> events, Stream<QuerySearchState> Function(QuerySearchEvent) next) {
+  Stream<Transition<QuerySearchEvent, QuerySearchState>> transformEvents(
+    Stream<QuerySearchEvent> events,
+    Stream<Transition<QuerySearchEvent, QuerySearchState>> Function(QuerySearchEvent) transitionFn,
+  ) {
     final debounceStream =
         events.where((event) => event is ModifyQueryEvent).debounceTime(const Duration(milliseconds: 500));
     final nonDebounceStream = events.where((event) => event is! ModifyQueryEvent);
-    return super.transformEvents(StreamGroup.merge([debounceStream, nonDebounceStream]), next);
+    return super.transformEvents(StreamGroup.merge([debounceStream, nonDebounceStream]), transitionFn);
   }
 }
 

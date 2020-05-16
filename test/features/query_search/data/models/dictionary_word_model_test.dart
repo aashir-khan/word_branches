@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final tDictionaryWordModel = DictionaryWordModel(
+  const tDictionaryWordModel = DictionaryWordModel(
     id: 'test',
     label: 'test',
   );
@@ -20,7 +20,7 @@ void main() {
   group('fromJson', () {
     test('should return a valid model for an error-free JSON fixture', () async {
       // arrange
-      final Map<String, dynamic> jsonMap = json.decode(fixture('core/dictionary_word.json'));
+      final Map<String, dynamic> jsonMap = json.decode(fixture('core/dictionary_word.json')) as Map<String, dynamic>;
 
       // act
       final result = DictionaryWordModel.fromJson(jsonMap);

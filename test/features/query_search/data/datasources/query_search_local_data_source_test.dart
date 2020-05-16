@@ -8,27 +8,29 @@ import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
+import '../../../../helpers/setup_all_for_test.dart';
 
-void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
+Future<void> main() async {
+  await setupInjectionForTest();
 
   QuerySearchLocalDataSourceImpl dataSource;
   SharedPreferences mockSharedPreferences;
 
   setUpAll(() async {
-    await configureInjection(Env.test);
-
     mockSharedPreferences = getIt<SharedPreferences>();
-    dataSource = getIt<QuerySearchLocalDataSourceImpl>();
+    dataSource = QuerySearchLocalDataSourceImpl(sharedPreferences: mockSharedPreferences);
   });
 
   group('getRecentlySearchedWords', () {
-    List<DictionaryWordModel> tDictionaryWordModelList = [];
-    final List<dynamic> jsonList =
-        json.decode(fixture('query_search/dictionary_word_recently_searched_words_saved_locally.json'));
-    jsonList.forEach((e) {
-      return tDictionaryWordModelList.add(DictionaryWordModel.fromJson(e as Map<String, dynamic>));
-    });
+    final List<DictionaryWordModel> tDictionaryWordModelList = [];
+    final List<dynamic> jsonList = json
+        .decode(fixture('query_search/dictionary_word_recently_searched_words_saved_locally.json')) as List<dynamic>;
+
+    for (int i = 0; i < jsonList.length; i++) {
+      final dictionaryWordModel = jsonList[i];
+      tDictionaryWordModelList.add(DictionaryWordModel.fromJson(dictionaryWordModel as Map<String, dynamic>));
+    }
+
     test('should return List<DictionaryWordModel> from Box when there are favorited words stored in the box', () async {
       // arrange
       final tLocallyStoredData = fixture('query_search/dictionary_word_recently_searched_words_saved_locally.json');
@@ -40,7 +42,7 @@ void main() {
       final result = await dataSource.getRecentlySearchedWords();
 
       // assert
-      verify(mockSharedPreferences.getString(QuerySearchLocalDataSourceImpl.FAVORITED_WORDS_DB_IDENTIFIER));
+      verify(mockSharedPreferences.getString(QuerySearchLocalDataSourceImpl.faoritedWordsDbIdentifier));
       expect(result, equals(tDictionaryWordModelList));
     });
   });
@@ -51,7 +53,7 @@ void main() {
         () async {
       // arrange
       final initialDataStored = fixture('query_search/dictionary_word_recently_searched_words_saved_locally.json');
-      final tNewRecentlySearchedWord = DictionaryWordModel(id: 'test3', label: 'test3');
+      const tNewRecentlySearchedWord = DictionaryWordModel(id: 'test3', label: 'test3');
 
       // Need to re-encode the string to remove any formatting done in the initial json string acquired from calling `fixture(...)`
       final expectedJsonString = json.encode(
@@ -63,7 +65,7 @@ void main() {
 
       // verify
       verify(mockSharedPreferences.setString(
-          QuerySearchLocalDataSourceImpl.FAVORITED_WORDS_DB_IDENTIFIER, expectedJsonString));
+          QuerySearchLocalDataSourceImpl.faoritedWordsDbIdentifier, expectedJsonString));
     });
   });
 }

@@ -4,10 +4,7 @@ import 'package:dr_words/features/word_details/domain/entities/headword_entry.da
 import 'package:dr_words/features/word_details/domain/repositories/word_details_repository.dart';
 import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/get_headword_entries.dart';
 
-import 'package:injectable/injectable.dart';
-
-@lazySingleton
-@RegisterAs(GetHeadwordEntries)
+// @LazySingleton(as: GetHeadwordEntries)
 class GetHeadwordEntriesImpl implements GetHeadwordEntries {
   final WordDetailsRepository repository;
 

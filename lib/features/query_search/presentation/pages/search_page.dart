@@ -1,12 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/core/domain/entities/dictionary_word.dart';
-import 'package:dr_words/core/services/navigation_service.dart';
+import 'package:dr_words/core/presentation/routes/router.gr.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/bloc.dart';
 import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
 import 'package:dr_words/features/query_search/presentation/pages/search_page_search_delegate.dart';
-import 'package:dr_words/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dr_words/core/constants/routes_path.dart' as routes;
 
 class SearchPage extends StatefulWidget {
   @override
@@ -20,10 +19,10 @@ class _SearchPageState extends State<SearchPage> {
       final DictionaryWord result =
           await showSearch(context: context, delegate: WordQuerySearch(BlocProvider.of<QuerySearchBloc>(context)));
       if (result != null) {
-        await getIt<NavigationService>()
-            .navigateWithReplacement<DictionaryWord>(routes.headwordEntriesRoute, arguments: result);
+        await ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(Routes.headwordEntriesPage,
+            arguments: HeadwordEntriesPageArguments(wordSelected: result));
       } else {
-        await getIt<NavigationService>().navigateWithReplacement(routes.homeRoute);
+        await ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(Routes.headwordEntriesPage);
       }
     });
 

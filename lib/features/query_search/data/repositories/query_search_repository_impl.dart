@@ -11,8 +11,7 @@ import 'package:dr_words/features/query_search/domain/repositories/query_search_
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
-@RegisterAs(QuerySearchRepository)
+@LazySingleton(as: QuerySearchRepository)
 class QuerySearchRepositoryImpl implements QuerySearchRepository {
   final QuerySearchRemoteDataSource remoteDataSource;
   final QuerySearchLocalDataSource localDataSource;
