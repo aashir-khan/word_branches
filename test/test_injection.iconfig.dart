@@ -11,6 +11,7 @@ import 'package:http/src/client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dr_words/features/word_details/domain/usecases/get_headword_entries/get_headword_entries.dart';
 import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words/get_recently_searched_words.dart';
+import 'package:dr_words/core/network/network_info/network_info.dart';
 import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
@@ -28,6 +29,7 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<GetHeadwordEntries>(() => MockGetHeadwordEntries());
   g.registerLazySingleton<GetRecentlySearchedWords>(
       () => MockGetRecentlySearchedWords());
+  g.registerLazySingleton<NetworkInfo>(() => MockNetworkInfo());
   g.registerLazySingleton<QuerySearchLocalDataSource>(
       () => MockQuerySearchLocalDataSource());
   g.registerLazySingleton<QuerySearchRemoteDataSource>(

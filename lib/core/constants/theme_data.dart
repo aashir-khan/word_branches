@@ -7,18 +7,18 @@ class AppTheme {
 
   static final ThemeData lightTheme = ThemeData(
     primaryColor: colors.primaryColor,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       color: colors.primaryColor,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headline6: TextStyle(color: colors.onPrimary),
     ),
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(
         color: colors.inputTextHint,
       ),
     ),
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
       primary: colors.primaryColor,
       primaryVariant: colors.primaryColorDark,
       secondary: colors.secondaryColor,

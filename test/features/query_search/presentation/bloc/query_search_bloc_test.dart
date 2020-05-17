@@ -176,7 +176,7 @@ Future<void> main() async {
     blocTest(
       'should emit [Loading, QuerySearchNewWordAddedState] when new word is successfully added',
       build: () async {
-        when(mockAddNewRecentlySearchedWord.call(any)).thenAnswer((_) async => Right(true));
+        when(mockAddNewRecentlySearchedWord.call(any)).thenAnswer((_) async => const Right(true));
 
         return bloc;
       },

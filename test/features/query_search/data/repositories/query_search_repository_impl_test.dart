@@ -14,12 +14,10 @@ import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
+import '../../../../helpers/setup_all_for_test.dart';
 
-  setUpAll(() async {
-    await configureInjection(Env.test);
-  });
+Future<void> main() async {
+  await setupInjectionForTest();
 
   QuerySearchRepositoryImpl repository;
   QuerySearchRemoteDataSource mockRemoteDataSource;
@@ -31,7 +29,11 @@ void main() {
     mockLocalDataSource = getIt<QuerySearchLocalDataSource>();
     mockNetworkInfo = getIt<NetworkInfo>();
 
-    repository = getIt<QuerySearchRepositoryImpl>();
+    repository = QuerySearchRepositoryImpl(
+      remoteDataSource: mockRemoteDataSource,
+      localDataSource: mockLocalDataSource,
+      networkInfo: mockNetworkInfo,
+    );
   });
 
   group('getQuerySearchResults', () {
@@ -138,7 +140,7 @@ void main() {
 
       // assert
       verify(mockLocalDataSource.addNewRecentlySearchedWord(tNewWordToAddModel));
-      expect(result, Right(true));
+      expect(result, const Right(true));
     });
   });
 }

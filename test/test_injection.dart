@@ -1,4 +1,5 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:dr_words/core/network/network_info/network_info.dart';
 import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
 import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
 import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word/add_new_recently_searched_word.dart';
@@ -63,3 +64,6 @@ class MockHttpClient extends Mock implements http.Client {}
 // Misc
 @LazySingleton(as: AccountDetails)
 class MockAccountDetails extends Mock implements AccountDetails {}
+
+@LazySingleton(as: NetworkInfo)
+class MockNetworkInfo extends Mock implements NetworkInfo {}

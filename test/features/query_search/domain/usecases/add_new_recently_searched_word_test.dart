@@ -26,13 +26,14 @@ void main() {
 
   test('should return Right(true) when new recently searched word is successfully added to the repository', () async {
     // arrange
-    when(mockQuerySearchRepository.addNewRecentlySearchedWord(tNewWordToAdd)).thenAnswer((_) async => Right(true));
+    when(mockQuerySearchRepository.addNewRecentlySearchedWord(tNewWordToAdd))
+        .thenAnswer((_) async => const Right(true));
 
     // act
     final result = await usecase(Params(newWordToAdd: tNewWordToAdd));
 
     // assert
-    expect(result, Right(true));
+    expect(result, const Right(true));
     verify(mockQuerySearchRepository.addNewRecentlySearchedWord(tNewWordToAdd));
     verifyNoMoreInteractions(mockQuerySearchRepository);
   });

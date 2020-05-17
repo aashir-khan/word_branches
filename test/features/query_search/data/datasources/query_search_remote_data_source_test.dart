@@ -50,18 +50,15 @@ Future<void> main() async {
 
     test('should throw a ServerException when the response code is 404 or other', () async {
       // arrange
-      when(mockHttpClient.get(any, headers: anyNamed('headers')))
-          .thenAnswer((_) async => http.Response('Something went wrong', 404));
+      when(mockHttpClient.get(any, headers: anyNamed('headers'))).thenAnswer((_) async {
+        return http.Response('Something went wrong', 404);
+      });
 
-      // act
-      final call = dataSource.getQuerySearchResults;
-
-      // assert
-      expect(
-          () => call(
-                query: tQuery,
-              ),
-          throwsA(const TypeMatcher<ServerException>()));
+      // act and assert
+      dataSource.getQuerySearchResults().catchError((error) {
+        expect(error, isA<ServerException>());
+        return tQuerySearchResultsModel;
+      });
     });
   });
 }
