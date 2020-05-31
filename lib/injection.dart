@@ -1,4 +1,4 @@
-import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_fake.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/injection.iconfig.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';

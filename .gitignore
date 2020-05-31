@@ -37,5 +37,5 @@ lib/generated_plugin_registrant.dart
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 #personal
-lib/internal/account_details/account_details_impl.dart
+lib/infrastructure/internal/account_details/account_details_impl.dart
 .vscode/**

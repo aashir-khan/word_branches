@@ -4,28 +4,28 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:dr_words/internal/account_details/account_details_impl.dart';
+import 'package:dr_words/infrastructure/internal/account_details/account_details_impl.dart';
 import 'package:dr_words/injectable_module.dart';
 import 'package:http/src/client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:dr_words/core/network/network_info/network_info_impl.dart';
-import 'package:dr_words/core/network/network_info/network_info.dart';
-import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source_impl.dart';
-import 'package:dr_words/features/query_search/data/datasources/local/query_search_local_data_source.dart';
+import 'package:dr_words/infrastructure/core/network_info_impl.dart';
+import 'package:dr_words/domain/core/i_network_info.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/query_search_local_data_source_impl.dart';
+import 'package:dr_words/domain/dictionary_word_search/query_search_local_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_impl.dart';
-import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source.dart';
-import 'package:dr_words/internal/account_details/account_details.dart';
-import 'package:dr_words/features/query_search/data/datasources/remote/query_search_remote_data_source_fake.dart';
-import 'package:dr_words/features/query_search/data/repositories/query_search_repository_impl.dart';
-import 'package:dr_words/features/query_search/domain/repositories/query_search_repository.dart';
-import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word/add_new_recently_searched_word_impl.dart';
-import 'package:dr_words/features/query_search/domain/usecases/add_new_recently_searched_word/add_new_recently_searched_word.dart';
-import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results_impl.dart';
-import 'package:dr_words/features/query_search/domain/usecases/get_query_search_results/get_query_search_results.dart';
-import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words/get_recently_searched_words_impl.dart';
-import 'package:dr_words/features/query_search/domain/usecases/get_recently_searched_words/get_recently_searched_words.dart';
-import 'package:dr_words/features/query_search/presentation/bloc/query_search_bloc.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/query_search_remote_data_source_impl.dart';
+import 'package:dr_words/domain/dictionary_word_search/query_search_remote_data_source.dart';
+import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/query_search_remote_data_source_fake.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/query_search_repository_impl.dart';
+import 'package:dr_words/domain/dictionary_word_search/query_search_repository.dart';
+import 'package:dr_words/application/dictionary_word_search/usecases/add_new_recently_searched_word_impl.dart';
+import 'package:dr_words/domain/dictionary_word_search/usecases/add_new_recently_searched_word.dart';
+import 'package:dr_words/application/dictionary_word_search/usecases/get_query_search_results_impl.dart';
+import 'package:dr_words/domain/dictionary_word_search/usecases/get_query_search_results.dart';
+import 'package:dr_words/application/dictionary_word_search/usecases/get_recently_searched_words_impl.dart';
+import 'package:dr_words/domain/dictionary_word_search/usecases/get_recently_searched_words.dart';
+import 'package:dr_words/application/dictionary_word_search/query_search_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
@@ -34,7 +34,7 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<Client>(() => injectableModule.httpClient);
   g.registerLazySingleton<DataConnectionChecker>(
       () => injectableModule.dataConnectionChecker);
-  g.registerLazySingleton<NetworkInfo>(
+  g.registerLazySingleton<INetworkInfo>(
       () => NetworkInfoImpl(g<DataConnectionChecker>()));
   g.registerLazySingleton<QuerySearchLocalDataSource>(() =>
       QuerySearchLocalDataSourceImpl(
@@ -43,7 +43,7 @@ void $initGetIt(GetIt g, {String environment}) {
       () => QuerySearchRepositoryImpl(
             remoteDataSource: g<QuerySearchRemoteDataSource>(),
             localDataSource: g<QuerySearchLocalDataSource>(),
-            networkInfo: g<NetworkInfo>(),
+            networkInfo: g<INetworkInfo>(),
           ));
   g.registerLazySingleton<AddNewRecentlySearchedWord>(
       () => AddNewRecentlySearchedWordImpl(g<QuerySearchRepository>()));
