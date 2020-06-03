@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:dr_words/domain/dictionary_word_search/query_search_remote_data_source.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/models/dictionary_word_dto.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
 import 'package:dr_words/injection.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';

@@ -1,4 +1,4 @@
-import 'package:dr_words/infrastructure/dictionary_word_search/models/dictionary_word_dto.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
 
 abstract class QuerySearchLocalDataSource {
   Future<List<DictionaryWordDto>> getRecentlySearchedWords();
