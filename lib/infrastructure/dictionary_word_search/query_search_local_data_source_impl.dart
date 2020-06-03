@@ -16,12 +16,10 @@ class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
 
   @override
   Future<List<DictionaryWordDto>> getRecentlySearchedWords() async {
-    List<DictionaryWordDto> result = [];
+    final List<DictionaryWordDto> result = [];
     final unparsedWordsList = sharedPreferences.getStringList(recentlySearchedWordsDbIdentifier) ?? [];
 
-    if (unparsedWordsList.isEmpty) {
-      result = [];
-    } else {
+    if (unparsedWordsList.isNotEmpty) {
       final List<DictionaryWordDto> results =
           unparsedWordsList.map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>)).toList();
       return results;

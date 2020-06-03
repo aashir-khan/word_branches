@@ -3,15 +3,10 @@ import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dr_words/application/dictionary_word_search/bloc.dart';
 import 'package:dr_words/domain/core/failures.dart';
-import 'package:dr_words/domain/core/usecase.dart';
-import 'package:dr_words/domain/dictionary_word_search/usecases/add_new_recently_searched_word.dart'
-    as add_new_use_case;
-import 'package:dr_words/domain/dictionary_word_search/usecases/get_query_search_results.dart' as get_results_use_case;
-import 'package:dr_words/domain/dictionary_word_search/usecases/get_recently_searched_words.dart'
-    as get_recent_use_case;
+import 'package:dr_words/domain/dictionary_word_search/query_search_repository.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-
 import 'package:rxdart/rxdart.dart';
 
 const serverFailureMessage = 'An error occurred trying to fetch search results';
@@ -21,15 +16,9 @@ const localDatabaseProcessingFailureMessage =
 
 @injectable
 class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
-  final get_recent_use_case.GetRecentlySearchedWords getRecentlySearchedWords;
-  final get_results_use_case.GetQuerySearchResults getQuerySearchResults;
-  final add_new_use_case.AddNewRecentlySearchedWord addNewRecentlySearchedWord;
+  final QuerySearchRepository querySearchRepository;
 
-  QuerySearchBloc({
-    @required this.getRecentlySearchedWords,
-    @required this.getQuerySearchResults,
-    @required this.addNewRecentlySearchedWord,
-  });
+  QuerySearchBloc({@required this.querySearchRepository});
 
   @override
   QuerySearchState get initialState => Empty();
@@ -44,7 +33,7 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
         return;
       } else {
         yield Loading();
-        final resultEither = await getQuerySearchResults.call(get_results_use_case.Params(query: event.query));
+        final resultEither = await querySearchRepository.getQuerySearchResults(query: event.query);
 
         yield* resultEither.fold(
           (failure) async* {
@@ -57,8 +46,7 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
       }
     } else if (event is AddNewRecentlySearchedWordEvent) {
       yield Loading();
-      final resultEither =
-          await addNewRecentlySearchedWord.call(add_new_use_case.Params(newWordToAdd: event.newRecentlySearchedWord));
+      final resultEither = await querySearchRepository.addNewRecentlySearchedWord(event.newRecentlySearchedWord);
 
       yield* resultEither.fold(
         (failure) async* {
@@ -70,7 +58,7 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
       );
     } else if (event is GetRecentlySearchedWordsEvent) {
       yield Loading();
-      final resultEither = await getRecentlySearchedWords.call(NoParams());
+      final resultEither = await querySearchRepository.getRecentlySearchedWords();
 
       yield* resultEither.fold(
         (failure) async* {

@@ -51,8 +51,7 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
   @override
   Future<Either<Failure, DictionaryWord>> addNewRecentlySearchedWord(DictionaryWord newWordToAdd) async {
     try {
-      final wordDto = await localDataSource.addNewRecentlySearchedWord(DictionaryWordDto.fromDomain(newWordToAdd));
-      final savedDtoWord = await localDataSource.addNewRecentlySearchedWord(wordDto);
+      final savedDtoWord = await localDataSource.addNewRecentlySearchedWord(DictionaryWordDto.fromDomain(newWordToAdd));
       return Right(savedDtoWord.toDomain());
     } on LocalDatabaseProcessingException {
       return Left(LocalDatabaseProcessingFailure());

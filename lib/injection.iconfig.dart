@@ -19,12 +19,6 @@ import 'package:dr_words/infrastructure/internal/account_details/account_details
 import 'package:dr_words/infrastructure/dictionary_word_search/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/query_search_repository_impl.dart';
 import 'package:dr_words/domain/dictionary_word_search/query_search_repository.dart';
-import 'package:dr_words/application/dictionary_word_search/usecases/add_new_recently_searched_word_impl.dart';
-import 'package:dr_words/domain/dictionary_word_search/usecases/add_new_recently_searched_word.dart';
-import 'package:dr_words/application/dictionary_word_search/usecases/get_query_search_results_impl.dart';
-import 'package:dr_words/domain/dictionary_word_search/usecases/get_query_search_results.dart';
-import 'package:dr_words/application/dictionary_word_search/usecases/get_recently_searched_words_impl.dart';
-import 'package:dr_words/domain/dictionary_word_search/usecases/get_recently_searched_words.dart';
 import 'package:dr_words/application/dictionary_word_search/query_search_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -45,17 +39,8 @@ void $initGetIt(GetIt g, {String environment}) {
             localDataSource: g<QuerySearchLocalDataSource>(),
             networkInfo: g<INetworkInfo>(),
           ));
-  g.registerLazySingleton<AddNewRecentlySearchedWord>(
-      () => AddNewRecentlySearchedWordImpl(g<QuerySearchRepository>()));
-  g.registerLazySingleton<GetQuerySearchResults>(
-      () => GetQuerySearchResultsImpl(g<QuerySearchRepository>()));
-  g.registerLazySingleton<GetRecentlySearchedWords>(
-      () => GetRecentlySearchedWordsImpl(g<QuerySearchRepository>()));
-  g.registerFactory<QuerySearchBloc>(() => QuerySearchBloc(
-        getRecentlySearchedWords: g<GetRecentlySearchedWords>(),
-        getQuerySearchResults: g<GetQuerySearchResults>(),
-        addNewRecentlySearchedWord: g<AddNewRecentlySearchedWord>(),
-      ));
+  g.registerFactory<QuerySearchBloc>(
+      () => QuerySearchBloc(querySearchRepository: g<QuerySearchRepository>()));
 
   //Register production Dependencies --------
   if (environment == 'production') {
