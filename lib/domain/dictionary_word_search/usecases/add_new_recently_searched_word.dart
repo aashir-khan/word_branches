@@ -5,9 +5,9 @@ import 'package:dr_words/domain/core/usecase.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-abstract class AddNewRecentlySearchedWord extends UseCase<bool, Params> {
+abstract class AddNewRecentlySearchedWord extends UseCase<DictionaryWord, Params> {
   @override
-  Future<dartz.Either<Failure, bool>> call(Params params);
+  Future<dartz.Either<Failure, DictionaryWord>> call(Params params);
 }
 
 class Params extends Equatable {

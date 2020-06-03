@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart' as dartz;
+import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/core/failures.dart';
 import 'package:dr_words/domain/core/usecase.dart';
-import 'package:dr_words/domain/dictionary_word_search/entities/query_search_results.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-abstract class GetQuerySearchResults extends UseCase<QuerySearchResults, Params> {
+abstract class GetQuerySearchResults extends UseCase<List<DictionaryWord>, Params> {
   @override
-  Future<dartz.Either<Failure, QuerySearchResults>> call(Params params);
+  Future<dartz.Either<Failure, List<DictionaryWord>>> call(Params params);
 }
 
 class Params extends Equatable {

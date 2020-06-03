@@ -1,3 +1,4 @@
+import 'package:dr_words/infrastructure/dictionary_word_search/query_search_local_data_source_impl.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/injection.iconfig.dart';
 import 'package:get_it/get_it.dart';
@@ -39,5 +40,6 @@ Future _registerDevelopmentDependencies() async {
   getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 
   // Clear any local storage data
-  await sharedPreferences.remove(QuerySearchRemoteDataSourceFake.querySearchResultsModelDbIdentifer);
+  await sharedPreferences.remove(QuerySearchRemoteDataSourceFake.querySearchResultsDbIdentifier);
+  await sharedPreferences.remove(QuerySearchLocalDataSourceImpl.recentlySearchedWordsDbIdentifier);
 }

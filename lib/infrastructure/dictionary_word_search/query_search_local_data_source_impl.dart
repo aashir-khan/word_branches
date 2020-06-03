@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dr_words/domain/dictionary_word_search/query_search_local_data_source.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/models/dictionary_word_model.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/models/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,34 +10,37 @@ import 'package:shared_preferences/shared_preferences.dart';
 class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
   final SharedPreferences sharedPreferences;
 
-  static const faoritedWordsDbIdentifier = 'favorited_words';
+  static const recentlySearchedWordsDbIdentifier = 'recently_searched_words';
 
   QuerySearchLocalDataSourceImpl({@required this.sharedPreferences});
 
   @override
-  Future<List<DictionaryWordModel>> getRecentlySearchedWords() async {
-    List<DictionaryWordModel> result = [];
-    final jsonString = sharedPreferences.getString(faoritedWordsDbIdentifier) ?? '';
-    if (jsonString.isEmpty) {
+  Future<List<DictionaryWordDto>> getRecentlySearchedWords() async {
+    List<DictionaryWordDto> result = [];
+    final unparsedWordsList = sharedPreferences.getStringList(recentlySearchedWordsDbIdentifier) ?? [];
+
+    if (unparsedWordsList.isEmpty) {
       result = [];
     } else {
-      final List<dynamic> jsonMap = json.decode(jsonString) as List<dynamic>;
-
-      for (int i = 0; i < jsonMap.length; i++) {
-        final dictionaryWordModel = jsonMap[i];
-        result.add(DictionaryWordModel.fromJson(dictionaryWordModel as Map<String, dynamic>));
-      }
+      final List<DictionaryWordDto> results =
+          unparsedWordsList.map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>)).toList();
+      return results;
     }
 
     return Future.value(result);
   }
 
   @override
-  Future<bool> addNewRecentlySearchedWord(DictionaryWordModel newWordToAdd) async {
-    final initialDataInSharedPreferences = sharedPreferences.getString(faoritedWordsDbIdentifier) ?? '[]';
-    final List<dynamic> updatedRecentlySearchedWords = json.decode(initialDataInSharedPreferences) as List<dynamic>;
-    updatedRecentlySearchedWords.add(newWordToAdd);
-    final updatedRecentlySearchedWordsEncoded = json.encode(updatedRecentlySearchedWords);
-    return sharedPreferences.setString(faoritedWordsDbIdentifier, updatedRecentlySearchedWordsEncoded);
+  Future<DictionaryWordDto> addNewRecentlySearchedWord(DictionaryWordDto newWordToAdd) async {
+    final initialDataInSharedPreferences = sharedPreferences.getStringList(recentlySearchedWordsDbIdentifier) ?? [];
+
+    final List<DictionaryWordDto> initialWordsDtos = initialDataInSharedPreferences
+        .map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>))
+        .toList();
+
+    initialWordsDtos.add(newWordToAdd);
+    final updatedRecentlySearchedWordsEncoded = initialWordsDtos.map((word) => json.encode(word.toJson())).toList();
+    await sharedPreferences.setStringList(recentlySearchedWordsDbIdentifier, updatedRecentlySearchedWordsEncoded);
+    return Future.value(newWordToAdd);
   }
 }

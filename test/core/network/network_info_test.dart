@@ -1,5 +1,5 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:dr_words/core/network/network_info/network_info_impl.dart';
+import 'package:dr_words/infrastructure/core/network_info_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

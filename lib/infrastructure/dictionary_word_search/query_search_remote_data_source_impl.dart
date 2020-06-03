@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dr_words/domain/dictionary_word_search/query_search_remote_data_source.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/models/query_search_results_model.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/models/dictionary_word_dto.dart';
 import 'package:dr_words/infrastructure/exceptions.dart';
 import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
 import 'package:dr_words/injection.dart';
@@ -19,7 +19,7 @@ class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
   });
 
   @override
-  Future<QuerySearchResultsModel> getQuerySearchResults({
+  Future<List<DictionaryWordDto>> getQuerySearchResults({
     String query,
   }) async {
     final headers = accountDetails.oxfordAPIDetails['developer'] as Map<String, String>;
@@ -30,7 +30,10 @@ class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return QuerySearchResultsModel.fromJson(json.decode(response.body) as Map<String, dynamic>);
+      final jsonBody = json.decode(response.body) as Map<String, dynamic>;
+      final words = List<DictionaryWordDto>.from([]);
+      jsonBody['results'].forEach((word) => words.add(DictionaryWordDto.fromJson(word as Map<String, dynamic>)));
+      return words;
     } else {
       throw ServerException();
     }

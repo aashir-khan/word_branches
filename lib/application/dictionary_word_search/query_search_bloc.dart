@@ -51,7 +51,7 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
             yield QuerySearchErrorState(message: _mapFailureToMessage(failure));
           },
           (results) async* {
-            yield QuerySearchLoadedState(querySearchResults: results);
+            yield QuerySearchLoadedState(words: results);
           },
         );
       }

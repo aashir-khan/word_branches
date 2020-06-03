@@ -102,15 +102,15 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
             ),
           );
         } else if (state is QuerySearchLoadedState) {
-          return (state?.querySearchResults?.results ?? []).isEmpty
+          return state.words.isEmpty
               ? const Center(
                   child: Text('No results found'),
                 )
               : ListView.builder(
-                  itemCount: state.querySearchResults.results.length,
+                  itemCount: state.words.length,
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
-                      final querySingleSearchResult = state.querySearchResults.results[index];
+                      final querySingleSearchResult = state.words[index];
                       bloc.add(AddNewRecentlySearchedWordEvent(newRecentlySearchedWord: querySingleSearchResult));
                       close(context, querySingleSearchResult);
                     },
@@ -120,13 +120,14 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
                         horizontal: 24,
                       ),
                       child: Text(
-                        state.querySearchResults.results[index].label,
+                        state.words[index].label,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ),
                 );
         }
+
         return const Scaffold();
       },
     );

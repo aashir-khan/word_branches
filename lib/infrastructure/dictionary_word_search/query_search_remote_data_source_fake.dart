@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:dr_words/domain/dictionary_word_search/query_search_remote_data_source.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/models/dictionary_word_model.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/models/query_search_results_model.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/models/dictionary_word_dto.dart';
 import 'package:dr_words/injection.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
@@ -16,40 +15,38 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
 
   QuerySearchRemoteDataSourceFake({@required this.sharedPreferences});
 
-  static const querySearchResultsModelDbIdentifer = 'query_search_results_model';
+  static const querySearchResultsDbIdentifier = 'query_search_results';
 
   @override
-  Future<QuerySearchResultsModel> getQuerySearchResults({
+  Future<List<DictionaryWordDto>> getQuerySearchResults({
     String query,
   }) async {
-    final initialRawStringStoredData = sharedPreferences.getString(querySearchResultsModelDbIdentifer) ?? '{}';
-    final Map<String, dynamic> initialStoredData = json.decode(initialRawStringStoredData) as Map<String, dynamic>;
+    final initialStringListStoredData = sharedPreferences.getStringList(querySearchResultsDbIdentifier) ?? [];
+
+    final List<DictionaryWordDto> initialStoredData = initialStringListStoredData
+        .map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>))
+        .toList();
+
     if (initialStoredData.isEmpty) {
       return _getQueryResultsHelper(query);
     } else {
-      final nonEmptyExistingData = QuerySearchResultsModel.fromJson(initialStoredData);
+      final filteredWordsDtos = initialStoredData.where((word) => word.label.startsWith(query)).toList();
 
-      final List<DictionaryWordModel> wordsList = (nonEmptyExistingData?.results ?? [])
-          .where((word) => word.label.startsWith(query))
-          .map((model) => DictionaryWordModel.fromSuperclass(model))
-          .toList();
-
-      return Future.delayed(const Duration(milliseconds: 1),
-          () => QuerySearchResultsModel.fromFakeData(customFieldValues: {'results': wordsList}));
+      return Future.delayed(const Duration(milliseconds: 1), () => filteredWordsDtos);
     }
   }
 
-  Future<QuerySearchResultsModel> _getQueryResultsHelper(String query) async {
-    QuerySearchResultsModel result;
-    final List<DictionaryWordModel> wordsList = [];
+  Future<List<DictionaryWordDto>> _getQueryResultsHelper(String query) async {
+    final List<DictionaryWordDto> wordsList = [];
 
     for (var i = 0; i < faker.randomGenerator.integer(100, min: 5); i++) {
       final probabilityOfWordContainingQuery = 100 / query.length / 100;
       final isWordContainQuery = Random().nextDouble() < probabilityOfWordContainingQuery;
       final wordLabel = isWordContainQuery ? '$query${faker.lorem.word()}' : faker.lorem.word();
+
       if (isWordContainQuery) {
         wordsList.add(
-          DictionaryWordModel.fromFakeData(
+          DictionaryWordDto.fromFakeData(
             customFieldValues: {
               'id': wordLabel,
               'label': wordLabel,
@@ -59,9 +56,8 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
       }
     }
 
-    result = QuerySearchResultsModel.fromFakeData(customFieldValues: {'results': wordsList});
-    final resultEncoded = json.encode(result.toJson());
-    sharedPreferences.setString(querySearchResultsModelDbIdentifer, resultEncoded);
-    return Future.delayed(const Duration(milliseconds: 1), () => result);
+    final resultEncoded = wordsList.map((word) => json.encode(word.toJson())).toList();
+    await sharedPreferences.setStringList(querySearchResultsDbIdentifier, resultEncoded);
+    return Future.delayed(const Duration(milliseconds: 1), () => wordsList);
   }
 }

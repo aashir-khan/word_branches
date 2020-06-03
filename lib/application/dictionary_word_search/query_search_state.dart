@@ -1,5 +1,4 @@
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/dictionary_word_search/entities/query_search_results.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
@@ -18,12 +17,12 @@ class Loading extends QuerySearchState {
 }
 
 class QuerySearchLoadedState extends QuerySearchState {
-  final QuerySearchResults querySearchResults;
+  final List<DictionaryWord> words;
 
-  const QuerySearchLoadedState({this.querySearchResults});
+  const QuerySearchLoadedState({this.words});
 
   @override
-  List<Object> get props => [querySearchResults];
+  List<Object> get props => [words];
 }
 
 class QuerySearchErrorState extends QuerySearchState {

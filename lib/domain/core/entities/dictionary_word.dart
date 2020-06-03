@@ -1,17 +1,14 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:faker/faker.dart';
 
-class DictionaryWord extends Equatable {
-  final String id;
-  final String label;
+part 'dictionary_word.freezed.dart';
 
-  const DictionaryWord({
-    this.id,
-    this.label,
-  });
-
-  @override
-  List<Object> get props => [id, label];
+@freezed
+abstract class DictionaryWord with _$DictionaryWord {
+  const factory DictionaryWord({
+    @required String id,
+    @required String label,
+  }) = _DictionaryWord;
 
   factory DictionaryWord.fromFakeData() {
     final fakeLabel = faker.lorem.word();
