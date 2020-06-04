@@ -51,28 +51,50 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
   @override
   Widget buildSuggestions(BuildContext context) {
     if (query.isEmpty) {
-      bloc.add(GetRecentlySearchedWordsEvent());
+      bloc.add(const QuerySearchEvent.getRecentlySearchedWords());
     } else {
-      bloc.add(ModifyQueryEvent(query: query));
+      bloc.add(QuerySearchEvent.modifyQuery(query: query));
     }
 
-    return BlocBuilder(
-      bloc: bloc,
+    return BlocBuilder<QuerySearchBloc, QuerySearchState>(
       builder: (context, state) {
-        if (state is Empty) {
-          return const Center(
+        return state.when(
+          initial: () => const Center(
             child: Text('Enter a query to search from'),
-          );
-        } else if (state is Loading) {
-          return LoadingIndicator();
-        } else if (state is QuerySearchErrorState) {
-          return Text(state.message);
-        } else if (state is QuerySearchRecentlySearchedWordsLoadedState) {
-          return ListView.builder(
-            itemCount: state.recentlySearchedWords.length,
+          ),
+          loadInProgreess: () => LoadingIndicator(),
+          loadSearchResultsSuccess: (words) => words.isEmpty
+              ? const Center(
+                  child: Text('No results found'),
+                )
+              : ListView.builder(
+                  itemCount: words.length,
+                  itemBuilder: (context, index) => InkWell(
+                    onTap: () {
+                      final querySingleSearchResult = words[index];
+                      bloc.add(QuerySearchEvent.addNewRecentlySearchedWord(
+                          newRecentlySearchedWord: querySingleSearchResult));
+                      close(context, querySingleSearchResult);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 24,
+                      ),
+                      child: Text(
+                        words[index].label,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ),
+          loadFailure: (message) => Text(message),
+          newWordAddedToRecentlySearchedWords: () => Container(),
+          loadRecentlySearchedWordsResultsSuccess: (words) => ListView.builder(
+            itemCount: words.length,
             itemBuilder: (context, index) => InkWell(
               onTap: () async {
-                final DictionaryWord wordToGetHeadwordEntries = state.recentlySearchedWords[index];
+                final DictionaryWord wordToGetHeadwordEntries = words[index];
                 close(context, wordToGetHeadwordEntries);
               },
               child: Container(
@@ -90,7 +112,7 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
                     Padding(
                       padding: const EdgeInsets.only(top: 2, bottom: 2, left: 24),
                       child: Text(
-                        state.recentlySearchedWords[index].label,
+                        words[index].label,
                         style: const TextStyle(
                           fontSize: 16,
                         ),
@@ -100,35 +122,8 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
                 ),
               ),
             ),
-          );
-        } else if (state is QuerySearchLoadedState) {
-          return state.words.isEmpty
-              ? const Center(
-                  child: Text('No results found'),
-                )
-              : ListView.builder(
-                  itemCount: state.words.length,
-                  itemBuilder: (context, index) => InkWell(
-                    onTap: () {
-                      final querySingleSearchResult = state.words[index];
-                      bloc.add(AddNewRecentlySearchedWordEvent(newRecentlySearchedWord: querySingleSearchResult));
-                      close(context, querySingleSearchResult);
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16,
-                        horizontal: 24,
-                      ),
-                      child: Text(
-                        state.words[index].label,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                );
-        }
-
-        return const Scaffold();
+          ),
+        );
       },
     );
   }

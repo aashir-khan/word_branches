@@ -1,29 +1,12 @@
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class QuerySearchEvent extends Equatable {
-  const QuerySearchEvent();
-}
+part 'query_search_event.freezed.dart';
 
-class GetRecentlySearchedWordsEvent extends QuerySearchEvent {
-  @override
-  List<Object> get props => [];
-}
-
-class ModifyQueryEvent extends QuerySearchEvent {
-  final String query;
-
-  const ModifyQueryEvent({this.query});
-
-  @override
-  List<Object> get props => [query];
-}
-
-class AddNewRecentlySearchedWordEvent extends QuerySearchEvent {
-  final DictionaryWord newRecentlySearchedWord;
-
-  const AddNewRecentlySearchedWordEvent({this.newRecentlySearchedWord});
-
-  @override
-  List<Object> get props => [newRecentlySearchedWord];
+@freezed
+abstract class QuerySearchEvent with _$QuerySearchEvent {
+  const factory QuerySearchEvent.getRecentlySearchedWords() = _QuerySearchEventGetRecentlySearchedWords;
+  const factory QuerySearchEvent.modifyQuery({String query}) = QuerySearchEventModifyQuery;
+  const factory QuerySearchEvent.addNewRecentlySearchedWord({DictionaryWord newRecentlySearchedWord}) =
+      _QuerySearchEventAddNewRecentlySearchedWord;
 }

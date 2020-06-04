@@ -1,13 +1,14 @@
-import 'package:dartz/dartz.dart' as dartz;
+import 'package:dartz/dartz.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/core/failures.dart';
+import 'package:dr_words/domain/dictionary_word_search/query_search_local_failure.dart';
+import 'package:dr_words/domain/dictionary_word_search/query_search_remote_failure.dart';
 
 abstract class QuerySearchRepository {
-  Future<dartz.Either<Failure, List<DictionaryWord>>> getQuerySearchResults({
+  Future<Either<QuerySearchRemoteFailure, List<DictionaryWord>>> getQuerySearchResults({
     String query,
   });
 
-  Future<dartz.Either<Failure, List<DictionaryWord>>> getRecentlySearchedWords();
+  Future<Either<QuerySearchLocalFailure, List<DictionaryWord>>> getRecentlySearchedWords();
 
-  Future<dartz.Either<Failure, DictionaryWord>> addNewRecentlySearchedWord(DictionaryWord newWordToAdd);
+  Future<Either<QuerySearchLocalFailure, DictionaryWord>> addNewRecentlySearchedWord(DictionaryWord newWordToAdd);
 }

@@ -23,7 +23,6 @@ dependencies:
   get_it: ^4.0.2
   device_preview: ^0.4.5
   flutter_bloc: ^4.0.0
-  equatable: ^1.2.0
   rxdart: ^0.24.1
   async: ^2.4.1
   dartz: ^0.9.1

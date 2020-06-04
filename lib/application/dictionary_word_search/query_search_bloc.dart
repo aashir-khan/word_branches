@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dr_words/application/dictionary_word_search/bloc.dart';
-import 'package:dr_words/domain/core/failures.dart';
+import 'package:dr_words/domain/dictionary_word_search/query_search_remote_failure.dart';
 import 'package:dr_words/domain/dictionary_word_search/query_search_repository.dart';
 
 import 'package:flutter/foundation.dart';
@@ -11,6 +11,7 @@ import 'package:rxdart/rxdart.dart';
 
 const serverFailureMessage = 'An error occurred trying to fetch search results';
 const networkFailureMessage = 'Seems like you are not connected to the Internet';
+const noResultsFoundMessage = 'No entry was found matching the query searched';
 const localDatabaseProcessingFailureMessage =
     'An error occurred trying to access/store a recently searched word on your device for retrieving';
 
@@ -21,54 +22,60 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
   QuerySearchBloc({@required this.querySearchRepository});
 
   @override
-  QuerySearchState get initialState => Empty();
+  QuerySearchState get initialState => const QuerySearchState.initial();
 
   @override
   Stream<QuerySearchState> mapEventToState(
     QuerySearchEvent event,
   ) async* {
-    if (event is ModifyQueryEvent) {
-      if (event.query.isEmpty) {
-        yield Empty();
-        return;
-      } else {
-        yield Loading();
-        final resultEither = await querySearchRepository.getQuerySearchResults(query: event.query);
+    yield* event.when(
+      modifyQuery: (query) async* {
+        if (query.isEmpty) {
+          yield const QuerySearchState.initial();
+          return;
+        } else {
+          yield const QuerySearchState.loadInProgreess();
+          final resultEither = await querySearchRepository.getQuerySearchResults(query: query);
+
+          yield* resultEither.fold(
+            (failure) async* {
+              yield QuerySearchState.loadFailure(message: _mapRemoteFailureToMessage(failure));
+            },
+            (results) async* {
+              yield QuerySearchState.loadSearchResultsSuccess(words: results);
+            },
+          );
+        }
+      },
+      addNewRecentlySearchedWord: (word) async* {
+        yield const QuerySearchState.loadInProgreess();
+        final resultEither = await querySearchRepository.addNewRecentlySearchedWord(word);
 
         yield* resultEither.fold(
           (failure) async* {
-            yield QuerySearchErrorState(message: _mapFailureToMessage(failure));
+            yield const QuerySearchState.loadFailure(message: localDatabaseProcessingFailureMessage);
           },
           (results) async* {
-            yield QuerySearchLoadedState(words: results);
+            yield const QuerySearchState.newWordAddedToRecentlySearchedWords();
           },
         );
-      }
-    } else if (event is AddNewRecentlySearchedWordEvent) {
-      yield Loading();
-      final resultEither = await querySearchRepository.addNewRecentlySearchedWord(event.newRecentlySearchedWord);
+      },
+      getRecentlySearchedWords: () async* {
+        yield const QuerySearchState.loadInProgreess();
+        final resultEither = await querySearchRepository.getRecentlySearchedWords();
 
-      yield* resultEither.fold(
-        (failure) async* {
-          yield QuerySearchErrorState(message: _mapFailureToMessage(failure));
-        },
-        (results) async* {
-          yield QuerySearchNewWordAddedState();
-        },
-      );
-    } else if (event is GetRecentlySearchedWordsEvent) {
-      yield Loading();
-      final resultEither = await querySearchRepository.getRecentlySearchedWords();
-
-      yield* resultEither.fold(
-        (failure) async* {
-          yield QuerySearchErrorState(message: _mapFailureToMessage(failure));
-        },
-        (results) async* {
-          yield results.isEmpty ? Empty() : QuerySearchRecentlySearchedWordsLoadedState(recentlySearchedWords: results);
-        },
-      );
-    }
+        yield* resultEither.fold(
+          (failure) async* {
+            yield const QuerySearchState.loadFailure(message: localDatabaseProcessingFailureMessage);
+          },
+          (results) async* {
+            yield results.isEmpty
+                ? const QuerySearchState.initial()
+                : QuerySearchState.loadRecentlySearchedWordsResultsSuccess(recentlySearchedWords: results);
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -77,21 +84,16 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
     Stream<Transition<QuerySearchEvent, QuerySearchState>> Function(QuerySearchEvent) transitionFn,
   ) {
     final debounceStream =
-        events.where((event) => event is ModifyQueryEvent).debounceTime(const Duration(milliseconds: 500));
-    final nonDebounceStream = events.where((event) => event is! ModifyQueryEvent);
+        events.where((event) => event is QuerySearchEventModifyQuery).debounceTime(const Duration(milliseconds: 500));
+    final nonDebounceStream = events.where((event) => event is! QuerySearchEventModifyQuery);
     return super.transformEvents(StreamGroup.merge([debounceStream, nonDebounceStream]), transitionFn);
   }
 }
 
-String _mapFailureToMessage(Failure failure) {
-  switch (failure.runtimeType) {
-    case ServerFailure:
-      return serverFailureMessage;
-    case NetworkFailure:
-      return networkFailureMessage;
-    case LocalDatabaseProcessingFailure:
-      return localDatabaseProcessingFailureMessage;
-    default:
-      return 'Unexpected Error';
-  }
+String _mapRemoteFailureToMessage(QuerySearchRemoteFailure failure) {
+  return failure.when(
+    networkError: () => networkFailureMessage,
+    noResultsFound: () => noResultsFoundMessage,
+    serverError: () => serverFailureMessage,
+  );
 }
