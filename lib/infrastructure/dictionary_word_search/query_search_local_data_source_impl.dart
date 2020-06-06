@@ -36,9 +36,12 @@ class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
         .map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>))
         .toList();
 
-    initialWordsDtos.add(newWordToAdd);
-    final updatedRecentlySearchedWordsEncoded = initialWordsDtos.map((word) => json.encode(word.toJson())).toList();
-    await sharedPreferences.setStringList(recentlySearchedWordsDbIdentifier, updatedRecentlySearchedWordsEncoded);
+    if (!initialWordsDtos.contains(newWordToAdd)) {
+      initialWordsDtos.add(newWordToAdd);
+      final updatedRecentlySearchedWordsEncoded = initialWordsDtos.map((word) => json.encode(word.toJson())).toList();
+      await sharedPreferences.setStringList(recentlySearchedWordsDbIdentifier, updatedRecentlySearchedWordsEncoded);
+    }
+
     return Future.value(newWordToAdd);
   }
 }

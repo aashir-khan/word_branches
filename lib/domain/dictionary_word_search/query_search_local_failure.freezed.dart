@@ -9,86 +9,91 @@ part of 'query_search_local_failure.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$QuerySearchLocalFailureTearOff {
-  const _$QuerySearchLocalFailureTearOff();
+class _$QuerySearchLocalFailureLocalDatabaseProcessingFailureTearOff {
+  const _$QuerySearchLocalFailureLocalDatabaseProcessingFailureTearOff();
 
-  _QuerySearchLocalFailureLocalDatabaseProcessingException
-      localDatabaseProcessingException() {
-    return const _QuerySearchLocalFailureLocalDatabaseProcessingException();
+  _QuerySearchLocalFailureLocalDatabaseProcessingFailure call() {
+    return const _QuerySearchLocalFailureLocalDatabaseProcessingFailure();
   }
 }
 
 // ignore: unused_element
-const $QuerySearchLocalFailure = _$QuerySearchLocalFailureTearOff();
+const $QuerySearchLocalFailureLocalDatabaseProcessingFailure =
+    _$QuerySearchLocalFailureLocalDatabaseProcessingFailureTearOff();
 
-mixin _$QuerySearchLocalFailure {}
+mixin _$QuerySearchLocalFailureLocalDatabaseProcessingFailure {}
 
-abstract class $QuerySearchLocalFailureCopyWith<$Res> {
-  factory $QuerySearchLocalFailureCopyWith(QuerySearchLocalFailure value,
-          $Res Function(QuerySearchLocalFailure) then) =
-      _$QuerySearchLocalFailureCopyWithImpl<$Res>;
-}
-
-class _$QuerySearchLocalFailureCopyWithImpl<$Res>
-    implements $QuerySearchLocalFailureCopyWith<$Res> {
-  _$QuerySearchLocalFailureCopyWithImpl(this._value, this._then);
-
-  final QuerySearchLocalFailure _value;
-  // ignore: unused_field
-  final $Res Function(QuerySearchLocalFailure) _then;
-}
-
-abstract class _$QuerySearchLocalFailureLocalDatabaseProcessingExceptionCopyWith<
+abstract class $QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWith<
     $Res> {
-  factory _$QuerySearchLocalFailureLocalDatabaseProcessingExceptionCopyWith(
-          _QuerySearchLocalFailureLocalDatabaseProcessingException value,
-          $Res Function(
-                  _QuerySearchLocalFailureLocalDatabaseProcessingException)
+  factory $QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWith(
+          QuerySearchLocalFailureLocalDatabaseProcessingFailure value,
+          $Res Function(QuerySearchLocalFailureLocalDatabaseProcessingFailure)
               then) =
-      __$QuerySearchLocalFailureLocalDatabaseProcessingExceptionCopyWithImpl<
+      _$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWithImpl<$Res>;
+}
+
+class _$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWithImpl<$Res>
+    implements
+        $QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWith<$Res> {
+  _$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWithImpl(
+      this._value, this._then);
+
+  final QuerySearchLocalFailureLocalDatabaseProcessingFailure _value;
+  // ignore: unused_field
+  final $Res Function(QuerySearchLocalFailureLocalDatabaseProcessingFailure)
+      _then;
+}
+
+abstract class _$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWith<
+    $Res> {
+  factory _$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWith(
+          _QuerySearchLocalFailureLocalDatabaseProcessingFailure value,
+          $Res Function(_QuerySearchLocalFailureLocalDatabaseProcessingFailure)
+              then) =
+      __$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWithImpl<
           $Res>;
 }
 
-class __$QuerySearchLocalFailureLocalDatabaseProcessingExceptionCopyWithImpl<
-        $Res> extends _$QuerySearchLocalFailureCopyWithImpl<$Res>
+class __$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWithImpl<$Res>
+    extends _$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWithImpl<
+        $Res>
     implements
-        _$QuerySearchLocalFailureLocalDatabaseProcessingExceptionCopyWith<
-            $Res> {
-  __$QuerySearchLocalFailureLocalDatabaseProcessingExceptionCopyWithImpl(
-      _QuerySearchLocalFailureLocalDatabaseProcessingException _value,
-      $Res Function(_QuerySearchLocalFailureLocalDatabaseProcessingException)
+        _$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWith<$Res> {
+  __$QuerySearchLocalFailureLocalDatabaseProcessingFailureCopyWithImpl(
+      _QuerySearchLocalFailureLocalDatabaseProcessingFailure _value,
+      $Res Function(_QuerySearchLocalFailureLocalDatabaseProcessingFailure)
           _then)
       : super(
             _value,
             (v) => _then(
-                v as _QuerySearchLocalFailureLocalDatabaseProcessingException));
+                v as _QuerySearchLocalFailureLocalDatabaseProcessingFailure));
 
   @override
-  _QuerySearchLocalFailureLocalDatabaseProcessingException get _value =>
-      super._value as _QuerySearchLocalFailureLocalDatabaseProcessingException;
+  _QuerySearchLocalFailureLocalDatabaseProcessingFailure get _value =>
+      super._value as _QuerySearchLocalFailureLocalDatabaseProcessingFailure;
 }
 
-class _$_QuerySearchLocalFailureLocalDatabaseProcessingException
-    implements _QuerySearchLocalFailureLocalDatabaseProcessingException {
-  const _$_QuerySearchLocalFailureLocalDatabaseProcessingException();
+class _$_QuerySearchLocalFailureLocalDatabaseProcessingFailure
+    implements _QuerySearchLocalFailureLocalDatabaseProcessingFailure {
+  const _$_QuerySearchLocalFailureLocalDatabaseProcessingFailure();
 
   @override
   String toString() {
-    return 'QuerySearchLocalFailure.localDatabaseProcessingException()';
+    return 'QuerySearchLocalFailureLocalDatabaseProcessingFailure()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuerySearchLocalFailureLocalDatabaseProcessingException);
+        (other is _QuerySearchLocalFailureLocalDatabaseProcessingFailure);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 }
 
-abstract class _QuerySearchLocalFailureLocalDatabaseProcessingException
-    implements QuerySearchLocalFailure {
-  const factory _QuerySearchLocalFailureLocalDatabaseProcessingException() =
-      _$_QuerySearchLocalFailureLocalDatabaseProcessingException;
+abstract class _QuerySearchLocalFailureLocalDatabaseProcessingFailure
+    implements QuerySearchLocalFailureLocalDatabaseProcessingFailure {
+  const factory _QuerySearchLocalFailureLocalDatabaseProcessingFailure() =
+      _$_QuerySearchLocalFailureLocalDatabaseProcessingFailure;
 }
