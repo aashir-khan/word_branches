@@ -21,8 +21,7 @@ dependencies:
     sdk: flutter
   http: ^0.12.1
   get_it: ^4.0.2
-  device_preview: ^0.4.5
-  flutter_bloc: ^4.0.0
+  flutter_bloc: ^4.0.1
   rxdart: ^0.24.1
   async: ^2.4.1
   dartz: ^0.9.1
@@ -30,10 +29,10 @@ dependencies:
   # For OS-specific directory paths
   shared_preferences: ^0.5.7+3
   shared_preferences_web: ^0.1.2+7
-  injectable: ^0.4.0
+  injectable: ^0.4.0+1
   flutter_svg: ^0.17.4
   auto_route: ^0.5.0
-  freezed_annotation: ^0.7.1
+  freezed_annotation: ^0.11.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -49,7 +48,7 @@ dev_dependencies:
   injectable_generator: ^0.4.0
   lint: ^1.2.0
   auto_route_generator: ^0.5.0
-  freezed: ^0.10.9
+  freezed: ^0.11.2
   json_serializable: ^3.3.0
 
 # For information on the generic Dart part of this file, see the

@@ -5,6 +5,7 @@
 // **************************************************************************
 
 import 'package:dr_words/infrastructure/internal/account_details/account_details_impl.dart';
+import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
 import 'package:dr_words/injectable_module.dart';
 import 'package:http/src/client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
@@ -15,7 +16,6 @@ import 'package:dr_words/domain/dictionary_word_search/query_search_local_data_s
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/query_search_remote_data_source_impl.dart';
 import 'package:dr_words/domain/dictionary_word_search/query_search_remote_data_source.dart';
-import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/query_search_remote_data_source_fake.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/query_search_repository_impl.dart';
 import 'package:dr_words/domain/dictionary_word_search/query_search_repository.dart';
@@ -24,7 +24,6 @@ import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
   final injectableModule = _$InjectableModule();
-  g.registerLazySingleton<AccountDetailsImpl>(() => AccountDetailsImpl());
   g.registerLazySingleton<Client>(() => injectableModule.httpClient);
   g.registerLazySingleton<DataConnectionChecker>(
       () => injectableModule.dataConnectionChecker);
@@ -44,6 +43,7 @@ void $initGetIt(GetIt g, {String environment}) {
 
   //Register production Dependencies --------
   if (environment == 'production') {
+    g.registerLazySingleton<AccountDetails>(() => AccountDetailsImpl());
     g.registerLazySingleton<QuerySearchRemoteDataSource>(() =>
         QuerySearchRemoteDataSourceImpl(
             client: g<Client>(), accountDetails: g<AccountDetails>()));
