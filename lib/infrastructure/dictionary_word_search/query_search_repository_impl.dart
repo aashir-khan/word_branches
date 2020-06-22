@@ -29,7 +29,7 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
     if (await networkInfo.isConnected) {
       try {
         final wordsDto = await remoteDataSource.getQuerySearchResults(query: query);
-        final domainWords = wordsDto.map((dto) => dto.toDomain()).toList();
+        final domainWords = wordsDto.asList().toList().map((dto) => dto.toDomain()).toList();
         return Right(domainWords);
       } on QuerySearchRemoteFailure catch (e) {
         return e.when(
@@ -48,7 +48,7 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
       getRecentlySearchedWords() async {
     try {
       final wordsDto = await localDataSource.getRecentlySearchedWords();
-      return Right(wordsDto.map((word) => word.toDomain()).toList());
+      return Right(wordsDto.asList().toList().map((word) => word.toDomain()).toList());
     } on LocalDatabaseProcessingException {
       return const Left(QuerySearchLocalFailureLocalDatabaseProcessingFailure());
     }

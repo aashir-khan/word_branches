@@ -7,6 +7,7 @@ import 'package:dr_words/infrastructure/internal/account_details/account_details
 import 'package:dr_words/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
+import 'package:kt_dart/collection.dart';
 
 @LazySingleton(as: QuerySearchRemoteDataSource, env: Env.production)
 class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
@@ -19,7 +20,7 @@ class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
   });
 
   @override
-  Future<List<DictionaryWordDto>> getQuerySearchResults({
+  Future<KtList<DictionaryWordDto>> getQuerySearchResults({
     String query,
   }) async {
     final headers = accountDetails.oxfordAPIDetails['developer'] as Map<String, String>;
@@ -33,7 +34,7 @@ class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
       final jsonBody = json.decode(response.body) as Map<String, dynamic>;
       final words = List<DictionaryWordDto>.from([]);
       jsonBody['results'].forEach((word) => words.add(DictionaryWordDto.fromJson(word as Map<String, dynamic>)));
-      return words;
+      return words.toImmutableList();
     } else if (response.statusCode == 404) {
       throw const QuerySearchException.noResultsFound();
     } else if (response.statusCode == 500) {

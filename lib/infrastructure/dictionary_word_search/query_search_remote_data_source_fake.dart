@@ -7,6 +7,7 @@ import 'package:dr_words/injection.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @LazySingleton(as: QuerySearchRemoteDataSource, env: Env.development)
@@ -18,7 +19,7 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
   static const querySearchResultsDbIdentifier = 'query_search_results';
 
   @override
-  Future<List<DictionaryWordDto>> getQuerySearchResults({
+  Future<KtList<DictionaryWordDto>> getQuerySearchResults({
     String query,
   }) async {
     final initialStringListStoredData = sharedPreferences.getStringList(querySearchResultsDbIdentifier) ?? [];
@@ -30,13 +31,13 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
     if (initialStoredData.isEmpty) {
       return _getQueryResultsHelper(query);
     } else {
-      final filteredWordsDtos = initialStoredData.where((word) => word.label.startsWith(query)).toList();
+      final filteredWordsDtos = initialStoredData.where((word) => word.label.startsWith(query)).toImmutableList();
 
       return Future.delayed(const Duration(milliseconds: 1), () => filteredWordsDtos);
     }
   }
 
-  Future<List<DictionaryWordDto>> _getQueryResultsHelper(String query) async {
+  Future<KtList<DictionaryWordDto>> _getQueryResultsHelper(String query) async {
     final List<DictionaryWordDto> wordsList = [];
 
     for (var i = 0; i < faker.randomGenerator.integer(100, min: 5); i++) {
@@ -58,6 +59,6 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
 
     final resultEncoded = wordsList.map((word) => json.encode(word.toJson())).toList();
     await sharedPreferences.setStringList(querySearchResultsDbIdentifier, resultEncoded);
-    return Future.delayed(const Duration(milliseconds: 1), () => wordsList);
+    return Future.delayed(const Duration(milliseconds: 1), () => wordsList.toImmutableList());
   }
 }
