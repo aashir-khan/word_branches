@@ -16,13 +16,13 @@ class DictionaryWordSearchRemoteDataSourceFake implements DictionaryWordSearchRe
 
   DictionaryWordSearchRemoteDataSourceFake({@required this.sharedPreferences});
 
-  static const DictionaryWordSearchResultsDbIdentifier = 'query_search_results';
+  static const dictionaryWordSearchResultsDbIdentifier = 'query_search_results';
 
   @override
   Future<KtList<DictionaryWordDto>> getDictionaryWordSearchResults({
     String query,
   }) async {
-    final initialStringListStoredData = sharedPreferences.getStringList(DictionaryWordSearchResultsDbIdentifier) ?? [];
+    final initialStringListStoredData = sharedPreferences.getStringList(dictionaryWordSearchResultsDbIdentifier) ?? [];
 
     final List<DictionaryWordDto> initialStoredData = initialStringListStoredData
         .map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>))
@@ -58,7 +58,7 @@ class DictionaryWordSearchRemoteDataSourceFake implements DictionaryWordSearchRe
     }
 
     final resultEncoded = wordsList.map((word) => json.encode(word.toJson())).toList();
-    await sharedPreferences.setStringList(DictionaryWordSearchResultsDbIdentifier, resultEncoded);
+    await sharedPreferences.setStringList(dictionaryWordSearchResultsDbIdentifier, resultEncoded);
     return Future.delayed(const Duration(milliseconds: 1), () => wordsList.toImmutableList());
   }
 }
