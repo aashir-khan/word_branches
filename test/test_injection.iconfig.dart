@@ -17,17 +17,17 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<MockAccountDetails>(() => MockAccountDetails());
   g.registerLazySingleton<MockAddNewRecentlySearchedWord>(
       () => MockAddNewRecentlySearchedWord());
+  g.registerLazySingleton<MockDictionaryWordSearchLocalDataSource>(
+      () => MockDictionaryWordSearchLocalDataSource());
+  g.registerLazySingleton<MockDictionaryWordSearchRemoteDataSource>(
+      () => MockDictionaryWordSearchRemoteDataSource());
+  g.registerLazySingleton<MockDictionaryWordSearchRepository>(
+      () => MockDictionaryWordSearchRepository());
   g.registerLazySingleton<MockGetHeadwordEntries>(
       () => MockGetHeadwordEntries());
   g.registerLazySingleton<MockGetRecentlySearchedWords>(
       () => MockGetRecentlySearchedWords());
   g.registerLazySingleton<MockNetworkInfo>(() => MockNetworkInfo());
-  g.registerLazySingleton<MockQuerySearchLocalDataSource>(
-      () => MockQuerySearchLocalDataSource());
-  g.registerLazySingleton<MockQuerySearchRemoteDataSource>(
-      () => MockQuerySearchRemoteDataSource());
-  g.registerLazySingleton<MockQuerySearchRepository>(
-      () => MockQuerySearchRepository());
   g.registerLazySingleton<MockWordDetailsRepository>(
       () => MockWordDetailsRepository());
   g.registerLazySingleton<SharedPreferences>(() => MockSharedPreferences());

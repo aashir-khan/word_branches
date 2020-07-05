@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: colors.primaryColorDark));
 
     return BlocProvider(
-      create: (_) => getIt<QuerySearchBloc>(),
+      create: (_) => getIt<DictionaryWordSearchBloc>(),
       child: MaterialApp(
         builder: (ctx, _) => ExtendedNavigator<Router>(router: Router()),
         title: 'Dr. Words',

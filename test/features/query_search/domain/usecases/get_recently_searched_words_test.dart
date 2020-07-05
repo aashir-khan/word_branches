@@ -12,14 +12,14 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   GetRecentlySearchedWords usecase;
-  QuerySearchRepository mockQuerySearchRepository;
+  DictionaryWordSearchRepository mockDictionaryWordSearchRepository;
 
   setUpAll(() async {
     await configureInjection(Env.test);
   });
 
   setUp(() {
-    mockQuerySearchRepository = getIt<QuerySearchRepository>();
+    mockDictionaryWordSearchRepository = getIt<DictionaryWordSearchRepository>();
     usecase = getIt<GetRecentlySearchedWordsImpl>();
   });
 
@@ -27,14 +27,15 @@ void main() {
 
   test('should get list of recently searched words from the repository', () async {
     // arrange
-    when(mockQuerySearchRepository.getRecentlySearchedWords()).thenAnswer((_) async => Right(tListOfDictionaryWord));
+    when(mockDictionaryWordSearchRepository.getRecentlySearchedWords())
+        .thenAnswer((_) async => Right(tListOfDictionaryWord));
 
     // act
     final result = await usecase(NoParams());
 
     // assert
     expect(result, Right(tListOfDictionaryWord));
-    verify(mockQuerySearchRepository.getRecentlySearchedWords());
-    verifyNoMoreInteractions(mockQuerySearchRepository);
+    verify(mockDictionaryWordSearchRepository.getRecentlySearchedWords());
+    verifyNoMoreInteractions(mockDictionaryWordSearchRepository);
   });
 }

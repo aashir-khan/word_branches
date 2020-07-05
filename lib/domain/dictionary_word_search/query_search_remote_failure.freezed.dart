@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'query_search_remote_failure.dart';
+part of 'dictionary_word_search_remote_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,26 +9,26 @@ part of 'query_search_remote_failure.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$QuerySearchRemoteFailureTearOff {
-  const _$QuerySearchRemoteFailureTearOff();
+class _$DictionaryWordSearchRemoteFailureTearOff {
+  const _$DictionaryWordSearchRemoteFailureTearOff();
 
-  _QuerySearchRemoteFailureNetworkError networkError() {
-    return const _QuerySearchRemoteFailureNetworkError();
+  _DictionaryWordSearchRemoteFailureNetworkError networkError() {
+    return const _DictionaryWordSearchRemoteFailureNetworkError();
   }
 
-  _QuerySearchRemoteFailureNoResultsFound noResultsFound() {
-    return const _QuerySearchRemoteFailureNoResultsFound();
+  _DictionaryWordSearchRemoteFailureNoResultsFound noResultsFound() {
+    return const _DictionaryWordSearchRemoteFailureNoResultsFound();
   }
 
-  _QuerySearchRemoteFailureServerException serverError() {
-    return const _QuerySearchRemoteFailureServerException();
+  _DictionaryWordSearchRemoteFailureServerException serverError() {
+    return const _DictionaryWordSearchRemoteFailureServerException();
   }
 }
 
 // ignore: unused_element
-const $QuerySearchRemoteFailure = _$QuerySearchRemoteFailureTearOff();
+const $DictionaryWordSearchRemoteFailure = _$DictionaryWordSearchRemoteFailureTearOff();
 
-mixin _$QuerySearchRemoteFailure {
+mixin _$DictionaryWordSearchRemoteFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result networkError(),
@@ -44,69 +44,63 @@ mixin _$QuerySearchRemoteFailure {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    @required
-        Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    @required
-        Result serverError(_QuerySearchRemoteFailureServerException value),
+    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    Result serverError(_QuerySearchRemoteFailureServerException value),
+    Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   });
 }
 
-abstract class $QuerySearchRemoteFailureCopyWith<$Res> {
-  factory $QuerySearchRemoteFailureCopyWith(QuerySearchRemoteFailure value,
-          $Res Function(QuerySearchRemoteFailure) then) =
-      _$QuerySearchRemoteFailureCopyWithImpl<$Res>;
+abstract class $DictionaryWordSearchRemoteFailureCopyWith<$Res> {
+  factory $DictionaryWordSearchRemoteFailureCopyWith(
+          DictionaryWordSearchRemoteFailure value, $Res Function(DictionaryWordSearchRemoteFailure) then) =
+      _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>;
 }
 
-class _$QuerySearchRemoteFailureCopyWithImpl<$Res>
-    implements $QuerySearchRemoteFailureCopyWith<$Res> {
-  _$QuerySearchRemoteFailureCopyWithImpl(this._value, this._then);
+class _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
+    implements $DictionaryWordSearchRemoteFailureCopyWith<$Res> {
+  _$DictionaryWordSearchRemoteFailureCopyWithImpl(this._value, this._then);
 
-  final QuerySearchRemoteFailure _value;
+  final DictionaryWordSearchRemoteFailure _value;
   // ignore: unused_field
-  final $Res Function(QuerySearchRemoteFailure) _then;
+  final $Res Function(DictionaryWordSearchRemoteFailure) _then;
 }
 
-abstract class _$QuerySearchRemoteFailureNetworkErrorCopyWith<$Res> {
-  factory _$QuerySearchRemoteFailureNetworkErrorCopyWith(
-          _QuerySearchRemoteFailureNetworkError value,
-          $Res Function(_QuerySearchRemoteFailureNetworkError) then) =
-      __$QuerySearchRemoteFailureNetworkErrorCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
+  factory _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith(_DictionaryWordSearchRemoteFailureNetworkError value,
+          $Res Function(_DictionaryWordSearchRemoteFailureNetworkError) then) =
+      __$DictionaryWordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchRemoteFailureNetworkErrorCopyWithImpl<$Res>
-    extends _$QuerySearchRemoteFailureCopyWithImpl<$Res>
-    implements _$QuerySearchRemoteFailureNetworkErrorCopyWith<$Res> {
-  __$QuerySearchRemoteFailureNetworkErrorCopyWithImpl(
-      _QuerySearchRemoteFailureNetworkError _value,
-      $Res Function(_QuerySearchRemoteFailureNetworkError) _then)
-      : super(_value, (v) => _then(v as _QuerySearchRemoteFailureNetworkError));
+class __$DictionaryWordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
+  __$DictionaryWordSearchRemoteFailureNetworkErrorCopyWithImpl(_DictionaryWordSearchRemoteFailureNetworkError _value,
+      $Res Function(_DictionaryWordSearchRemoteFailureNetworkError) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteFailureNetworkError));
 
   @override
-  _QuerySearchRemoteFailureNetworkError get _value =>
-      super._value as _QuerySearchRemoteFailureNetworkError;
+  _DictionaryWordSearchRemoteFailureNetworkError get _value =>
+      super._value as _DictionaryWordSearchRemoteFailureNetworkError;
 }
 
-class _$_QuerySearchRemoteFailureNetworkError
-    implements _QuerySearchRemoteFailureNetworkError {
-  const _$_QuerySearchRemoteFailureNetworkError();
+class _$_DictionaryWordSearchRemoteFailureNetworkError implements _DictionaryWordSearchRemoteFailureNetworkError {
+  const _$_DictionaryWordSearchRemoteFailureNetworkError();
 
   @override
   String toString() {
-    return 'QuerySearchRemoteFailure.networkError()';
+    return 'DictionaryWordSearchRemoteFailure.networkError()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _QuerySearchRemoteFailureNetworkError);
+    return identical(this, other) || (other is _DictionaryWordSearchRemoteFailureNetworkError);
   }
 
   @override
@@ -143,11 +137,9 @@ class _$_QuerySearchRemoteFailureNetworkError
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    @required
-        Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    @required
-        Result serverError(_QuerySearchRemoteFailureServerException value),
+    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
@@ -158,9 +150,9 @@ class _$_QuerySearchRemoteFailureNetworkError
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    Result serverError(_QuerySearchRemoteFailureServerException value),
+    Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -171,46 +163,41 @@ class _$_QuerySearchRemoteFailureNetworkError
   }
 }
 
-abstract class _QuerySearchRemoteFailureNetworkError
-    implements QuerySearchRemoteFailure {
-  const factory _QuerySearchRemoteFailureNetworkError() =
-      _$_QuerySearchRemoteFailureNetworkError;
+abstract class _DictionaryWordSearchRemoteFailureNetworkError implements DictionaryWordSearchRemoteFailure {
+  const factory _DictionaryWordSearchRemoteFailureNetworkError() = _$_DictionaryWordSearchRemoteFailureNetworkError;
 }
 
-abstract class _$QuerySearchRemoteFailureNoResultsFoundCopyWith<$Res> {
-  factory _$QuerySearchRemoteFailureNoResultsFoundCopyWith(
-          _QuerySearchRemoteFailureNoResultsFound value,
-          $Res Function(_QuerySearchRemoteFailureNoResultsFound) then) =
-      __$QuerySearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith<$Res> {
+  factory _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith(
+          _DictionaryWordSearchRemoteFailureNoResultsFound value,
+          $Res Function(_DictionaryWordSearchRemoteFailureNoResultsFound) then) =
+      __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>
-    extends _$QuerySearchRemoteFailureCopyWithImpl<$Res>
-    implements _$QuerySearchRemoteFailureNoResultsFoundCopyWith<$Res> {
-  __$QuerySearchRemoteFailureNoResultsFoundCopyWithImpl(
-      _QuerySearchRemoteFailureNoResultsFound _value,
-      $Res Function(_QuerySearchRemoteFailureNoResultsFound) _then)
-      : super(
-            _value, (v) => _then(v as _QuerySearchRemoteFailureNoResultsFound));
+class __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith<$Res> {
+  __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl(
+      _DictionaryWordSearchRemoteFailureNoResultsFound _value,
+      $Res Function(_DictionaryWordSearchRemoteFailureNoResultsFound) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteFailureNoResultsFound));
 
   @override
-  _QuerySearchRemoteFailureNoResultsFound get _value =>
-      super._value as _QuerySearchRemoteFailureNoResultsFound;
+  _DictionaryWordSearchRemoteFailureNoResultsFound get _value =>
+      super._value as _DictionaryWordSearchRemoteFailureNoResultsFound;
 }
 
-class _$_QuerySearchRemoteFailureNoResultsFound
-    implements _QuerySearchRemoteFailureNoResultsFound {
-  const _$_QuerySearchRemoteFailureNoResultsFound();
+class _$_DictionaryWordSearchRemoteFailureNoResultsFound implements _DictionaryWordSearchRemoteFailureNoResultsFound {
+  const _$_DictionaryWordSearchRemoteFailureNoResultsFound();
 
   @override
   String toString() {
-    return 'QuerySearchRemoteFailure.noResultsFound()';
+    return 'DictionaryWordSearchRemoteFailure.noResultsFound()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _QuerySearchRemoteFailureNoResultsFound);
+    return identical(this, other) || (other is _DictionaryWordSearchRemoteFailureNoResultsFound);
   }
 
   @override
@@ -247,11 +234,9 @@ class _$_QuerySearchRemoteFailureNoResultsFound
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    @required
-        Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    @required
-        Result serverError(_QuerySearchRemoteFailureServerException value),
+    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
@@ -262,9 +247,9 @@ class _$_QuerySearchRemoteFailureNoResultsFound
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    Result serverError(_QuerySearchRemoteFailureServerException value),
+    Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -275,46 +260,41 @@ class _$_QuerySearchRemoteFailureNoResultsFound
   }
 }
 
-abstract class _QuerySearchRemoteFailureNoResultsFound
-    implements QuerySearchRemoteFailure {
-  const factory _QuerySearchRemoteFailureNoResultsFound() =
-      _$_QuerySearchRemoteFailureNoResultsFound;
+abstract class _DictionaryWordSearchRemoteFailureNoResultsFound implements DictionaryWordSearchRemoteFailure {
+  const factory _DictionaryWordSearchRemoteFailureNoResultsFound() = _$_DictionaryWordSearchRemoteFailureNoResultsFound;
 }
 
-abstract class _$QuerySearchRemoteFailureServerExceptionCopyWith<$Res> {
-  factory _$QuerySearchRemoteFailureServerExceptionCopyWith(
-          _QuerySearchRemoteFailureServerException value,
-          $Res Function(_QuerySearchRemoteFailureServerException) then) =
-      __$QuerySearchRemoteFailureServerExceptionCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith<$Res> {
+  factory _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith(
+          _DictionaryWordSearchRemoteFailureServerException value,
+          $Res Function(_DictionaryWordSearchRemoteFailureServerException) then) =
+      __$DictionaryWordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchRemoteFailureServerExceptionCopyWithImpl<$Res>
-    extends _$QuerySearchRemoteFailureCopyWithImpl<$Res>
-    implements _$QuerySearchRemoteFailureServerExceptionCopyWith<$Res> {
-  __$QuerySearchRemoteFailureServerExceptionCopyWithImpl(
-      _QuerySearchRemoteFailureServerException _value,
-      $Res Function(_QuerySearchRemoteFailureServerException) _then)
-      : super(_value,
-            (v) => _then(v as _QuerySearchRemoteFailureServerException));
+class __$DictionaryWordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith<$Res> {
+  __$DictionaryWordSearchRemoteFailureServerExceptionCopyWithImpl(
+      _DictionaryWordSearchRemoteFailureServerException _value,
+      $Res Function(_DictionaryWordSearchRemoteFailureServerException) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteFailureServerException));
 
   @override
-  _QuerySearchRemoteFailureServerException get _value =>
-      super._value as _QuerySearchRemoteFailureServerException;
+  _DictionaryWordSearchRemoteFailureServerException get _value =>
+      super._value as _DictionaryWordSearchRemoteFailureServerException;
 }
 
-class _$_QuerySearchRemoteFailureServerException
-    implements _QuerySearchRemoteFailureServerException {
-  const _$_QuerySearchRemoteFailureServerException();
+class _$_DictionaryWordSearchRemoteFailureServerException implements _DictionaryWordSearchRemoteFailureServerException {
+  const _$_DictionaryWordSearchRemoteFailureServerException();
 
   @override
   String toString() {
-    return 'QuerySearchRemoteFailure.serverError()';
+    return 'DictionaryWordSearchRemoteFailure.serverError()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _QuerySearchRemoteFailureServerException);
+    return identical(this, other) || (other is _DictionaryWordSearchRemoteFailureServerException);
   }
 
   @override
@@ -351,11 +331,9 @@ class _$_QuerySearchRemoteFailureServerException
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    @required
-        Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    @required
-        Result serverError(_QuerySearchRemoteFailureServerException value),
+    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
@@ -366,9 +344,9 @@ class _$_QuerySearchRemoteFailureServerException
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result networkError(_QuerySearchRemoteFailureNetworkError value),
-    Result noResultsFound(_QuerySearchRemoteFailureNoResultsFound value),
-    Result serverError(_QuerySearchRemoteFailureServerException value),
+    Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -379,8 +357,7 @@ class _$_QuerySearchRemoteFailureServerException
   }
 }
 
-abstract class _QuerySearchRemoteFailureServerException
-    implements QuerySearchRemoteFailure {
-  const factory _QuerySearchRemoteFailureServerException() =
-      _$_QuerySearchRemoteFailureServerException;
+abstract class _DictionaryWordSearchRemoteFailureServerException implements DictionaryWordSearchRemoteFailure {
+  const factory _DictionaryWordSearchRemoteFailureServerException() =
+      _$_DictionaryWordSearchRemoteFailureServerException;
 }

@@ -13,12 +13,12 @@ import '../../../../helpers/setup_all_for_test.dart';
 Future<void> main() async {
   await setupInjectionForTest();
 
-  QuerySearchLocalDataSourceImpl dataSource;
+  DictionaryWordSearchLocalDataSourceImpl dataSource;
   SharedPreferences mockSharedPreferences;
 
   setUpAll(() async {
     mockSharedPreferences = getIt<SharedPreferences>();
-    dataSource = QuerySearchLocalDataSourceImpl(sharedPreferences: mockSharedPreferences);
+    dataSource = DictionaryWordSearchLocalDataSourceImpl(sharedPreferences: mockSharedPreferences);
   });
 
   group('getRecentlySearchedWords', () {
@@ -42,7 +42,7 @@ Future<void> main() async {
       final result = await dataSource.getRecentlySearchedWords();
 
       // assert
-      verify(mockSharedPreferences.getString(QuerySearchLocalDataSourceImpl.faoritedWordsDbIdentifier));
+      verify(mockSharedPreferences.getString(DictionaryWordSearchLocalDataSourceImpl.faoritedWordsDbIdentifier));
       expect(result, equals(tDictionaryWordModelList));
     });
   });
@@ -65,7 +65,7 @@ Future<void> main() async {
 
       // verify
       verify(mockSharedPreferences.setString(
-          QuerySearchLocalDataSourceImpl.faoritedWordsDbIdentifier, expectedJsonString));
+          DictionaryWordSearchLocalDataSourceImpl.faoritedWordsDbIdentifier, expectedJsonString));
     });
   });
 }

@@ -41,15 +41,15 @@ class MockAddNewRecentlySearchedWord extends Mock implements AddNewRecentlySearc
 @LazySingleton(as: WordDetailsRepository)
 class MockWordDetailsRepository extends Mock implements WordDetailsRepository {}
 
-@LazySingleton(as: QuerySearchRepository)
-class MockQuerySearchRepository extends Mock implements QuerySearchRepository {}
+@LazySingleton(as: DictionaryWordSearchRepository)
+class MockDictionaryWordSearchRepository extends Mock implements DictionaryWordSearchRepository {}
 
 // Data sources
-@LazySingleton(as: QuerySearchLocalDataSource)
-class MockQuerySearchLocalDataSource extends Mock implements QuerySearchLocalDataSource {}
+@LazySingleton(as: DictionaryWordSearchLocalDataSource)
+class MockDictionaryWordSearchLocalDataSource extends Mock implements DictionaryWordSearchLocalDataSource {}
 
-@LazySingleton(as: QuerySearchRemoteDataSource)
-class MockQuerySearchRemoteDataSource extends Mock implements QuerySearchRemoteDataSource {}
+@LazySingleton(as: DictionaryWordSearchRemoteDataSource)
+class MockDictionaryWordSearchRemoteDataSource extends Mock implements DictionaryWordSearchRemoteDataSource {}
 
 // Third party
 @LazySingleton(as: DataConnectionChecker)

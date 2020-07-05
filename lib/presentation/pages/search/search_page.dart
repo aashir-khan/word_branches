@@ -15,8 +15,8 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void didChangeDependencies() {
     Future.delayed(Duration.zero, () async {
-      final DictionaryWord result =
-          await showSearch(context: context, delegate: WordQuerySearch(BlocProvider.of<QuerySearchBloc>(context)));
+      final DictionaryWord result = await showSearch(
+          context: context, delegate: WordDictionaryWordSearch(BlocProvider.of<DictionaryWordSearchBloc>(context)));
       if (result != null) {
         await ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(
           Routes.headwordEntriesPage,

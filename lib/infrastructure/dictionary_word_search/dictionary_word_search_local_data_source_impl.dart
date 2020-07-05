@@ -1,19 +1,19 @@
 import 'dart:convert';
 
-import 'package:dr_words/domain/dictionary_word_search/query_search_local_data_source.dart';
+import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_local_data_source.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@LazySingleton(as: QuerySearchLocalDataSource)
-class QuerySearchLocalDataSourceImpl implements QuerySearchLocalDataSource {
+@LazySingleton(as: DictionaryWordSearchLocalDataSource)
+class DictionaryWordSearchLocalDataSourceImpl implements DictionaryWordSearchLocalDataSource {
   final SharedPreferences sharedPreferences;
 
   static const recentlySearchedWordsDbIdentifier = 'recently_searched_words';
 
-  QuerySearchLocalDataSourceImpl({@required this.sharedPreferences});
+  DictionaryWordSearchLocalDataSourceImpl({@required this.sharedPreferences});
 
   @override
   Future<KtList<DictionaryWordDto>> getRecentlySearchedWords() async {

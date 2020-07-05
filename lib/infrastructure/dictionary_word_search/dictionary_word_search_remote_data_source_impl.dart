@@ -1,26 +1,26 @@
 import 'dart:convert';
 
-import 'package:dr_words/domain/dictionary_word_search/query_search_remote_data_source.dart';
+import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/query_search_exception.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_search_exception.dart';
 import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
 import 'package:dr_words/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:kt_dart/collection.dart';
 
-@LazySingleton(as: QuerySearchRemoteDataSource, env: Env.production)
-class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
+@LazySingleton(as: DictionaryWordSearchRemoteDataSource, env: Env.production)
+class DictionaryWordSearchRemoteDataSourceImpl implements DictionaryWordSearchRemoteDataSource {
   final AccountDetails accountDetails;
   final http.Client client;
 
-  QuerySearchRemoteDataSourceImpl({
+  DictionaryWordSearchRemoteDataSourceImpl({
     this.client,
     this.accountDetails,
   });
 
   @override
-  Future<KtList<DictionaryWordDto>> getQuerySearchResults({
+  Future<KtList<DictionaryWordDto>> getDictionaryWordSearchResults({
     String query,
   }) async {
     final headers = accountDetails.oxfordAPIDetails['developer'] as Map<String, String>;
@@ -36,11 +36,11 @@ class QuerySearchRemoteDataSourceImpl implements QuerySearchRemoteDataSource {
       jsonBody['results'].forEach((word) => words.add(DictionaryWordDto.fromJson(word as Map<String, dynamic>)));
       return words.toImmutableList();
     } else if (response.statusCode == 404) {
-      throw const QuerySearchException.noResultsFound();
+      throw const DictionaryWordSearchException.noResultsFound();
     } else if (response.statusCode == 500) {
-      throw const QuerySearchException.serverError();
+      throw const DictionaryWordSearchException.serverError();
     } else {
-      throw const QuerySearchException.unexpected();
+      throw const DictionaryWordSearchException.unexpected();
     }
   }
 }

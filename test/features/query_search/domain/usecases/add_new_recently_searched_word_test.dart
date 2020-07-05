@@ -11,14 +11,14 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   AddNewRecentlySearchedWord usecase;
-  QuerySearchRepository mockQuerySearchRepository;
+  DictionaryWordSearchRepository mockDictionaryWordSearchRepository;
 
   setUpAll(() async {
     await configureInjection(Env.test);
   });
 
   setUp(() {
-    mockQuerySearchRepository = getIt<QuerySearchRepository>();
+    mockDictionaryWordSearchRepository = getIt<DictionaryWordSearchRepository>();
     usecase = getIt<AddNewRecentlySearchedWordImpl>();
   });
 
@@ -26,7 +26,7 @@ void main() {
 
   test('should return Right(true) when new recently searched word is successfully added to the repository', () async {
     // arrange
-    when(mockQuerySearchRepository.addNewRecentlySearchedWord(tNewWordToAdd))
+    when(mockDictionaryWordSearchRepository.addNewRecentlySearchedWord(tNewWordToAdd))
         .thenAnswer((_) async => const Right(true));
 
     // act
@@ -34,7 +34,7 @@ void main() {
 
     // assert
     expect(result, const Right(true));
-    verify(mockQuerySearchRepository.addNewRecentlySearchedWord(tNewWordToAdd));
-    verifyNoMoreInteractions(mockQuerySearchRepository);
+    verify(mockDictionaryWordSearchRepository.addNewRecentlySearchedWord(tNewWordToAdd));
+    verifyNoMoreInteractions(mockDictionaryWordSearchRepository);
   });
 }

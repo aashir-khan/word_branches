@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'query_search_event.dart';
+part of 'dictionary_word_search_event.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,38 +9,36 @@ part of 'query_search_event.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$QuerySearchEventTearOff {
-  const _$QuerySearchEventTearOff();
+class _$DictionaryWordSearchEventTearOff {
+  const _$DictionaryWordSearchEventTearOff();
 
-  _QuerySearchEventGetRecentlySearchedWords getRecentlySearchedWords() {
-    return const _QuerySearchEventGetRecentlySearchedWords();
+  _DictionaryWordSearchEventGetRecentlySearchedWords getRecentlySearchedWords() {
+    return const _DictionaryWordSearchEventGetRecentlySearchedWords();
   }
 
-  QuerySearchEventModifyQuery modifyQuery({String query}) {
-    return QuerySearchEventModifyQuery(
+  DictionaryWordSearchEventModifyQuery modifyQuery({String query}) {
+    return DictionaryWordSearchEventModifyQuery(
       query: query,
     );
   }
 
-  _QuerySearchEventAddNewRecentlySearchedWord addNewRecentlySearchedWord(
+  _DictionaryWordSearchEventAddNewRecentlySearchedWord addNewRecentlySearchedWord(
       {DictionaryWord newRecentlySearchedWord}) {
-    return _QuerySearchEventAddNewRecentlySearchedWord(
+    return _DictionaryWordSearchEventAddNewRecentlySearchedWord(
       newRecentlySearchedWord: newRecentlySearchedWord,
     );
   }
 }
 
 // ignore: unused_element
-const $QuerySearchEvent = _$QuerySearchEventTearOff();
+const $DictionaryWordSearchEvent = _$DictionaryWordSearchEventTearOff();
 
-mixin _$QuerySearchEvent {
+mixin _$DictionaryWordSearchEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result getRecentlySearchedWords(),
     @required Result modifyQuery(String query),
-    @required
-        Result addNewRecentlySearchedWord(
-            DictionaryWord newRecentlySearchedWord),
+    @required Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -51,74 +49,65 @@ mixin _$QuerySearchEvent {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result getRecentlySearchedWords(
-            _QuerySearchEventGetRecentlySearchedWords value),
-    @required Result modifyQuery(QuerySearchEventModifyQuery value),
-    @required
-        Result addNewRecentlySearchedWord(
-            _QuerySearchEventAddNewRecentlySearchedWord value),
+    @required Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    @required Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    @required Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result getRecentlySearchedWords(
-        _QuerySearchEventGetRecentlySearchedWords value),
-    Result modifyQuery(QuerySearchEventModifyQuery value),
-    Result addNewRecentlySearchedWord(
-        _QuerySearchEventAddNewRecentlySearchedWord value),
+    Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
     @required Result orElse(),
   });
 }
 
-abstract class $QuerySearchEventCopyWith<$Res> {
-  factory $QuerySearchEventCopyWith(
-          QuerySearchEvent value, $Res Function(QuerySearchEvent) then) =
-      _$QuerySearchEventCopyWithImpl<$Res>;
+abstract class $DictionaryWordSearchEventCopyWith<$Res> {
+  factory $DictionaryWordSearchEventCopyWith(
+          DictionaryWordSearchEvent value, $Res Function(DictionaryWordSearchEvent) then) =
+      _$DictionaryWordSearchEventCopyWithImpl<$Res>;
 }
 
-class _$QuerySearchEventCopyWithImpl<$Res>
-    implements $QuerySearchEventCopyWith<$Res> {
-  _$QuerySearchEventCopyWithImpl(this._value, this._then);
+class _$DictionaryWordSearchEventCopyWithImpl<$Res> implements $DictionaryWordSearchEventCopyWith<$Res> {
+  _$DictionaryWordSearchEventCopyWithImpl(this._value, this._then);
 
-  final QuerySearchEvent _value;
+  final DictionaryWordSearchEvent _value;
   // ignore: unused_field
-  final $Res Function(QuerySearchEvent) _then;
+  final $Res Function(DictionaryWordSearchEvent) _then;
 }
 
-abstract class _$QuerySearchEventGetRecentlySearchedWordsCopyWith<$Res> {
-  factory _$QuerySearchEventGetRecentlySearchedWordsCopyWith(
-          _QuerySearchEventGetRecentlySearchedWords value,
-          $Res Function(_QuerySearchEventGetRecentlySearchedWords) then) =
-      __$QuerySearchEventGetRecentlySearchedWordsCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchEventGetRecentlySearchedWordsCopyWith<$Res> {
+  factory _$DictionaryWordSearchEventGetRecentlySearchedWordsCopyWith(
+          _DictionaryWordSearchEventGetRecentlySearchedWords value,
+          $Res Function(_DictionaryWordSearchEventGetRecentlySearchedWords) then) =
+      __$DictionaryWordSearchEventGetRecentlySearchedWordsCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchEventGetRecentlySearchedWordsCopyWithImpl<$Res>
-    extends _$QuerySearchEventCopyWithImpl<$Res>
-    implements _$QuerySearchEventGetRecentlySearchedWordsCopyWith<$Res> {
-  __$QuerySearchEventGetRecentlySearchedWordsCopyWithImpl(
-      _QuerySearchEventGetRecentlySearchedWords _value,
-      $Res Function(_QuerySearchEventGetRecentlySearchedWords) _then)
-      : super(_value,
-            (v) => _then(v as _QuerySearchEventGetRecentlySearchedWords));
+class __$DictionaryWordSearchEventGetRecentlySearchedWordsCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchEventCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchEventGetRecentlySearchedWordsCopyWith<$Res> {
+  __$DictionaryWordSearchEventGetRecentlySearchedWordsCopyWithImpl(
+      _DictionaryWordSearchEventGetRecentlySearchedWords _value,
+      $Res Function(_DictionaryWordSearchEventGetRecentlySearchedWords) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchEventGetRecentlySearchedWords));
 
   @override
-  _QuerySearchEventGetRecentlySearchedWords get _value =>
-      super._value as _QuerySearchEventGetRecentlySearchedWords;
+  _DictionaryWordSearchEventGetRecentlySearchedWords get _value =>
+      super._value as _DictionaryWordSearchEventGetRecentlySearchedWords;
 }
 
-class _$_QuerySearchEventGetRecentlySearchedWords
-    implements _QuerySearchEventGetRecentlySearchedWords {
-  const _$_QuerySearchEventGetRecentlySearchedWords();
+class _$_DictionaryWordSearchEventGetRecentlySearchedWords
+    implements _DictionaryWordSearchEventGetRecentlySearchedWords {
+  const _$_DictionaryWordSearchEventGetRecentlySearchedWords();
 
   @override
   String toString() {
-    return 'QuerySearchEvent.getRecentlySearchedWords()';
+    return 'DictionaryWordSearchEvent.getRecentlySearchedWords()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _QuerySearchEventGetRecentlySearchedWords);
+    return identical(this, other) || (other is _DictionaryWordSearchEventGetRecentlySearchedWords);
   }
 
   @override
@@ -129,9 +118,7 @@ class _$_QuerySearchEventGetRecentlySearchedWords
   Result when<Result extends Object>({
     @required Result getRecentlySearchedWords(),
     @required Result modifyQuery(String query),
-    @required
-        Result addNewRecentlySearchedWord(
-            DictionaryWord newRecentlySearchedWord),
+    @required Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
@@ -157,13 +144,9 @@ class _$_QuerySearchEventGetRecentlySearchedWords
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result getRecentlySearchedWords(
-            _QuerySearchEventGetRecentlySearchedWords value),
-    @required Result modifyQuery(QuerySearchEventModifyQuery value),
-    @required
-        Result addNewRecentlySearchedWord(
-            _QuerySearchEventAddNewRecentlySearchedWord value),
+    @required Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    @required Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    @required Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
@@ -174,11 +157,9 @@ class _$_QuerySearchEventGetRecentlySearchedWords
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result getRecentlySearchedWords(
-        _QuerySearchEventGetRecentlySearchedWords value),
-    Result modifyQuery(QuerySearchEventModifyQuery value),
-    Result addNewRecentlySearchedWord(
-        _QuerySearchEventAddNewRecentlySearchedWord value),
+    Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -189,77 +170,68 @@ class _$_QuerySearchEventGetRecentlySearchedWords
   }
 }
 
-abstract class _QuerySearchEventGetRecentlySearchedWords
-    implements QuerySearchEvent {
-  const factory _QuerySearchEventGetRecentlySearchedWords() =
-      _$_QuerySearchEventGetRecentlySearchedWords;
+abstract class _DictionaryWordSearchEventGetRecentlySearchedWords implements DictionaryWordSearchEvent {
+  const factory _DictionaryWordSearchEventGetRecentlySearchedWords() =
+      _$_DictionaryWordSearchEventGetRecentlySearchedWords;
 }
 
-abstract class $QuerySearchEventModifyQueryCopyWith<$Res> {
-  factory $QuerySearchEventModifyQueryCopyWith(
-          QuerySearchEventModifyQuery value,
-          $Res Function(QuerySearchEventModifyQuery) then) =
-      _$QuerySearchEventModifyQueryCopyWithImpl<$Res>;
+abstract class $DictionaryWordSearchEventModifyQueryCopyWith<$Res> {
+  factory $DictionaryWordSearchEventModifyQueryCopyWith(
+          DictionaryWordSearchEventModifyQuery value, $Res Function(DictionaryWordSearchEventModifyQuery) then) =
+      _$DictionaryWordSearchEventModifyQueryCopyWithImpl<$Res>;
   $Res call({String query});
 }
 
-class _$QuerySearchEventModifyQueryCopyWithImpl<$Res>
-    extends _$QuerySearchEventCopyWithImpl<$Res>
-    implements $QuerySearchEventModifyQueryCopyWith<$Res> {
-  _$QuerySearchEventModifyQueryCopyWithImpl(QuerySearchEventModifyQuery _value,
-      $Res Function(QuerySearchEventModifyQuery) _then)
-      : super(_value, (v) => _then(v as QuerySearchEventModifyQuery));
+class _$DictionaryWordSearchEventModifyQueryCopyWithImpl<$Res> extends _$DictionaryWordSearchEventCopyWithImpl<$Res>
+    implements $DictionaryWordSearchEventModifyQueryCopyWith<$Res> {
+  _$DictionaryWordSearchEventModifyQueryCopyWithImpl(
+      DictionaryWordSearchEventModifyQuery _value, $Res Function(DictionaryWordSearchEventModifyQuery) _then)
+      : super(_value, (v) => _then(v as DictionaryWordSearchEventModifyQuery));
 
   @override
-  QuerySearchEventModifyQuery get _value =>
-      super._value as QuerySearchEventModifyQuery;
+  DictionaryWordSearchEventModifyQuery get _value => super._value as DictionaryWordSearchEventModifyQuery;
 
   @override
   $Res call({
     Object query = freezed,
   }) {
-    return _then(QuerySearchEventModifyQuery(
+    return _then(DictionaryWordSearchEventModifyQuery(
       query: query == freezed ? _value.query : query as String,
     ));
   }
 }
 
-class _$QuerySearchEventModifyQuery implements QuerySearchEventModifyQuery {
-  const _$QuerySearchEventModifyQuery({this.query});
+class _$DictionaryWordSearchEventModifyQuery implements DictionaryWordSearchEventModifyQuery {
+  const _$DictionaryWordSearchEventModifyQuery({this.query});
 
   @override
   final String query;
 
   @override
   String toString() {
-    return 'QuerySearchEvent.modifyQuery(query: $query)';
+    return 'DictionaryWordSearchEvent.modifyQuery(query: $query)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is QuerySearchEventModifyQuery &&
-            (identical(other.query, query) ||
-                const DeepCollectionEquality().equals(other.query, query)));
+        (other is DictionaryWordSearchEventModifyQuery &&
+            (identical(other.query, query) || const DeepCollectionEquality().equals(other.query, query)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(query);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(query);
 
   @override
-  $QuerySearchEventModifyQueryCopyWith<QuerySearchEventModifyQuery>
-      get copyWith => _$QuerySearchEventModifyQueryCopyWithImpl<
-          QuerySearchEventModifyQuery>(this, _$identity);
+  $DictionaryWordSearchEventModifyQueryCopyWith<DictionaryWordSearchEventModifyQuery> get copyWith =>
+      _$DictionaryWordSearchEventModifyQueryCopyWithImpl<DictionaryWordSearchEventModifyQuery>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result getRecentlySearchedWords(),
     @required Result modifyQuery(String query),
-    @required
-        Result addNewRecentlySearchedWord(
-            DictionaryWord newRecentlySearchedWord),
+    @required Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
@@ -285,13 +257,9 @@ class _$QuerySearchEventModifyQuery implements QuerySearchEventModifyQuery {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result getRecentlySearchedWords(
-            _QuerySearchEventGetRecentlySearchedWords value),
-    @required Result modifyQuery(QuerySearchEventModifyQuery value),
-    @required
-        Result addNewRecentlySearchedWord(
-            _QuerySearchEventAddNewRecentlySearchedWord value),
+    @required Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    @required Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    @required Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
@@ -302,11 +270,9 @@ class _$QuerySearchEventModifyQuery implements QuerySearchEventModifyQuery {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result getRecentlySearchedWords(
-        _QuerySearchEventGetRecentlySearchedWords value),
-    Result modifyQuery(QuerySearchEventModifyQuery value),
-    Result addNewRecentlySearchedWord(
-        _QuerySearchEventAddNewRecentlySearchedWord value),
+    Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -317,43 +283,40 @@ class _$QuerySearchEventModifyQuery implements QuerySearchEventModifyQuery {
   }
 }
 
-abstract class QuerySearchEventModifyQuery implements QuerySearchEvent {
-  const factory QuerySearchEventModifyQuery({String query}) =
-      _$QuerySearchEventModifyQuery;
+abstract class DictionaryWordSearchEventModifyQuery implements DictionaryWordSearchEvent {
+  const factory DictionaryWordSearchEventModifyQuery({String query}) = _$DictionaryWordSearchEventModifyQuery;
 
   String get query;
-  $QuerySearchEventModifyQueryCopyWith<QuerySearchEventModifyQuery>
-      get copyWith;
+  $DictionaryWordSearchEventModifyQueryCopyWith<DictionaryWordSearchEventModifyQuery> get copyWith;
 }
 
-abstract class _$QuerySearchEventAddNewRecentlySearchedWordCopyWith<$Res> {
-  factory _$QuerySearchEventAddNewRecentlySearchedWordCopyWith(
-          _QuerySearchEventAddNewRecentlySearchedWord value,
-          $Res Function(_QuerySearchEventAddNewRecentlySearchedWord) then) =
-      __$QuerySearchEventAddNewRecentlySearchedWordCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWith<$Res> {
+  factory _$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWith(
+          _DictionaryWordSearchEventAddNewRecentlySearchedWord value,
+          $Res Function(_DictionaryWordSearchEventAddNewRecentlySearchedWord) then) =
+      __$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWithImpl<$Res>;
   $Res call({DictionaryWord newRecentlySearchedWord});
 
   $DictionaryWordCopyWith<$Res> get newRecentlySearchedWord;
 }
 
-class __$QuerySearchEventAddNewRecentlySearchedWordCopyWithImpl<$Res>
-    extends _$QuerySearchEventCopyWithImpl<$Res>
-    implements _$QuerySearchEventAddNewRecentlySearchedWordCopyWith<$Res> {
-  __$QuerySearchEventAddNewRecentlySearchedWordCopyWithImpl(
-      _QuerySearchEventAddNewRecentlySearchedWord _value,
-      $Res Function(_QuerySearchEventAddNewRecentlySearchedWord) _then)
-      : super(_value,
-            (v) => _then(v as _QuerySearchEventAddNewRecentlySearchedWord));
+class __$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchEventCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWith<$Res> {
+  __$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWithImpl(
+      _DictionaryWordSearchEventAddNewRecentlySearchedWord _value,
+      $Res Function(_DictionaryWordSearchEventAddNewRecentlySearchedWord) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchEventAddNewRecentlySearchedWord));
 
   @override
-  _QuerySearchEventAddNewRecentlySearchedWord get _value =>
-      super._value as _QuerySearchEventAddNewRecentlySearchedWord;
+  _DictionaryWordSearchEventAddNewRecentlySearchedWord get _value =>
+      super._value as _DictionaryWordSearchEventAddNewRecentlySearchedWord;
 
   @override
   $Res call({
     Object newRecentlySearchedWord = freezed,
   }) {
-    return _then(_QuerySearchEventAddNewRecentlySearchedWord(
+    return _then(_DictionaryWordSearchEventAddNewRecentlySearchedWord(
       newRecentlySearchedWord: newRecentlySearchedWord == freezed
           ? _value.newRecentlySearchedWord
           : newRecentlySearchedWord as DictionaryWord,
@@ -365,55 +328,46 @@ class __$QuerySearchEventAddNewRecentlySearchedWordCopyWithImpl<$Res>
     if (_value.newRecentlySearchedWord == null) {
       return null;
     }
-    return $DictionaryWordCopyWith<$Res>(_value.newRecentlySearchedWord,
-        (value) {
+    return $DictionaryWordCopyWith<$Res>(_value.newRecentlySearchedWord, (value) {
       return _then(_value.copyWith(newRecentlySearchedWord: value));
     });
   }
 }
 
-class _$_QuerySearchEventAddNewRecentlySearchedWord
-    implements _QuerySearchEventAddNewRecentlySearchedWord {
-  const _$_QuerySearchEventAddNewRecentlySearchedWord(
-      {this.newRecentlySearchedWord});
+class _$_DictionaryWordSearchEventAddNewRecentlySearchedWord
+    implements _DictionaryWordSearchEventAddNewRecentlySearchedWord {
+  const _$_DictionaryWordSearchEventAddNewRecentlySearchedWord({this.newRecentlySearchedWord});
 
   @override
   final DictionaryWord newRecentlySearchedWord;
 
   @override
   String toString() {
-    return 'QuerySearchEvent.addNewRecentlySearchedWord(newRecentlySearchedWord: $newRecentlySearchedWord)';
+    return 'DictionaryWordSearchEvent.addNewRecentlySearchedWord(newRecentlySearchedWord: $newRecentlySearchedWord)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuerySearchEventAddNewRecentlySearchedWord &&
-            (identical(
-                    other.newRecentlySearchedWord, newRecentlySearchedWord) ||
-                const DeepCollectionEquality().equals(
-                    other.newRecentlySearchedWord, newRecentlySearchedWord)));
+        (other is _DictionaryWordSearchEventAddNewRecentlySearchedWord &&
+            (identical(other.newRecentlySearchedWord, newRecentlySearchedWord) ||
+                const DeepCollectionEquality().equals(other.newRecentlySearchedWord, newRecentlySearchedWord)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(newRecentlySearchedWord);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(newRecentlySearchedWord);
 
   @override
-  _$QuerySearchEventAddNewRecentlySearchedWordCopyWith<
-          _QuerySearchEventAddNewRecentlySearchedWord>
-      get copyWith => __$QuerySearchEventAddNewRecentlySearchedWordCopyWithImpl<
-          _QuerySearchEventAddNewRecentlySearchedWord>(this, _$identity);
+  _$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWith<_DictionaryWordSearchEventAddNewRecentlySearchedWord>
+      get copyWith => __$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWithImpl<
+          _DictionaryWordSearchEventAddNewRecentlySearchedWord>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result getRecentlySearchedWords(),
     @required Result modifyQuery(String query),
-    @required
-        Result addNewRecentlySearchedWord(
-            DictionaryWord newRecentlySearchedWord),
+    @required Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
@@ -439,13 +393,9 @@ class _$_QuerySearchEventAddNewRecentlySearchedWord
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result getRecentlySearchedWords(
-            _QuerySearchEventGetRecentlySearchedWords value),
-    @required Result modifyQuery(QuerySearchEventModifyQuery value),
-    @required
-        Result addNewRecentlySearchedWord(
-            _QuerySearchEventAddNewRecentlySearchedWord value),
+    @required Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    @required Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    @required Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
@@ -456,11 +406,9 @@ class _$_QuerySearchEventAddNewRecentlySearchedWord
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result getRecentlySearchedWords(
-        _QuerySearchEventGetRecentlySearchedWords value),
-    Result modifyQuery(QuerySearchEventModifyQuery value),
-    Result addNewRecentlySearchedWord(
-        _QuerySearchEventAddNewRecentlySearchedWord value),
+    Result getRecentlySearchedWords(_DictionaryWordSearchEventGetRecentlySearchedWords value),
+    Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    Result addNewRecentlySearchedWord(_DictionaryWordSearchEventAddNewRecentlySearchedWord value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -471,13 +419,11 @@ class _$_QuerySearchEventAddNewRecentlySearchedWord
   }
 }
 
-abstract class _QuerySearchEventAddNewRecentlySearchedWord
-    implements QuerySearchEvent {
-  const factory _QuerySearchEventAddNewRecentlySearchedWord(
-          {DictionaryWord newRecentlySearchedWord}) =
-      _$_QuerySearchEventAddNewRecentlySearchedWord;
+abstract class _DictionaryWordSearchEventAddNewRecentlySearchedWord implements DictionaryWordSearchEvent {
+  const factory _DictionaryWordSearchEventAddNewRecentlySearchedWord({DictionaryWord newRecentlySearchedWord}) =
+      _$_DictionaryWordSearchEventAddNewRecentlySearchedWord;
 
   DictionaryWord get newRecentlySearchedWord;
-  _$QuerySearchEventAddNewRecentlySearchedWordCopyWith<
-      _QuerySearchEventAddNewRecentlySearchedWord> get copyWith;
+  _$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWith<_DictionaryWordSearchEventAddNewRecentlySearchedWord>
+      get copyWith;
 }

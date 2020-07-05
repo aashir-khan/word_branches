@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'query_search_exception.dart';
+part of 'dictionary_word_search_exception.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,26 +9,26 @@ part of 'query_search_exception.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$QuerySearchExceptionTearOff {
-  const _$QuerySearchExceptionTearOff();
+class _$DictionaryWordSearchExceptionTearOff {
+  const _$DictionaryWordSearchExceptionTearOff();
 
-  _QuerySearchExceptionNoResultsFound noResultsFound() {
-    return const _QuerySearchExceptionNoResultsFound();
+  _DictionaryWordSearchExceptionNoResultsFound noResultsFound() {
+    return const _DictionaryWordSearchExceptionNoResultsFound();
   }
 
-  _QuerySearchExceptionServerError serverError() {
-    return const _QuerySearchExceptionServerError();
+  _DictionaryWordSearchExceptionServerError serverError() {
+    return const _DictionaryWordSearchExceptionServerError();
   }
 
-  _QuerySearchExceptionUnexpected unexpected() {
-    return const _QuerySearchExceptionUnexpected();
+  _DictionaryWordSearchExceptionUnexpected unexpected() {
+    return const _DictionaryWordSearchExceptionUnexpected();
   }
 }
 
 // ignore: unused_element
-const $QuerySearchException = _$QuerySearchExceptionTearOff();
+const $DictionaryWordSearchException = _$DictionaryWordSearchExceptionTearOff();
 
-mixin _$QuerySearchException {
+mixin _$DictionaryWordSearchException {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result noResultsFound(),
@@ -44,67 +44,62 @@ mixin _$QuerySearchException {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    @required Result serverError(_QuerySearchExceptionServerError value),
-    @required Result unexpected(_QuerySearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    Result serverError(_QuerySearchExceptionServerError value),
-    Result unexpected(_QuerySearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
     @required Result orElse(),
   });
 }
 
-abstract class $QuerySearchExceptionCopyWith<$Res> {
-  factory $QuerySearchExceptionCopyWith(QuerySearchException value,
-          $Res Function(QuerySearchException) then) =
-      _$QuerySearchExceptionCopyWithImpl<$Res>;
+abstract class $DictionaryWordSearchExceptionCopyWith<$Res> {
+  factory $DictionaryWordSearchExceptionCopyWith(
+          DictionaryWordSearchException value, $Res Function(DictionaryWordSearchException) then) =
+      _$DictionaryWordSearchExceptionCopyWithImpl<$Res>;
 }
 
-class _$QuerySearchExceptionCopyWithImpl<$Res>
-    implements $QuerySearchExceptionCopyWith<$Res> {
-  _$QuerySearchExceptionCopyWithImpl(this._value, this._then);
+class _$DictionaryWordSearchExceptionCopyWithImpl<$Res> implements $DictionaryWordSearchExceptionCopyWith<$Res> {
+  _$DictionaryWordSearchExceptionCopyWithImpl(this._value, this._then);
 
-  final QuerySearchException _value;
+  final DictionaryWordSearchException _value;
   // ignore: unused_field
-  final $Res Function(QuerySearchException) _then;
+  final $Res Function(DictionaryWordSearchException) _then;
 }
 
-abstract class _$QuerySearchExceptionNoResultsFoundCopyWith<$Res> {
-  factory _$QuerySearchExceptionNoResultsFoundCopyWith(
-          _QuerySearchExceptionNoResultsFound value,
-          $Res Function(_QuerySearchExceptionNoResultsFound) then) =
-      __$QuerySearchExceptionNoResultsFoundCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchExceptionNoResultsFoundCopyWith<$Res> {
+  factory _$DictionaryWordSearchExceptionNoResultsFoundCopyWith(_DictionaryWordSearchExceptionNoResultsFound value,
+          $Res Function(_DictionaryWordSearchExceptionNoResultsFound) then) =
+      __$DictionaryWordSearchExceptionNoResultsFoundCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchExceptionNoResultsFoundCopyWithImpl<$Res>
-    extends _$QuerySearchExceptionCopyWithImpl<$Res>
-    implements _$QuerySearchExceptionNoResultsFoundCopyWith<$Res> {
-  __$QuerySearchExceptionNoResultsFoundCopyWithImpl(
-      _QuerySearchExceptionNoResultsFound _value,
-      $Res Function(_QuerySearchExceptionNoResultsFound) _then)
-      : super(_value, (v) => _then(v as _QuerySearchExceptionNoResultsFound));
+class __$DictionaryWordSearchExceptionNoResultsFoundCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchExceptionCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchExceptionNoResultsFoundCopyWith<$Res> {
+  __$DictionaryWordSearchExceptionNoResultsFoundCopyWithImpl(_DictionaryWordSearchExceptionNoResultsFound _value,
+      $Res Function(_DictionaryWordSearchExceptionNoResultsFound) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchExceptionNoResultsFound));
 
   @override
-  _QuerySearchExceptionNoResultsFound get _value =>
-      super._value as _QuerySearchExceptionNoResultsFound;
+  _DictionaryWordSearchExceptionNoResultsFound get _value =>
+      super._value as _DictionaryWordSearchExceptionNoResultsFound;
 }
 
-class _$_QuerySearchExceptionNoResultsFound
-    implements _QuerySearchExceptionNoResultsFound {
-  const _$_QuerySearchExceptionNoResultsFound();
+class _$_DictionaryWordSearchExceptionNoResultsFound implements _DictionaryWordSearchExceptionNoResultsFound {
+  const _$_DictionaryWordSearchExceptionNoResultsFound();
 
   @override
   String toString() {
-    return 'QuerySearchException.noResultsFound()';
+    return 'DictionaryWordSearchException.noResultsFound()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _QuerySearchExceptionNoResultsFound);
+    return identical(this, other) || (other is _DictionaryWordSearchExceptionNoResultsFound);
   }
 
   @override
@@ -141,9 +136,9 @@ class _$_QuerySearchExceptionNoResultsFound
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    @required Result serverError(_QuerySearchExceptionServerError value),
-    @required Result unexpected(_QuerySearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
   }) {
     assert(noResultsFound != null);
     assert(serverError != null);
@@ -154,9 +149,9 @@ class _$_QuerySearchExceptionNoResultsFound
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    Result serverError(_QuerySearchExceptionServerError value),
-    Result unexpected(_QuerySearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -167,45 +162,38 @@ class _$_QuerySearchExceptionNoResultsFound
   }
 }
 
-abstract class _QuerySearchExceptionNoResultsFound
-    implements QuerySearchException {
-  const factory _QuerySearchExceptionNoResultsFound() =
-      _$_QuerySearchExceptionNoResultsFound;
+abstract class _DictionaryWordSearchExceptionNoResultsFound implements DictionaryWordSearchException {
+  const factory _DictionaryWordSearchExceptionNoResultsFound() = _$_DictionaryWordSearchExceptionNoResultsFound;
 }
 
-abstract class _$QuerySearchExceptionServerErrorCopyWith<$Res> {
-  factory _$QuerySearchExceptionServerErrorCopyWith(
-          _QuerySearchExceptionServerError value,
-          $Res Function(_QuerySearchExceptionServerError) then) =
-      __$QuerySearchExceptionServerErrorCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchExceptionServerErrorCopyWith<$Res> {
+  factory _$DictionaryWordSearchExceptionServerErrorCopyWith(_DictionaryWordSearchExceptionServerError value,
+          $Res Function(_DictionaryWordSearchExceptionServerError) then) =
+      __$DictionaryWordSearchExceptionServerErrorCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchExceptionServerErrorCopyWithImpl<$Res>
-    extends _$QuerySearchExceptionCopyWithImpl<$Res>
-    implements _$QuerySearchExceptionServerErrorCopyWith<$Res> {
-  __$QuerySearchExceptionServerErrorCopyWithImpl(
-      _QuerySearchExceptionServerError _value,
-      $Res Function(_QuerySearchExceptionServerError) _then)
-      : super(_value, (v) => _then(v as _QuerySearchExceptionServerError));
+class __$DictionaryWordSearchExceptionServerErrorCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchExceptionCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchExceptionServerErrorCopyWith<$Res> {
+  __$DictionaryWordSearchExceptionServerErrorCopyWithImpl(
+      _DictionaryWordSearchExceptionServerError _value, $Res Function(_DictionaryWordSearchExceptionServerError) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchExceptionServerError));
 
   @override
-  _QuerySearchExceptionServerError get _value =>
-      super._value as _QuerySearchExceptionServerError;
+  _DictionaryWordSearchExceptionServerError get _value => super._value as _DictionaryWordSearchExceptionServerError;
 }
 
-class _$_QuerySearchExceptionServerError
-    implements _QuerySearchExceptionServerError {
-  const _$_QuerySearchExceptionServerError();
+class _$_DictionaryWordSearchExceptionServerError implements _DictionaryWordSearchExceptionServerError {
+  const _$_DictionaryWordSearchExceptionServerError();
 
   @override
   String toString() {
-    return 'QuerySearchException.serverError()';
+    return 'DictionaryWordSearchException.serverError()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _QuerySearchExceptionServerError);
+    return identical(this, other) || (other is _DictionaryWordSearchExceptionServerError);
   }
 
   @override
@@ -242,9 +230,9 @@ class _$_QuerySearchExceptionServerError
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    @required Result serverError(_QuerySearchExceptionServerError value),
-    @required Result unexpected(_QuerySearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
   }) {
     assert(noResultsFound != null);
     assert(serverError != null);
@@ -255,9 +243,9 @@ class _$_QuerySearchExceptionServerError
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    Result serverError(_QuerySearchExceptionServerError value),
-    Result unexpected(_QuerySearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -268,44 +256,38 @@ class _$_QuerySearchExceptionServerError
   }
 }
 
-abstract class _QuerySearchExceptionServerError
-    implements QuerySearchException {
-  const factory _QuerySearchExceptionServerError() =
-      _$_QuerySearchExceptionServerError;
+abstract class _DictionaryWordSearchExceptionServerError implements DictionaryWordSearchException {
+  const factory _DictionaryWordSearchExceptionServerError() = _$_DictionaryWordSearchExceptionServerError;
 }
 
-abstract class _$QuerySearchExceptionUnexpectedCopyWith<$Res> {
-  factory _$QuerySearchExceptionUnexpectedCopyWith(
-          _QuerySearchExceptionUnexpected value,
-          $Res Function(_QuerySearchExceptionUnexpected) then) =
-      __$QuerySearchExceptionUnexpectedCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchExceptionUnexpectedCopyWith<$Res> {
+  factory _$DictionaryWordSearchExceptionUnexpectedCopyWith(_DictionaryWordSearchExceptionUnexpected value,
+          $Res Function(_DictionaryWordSearchExceptionUnexpected) then) =
+      __$DictionaryWordSearchExceptionUnexpectedCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchExceptionUnexpectedCopyWithImpl<$Res>
-    extends _$QuerySearchExceptionCopyWithImpl<$Res>
-    implements _$QuerySearchExceptionUnexpectedCopyWith<$Res> {
-  __$QuerySearchExceptionUnexpectedCopyWithImpl(
-      _QuerySearchExceptionUnexpected _value,
-      $Res Function(_QuerySearchExceptionUnexpected) _then)
-      : super(_value, (v) => _then(v as _QuerySearchExceptionUnexpected));
+class __$DictionaryWordSearchExceptionUnexpectedCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchExceptionCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchExceptionUnexpectedCopyWith<$Res> {
+  __$DictionaryWordSearchExceptionUnexpectedCopyWithImpl(
+      _DictionaryWordSearchExceptionUnexpected _value, $Res Function(_DictionaryWordSearchExceptionUnexpected) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchExceptionUnexpected));
 
   @override
-  _QuerySearchExceptionUnexpected get _value =>
-      super._value as _QuerySearchExceptionUnexpected;
+  _DictionaryWordSearchExceptionUnexpected get _value => super._value as _DictionaryWordSearchExceptionUnexpected;
 }
 
-class _$_QuerySearchExceptionUnexpected
-    implements _QuerySearchExceptionUnexpected {
-  const _$_QuerySearchExceptionUnexpected();
+class _$_DictionaryWordSearchExceptionUnexpected implements _DictionaryWordSearchExceptionUnexpected {
+  const _$_DictionaryWordSearchExceptionUnexpected();
 
   @override
   String toString() {
-    return 'QuerySearchException.unexpected()';
+    return 'DictionaryWordSearchException.unexpected()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _QuerySearchExceptionUnexpected);
+    return identical(this, other) || (other is _DictionaryWordSearchExceptionUnexpected);
   }
 
   @override
@@ -342,9 +324,9 @@ class _$_QuerySearchExceptionUnexpected
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    @required Result serverError(_QuerySearchExceptionServerError value),
-    @required Result unexpected(_QuerySearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
   }) {
     assert(noResultsFound != null);
     assert(serverError != null);
@@ -355,9 +337,9 @@ class _$_QuerySearchExceptionUnexpected
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_QuerySearchExceptionNoResultsFound value),
-    Result serverError(_QuerySearchExceptionServerError value),
-    Result unexpected(_QuerySearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -368,7 +350,6 @@ class _$_QuerySearchExceptionUnexpected
   }
 }
 
-abstract class _QuerySearchExceptionUnexpected implements QuerySearchException {
-  const factory _QuerySearchExceptionUnexpected() =
-      _$_QuerySearchExceptionUnexpected;
+abstract class _DictionaryWordSearchExceptionUnexpected implements DictionaryWordSearchException {
+  const factory _DictionaryWordSearchExceptionUnexpected() = _$_DictionaryWordSearchExceptionUnexpected;
 }

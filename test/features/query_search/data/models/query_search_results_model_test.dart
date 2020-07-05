@@ -9,20 +9,20 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  const tQuerySearchMetadata = QuerySearchMetadataModel(limit: 1, offset: 0, total: 1);
+  const tDictionaryWordSearchMetadata = DictionaryWordSearchMetadataModel(limit: 1, offset: 0, total: 1);
   const tDictionaryWord1 = DictionaryWordModel(id: 'test', label: 'test');
   const tDictionaryWord2 = DictionaryWordModel(id: 'test2', label: 'test2');
 
   final tDictionaryWordList = [tDictionaryWord1, tDictionaryWord2];
 
-  final tQuerySearchResultsModel = QuerySearchResultsModel(
-    metadata: tQuerySearchMetadata,
+  final tDictionaryWordSearchResultsModel = DictionaryWordSearchResultsModel(
+    metadata: tDictionaryWordSearchMetadata,
     results: tDictionaryWordList,
   );
 
-  test('should be a subclass of QuerySearchResults entity', () async {
+  test('should be a subclass of DictionaryWordSearchResults entity', () async {
     // assert
-    expect(tQuerySearchResultsModel, isA<QuerySearchResults>());
+    expect(tDictionaryWordSearchResultsModel, isA<DictionaryWordSearchResults>());
   });
 
   group('fromJson', () {
@@ -32,10 +32,10 @@ void main() {
           json.decode(fixture('query_search/query_search_results.json')) as Map<String, dynamic>;
 
       // act
-      final result = QuerySearchResultsModel.fromJson(jsonMap);
+      final result = DictionaryWordSearchResultsModel.fromJson(jsonMap);
 
       // assert
-      expect(result, tQuerySearchResultsModel);
+      expect(result, tDictionaryWordSearchResultsModel);
     });
   });
 }

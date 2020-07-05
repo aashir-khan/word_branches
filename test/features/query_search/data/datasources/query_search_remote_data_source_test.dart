@@ -18,7 +18,7 @@ import '../../../../helpers/setup_all_for_test.dart';
 Future<void> main() async {
   await setupInjectionForTest();
 
-  QuerySearchRemoteDataSource dataSource;
+  DictionaryWordSearchRemoteDataSource dataSource;
   http.Client mockHttpClient;
   AccountDetails mockAccountDetails;
 
@@ -26,26 +26,26 @@ Future<void> main() async {
     mockHttpClient = getIt<http.Client>();
     // mockHttpClient = Foo();
     mockAccountDetails = getIt<AccountDetails>();
-    dataSource = QuerySearchRemoteDataSourceImpl(client: mockHttpClient, accountDetails: mockAccountDetails);
+    dataSource = DictionaryWordSearchRemoteDataSourceImpl(client: mockHttpClient, accountDetails: mockAccountDetails);
 
     when(mockAccountDetails.oxfordAPIDetails).thenReturn({});
   });
 
-  group('getQuerySearchResults', () {
-    final tQuerySearchResultsModel = QuerySearchResultsModel.fromJson(
+  group('getDictionaryWordSearchResults', () {
+    final tDictionaryWordSearchResultsModel = DictionaryWordSearchResultsModel.fromJson(
         json.decode(fixture('query_search/query_search_results.json')) as Map<String, dynamic>);
     final tQuery = faker.lorem.word();
 
-    test('should return QuerySearchResultsModel when the response code is 200 (success)', () async {
+    test('should return DictionaryWordSearchResultsModel when the response code is 200 (success)', () async {
       // arrange
       when(mockHttpClient.get(any, headers: anyNamed('headers')))
           .thenAnswer((_) async => http.Response(fixture('query_search/query_search_results.json'), 200));
 
       // act
-      final result = await dataSource.getQuerySearchResults(query: tQuery);
+      final result = await dataSource.getDictionaryWordSearchResults(query: tQuery);
 
       // assert
-      expect(result, equals(tQuerySearchResultsModel));
+      expect(result, equals(tDictionaryWordSearchResultsModel));
     });
 
     test('should throw a ServerException when the response code is 404 or other', () async {
@@ -55,9 +55,9 @@ Future<void> main() async {
       });
 
       // act and assert
-      dataSource.getQuerySearchResults().catchError((error) {
+      dataSource.getDictionaryWordSearchResults().catchError((error) {
         expect(error, isA<ServerException>());
-        return tQuerySearchResultsModel;
+        return tDictionaryWordSearchResultsModel;
       });
     });
   });

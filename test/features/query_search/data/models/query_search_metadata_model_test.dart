@@ -7,15 +7,15 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  const tQuerySearchMetadataModel = QuerySearchMetadataModel(
+  const tDictionaryWordSearchMetadataModel = DictionaryWordSearchMetadataModel(
     limit: 1,
     offset: 0,
     total: 1,
   );
 
-  test('should be a subclass of QuerySearchMetadata entity', () async {
+  test('should be a subclass of DictionaryWordSearchMetadata entity', () async {
     // assert
-    expect(tQuerySearchMetadataModel, isA<QuerySearchMetadata>());
+    expect(tDictionaryWordSearchMetadataModel, isA<DictionaryWordSearchMetadata>());
   });
 
   group('fromJson', () {
@@ -25,17 +25,17 @@ void main() {
           json.decode(fixture('query_search/query_search_metadata.json')) as Map<String, dynamic>;
 
       // act
-      final result = QuerySearchMetadataModel.fromJson(jsonMap);
+      final result = DictionaryWordSearchMetadataModel.fromJson(jsonMap);
 
       // assert
-      expect(result, tQuerySearchMetadataModel);
+      expect(result, tDictionaryWordSearchMetadataModel);
     });
   });
 
   group('toJson', () {
     test('should return a JSON map containing the proper data', () async {
       // act
-      final result = tQuerySearchMetadataModel.toJson();
+      final result = tDictionaryWordSearchMetadataModel.toJson();
 
       // assert
       final expectedJsonMap = {

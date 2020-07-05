@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'query_search_state.dart';
+part of 'dictionary_word_search_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,62 +9,56 @@ part of 'query_search_state.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$QuerySearchStateTearOff {
-  const _$QuerySearchStateTearOff();
+class _$DictionaryWordSearchStateTearOff {
+  const _$DictionaryWordSearchStateTearOff();
 
-  _QuerySearchStateInitial initial() {
-    return const _QuerySearchStateInitial();
+  _DictionaryWordSearchStateInitial initial() {
+    return const _DictionaryWordSearchStateInitial();
   }
 
-  _QuerySearchStateLoadInProgress loadInProgreess() {
-    return const _QuerySearchStateLoadInProgress();
+  _DictionaryWordSearchStateLoadInProgress loadInProgreess() {
+    return const _DictionaryWordSearchStateLoadInProgress();
   }
 
-  _QuerySearchStateLoadSearchResultsSuccess loadSearchResultsSuccess(
-      {List<DictionaryWord> words}) {
-    return _QuerySearchStateLoadSearchResultsSuccess(
+  _DictionaryWordSearchStateLoadSearchResultsSuccess loadSearchResultsSuccess({List<DictionaryWord> words}) {
+    return _DictionaryWordSearchStateLoadSearchResultsSuccess(
       words: words,
     );
   }
 
-  _QuerySearchStateLoadFailure loadFailure({String message}) {
-    return _QuerySearchStateLoadFailure(
+  _DictionaryWordSearchStateLoadFailure loadFailure({String message}) {
+    return _DictionaryWordSearchStateLoadFailure(
       message: message,
     );
   }
 
-  _QuerySearchStateNewWordAddedToRecentlySearchedWords
-      newWordAddedToRecentlySearchedWords(
-          {@required DictionaryWord addedWord}) {
-    return _QuerySearchStateNewWordAddedToRecentlySearchedWords(
+  _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords newWordAddedToRecentlySearchedWords(
+      {@required DictionaryWord addedWord}) {
+    return _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords(
       addedWord: addedWord,
     );
   }
 
-  _QuerySearchLoadRecentlySearchedWordsSuccess
-      loadRecentlySearchedWordsResultsSuccess(
-          {List<DictionaryWord> recentlySearchedWords}) {
-    return _QuerySearchLoadRecentlySearchedWordsSuccess(
+  _DictionaryWordSearchLoadRecentlySearchedWordsSuccess loadRecentlySearchedWordsResultsSuccess(
+      {List<DictionaryWord> recentlySearchedWords}) {
+    return _DictionaryWordSearchLoadRecentlySearchedWordsSuccess(
       recentlySearchedWords: recentlySearchedWords,
     );
   }
 }
 
 // ignore: unused_element
-const $QuerySearchState = _$QuerySearchStateTearOff();
+const $DictionaryWordSearchState = _$DictionaryWordSearchStateTearOff();
 
-mixin _$QuerySearchState {
+mixin _$DictionaryWordSearchState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required
-        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            List<DictionaryWord> recentlySearchedWords),
+    @required Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -73,92 +67,79 @@ mixin _$QuerySearchState {
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        List<DictionaryWord> recentlySearchedWords),
+    Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_QuerySearchStateInitial value),
-    @required Result loadInProgreess(_QuerySearchStateLoadInProgress value),
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    @required Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     @required
-        Result loadSearchResultsSuccess(
-            _QuerySearchStateLoadSearchResultsSuccess value),
-    @required Result loadFailure(_QuerySearchStateLoadFailure value),
+        Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
     @required
-        Result newWordAddedToRecentlySearchedWords(
-            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            _QuerySearchLoadRecentlySearchedWordsSuccess value),
+        Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_QuerySearchStateInitial value),
-    Result loadInProgreess(_QuerySearchStateLoadInProgress value),
-    Result loadSearchResultsSuccess(
-        _QuerySearchStateLoadSearchResultsSuccess value),
-    Result loadFailure(_QuerySearchStateLoadFailure value),
-    Result newWordAddedToRecentlySearchedWords(
-        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        _QuerySearchLoadRecentlySearchedWordsSuccess value),
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
   });
 }
 
-abstract class $QuerySearchStateCopyWith<$Res> {
-  factory $QuerySearchStateCopyWith(
-          QuerySearchState value, $Res Function(QuerySearchState) then) =
-      _$QuerySearchStateCopyWithImpl<$Res>;
+abstract class $DictionaryWordSearchStateCopyWith<$Res> {
+  factory $DictionaryWordSearchStateCopyWith(
+          DictionaryWordSearchState value, $Res Function(DictionaryWordSearchState) then) =
+      _$DictionaryWordSearchStateCopyWithImpl<$Res>;
 }
 
-class _$QuerySearchStateCopyWithImpl<$Res>
-    implements $QuerySearchStateCopyWith<$Res> {
-  _$QuerySearchStateCopyWithImpl(this._value, this._then);
+class _$DictionaryWordSearchStateCopyWithImpl<$Res> implements $DictionaryWordSearchStateCopyWith<$Res> {
+  _$DictionaryWordSearchStateCopyWithImpl(this._value, this._then);
 
-  final QuerySearchState _value;
+  final DictionaryWordSearchState _value;
   // ignore: unused_field
-  final $Res Function(QuerySearchState) _then;
+  final $Res Function(DictionaryWordSearchState) _then;
 }
 
-abstract class _$QuerySearchStateInitialCopyWith<$Res> {
-  factory _$QuerySearchStateInitialCopyWith(_QuerySearchStateInitial value,
-          $Res Function(_QuerySearchStateInitial) then) =
-      __$QuerySearchStateInitialCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchStateInitialCopyWith<$Res> {
+  factory _$DictionaryWordSearchStateInitialCopyWith(
+          _DictionaryWordSearchStateInitial value, $Res Function(_DictionaryWordSearchStateInitial) then) =
+      __$DictionaryWordSearchStateInitialCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchStateInitialCopyWithImpl<$Res>
-    extends _$QuerySearchStateCopyWithImpl<$Res>
-    implements _$QuerySearchStateInitialCopyWith<$Res> {
-  __$QuerySearchStateInitialCopyWithImpl(_QuerySearchStateInitial _value,
-      $Res Function(_QuerySearchStateInitial) _then)
-      : super(_value, (v) => _then(v as _QuerySearchStateInitial));
+class __$DictionaryWordSearchStateInitialCopyWithImpl<$Res> extends _$DictionaryWordSearchStateCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchStateInitialCopyWith<$Res> {
+  __$DictionaryWordSearchStateInitialCopyWithImpl(
+      _DictionaryWordSearchStateInitial _value, $Res Function(_DictionaryWordSearchStateInitial) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchStateInitial));
 
   @override
-  _QuerySearchStateInitial get _value =>
-      super._value as _QuerySearchStateInitial;
+  _DictionaryWordSearchStateInitial get _value => super._value as _DictionaryWordSearchStateInitial;
 }
 
-class _$_QuerySearchStateInitial
-    with DiagnosticableTreeMixin
-    implements _QuerySearchStateInitial {
-  const _$_QuerySearchStateInitial();
+class _$_DictionaryWordSearchStateInitial with DiagnosticableTreeMixin implements _DictionaryWordSearchStateInitial {
+  const _$_DictionaryWordSearchStateInitial();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuerySearchState.initial()';
+    return 'DictionaryWordSearchState.initial()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'QuerySearchState.initial'));
+    properties..add(DiagnosticsProperty('type', 'DictionaryWordSearchState.initial'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _QuerySearchStateInitial);
+    return identical(this, other) || (other is _DictionaryWordSearchStateInitial);
   }
 
   @override
@@ -171,11 +152,8 @@ class _$_QuerySearchStateInitial
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required
-        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            List<DictionaryWord> recentlySearchedWords),
+    @required Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -194,8 +172,7 @@ class _$_QuerySearchStateInitial
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        List<DictionaryWord> recentlySearchedWords),
+    Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -208,18 +185,14 @@ class _$_QuerySearchStateInitial
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_QuerySearchStateInitial value),
-    @required Result loadInProgreess(_QuerySearchStateLoadInProgress value),
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    @required Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     @required
-        Result loadSearchResultsSuccess(
-            _QuerySearchStateLoadSearchResultsSuccess value),
-    @required Result loadFailure(_QuerySearchStateLoadFailure value),
+        Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
     @required
-        Result newWordAddedToRecentlySearchedWords(
-            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            _QuerySearchLoadRecentlySearchedWordsSuccess value),
+        Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -233,15 +206,12 @@ class _$_QuerySearchStateInitial
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_QuerySearchStateInitial value),
-    Result loadInProgreess(_QuerySearchStateLoadInProgress value),
-    Result loadSearchResultsSuccess(
-        _QuerySearchStateLoadSearchResultsSuccess value),
-    Result loadFailure(_QuerySearchStateLoadFailure value),
-    Result newWordAddedToRecentlySearchedWords(
-        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        _QuerySearchLoadRecentlySearchedWordsSuccess value),
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -252,50 +222,45 @@ class _$_QuerySearchStateInitial
   }
 }
 
-abstract class _QuerySearchStateInitial implements QuerySearchState {
-  const factory _QuerySearchStateInitial() = _$_QuerySearchStateInitial;
+abstract class _DictionaryWordSearchStateInitial implements DictionaryWordSearchState {
+  const factory _DictionaryWordSearchStateInitial() = _$_DictionaryWordSearchStateInitial;
 }
 
-abstract class _$QuerySearchStateLoadInProgressCopyWith<$Res> {
-  factory _$QuerySearchStateLoadInProgressCopyWith(
-          _QuerySearchStateLoadInProgress value,
-          $Res Function(_QuerySearchStateLoadInProgress) then) =
-      __$QuerySearchStateLoadInProgressCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchStateLoadInProgressCopyWith<$Res> {
+  factory _$DictionaryWordSearchStateLoadInProgressCopyWith(_DictionaryWordSearchStateLoadInProgress value,
+          $Res Function(_DictionaryWordSearchStateLoadInProgress) then) =
+      __$DictionaryWordSearchStateLoadInProgressCopyWithImpl<$Res>;
 }
 
-class __$QuerySearchStateLoadInProgressCopyWithImpl<$Res>
-    extends _$QuerySearchStateCopyWithImpl<$Res>
-    implements _$QuerySearchStateLoadInProgressCopyWith<$Res> {
-  __$QuerySearchStateLoadInProgressCopyWithImpl(
-      _QuerySearchStateLoadInProgress _value,
-      $Res Function(_QuerySearchStateLoadInProgress) _then)
-      : super(_value, (v) => _then(v as _QuerySearchStateLoadInProgress));
+class __$DictionaryWordSearchStateLoadInProgressCopyWithImpl<$Res> extends _$DictionaryWordSearchStateCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchStateLoadInProgressCopyWith<$Res> {
+  __$DictionaryWordSearchStateLoadInProgressCopyWithImpl(
+      _DictionaryWordSearchStateLoadInProgress _value, $Res Function(_DictionaryWordSearchStateLoadInProgress) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchStateLoadInProgress));
 
   @override
-  _QuerySearchStateLoadInProgress get _value =>
-      super._value as _QuerySearchStateLoadInProgress;
+  _DictionaryWordSearchStateLoadInProgress get _value => super._value as _DictionaryWordSearchStateLoadInProgress;
 }
 
-class _$_QuerySearchStateLoadInProgress
+class _$_DictionaryWordSearchStateLoadInProgress
     with DiagnosticableTreeMixin
-    implements _QuerySearchStateLoadInProgress {
-  const _$_QuerySearchStateLoadInProgress();
+    implements _DictionaryWordSearchStateLoadInProgress {
+  const _$_DictionaryWordSearchStateLoadInProgress();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuerySearchState.loadInProgreess()';
+    return 'DictionaryWordSearchState.loadInProgreess()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'QuerySearchState.loadInProgreess'));
+    properties..add(DiagnosticsProperty('type', 'DictionaryWordSearchState.loadInProgreess'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _QuerySearchStateLoadInProgress);
+    return identical(this, other) || (other is _DictionaryWordSearchStateLoadInProgress);
   }
 
   @override
@@ -308,11 +273,8 @@ class _$_QuerySearchStateLoadInProgress
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required
-        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            List<DictionaryWord> recentlySearchedWords),
+    @required Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -331,8 +293,7 @@ class _$_QuerySearchStateLoadInProgress
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        List<DictionaryWord> recentlySearchedWords),
+    Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -345,18 +306,14 @@ class _$_QuerySearchStateLoadInProgress
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_QuerySearchStateInitial value),
-    @required Result loadInProgreess(_QuerySearchStateLoadInProgress value),
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    @required Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     @required
-        Result loadSearchResultsSuccess(
-            _QuerySearchStateLoadSearchResultsSuccess value),
-    @required Result loadFailure(_QuerySearchStateLoadFailure value),
+        Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
     @required
-        Result newWordAddedToRecentlySearchedWords(
-            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            _QuerySearchLoadRecentlySearchedWordsSuccess value),
+        Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -370,15 +327,12 @@ class _$_QuerySearchStateLoadInProgress
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_QuerySearchStateInitial value),
-    Result loadInProgreess(_QuerySearchStateLoadInProgress value),
-    Result loadSearchResultsSuccess(
-        _QuerySearchStateLoadSearchResultsSuccess value),
-    Result loadFailure(_QuerySearchStateLoadFailure value),
-    Result newWordAddedToRecentlySearchedWords(
-        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        _QuerySearchLoadRecentlySearchedWordsSuccess value),
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -389,81 +343,75 @@ class _$_QuerySearchStateLoadInProgress
   }
 }
 
-abstract class _QuerySearchStateLoadInProgress implements QuerySearchState {
-  const factory _QuerySearchStateLoadInProgress() =
-      _$_QuerySearchStateLoadInProgress;
+abstract class _DictionaryWordSearchStateLoadInProgress implements DictionaryWordSearchState {
+  const factory _DictionaryWordSearchStateLoadInProgress() = _$_DictionaryWordSearchStateLoadInProgress;
 }
 
-abstract class _$QuerySearchStateLoadSearchResultsSuccessCopyWith<$Res> {
-  factory _$QuerySearchStateLoadSearchResultsSuccessCopyWith(
-          _QuerySearchStateLoadSearchResultsSuccess value,
-          $Res Function(_QuerySearchStateLoadSearchResultsSuccess) then) =
-      __$QuerySearchStateLoadSearchResultsSuccessCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWith<$Res> {
+  factory _$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWith(
+          _DictionaryWordSearchStateLoadSearchResultsSuccess value,
+          $Res Function(_DictionaryWordSearchStateLoadSearchResultsSuccess) then) =
+      __$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWithImpl<$Res>;
   $Res call({List<DictionaryWord> words});
 }
 
-class __$QuerySearchStateLoadSearchResultsSuccessCopyWithImpl<$Res>
-    extends _$QuerySearchStateCopyWithImpl<$Res>
-    implements _$QuerySearchStateLoadSearchResultsSuccessCopyWith<$Res> {
-  __$QuerySearchStateLoadSearchResultsSuccessCopyWithImpl(
-      _QuerySearchStateLoadSearchResultsSuccess _value,
-      $Res Function(_QuerySearchStateLoadSearchResultsSuccess) _then)
-      : super(_value,
-            (v) => _then(v as _QuerySearchStateLoadSearchResultsSuccess));
+class __$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchStateCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWith<$Res> {
+  __$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWithImpl(
+      _DictionaryWordSearchStateLoadSearchResultsSuccess _value,
+      $Res Function(_DictionaryWordSearchStateLoadSearchResultsSuccess) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchStateLoadSearchResultsSuccess));
 
   @override
-  _QuerySearchStateLoadSearchResultsSuccess get _value =>
-      super._value as _QuerySearchStateLoadSearchResultsSuccess;
+  _DictionaryWordSearchStateLoadSearchResultsSuccess get _value =>
+      super._value as _DictionaryWordSearchStateLoadSearchResultsSuccess;
 
   @override
   $Res call({
     Object words = freezed,
   }) {
-    return _then(_QuerySearchStateLoadSearchResultsSuccess(
+    return _then(_DictionaryWordSearchStateLoadSearchResultsSuccess(
       words: words == freezed ? _value.words : words as List<DictionaryWord>,
     ));
   }
 }
 
-class _$_QuerySearchStateLoadSearchResultsSuccess
+class _$_DictionaryWordSearchStateLoadSearchResultsSuccess
     with DiagnosticableTreeMixin
-    implements _QuerySearchStateLoadSearchResultsSuccess {
-  const _$_QuerySearchStateLoadSearchResultsSuccess({this.words});
+    implements _DictionaryWordSearchStateLoadSearchResultsSuccess {
+  const _$_DictionaryWordSearchStateLoadSearchResultsSuccess({this.words});
 
   @override
   final List<DictionaryWord> words;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuerySearchState.loadSearchResultsSuccess(words: $words)';
+    return 'DictionaryWordSearchState.loadSearchResultsSuccess(words: $words)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty(
-          'type', 'QuerySearchState.loadSearchResultsSuccess'))
+      ..add(DiagnosticsProperty('type', 'DictionaryWordSearchState.loadSearchResultsSuccess'))
       ..add(DiagnosticsProperty('words', words));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuerySearchStateLoadSearchResultsSuccess &&
-            (identical(other.words, words) ||
-                const DeepCollectionEquality().equals(other.words, words)));
+        (other is _DictionaryWordSearchStateLoadSearchResultsSuccess &&
+            (identical(other.words, words) || const DeepCollectionEquality().equals(other.words, words)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(words);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(words);
 
   @override
-  _$QuerySearchStateLoadSearchResultsSuccessCopyWith<
-          _QuerySearchStateLoadSearchResultsSuccess>
-      get copyWith => __$QuerySearchStateLoadSearchResultsSuccessCopyWithImpl<
-          _QuerySearchStateLoadSearchResultsSuccess>(this, _$identity);
+  _$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWith<_DictionaryWordSearchStateLoadSearchResultsSuccess>
+      get copyWith => __$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWithImpl<
+          _DictionaryWordSearchStateLoadSearchResultsSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -472,11 +420,8 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required
-        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            List<DictionaryWord> recentlySearchedWords),
+    @required Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -495,8 +440,7 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        List<DictionaryWord> recentlySearchedWords),
+    Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -509,18 +453,14 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_QuerySearchStateInitial value),
-    @required Result loadInProgreess(_QuerySearchStateLoadInProgress value),
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    @required Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     @required
-        Result loadSearchResultsSuccess(
-            _QuerySearchStateLoadSearchResultsSuccess value),
-    @required Result loadFailure(_QuerySearchStateLoadFailure value),
+        Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
     @required
-        Result newWordAddedToRecentlySearchedWords(
-            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            _QuerySearchLoadRecentlySearchedWordsSuccess value),
+        Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -534,15 +474,12 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_QuerySearchStateInitial value),
-    Result loadInProgreess(_QuerySearchStateLoadInProgress value),
-    Result loadSearchResultsSuccess(
-        _QuerySearchStateLoadSearchResultsSuccess value),
-    Result loadFailure(_QuerySearchStateLoadFailure value),
-    Result newWordAddedToRecentlySearchedWords(
-        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        _QuerySearchLoadRecentlySearchedWordsSuccess value),
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -553,84 +490,75 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
   }
 }
 
-abstract class _QuerySearchStateLoadSearchResultsSuccess
-    implements QuerySearchState {
-  const factory _QuerySearchStateLoadSearchResultsSuccess(
-          {List<DictionaryWord> words}) =
-      _$_QuerySearchStateLoadSearchResultsSuccess;
+abstract class _DictionaryWordSearchStateLoadSearchResultsSuccess implements DictionaryWordSearchState {
+  const factory _DictionaryWordSearchStateLoadSearchResultsSuccess({List<DictionaryWord> words}) =
+      _$_DictionaryWordSearchStateLoadSearchResultsSuccess;
 
   List<DictionaryWord> get words;
-  _$QuerySearchStateLoadSearchResultsSuccessCopyWith<
-      _QuerySearchStateLoadSearchResultsSuccess> get copyWith;
+  _$DictionaryWordSearchStateLoadSearchResultsSuccessCopyWith<_DictionaryWordSearchStateLoadSearchResultsSuccess>
+      get copyWith;
 }
 
-abstract class _$QuerySearchStateLoadFailureCopyWith<$Res> {
-  factory _$QuerySearchStateLoadFailureCopyWith(
-          _QuerySearchStateLoadFailure value,
-          $Res Function(_QuerySearchStateLoadFailure) then) =
-      __$QuerySearchStateLoadFailureCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchStateLoadFailureCopyWith<$Res> {
+  factory _$DictionaryWordSearchStateLoadFailureCopyWith(
+          _DictionaryWordSearchStateLoadFailure value, $Res Function(_DictionaryWordSearchStateLoadFailure) then) =
+      __$DictionaryWordSearchStateLoadFailureCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
-class __$QuerySearchStateLoadFailureCopyWithImpl<$Res>
-    extends _$QuerySearchStateCopyWithImpl<$Res>
-    implements _$QuerySearchStateLoadFailureCopyWith<$Res> {
-  __$QuerySearchStateLoadFailureCopyWithImpl(
-      _QuerySearchStateLoadFailure _value,
-      $Res Function(_QuerySearchStateLoadFailure) _then)
-      : super(_value, (v) => _then(v as _QuerySearchStateLoadFailure));
+class __$DictionaryWordSearchStateLoadFailureCopyWithImpl<$Res> extends _$DictionaryWordSearchStateCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchStateLoadFailureCopyWith<$Res> {
+  __$DictionaryWordSearchStateLoadFailureCopyWithImpl(
+      _DictionaryWordSearchStateLoadFailure _value, $Res Function(_DictionaryWordSearchStateLoadFailure) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchStateLoadFailure));
 
   @override
-  _QuerySearchStateLoadFailure get _value =>
-      super._value as _QuerySearchStateLoadFailure;
+  _DictionaryWordSearchStateLoadFailure get _value => super._value as _DictionaryWordSearchStateLoadFailure;
 
   @override
   $Res call({
     Object message = freezed,
   }) {
-    return _then(_QuerySearchStateLoadFailure(
+    return _then(_DictionaryWordSearchStateLoadFailure(
       message: message == freezed ? _value.message : message as String,
     ));
   }
 }
 
-class _$_QuerySearchStateLoadFailure
+class _$_DictionaryWordSearchStateLoadFailure
     with DiagnosticableTreeMixin
-    implements _QuerySearchStateLoadFailure {
-  const _$_QuerySearchStateLoadFailure({this.message});
+    implements _DictionaryWordSearchStateLoadFailure {
+  const _$_DictionaryWordSearchStateLoadFailure({this.message});
 
   @override
   final String message;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuerySearchState.loadFailure(message: $message)';
+    return 'DictionaryWordSearchState.loadFailure(message: $message)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'QuerySearchState.loadFailure'))
+      ..add(DiagnosticsProperty('type', 'DictionaryWordSearchState.loadFailure'))
       ..add(DiagnosticsProperty('message', message));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuerySearchStateLoadFailure &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other is _DictionaryWordSearchStateLoadFailure &&
+            (identical(other.message, message) || const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
   @override
-  _$QuerySearchStateLoadFailureCopyWith<_QuerySearchStateLoadFailure>
-      get copyWith => __$QuerySearchStateLoadFailureCopyWithImpl<
-          _QuerySearchStateLoadFailure>(this, _$identity);
+  _$DictionaryWordSearchStateLoadFailureCopyWith<_DictionaryWordSearchStateLoadFailure> get copyWith =>
+      __$DictionaryWordSearchStateLoadFailureCopyWithImpl<_DictionaryWordSearchStateLoadFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -639,11 +567,8 @@ class _$_QuerySearchStateLoadFailure
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required
-        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            List<DictionaryWord> recentlySearchedWords),
+    @required Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -662,8 +587,7 @@ class _$_QuerySearchStateLoadFailure
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        List<DictionaryWord> recentlySearchedWords),
+    Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -676,18 +600,14 @@ class _$_QuerySearchStateLoadFailure
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_QuerySearchStateInitial value),
-    @required Result loadInProgreess(_QuerySearchStateLoadInProgress value),
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    @required Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     @required
-        Result loadSearchResultsSuccess(
-            _QuerySearchStateLoadSearchResultsSuccess value),
-    @required Result loadFailure(_QuerySearchStateLoadFailure value),
+        Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
     @required
-        Result newWordAddedToRecentlySearchedWords(
-            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            _QuerySearchLoadRecentlySearchedWordsSuccess value),
+        Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -701,15 +621,12 @@ class _$_QuerySearchStateLoadFailure
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_QuerySearchStateInitial value),
-    Result loadInProgreess(_QuerySearchStateLoadInProgress value),
-    Result loadSearchResultsSuccess(
-        _QuerySearchStateLoadSearchResultsSuccess value),
-    Result loadFailure(_QuerySearchStateLoadFailure value),
-    Result newWordAddedToRecentlySearchedWords(
-        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        _QuerySearchLoadRecentlySearchedWordsSuccess value),
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -720,50 +637,41 @@ class _$_QuerySearchStateLoadFailure
   }
 }
 
-abstract class _QuerySearchStateLoadFailure implements QuerySearchState {
-  const factory _QuerySearchStateLoadFailure({String message}) =
-      _$_QuerySearchStateLoadFailure;
+abstract class _DictionaryWordSearchStateLoadFailure implements DictionaryWordSearchState {
+  const factory _DictionaryWordSearchStateLoadFailure({String message}) = _$_DictionaryWordSearchStateLoadFailure;
 
   String get message;
-  _$QuerySearchStateLoadFailureCopyWith<_QuerySearchStateLoadFailure>
-      get copyWith;
+  _$DictionaryWordSearchStateLoadFailureCopyWith<_DictionaryWordSearchStateLoadFailure> get copyWith;
 }
 
-abstract class _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
-    $Res> {
-  factory _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith(
-          _QuerySearchStateNewWordAddedToRecentlySearchedWords value,
-          $Res Function(_QuerySearchStateNewWordAddedToRecentlySearchedWords)
-              then) =
-      __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWith<$Res> {
+  factory _$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWith(
+          _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value,
+          $Res Function(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords) then) =
+      __$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>;
   $Res call({DictionaryWord addedWord});
 
   $DictionaryWordCopyWith<$Res> get addedWord;
 }
 
-class __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>
-    extends _$QuerySearchStateCopyWithImpl<$Res>
-    implements
-        _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<$Res> {
-  __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl(
-      _QuerySearchStateNewWordAddedToRecentlySearchedWords _value,
-      $Res Function(_QuerySearchStateNewWordAddedToRecentlySearchedWords) _then)
-      : super(
-            _value,
-            (v) => _then(
-                v as _QuerySearchStateNewWordAddedToRecentlySearchedWords));
+class __$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchStateCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWith<$Res> {
+  __$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl(
+      _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords _value,
+      $Res Function(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords));
 
   @override
-  _QuerySearchStateNewWordAddedToRecentlySearchedWords get _value =>
-      super._value as _QuerySearchStateNewWordAddedToRecentlySearchedWords;
+  _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords get _value =>
+      super._value as _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords;
 
   @override
   $Res call({
     Object addedWord = freezed,
   }) {
-    return _then(_QuerySearchStateNewWordAddedToRecentlySearchedWords(
-      addedWord:
-          addedWord == freezed ? _value.addedWord : addedWord as DictionaryWord,
+    return _then(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords(
+      addedWord: addedWord == freezed ? _value.addedWord : addedWord as DictionaryWord,
     ));
   }
 
@@ -778,11 +686,10 @@ class __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>
   }
 }
 
-class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
+class _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
     with DiagnosticableTreeMixin
-    implements _QuerySearchStateNewWordAddedToRecentlySearchedWords {
-  const _$_QuerySearchStateNewWordAddedToRecentlySearchedWords(
-      {@required this.addedWord})
+    implements _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords {
+  const _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords({@required this.addedWord})
       : assert(addedWord != null);
 
   @override
@@ -790,38 +697,33 @@ class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuerySearchState.newWordAddedToRecentlySearchedWords(addedWord: $addedWord)';
+    return 'DictionaryWordSearchState.newWordAddedToRecentlySearchedWords(addedWord: $addedWord)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty(
-          'type', 'QuerySearchState.newWordAddedToRecentlySearchedWords'))
+      ..add(DiagnosticsProperty('type', 'DictionaryWordSearchState.newWordAddedToRecentlySearchedWords'))
       ..add(DiagnosticsProperty('addedWord', addedWord));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuerySearchStateNewWordAddedToRecentlySearchedWords &&
+        (other is _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords &&
             (identical(other.addedWord, addedWord) ||
-                const DeepCollectionEquality()
-                    .equals(other.addedWord, addedWord)));
+                const DeepCollectionEquality().equals(other.addedWord, addedWord)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(addedWord);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(addedWord);
 
   @override
-  _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
-          _QuerySearchStateNewWordAddedToRecentlySearchedWords>
-      get copyWith =>
-          __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<
-                  _QuerySearchStateNewWordAddedToRecentlySearchedWords>(
-              this, _$identity);
+  _$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
+          _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords>
+      get copyWith => __$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<
+          _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -830,11 +732,8 @@ class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required
-        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            List<DictionaryWord> recentlySearchedWords),
+    @required Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -853,8 +752,7 @@ class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        List<DictionaryWord> recentlySearchedWords),
+    Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -867,18 +765,14 @@ class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_QuerySearchStateInitial value),
-    @required Result loadInProgreess(_QuerySearchStateLoadInProgress value),
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    @required Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     @required
-        Result loadSearchResultsSuccess(
-            _QuerySearchStateLoadSearchResultsSuccess value),
-    @required Result loadFailure(_QuerySearchStateLoadFailure value),
+        Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
     @required
-        Result newWordAddedToRecentlySearchedWords(
-            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            _QuerySearchLoadRecentlySearchedWordsSuccess value),
+        Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -892,15 +786,12 @@ class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_QuerySearchStateInitial value),
-    Result loadInProgreess(_QuerySearchStateLoadInProgress value),
-    Result loadSearchResultsSuccess(
-        _QuerySearchStateLoadSearchResultsSuccess value),
-    Result loadFailure(_QuerySearchStateLoadFailure value),
-    Result newWordAddedToRecentlySearchedWords(
-        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        _QuerySearchLoadRecentlySearchedWordsSuccess value),
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -911,43 +802,40 @@ class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
   }
 }
 
-abstract class _QuerySearchStateNewWordAddedToRecentlySearchedWords
-    implements QuerySearchState {
-  const factory _QuerySearchStateNewWordAddedToRecentlySearchedWords(
-          {@required DictionaryWord addedWord}) =
-      _$_QuerySearchStateNewWordAddedToRecentlySearchedWords;
+abstract class _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords implements DictionaryWordSearchState {
+  const factory _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords({@required DictionaryWord addedWord}) =
+      _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords;
 
   DictionaryWord get addedWord;
-  _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
-      _QuerySearchStateNewWordAddedToRecentlySearchedWords> get copyWith;
+  _$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
+      _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords> get copyWith;
 }
 
-abstract class _$QuerySearchLoadRecentlySearchedWordsSuccessCopyWith<$Res> {
-  factory _$QuerySearchLoadRecentlySearchedWordsSuccessCopyWith(
-          _QuerySearchLoadRecentlySearchedWordsSuccess value,
-          $Res Function(_QuerySearchLoadRecentlySearchedWordsSuccess) then) =
-      __$QuerySearchLoadRecentlySearchedWordsSuccessCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWith<$Res> {
+  factory _$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWith(
+          _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value,
+          $Res Function(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess) then) =
+      __$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWithImpl<$Res>;
   $Res call({List<DictionaryWord> recentlySearchedWords});
 }
 
-class __$QuerySearchLoadRecentlySearchedWordsSuccessCopyWithImpl<$Res>
-    extends _$QuerySearchStateCopyWithImpl<$Res>
-    implements _$QuerySearchLoadRecentlySearchedWordsSuccessCopyWith<$Res> {
-  __$QuerySearchLoadRecentlySearchedWordsSuccessCopyWithImpl(
-      _QuerySearchLoadRecentlySearchedWordsSuccess _value,
-      $Res Function(_QuerySearchLoadRecentlySearchedWordsSuccess) _then)
-      : super(_value,
-            (v) => _then(v as _QuerySearchLoadRecentlySearchedWordsSuccess));
+class __$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchStateCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWith<$Res> {
+  __$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWithImpl(
+      _DictionaryWordSearchLoadRecentlySearchedWordsSuccess _value,
+      $Res Function(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchLoadRecentlySearchedWordsSuccess));
 
   @override
-  _QuerySearchLoadRecentlySearchedWordsSuccess get _value =>
-      super._value as _QuerySearchLoadRecentlySearchedWordsSuccess;
+  _DictionaryWordSearchLoadRecentlySearchedWordsSuccess get _value =>
+      super._value as _DictionaryWordSearchLoadRecentlySearchedWordsSuccess;
 
   @override
   $Res call({
     Object recentlySearchedWords = freezed,
   }) {
-    return _then(_QuerySearchLoadRecentlySearchedWordsSuccess(
+    return _then(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess(
       recentlySearchedWords: recentlySearchedWords == freezed
           ? _value.recentlySearchedWords
           : recentlySearchedWords as List<DictionaryWord>,
@@ -955,50 +843,42 @@ class __$QuerySearchLoadRecentlySearchedWordsSuccessCopyWithImpl<$Res>
   }
 }
 
-class _$_QuerySearchLoadRecentlySearchedWordsSuccess
+class _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess
     with DiagnosticableTreeMixin
-    implements _QuerySearchLoadRecentlySearchedWordsSuccess {
-  const _$_QuerySearchLoadRecentlySearchedWordsSuccess(
-      {this.recentlySearchedWords});
+    implements _DictionaryWordSearchLoadRecentlySearchedWordsSuccess {
+  const _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess({this.recentlySearchedWords});
 
   @override
   final List<DictionaryWord> recentlySearchedWords;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuerySearchState.loadRecentlySearchedWordsResultsSuccess(recentlySearchedWords: $recentlySearchedWords)';
+    return 'DictionaryWordSearchState.loadRecentlySearchedWordsResultsSuccess(recentlySearchedWords: $recentlySearchedWords)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty(
-          'type', 'QuerySearchState.loadRecentlySearchedWordsResultsSuccess'))
-      ..add(
-          DiagnosticsProperty('recentlySearchedWords', recentlySearchedWords));
+      ..add(DiagnosticsProperty('type', 'DictionaryWordSearchState.loadRecentlySearchedWordsResultsSuccess'))
+      ..add(DiagnosticsProperty('recentlySearchedWords', recentlySearchedWords));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuerySearchLoadRecentlySearchedWordsSuccess &&
+        (other is _DictionaryWordSearchLoadRecentlySearchedWordsSuccess &&
             (identical(other.recentlySearchedWords, recentlySearchedWords) ||
-                const DeepCollectionEquality().equals(
-                    other.recentlySearchedWords, recentlySearchedWords)));
+                const DeepCollectionEquality().equals(other.recentlySearchedWords, recentlySearchedWords)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(recentlySearchedWords);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(recentlySearchedWords);
 
   @override
-  _$QuerySearchLoadRecentlySearchedWordsSuccessCopyWith<
-          _QuerySearchLoadRecentlySearchedWordsSuccess>
-      get copyWith =>
-          __$QuerySearchLoadRecentlySearchedWordsSuccessCopyWithImpl<
-              _QuerySearchLoadRecentlySearchedWordsSuccess>(this, _$identity);
+  _$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWith<_DictionaryWordSearchLoadRecentlySearchedWordsSuccess>
+      get copyWith => __$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWithImpl<
+          _DictionaryWordSearchLoadRecentlySearchedWordsSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1007,11 +887,8 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required
-        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            List<DictionaryWord> recentlySearchedWords),
+    @required Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -1030,8 +907,7 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        List<DictionaryWord> recentlySearchedWords),
+    Result loadRecentlySearchedWordsResultsSuccess(List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1044,18 +920,14 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_QuerySearchStateInitial value),
-    @required Result loadInProgreess(_QuerySearchStateLoadInProgress value),
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    @required Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     @required
-        Result loadSearchResultsSuccess(
-            _QuerySearchStateLoadSearchResultsSuccess value),
-    @required Result loadFailure(_QuerySearchStateLoadFailure value),
+        Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
     @required
-        Result newWordAddedToRecentlySearchedWords(
-            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    @required
-        Result loadRecentlySearchedWordsResultsSuccess(
-            _QuerySearchLoadRecentlySearchedWordsSuccess value),
+        Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgreess != null);
@@ -1069,15 +941,12 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_QuerySearchStateInitial value),
-    Result loadInProgreess(_QuerySearchStateLoadInProgress value),
-    Result loadSearchResultsSuccess(
-        _QuerySearchStateLoadSearchResultsSuccess value),
-    Result loadFailure(_QuerySearchStateLoadFailure value),
-    Result newWordAddedToRecentlySearchedWords(
-        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
-    Result loadRecentlySearchedWordsResultsSuccess(
-        _QuerySearchLoadRecentlySearchedWordsSuccess value),
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgreess(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(_DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result loadRecentlySearchedWordsResultsSuccess(_DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1088,13 +957,11 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
   }
 }
 
-abstract class _QuerySearchLoadRecentlySearchedWordsSuccess
-    implements QuerySearchState {
-  const factory _QuerySearchLoadRecentlySearchedWordsSuccess(
-          {List<DictionaryWord> recentlySearchedWords}) =
-      _$_QuerySearchLoadRecentlySearchedWordsSuccess;
+abstract class _DictionaryWordSearchLoadRecentlySearchedWordsSuccess implements DictionaryWordSearchState {
+  const factory _DictionaryWordSearchLoadRecentlySearchedWordsSuccess({List<DictionaryWord> recentlySearchedWords}) =
+      _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess;
 
   List<DictionaryWord> get recentlySearchedWords;
-  _$QuerySearchLoadRecentlySearchedWordsSuccessCopyWith<
-      _QuerySearchLoadRecentlySearchedWordsSuccess> get copyWith;
+  _$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWith<_DictionaryWordSearchLoadRecentlySearchedWordsSuccess>
+      get copyWith;
 }

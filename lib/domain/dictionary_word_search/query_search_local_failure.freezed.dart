@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'query_search_local_failure.dart';
+part of 'dictionary_word_search_local_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,8 +9,8 @@ part of 'query_search_local_failure.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$QuerySearchLocalFailureTearOff {
-  const _$QuerySearchLocalFailureTearOff();
+class _$DictionaryWordSearchLocalFailureTearOff {
+  const _$DictionaryWordSearchLocalFailureTearOff();
 
   _LocalDatabaseProcessingFailure localDatabaseProcessingFailure() {
     return const _LocalDatabaseProcessingFailure();
@@ -18,9 +18,9 @@ class _$QuerySearchLocalFailureTearOff {
 }
 
 // ignore: unused_element
-const $QuerySearchLocalFailure = _$QuerySearchLocalFailureTearOff();
+const $DictionaryWordSearchLocalFailure = _$DictionaryWordSearchLocalFailureTearOff();
 
-mixin _$QuerySearchLocalFailure {
+mixin _$DictionaryWordSearchLocalFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result localDatabaseProcessingFailure(),
@@ -32,60 +32,51 @@ mixin _$QuerySearchLocalFailure {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result localDatabaseProcessingFailure(
-            _LocalDatabaseProcessingFailure value),
+    @required Result localDatabaseProcessingFailure(_LocalDatabaseProcessingFailure value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result localDatabaseProcessingFailure(
-        _LocalDatabaseProcessingFailure value),
+    Result localDatabaseProcessingFailure(_LocalDatabaseProcessingFailure value),
     @required Result orElse(),
   });
 }
 
-abstract class $QuerySearchLocalFailureCopyWith<$Res> {
-  factory $QuerySearchLocalFailureCopyWith(QuerySearchLocalFailure value,
-          $Res Function(QuerySearchLocalFailure) then) =
-      _$QuerySearchLocalFailureCopyWithImpl<$Res>;
+abstract class $DictionaryWordSearchLocalFailureCopyWith<$Res> {
+  factory $DictionaryWordSearchLocalFailureCopyWith(
+          DictionaryWordSearchLocalFailure value, $Res Function(DictionaryWordSearchLocalFailure) then) =
+      _$DictionaryWordSearchLocalFailureCopyWithImpl<$Res>;
 }
 
-class _$QuerySearchLocalFailureCopyWithImpl<$Res>
-    implements $QuerySearchLocalFailureCopyWith<$Res> {
-  _$QuerySearchLocalFailureCopyWithImpl(this._value, this._then);
+class _$DictionaryWordSearchLocalFailureCopyWithImpl<$Res> implements $DictionaryWordSearchLocalFailureCopyWith<$Res> {
+  _$DictionaryWordSearchLocalFailureCopyWithImpl(this._value, this._then);
 
-  final QuerySearchLocalFailure _value;
+  final DictionaryWordSearchLocalFailure _value;
   // ignore: unused_field
-  final $Res Function(QuerySearchLocalFailure) _then;
+  final $Res Function(DictionaryWordSearchLocalFailure) _then;
 }
 
 abstract class _$LocalDatabaseProcessingFailureCopyWith<$Res> {
   factory _$LocalDatabaseProcessingFailureCopyWith(
-          _LocalDatabaseProcessingFailure value,
-          $Res Function(_LocalDatabaseProcessingFailure) then) =
+          _LocalDatabaseProcessingFailure value, $Res Function(_LocalDatabaseProcessingFailure) then) =
       __$LocalDatabaseProcessingFailureCopyWithImpl<$Res>;
 }
 
-class __$LocalDatabaseProcessingFailureCopyWithImpl<$Res>
-    extends _$QuerySearchLocalFailureCopyWithImpl<$Res>
+class __$LocalDatabaseProcessingFailureCopyWithImpl<$Res> extends _$DictionaryWordSearchLocalFailureCopyWithImpl<$Res>
     implements _$LocalDatabaseProcessingFailureCopyWith<$Res> {
   __$LocalDatabaseProcessingFailureCopyWithImpl(
-      _LocalDatabaseProcessingFailure _value,
-      $Res Function(_LocalDatabaseProcessingFailure) _then)
+      _LocalDatabaseProcessingFailure _value, $Res Function(_LocalDatabaseProcessingFailure) _then)
       : super(_value, (v) => _then(v as _LocalDatabaseProcessingFailure));
 
   @override
-  _LocalDatabaseProcessingFailure get _value =>
-      super._value as _LocalDatabaseProcessingFailure;
+  _LocalDatabaseProcessingFailure get _value => super._value as _LocalDatabaseProcessingFailure;
 }
 
-class _$_LocalDatabaseProcessingFailure
-    implements _LocalDatabaseProcessingFailure {
+class _$_LocalDatabaseProcessingFailure implements _LocalDatabaseProcessingFailure {
   const _$_LocalDatabaseProcessingFailure();
 
   @override
   String toString() {
-    return 'QuerySearchLocalFailure.localDatabaseProcessingFailure()';
+    return 'DictionaryWordSearchLocalFailure.localDatabaseProcessingFailure()';
   }
 
   @override
@@ -121,9 +112,7 @@ class _$_LocalDatabaseProcessingFailure
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result localDatabaseProcessingFailure(
-            _LocalDatabaseProcessingFailure value),
+    @required Result localDatabaseProcessingFailure(_LocalDatabaseProcessingFailure value),
   }) {
     assert(localDatabaseProcessingFailure != null);
     return localDatabaseProcessingFailure(this);
@@ -132,8 +121,7 @@ class _$_LocalDatabaseProcessingFailure
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result localDatabaseProcessingFailure(
-        _LocalDatabaseProcessingFailure value),
+    Result localDatabaseProcessingFailure(_LocalDatabaseProcessingFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -144,8 +132,6 @@ class _$_LocalDatabaseProcessingFailure
   }
 }
 
-abstract class _LocalDatabaseProcessingFailure
-    implements QuerySearchLocalFailure {
-  const factory _LocalDatabaseProcessingFailure() =
-      _$_LocalDatabaseProcessingFailure;
+abstract class _LocalDatabaseProcessingFailure implements DictionaryWordSearchLocalFailure {
+  const factory _LocalDatabaseProcessingFailure() = _$_LocalDatabaseProcessingFailure;
 }

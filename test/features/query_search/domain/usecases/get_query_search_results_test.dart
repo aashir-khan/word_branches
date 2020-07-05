@@ -12,35 +12,35 @@ import 'package:mockito/mockito.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  GetQuerySearchResults usecase;
-  QuerySearchRepository mockQuerySearchRepository;
+  GetDictionaryWordSearchResults usecase;
+  DictionaryWordSearchRepository mockDictionaryWordSearchRepository;
 
   setUpAll(() async {
     await configureInjection(Env.test);
 
-    mockQuerySearchRepository = getIt<QuerySearchRepository>();
-    usecase = getIt<GetQuerySearchResultsImpl>();
+    mockDictionaryWordSearchRepository = getIt<DictionaryWordSearchRepository>();
+    usecase = getIt<GetDictionaryWordSearchResultsImpl>();
   });
 
   final tQuery = faker.lorem.word();
-  final QuerySearchResults tQuerySearchResults = QuerySearchResultsModel.fromFakeData();
+  final DictionaryWordSearchResults tDictionaryWordSearchResults = DictionaryWordSearchResultsModel.fromFakeData();
 
   test('should get query search results for the query from the repository', () async {
     // arrange
-    when(mockQuerySearchRepository.getQuerySearchResults(
+    when(mockDictionaryWordSearchRepository.getDictionaryWordSearchResults(
       query: anyNamed('query'),
-    )).thenAnswer((_) async => Right(tQuerySearchResults));
+    )).thenAnswer((_) async => Right(tDictionaryWordSearchResults));
 
     // act
     final result = await usecase(Params(query: tQuery));
 
     // assert
-    expect(result, Right(tQuerySearchResults));
+    expect(result, Right(tDictionaryWordSearchResults));
 
-    verify(mockQuerySearchRepository.getQuerySearchResults(
+    verify(mockDictionaryWordSearchRepository.getDictionaryWordSearchResults(
       query: tQuery,
     ));
 
-    verifyNoMoreInteractions(mockQuerySearchRepository);
+    verifyNoMoreInteractions(mockDictionaryWordSearchRepository);
   });
 }

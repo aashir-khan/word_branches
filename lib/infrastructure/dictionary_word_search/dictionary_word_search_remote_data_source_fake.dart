@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:dr_words/domain/dictionary_word_search/query_search_remote_data_source.dart';
+import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
 import 'package:dr_words/injection.dart';
 import 'package:faker/faker.dart';
@@ -10,19 +10,19 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@LazySingleton(as: QuerySearchRemoteDataSource, env: Env.development)
-class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
+@LazySingleton(as: DictionaryWordSearchRemoteDataSource, env: Env.development)
+class DictionaryWordSearchRemoteDataSourceFake implements DictionaryWordSearchRemoteDataSource {
   final SharedPreferences sharedPreferences;
 
-  QuerySearchRemoteDataSourceFake({@required this.sharedPreferences});
+  DictionaryWordSearchRemoteDataSourceFake({@required this.sharedPreferences});
 
-  static const querySearchResultsDbIdentifier = 'query_search_results';
+  static const DictionaryWordSearchResultsDbIdentifier = 'query_search_results';
 
   @override
-  Future<KtList<DictionaryWordDto>> getQuerySearchResults({
+  Future<KtList<DictionaryWordDto>> getDictionaryWordSearchResults({
     String query,
   }) async {
-    final initialStringListStoredData = sharedPreferences.getStringList(querySearchResultsDbIdentifier) ?? [];
+    final initialStringListStoredData = sharedPreferences.getStringList(DictionaryWordSearchResultsDbIdentifier) ?? [];
 
     final List<DictionaryWordDto> initialStoredData = initialStringListStoredData
         .map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>))
@@ -58,7 +58,7 @@ class QuerySearchRemoteDataSourceFake implements QuerySearchRemoteDataSource {
     }
 
     final resultEncoded = wordsList.map((word) => json.encode(word.toJson())).toList();
-    await sharedPreferences.setStringList(querySearchResultsDbIdentifier, resultEncoded);
+    await sharedPreferences.setStringList(DictionaryWordSearchResultsDbIdentifier, resultEncoded);
     return Future.delayed(const Duration(milliseconds: 1), () => wordsList.toImmutableList());
   }
 }

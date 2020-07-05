@@ -6,10 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dr_words/presentation/core/utils/icon_utils.dart';
 
-class WordQuerySearch extends SearchDelegate<DictionaryWord> {
-  final Bloc<QuerySearchEvent, QuerySearchState> bloc;
+class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
+  final Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> bloc;
 
-  WordQuerySearch(this.bloc);
+  WordDictionaryWordSearch(this.bloc);
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -51,12 +51,12 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
   @override
   Widget buildSuggestions(BuildContext context) {
     if (query.isEmpty) {
-      bloc.add(const QuerySearchEvent.getRecentlySearchedWords());
+      bloc.add(const DictionaryWordSearchEvent.getRecentlySearchedWords());
     } else {
-      bloc.add(QuerySearchEvent.modifyQuery(query: query));
+      bloc.add(DictionaryWordSearchEvent.modifyQuery(query: query));
     }
 
-    final blocBuilder = BlocBuilder<QuerySearchBloc, QuerySearchState>(
+    final blocBuilder = BlocBuilder<DictionaryWordSearchBloc, DictionaryWordSearchState>(
       builder: (context, state) {
         return state.when(
           initial: () => const Center(
@@ -72,7 +72,7 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
                       final querySingleSearchResult = words[index];
-                      bloc.add(QuerySearchEvent.addNewRecentlySearchedWord(
+                      bloc.add(DictionaryWordSearchEvent.addNewRecentlySearchedWord(
                           newRecentlySearchedWord: querySingleSearchResult));
                     },
                     child: Container(
@@ -126,7 +126,7 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
       },
     );
 
-    return BlocListener<QuerySearchBloc, QuerySearchState>(
+    return BlocListener<DictionaryWordSearchBloc, DictionaryWordSearchState>(
       listener: (context, state) {
         state.maybeWhen(
           newWordAddedToRecentlySearchedWords: (addedWord) => close(context, addedWord),

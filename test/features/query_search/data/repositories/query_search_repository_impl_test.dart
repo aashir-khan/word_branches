@@ -19,34 +19,34 @@ import '../../../../helpers/setup_all_for_test.dart';
 Future<void> main() async {
   await setupInjectionForTest();
 
-  QuerySearchRepositoryImpl repository;
-  QuerySearchRemoteDataSource mockRemoteDataSource;
-  QuerySearchLocalDataSource mockLocalDataSource;
+  DictionaryWordSearchRepositoryImpl repository;
+  DictionaryWordSearchRemoteDataSource mockRemoteDataSource;
+  DictionaryWordSearchLocalDataSource mockLocalDataSource;
   NetworkInfo mockNetworkInfo;
 
   setUp(() {
-    mockRemoteDataSource = getIt<QuerySearchRemoteDataSource>();
-    mockLocalDataSource = getIt<QuerySearchLocalDataSource>();
+    mockRemoteDataSource = getIt<DictionaryWordSearchRemoteDataSource>();
+    mockLocalDataSource = getIt<DictionaryWordSearchLocalDataSource>();
     mockNetworkInfo = getIt<NetworkInfo>();
 
-    repository = QuerySearchRepositoryImpl(
+    repository = DictionaryWordSearchRepositoryImpl(
       remoteDataSource: mockRemoteDataSource,
       localDataSource: mockLocalDataSource,
       networkInfo: mockNetworkInfo,
     );
   });
 
-  group('getQuerySearchResults', () {
+  group('getDictionaryWordSearchResults', () {
     final tQuery = faker.lorem.word();
-    final tQuerySearchResultsModel = QuerySearchResultsModel.fromFakeData();
-    final QuerySearchResults tQuerySearchResults = tQuerySearchResultsModel;
+    final tDictionaryWordSearchResultsModel = DictionaryWordSearchResultsModel.fromFakeData();
+    final DictionaryWordSearchResults tDictionaryWordSearchResults = tDictionaryWordSearchResultsModel;
 
     test('should check if the device is online', () async {
       // arrange
       when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
 
       // act
-      repository.getQuerySearchResults(query: tQuery);
+      repository.getDictionaryWordSearchResults(query: tQuery);
 
       // assert
       verify(mockNetworkInfo.isConnected);
@@ -59,26 +59,27 @@ Future<void> main() async {
 
       test('should return remote data when the call to remote data source is successful', () async {
         // arrange
-        when(mockRemoteDataSource.getQuerySearchResults(query: anyNamed('query')))
-            .thenAnswer((_) async => tQuerySearchResultsModel);
+        when(mockRemoteDataSource.getDictionaryWordSearchResults(query: anyNamed('query')))
+            .thenAnswer((_) async => tDictionaryWordSearchResultsModel);
 
         // act
-        final result = await repository.getQuerySearchResults(query: tQuery);
+        final result = await repository.getDictionaryWordSearchResults(query: tQuery);
 
         // assert
-        verify(mockRemoteDataSource.getQuerySearchResults(query: tQuery));
-        expect(result, equals(Right(tQuerySearchResults)));
+        verify(mockRemoteDataSource.getDictionaryWordSearchResults(query: tQuery));
+        expect(result, equals(Right(tDictionaryWordSearchResults)));
       });
 
       test('should return server failure when the call to remote data source is unsuccessful', () async {
         // arrange
-        when(mockRemoteDataSource.getQuerySearchResults(query: anyNamed('query'))).thenThrow(ServerException());
+        when(mockRemoteDataSource.getDictionaryWordSearchResults(query: anyNamed('query')))
+            .thenThrow(ServerException());
 
         // act
-        final result = await repository.getQuerySearchResults(query: tQuery);
+        final result = await repository.getDictionaryWordSearchResults(query: tQuery);
 
         // assert
-        verify(mockRemoteDataSource.getQuerySearchResults(query: tQuery));
+        verify(mockRemoteDataSource.getDictionaryWordSearchResults(query: tQuery));
         expect(result, equals(Left(ServerFailure())));
       });
     });
@@ -90,7 +91,7 @@ Future<void> main() async {
 
       test('should return NetworkFailure when there is no internet connection', () async {
         // act
-        final result = await repository.getQuerySearchResults(query: tQuery);
+        final result = await repository.getDictionaryWordSearchResults(query: tQuery);
 
         // assert
         verifyNoMoreInteractions(mockRemoteDataSource);
