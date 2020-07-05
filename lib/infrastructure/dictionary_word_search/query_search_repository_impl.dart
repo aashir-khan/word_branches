@@ -44,24 +44,23 @@ class QuerySearchRepositoryImpl implements QuerySearchRepository {
   }
 
   @override
-  Future<Either<QuerySearchLocalFailureLocalDatabaseProcessingFailure, List<DictionaryWord>>>
-      getRecentlySearchedWords() async {
+  Future<Either<QuerySearchLocalFailure, List<DictionaryWord>>> getRecentlySearchedWords() async {
     try {
       final wordsDto = await localDataSource.getRecentlySearchedWords();
       return Right(wordsDto.asList().toList().map((word) => word.toDomain()).toList());
     } on LocalDatabaseProcessingException {
-      return const Left(QuerySearchLocalFailureLocalDatabaseProcessingFailure());
+      return const Left(QuerySearchLocalFailure.localDatabaseProcessingFailure());
     }
   }
 
   @override
-  Future<Either<QuerySearchLocalFailureLocalDatabaseProcessingFailure, DictionaryWord>> addNewRecentlySearchedWord(
+  Future<Either<QuerySearchLocalFailure, DictionaryWord>> addNewRecentlySearchedWord(
       DictionaryWord newWordToAdd) async {
     try {
       final savedDtoWord = await localDataSource.addNewRecentlySearchedWord(DictionaryWordDto.fromDomain(newWordToAdd));
       return Right(savedDtoWord.toDomain());
     } on LocalDatabaseProcessingException {
-      return const Left(QuerySearchLocalFailureLocalDatabaseProcessingFailure());
+      return const Left(QuerySearchLocalFailure.localDatabaseProcessingFailure());
     }
   }
 }

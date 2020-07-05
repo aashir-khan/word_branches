@@ -52,8 +52,8 @@ class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
           (failure) async* {
             yield const QuerySearchState.loadFailure(message: localDatabaseProcessingFailureMessage);
           },
-          (results) async* {
-            yield const QuerySearchState.newWordAddedToRecentlySearchedWords();
+          (addedWord) async* {
+            yield QuerySearchState.newWordAddedToRecentlySearchedWords(addedWord: addedWord);
           },
         );
       },

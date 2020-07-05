@@ -56,7 +56,7 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
       bloc.add(QuerySearchEvent.modifyQuery(query: query));
     }
 
-    return BlocBuilder<QuerySearchBloc, QuerySearchState>(
+    final blocBuilder = BlocBuilder<QuerySearchBloc, QuerySearchState>(
       builder: (context, state) {
         return state.when(
           initial: () => const Center(
@@ -74,7 +74,6 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
                       final querySingleSearchResult = words[index];
                       bloc.add(QuerySearchEvent.addNewRecentlySearchedWord(
                           newRecentlySearchedWord: querySingleSearchResult));
-                      close(context, querySingleSearchResult);
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -88,8 +87,8 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
                     ),
                   ),
                 ),
-          loadFailure: (message) => Text(message),
-          newWordAddedToRecentlySearchedWords: () => Container(),
+          loadFailure: (message) => Center(child: Text(message)),
+          newWordAddedToRecentlySearchedWords: (_) => Container(),
           loadRecentlySearchedWordsResultsSuccess: (words) => ListView.builder(
             itemCount: words.length,
             itemBuilder: (context, index) => InkWell(
@@ -125,6 +124,20 @@ class WordQuerySearch extends SearchDelegate<DictionaryWord> {
           ),
         );
       },
+    );
+
+    return BlocListener<QuerySearchBloc, QuerySearchState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          newWordAddedToRecentlySearchedWords: (addedWord) => close(context, addedWord),
+          orElse: () => null,
+        );
+      },
+      listenWhen: (_, currentState) => currentState.maybeWhen(
+        newWordAddedToRecentlySearchedWords: (_) => true,
+        orElse: () => false,
+      ),
+      child: blocBuilder,
     );
   }
 }

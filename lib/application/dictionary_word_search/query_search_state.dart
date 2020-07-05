@@ -11,8 +11,8 @@ abstract class QuerySearchState with _$QuerySearchState {
   const factory QuerySearchState.loadSearchResultsSuccess({List<DictionaryWord> words}) =
       _QuerySearchStateLoadSearchResultsSuccess;
   const factory QuerySearchState.loadFailure({String message}) = _QuerySearchStateLoadFailure;
-  const factory QuerySearchState.newWordAddedToRecentlySearchedWords() =
-      _QueySearchStateNewWordAddedToRecentlySearchedWords;
+  const factory QuerySearchState.newWordAddedToRecentlySearchedWords({@required DictionaryWord addedWord}) =
+      _QuerySearchStateNewWordAddedToRecentlySearchedWords;
   const factory QuerySearchState.loadRecentlySearchedWordsResultsSuccess({List<DictionaryWord> recentlySearchedWords}) =
       _QuerySearchLoadRecentlySearchedWordsSuccess;
 }

@@ -8,9 +8,7 @@ abstract class QuerySearchRepository {
     String query,
   });
 
-  Future<Either<QuerySearchLocalFailureLocalDatabaseProcessingFailure, List<DictionaryWord>>>
-      getRecentlySearchedWords();
+  Future<Either<QuerySearchLocalFailure, List<DictionaryWord>>> getRecentlySearchedWords();
 
-  Future<Either<QuerySearchLocalFailureLocalDatabaseProcessingFailure, DictionaryWord>> addNewRecentlySearchedWord(
-      DictionaryWord newWordToAdd);
+  Future<Either<QuerySearchLocalFailure, DictionaryWord>> addNewRecentlySearchedWord(DictionaryWord newWordToAdd);
 }

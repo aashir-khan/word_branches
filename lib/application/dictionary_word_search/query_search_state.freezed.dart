@@ -33,9 +33,12 @@ class _$QuerySearchStateTearOff {
     );
   }
 
-  _QueySearchStateNewWordAddedToRecentlySearchedWords
-      newWordAddedToRecentlySearchedWords() {
-    return const _QueySearchStateNewWordAddedToRecentlySearchedWords();
+  _QuerySearchStateNewWordAddedToRecentlySearchedWords
+      newWordAddedToRecentlySearchedWords(
+          {@required DictionaryWord addedWord}) {
+    return _QuerySearchStateNewWordAddedToRecentlySearchedWords(
+      addedWord: addedWord,
+    );
   }
 
   _QuerySearchLoadRecentlySearchedWordsSuccess
@@ -57,7 +60,8 @@ mixin _$QuerySearchState {
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required Result newWordAddedToRecentlySearchedWords(),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             List<DictionaryWord> recentlySearchedWords),
@@ -68,7 +72,7 @@ mixin _$QuerySearchState {
     Result loadInProgreess(),
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
-    Result newWordAddedToRecentlySearchedWords(),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -83,7 +87,7 @@ mixin _$QuerySearchState {
     @required Result loadFailure(_QuerySearchStateLoadFailure value),
     @required
         Result newWordAddedToRecentlySearchedWords(
-            _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _QuerySearchLoadRecentlySearchedWordsSuccess value),
@@ -96,7 +100,7 @@ mixin _$QuerySearchState {
         _QuerySearchStateLoadSearchResultsSuccess value),
     Result loadFailure(_QuerySearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
-        _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _QuerySearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -167,7 +171,8 @@ class _$_QuerySearchStateInitial
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required Result newWordAddedToRecentlySearchedWords(),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             List<DictionaryWord> recentlySearchedWords),
@@ -188,7 +193,7 @@ class _$_QuerySearchStateInitial
     Result loadInProgreess(),
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
-    Result newWordAddedToRecentlySearchedWords(),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -211,7 +216,7 @@ class _$_QuerySearchStateInitial
     @required Result loadFailure(_QuerySearchStateLoadFailure value),
     @required
         Result newWordAddedToRecentlySearchedWords(
-            _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _QuerySearchLoadRecentlySearchedWordsSuccess value),
@@ -234,7 +239,7 @@ class _$_QuerySearchStateInitial
         _QuerySearchStateLoadSearchResultsSuccess value),
     Result loadFailure(_QuerySearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
-        _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _QuerySearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -303,7 +308,8 @@ class _$_QuerySearchStateLoadInProgress
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required Result newWordAddedToRecentlySearchedWords(),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             List<DictionaryWord> recentlySearchedWords),
@@ -324,7 +330,7 @@ class _$_QuerySearchStateLoadInProgress
     Result loadInProgreess(),
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
-    Result newWordAddedToRecentlySearchedWords(),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -347,7 +353,7 @@ class _$_QuerySearchStateLoadInProgress
     @required Result loadFailure(_QuerySearchStateLoadFailure value),
     @required
         Result newWordAddedToRecentlySearchedWords(
-            _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _QuerySearchLoadRecentlySearchedWordsSuccess value),
@@ -370,7 +376,7 @@ class _$_QuerySearchStateLoadInProgress
         _QuerySearchStateLoadSearchResultsSuccess value),
     Result loadFailure(_QuerySearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
-        _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _QuerySearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -466,7 +472,8 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required Result newWordAddedToRecentlySearchedWords(),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             List<DictionaryWord> recentlySearchedWords),
@@ -487,7 +494,7 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
     Result loadInProgreess(),
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
-    Result newWordAddedToRecentlySearchedWords(),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -510,7 +517,7 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
     @required Result loadFailure(_QuerySearchStateLoadFailure value),
     @required
         Result newWordAddedToRecentlySearchedWords(
-            _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _QuerySearchLoadRecentlySearchedWordsSuccess value),
@@ -533,7 +540,7 @@ class _$_QuerySearchStateLoadSearchResultsSuccess
         _QuerySearchStateLoadSearchResultsSuccess value),
     Result loadFailure(_QuerySearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
-        _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _QuerySearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -632,7 +639,8 @@ class _$_QuerySearchStateLoadFailure
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required Result newWordAddedToRecentlySearchedWords(),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             List<DictionaryWord> recentlySearchedWords),
@@ -653,7 +661,7 @@ class _$_QuerySearchStateLoadFailure
     Result loadInProgreess(),
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
-    Result newWordAddedToRecentlySearchedWords(),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -676,7 +684,7 @@ class _$_QuerySearchStateLoadFailure
     @required Result loadFailure(_QuerySearchStateLoadFailure value),
     @required
         Result newWordAddedToRecentlySearchedWords(
-            _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _QuerySearchLoadRecentlySearchedWordsSuccess value),
@@ -699,7 +707,7 @@ class _$_QuerySearchStateLoadFailure
         _QuerySearchStateLoadSearchResultsSuccess value),
     Result loadFailure(_QuerySearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
-        _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _QuerySearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -721,40 +729,68 @@ abstract class _QuerySearchStateLoadFailure implements QuerySearchState {
       get copyWith;
 }
 
-abstract class _$QueySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
+abstract class _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
     $Res> {
-  factory _$QueySearchStateNewWordAddedToRecentlySearchedWordsCopyWith(
-          _QueySearchStateNewWordAddedToRecentlySearchedWords value,
-          $Res Function(_QueySearchStateNewWordAddedToRecentlySearchedWords)
+  factory _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith(
+          _QuerySearchStateNewWordAddedToRecentlySearchedWords value,
+          $Res Function(_QuerySearchStateNewWordAddedToRecentlySearchedWords)
               then) =
-      __$QueySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>;
+      __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>;
+  $Res call({DictionaryWord addedWord});
+
+  $DictionaryWordCopyWith<$Res> get addedWord;
 }
 
-class __$QueySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>
+class __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<$Res>
     extends _$QuerySearchStateCopyWithImpl<$Res>
     implements
-        _$QueySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<$Res> {
-  __$QueySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl(
-      _QueySearchStateNewWordAddedToRecentlySearchedWords _value,
-      $Res Function(_QueySearchStateNewWordAddedToRecentlySearchedWords) _then)
+        _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<$Res> {
+  __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl(
+      _QuerySearchStateNewWordAddedToRecentlySearchedWords _value,
+      $Res Function(_QuerySearchStateNewWordAddedToRecentlySearchedWords) _then)
       : super(
             _value,
             (v) => _then(
-                v as _QueySearchStateNewWordAddedToRecentlySearchedWords));
+                v as _QuerySearchStateNewWordAddedToRecentlySearchedWords));
 
   @override
-  _QueySearchStateNewWordAddedToRecentlySearchedWords get _value =>
-      super._value as _QueySearchStateNewWordAddedToRecentlySearchedWords;
+  _QuerySearchStateNewWordAddedToRecentlySearchedWords get _value =>
+      super._value as _QuerySearchStateNewWordAddedToRecentlySearchedWords;
+
+  @override
+  $Res call({
+    Object addedWord = freezed,
+  }) {
+    return _then(_QuerySearchStateNewWordAddedToRecentlySearchedWords(
+      addedWord:
+          addedWord == freezed ? _value.addedWord : addedWord as DictionaryWord,
+    ));
+  }
+
+  @override
+  $DictionaryWordCopyWith<$Res> get addedWord {
+    if (_value.addedWord == null) {
+      return null;
+    }
+    return $DictionaryWordCopyWith<$Res>(_value.addedWord, (value) {
+      return _then(_value.copyWith(addedWord: value));
+    });
+  }
 }
 
-class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
+class _$_QuerySearchStateNewWordAddedToRecentlySearchedWords
     with DiagnosticableTreeMixin
-    implements _QueySearchStateNewWordAddedToRecentlySearchedWords {
-  const _$_QueySearchStateNewWordAddedToRecentlySearchedWords();
+    implements _QuerySearchStateNewWordAddedToRecentlySearchedWords {
+  const _$_QuerySearchStateNewWordAddedToRecentlySearchedWords(
+      {@required this.addedWord})
+      : assert(addedWord != null);
+
+  @override
+  final DictionaryWord addedWord;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuerySearchState.newWordAddedToRecentlySearchedWords()';
+    return 'QuerySearchState.newWordAddedToRecentlySearchedWords(addedWord: $addedWord)';
   }
 
   @override
@@ -762,17 +798,30 @@ class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty(
-          'type', 'QuerySearchState.newWordAddedToRecentlySearchedWords'));
+          'type', 'QuerySearchState.newWordAddedToRecentlySearchedWords'))
+      ..add(DiagnosticsProperty('addedWord', addedWord));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QueySearchStateNewWordAddedToRecentlySearchedWords);
+        (other is _QuerySearchStateNewWordAddedToRecentlySearchedWords &&
+            (identical(other.addedWord, addedWord) ||
+                const DeepCollectionEquality()
+                    .equals(other.addedWord, addedWord)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(addedWord);
+
+  @override
+  _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
+          _QuerySearchStateNewWordAddedToRecentlySearchedWords>
+      get copyWith =>
+          __$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWithImpl<
+                  _QuerySearchStateNewWordAddedToRecentlySearchedWords>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -781,7 +830,8 @@ class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required Result newWordAddedToRecentlySearchedWords(),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             List<DictionaryWord> recentlySearchedWords),
@@ -792,7 +842,7 @@ class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
-    return newWordAddedToRecentlySearchedWords();
+    return newWordAddedToRecentlySearchedWords(addedWord);
   }
 
   @override
@@ -802,14 +852,14 @@ class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
     Result loadInProgreess(),
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
-    Result newWordAddedToRecentlySearchedWords(),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (newWordAddedToRecentlySearchedWords != null) {
-      return newWordAddedToRecentlySearchedWords();
+      return newWordAddedToRecentlySearchedWords(addedWord);
     }
     return orElse();
   }
@@ -825,7 +875,7 @@ class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
     @required Result loadFailure(_QuerySearchStateLoadFailure value),
     @required
         Result newWordAddedToRecentlySearchedWords(
-            _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _QuerySearchLoadRecentlySearchedWordsSuccess value),
@@ -848,7 +898,7 @@ class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
         _QuerySearchStateLoadSearchResultsSuccess value),
     Result loadFailure(_QuerySearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
-        _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _QuerySearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -861,10 +911,15 @@ class _$_QueySearchStateNewWordAddedToRecentlySearchedWords
   }
 }
 
-abstract class _QueySearchStateNewWordAddedToRecentlySearchedWords
+abstract class _QuerySearchStateNewWordAddedToRecentlySearchedWords
     implements QuerySearchState {
-  const factory _QueySearchStateNewWordAddedToRecentlySearchedWords() =
-      _$_QueySearchStateNewWordAddedToRecentlySearchedWords;
+  const factory _QuerySearchStateNewWordAddedToRecentlySearchedWords(
+          {@required DictionaryWord addedWord}) =
+      _$_QuerySearchStateNewWordAddedToRecentlySearchedWords;
+
+  DictionaryWord get addedWord;
+  _$QuerySearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
+      _QuerySearchStateNewWordAddedToRecentlySearchedWords> get copyWith;
 }
 
 abstract class _$QuerySearchLoadRecentlySearchedWordsSuccessCopyWith<$Res> {
@@ -952,7 +1007,8 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
     @required Result loadInProgreess(),
     @required Result loadSearchResultsSuccess(List<DictionaryWord> words),
     @required Result loadFailure(String message),
-    @required Result newWordAddedToRecentlySearchedWords(),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             List<DictionaryWord> recentlySearchedWords),
@@ -973,7 +1029,7 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
     Result loadInProgreess(),
     Result loadSearchResultsSuccess(List<DictionaryWord> words),
     Result loadFailure(String message),
-    Result newWordAddedToRecentlySearchedWords(),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         List<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -996,7 +1052,7 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
     @required Result loadFailure(_QuerySearchStateLoadFailure value),
     @required
         Result newWordAddedToRecentlySearchedWords(
-            _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+            _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _QuerySearchLoadRecentlySearchedWordsSuccess value),
@@ -1019,7 +1075,7 @@ class _$_QuerySearchLoadRecentlySearchedWordsSuccess
         _QuerySearchStateLoadSearchResultsSuccess value),
     Result loadFailure(_QuerySearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
-        _QueySearchStateNewWordAddedToRecentlySearchedWords value),
+        _QuerySearchStateNewWordAddedToRecentlySearchedWords value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _QuerySearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),

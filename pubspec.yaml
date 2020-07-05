@@ -1,5 +1,8 @@
 name: dr_words
 description: A new Flutter project.
+scripts:
+  runner: flutter pub run build_runner build --delete-conflicting-outputs
+  runner-watch: flutter pub run build_runner watch --delete-conflicting-outputs
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
