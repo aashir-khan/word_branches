@@ -19,10 +19,7 @@ const localDatabaseProcessingFailureMessage =
 class QuerySearchBloc extends Bloc<QuerySearchEvent, QuerySearchState> {
   final QuerySearchRepository querySearchRepository;
 
-  QuerySearchBloc({@required this.querySearchRepository});
-
-  @override
-  QuerySearchState get initialState => const QuerySearchState.initial();
+  QuerySearchBloc({@required this.querySearchRepository}) : super(const QuerySearchState.initial());
 
   @override
   Stream<QuerySearchState> mapEventToState(

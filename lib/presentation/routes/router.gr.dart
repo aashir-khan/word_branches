@@ -12,11 +12,11 @@ import 'package:dr_words/presentation/pages/search/search_page.dart';
 import 'package:dr_words/presentation/pages/headword_entries/headword_entries_page.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 
-abstract class Routes {
-  static const homePage = '/';
-  static const searchPage = '/search-page';
-  static const headwordEntriesPage = '/headword-entries-page';
-  static const all = {
+class Routes {
+  static const String homePage = '/';
+  static const String searchPage = '/search-page';
+  static const String headwordEntriesPage = '/headword-entries-page';
+  static const all = <String>{
     homePage,
     searchPage,
     headwordEntriesPage,
@@ -25,40 +25,35 @@ abstract class Routes {
 
 class Router extends RouterBase {
   @override
-  Set<String> get allRoutes => Routes.all;
-
-  @Deprecated('call ExtendedNavigator.ofRouter<Router>() directly')
-  static ExtendedNavigatorState get navigator =>
-      ExtendedNavigator.ofRouter<Router>();
-
+  List<RouteDef> get routes => _routes;
+  final _routes = <RouteDef>[
+    RouteDef(Routes.homePage, page: HomePage),
+    RouteDef(Routes.searchPage, page: SearchPage),
+    RouteDef(Routes.headwordEntriesPage, page: HeadwordEntriesPage),
+  ];
   @override
-  Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    final args = settings.arguments;
-    switch (settings.name) {
-      case Routes.homePage:
-        return MaterialPageRoute<dynamic>(
-          builder: (context) => HomePage(),
-          settings: settings,
-        );
-      case Routes.searchPage:
-        return MaterialPageRoute<dynamic>(
-          builder: (context) => SearchPage(),
-          settings: settings,
-        );
-      case Routes.headwordEntriesPage:
-        if (hasInvalidArgs<HeadwordEntriesPageArguments>(args,
-            isRequired: true)) {
-          return misTypedArgsRoute<HeadwordEntriesPageArguments>(args);
-        }
-        final typedArgs = args as HeadwordEntriesPageArguments;
-        return MaterialPageRoute<dynamic>(
-          builder: (context) => HeadwordEntriesPage(typedArgs.wordSelected),
-          settings: settings,
-        );
-      default:
-        return unknownRoutePage(settings.name);
-    }
-  }
+  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
+  final _pagesMap = <Type, AutoRouteFactory>{
+    HomePage: (RouteData data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => HomePage(),
+        settings: data,
+      );
+    },
+    SearchPage: (RouteData data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => SearchPage(),
+        settings: data,
+      );
+    },
+    HeadwordEntriesPage: (RouteData data) {
+      var args = data.getArgs<HeadwordEntriesPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => HeadwordEntriesPage(args.wordSelected),
+        settings: data,
+      );
+    },
+  };
 }
 
 // *************************************************************************
