@@ -32,14 +32,14 @@ void $initGetIt(GetIt g, {String environment}) {
           sharedPreferences: g<SharedPreferences>()));
   g.registerLazySingleton<INetworkInfo>(
       () => NetworkInfoImpl(g<DataConnectionChecker>()));
-  g.registerLazySingleton<DictionaryWordSearchRepository>(
-      () => DictionaryWordSearchRepositoryImpl(
+  g.registerLazySingleton<IDictionaryWordSearchRepository>(
+      () => IDictionaryWordSearchRepositoryImpl(
             remoteDataSource: g<DictionaryWordSearchRemoteDataSource>(),
             localDataSource: g<DictionaryWordSearchLocalDataSource>(),
             networkInfo: g<INetworkInfo>(),
           ));
   g.registerFactory<DictionaryWordSearchBloc>(() => DictionaryWordSearchBloc(
-      dictionaryWordSearchRepository: g<DictionaryWordSearchRepository>()));
+      dictionaryWordSearchRepository: g<IDictionaryWordSearchRepository>()));
 
   //Register production Dependencies --------
   if (environment == 'production') {

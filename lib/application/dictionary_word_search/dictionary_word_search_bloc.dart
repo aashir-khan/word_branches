@@ -17,7 +17,7 @@ const localDatabaseProcessingFailureMessage =
 
 @injectable
 class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> {
-  final DictionaryWordSearchRepository dictionaryWordSearchRepository;
+  final IDictionaryWordSearchRepository dictionaryWordSearchRepository;
 
   DictionaryWordSearchBloc({@required this.dictionaryWordSearchRepository})
       : super(const DictionaryWordSearchState.initial());
@@ -66,7 +66,7 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
             yield const DictionaryWordSearchState.loadFailure(message: localDatabaseProcessingFailureMessage);
           },
           (results) async* {
-            yield results.isEmpty
+            yield results.isEmpty()
                 ? const DictionaryWordSearchState.initial()
                 : DictionaryWordSearchState.loadRecentlySearchedWordsResultsSuccess(recentlySearchedWords: results);
           },

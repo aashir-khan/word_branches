@@ -10,27 +10,28 @@ import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_d
 import 'package:dr_words/infrastructure/exceptions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 
-@LazySingleton(as: DictionaryWordSearchRepository)
-class DictionaryWordSearchRepositoryImpl implements DictionaryWordSearchRepository {
+@LazySingleton(as: IDictionaryWordSearchRepository)
+class IDictionaryWordSearchRepositoryImpl implements IDictionaryWordSearchRepository {
   final DictionaryWordSearchRemoteDataSource remoteDataSource;
   final DictionaryWordSearchLocalDataSource localDataSource;
   final INetworkInfo networkInfo;
 
-  DictionaryWordSearchRepositoryImpl({
+  IDictionaryWordSearchRepositoryImpl({
     @required this.remoteDataSource,
     @required this.localDataSource,
     @required this.networkInfo,
   });
 
   @override
-  Future<Either<DictionaryWordSearchRemoteFailure, List<DictionaryWord>>> getDictionaryWordSearchResults(
+  Future<Either<DictionaryWordSearchRemoteFailure, KtList<DictionaryWord>>> getDictionaryWordSearchResults(
       {String query, Map<String, dynamic> options = const {}}) async {
     if (await networkInfo.isConnected) {
       try {
         final wordsDto = await remoteDataSource.getDictionaryWordSearchResults(query: query);
         final domainWords = wordsDto.asList().toList().map((dto) => dto.toDomain()).toList();
-        return Right(domainWords);
+        return Right(domainWords.toImmutableList());
       } on DictionaryWordSearchRemoteFailure catch (e) {
         return e.when(
           networkError: () => const Left(DictionaryWordSearchRemoteFailure.networkError()),
@@ -44,10 +45,10 @@ class DictionaryWordSearchRepositoryImpl implements DictionaryWordSearchReposito
   }
 
   @override
-  Future<Either<DictionaryWordSearchLocalFailure, List<DictionaryWord>>> getRecentlySearchedWords() async {
+  Future<Either<DictionaryWordSearchLocalFailure, KtList<DictionaryWord>>> getRecentlySearchedWords() async {
     try {
       final wordsDto = await localDataSource.getRecentlySearchedWords();
-      return Right(wordsDto.asList().toList().map((word) => word.toDomain()).toList());
+      return Right(wordsDto.asList().toList().map((word) => word.toDomain()).toImmutableList());
     } on LocalDatabaseProcessingException {
       return const Left(DictionaryWordSearchLocalFailure.localDatabaseProcessingFailure());
     }

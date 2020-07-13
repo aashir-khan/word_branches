@@ -63,12 +63,12 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
             child: Text('Enter a query to search from'),
           ),
           loadInProgreess: () => LoadingIndicator(),
-          loadSearchResultsSuccess: (words) => words.isEmpty
+          loadSearchResultsSuccess: (words) => words.isEmpty()
               ? const Center(
                   child: Text('No results found'),
                 )
               : ListView.builder(
-                  itemCount: words.length,
+                  itemCount: words.size,
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
                       final querySingleSearchResult = words[index];
@@ -90,7 +90,7 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
           loadFailure: (message) => Center(child: Text(message)),
           newWordAddedToRecentlySearchedWords: (_) => Container(),
           loadRecentlySearchedWordsResultsSuccess: (words) => ListView.builder(
-            itemCount: words.length,
+            itemCount: words.size,
             itemBuilder: (context, index) => InkWell(
               onTap: () async {
                 final DictionaryWord wordToGetHeadwordEntries = words[index];
