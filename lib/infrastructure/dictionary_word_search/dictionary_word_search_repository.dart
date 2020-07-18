@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/core/i_network_info.dart';
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_local_data_source.dart';
+import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_local_data_source.dart';
 import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_local_failure.dart';
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
+import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_remote_data_source.dart';
 import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_failure.dart';
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_repository.dart';
+import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_repository.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
 import 'package:dr_words/infrastructure/exceptions.dart';
 import 'package:flutter/foundation.dart';
@@ -13,12 +13,12 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
 @LazySingleton(as: IDictionaryWordSearchRepository)
-class IDictionaryWordSearchRepositoryImpl implements IDictionaryWordSearchRepository {
-  final DictionaryWordSearchRemoteDataSource remoteDataSource;
-  final DictionaryWordSearchLocalDataSource localDataSource;
+class DictionaryWordSearchRepository implements IDictionaryWordSearchRepository {
+  final IDictionaryWordSearchRemoteDataSource remoteDataSource;
+  final IDictionaryWordSearchLocalDataSource localDataSource;
   final INetworkInfo networkInfo;
 
-  IDictionaryWordSearchRepositoryImpl({
+  DictionaryWordSearchRepository({
     @required this.remoteDataSource,
     @required this.localDataSource,
     @required this.networkInfo,

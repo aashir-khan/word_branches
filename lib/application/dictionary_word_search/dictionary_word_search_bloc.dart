@@ -3,7 +3,7 @@ import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_failure.dart';
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_repository.dart';
+import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_repository.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';

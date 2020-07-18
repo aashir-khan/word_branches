@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/dictionary_word_entries/dictionary_word_entries_failure.dart';
-import 'package:dr_words/domain/dictionary_word_entries/dictionary_word_entries_repository.dart';
+import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

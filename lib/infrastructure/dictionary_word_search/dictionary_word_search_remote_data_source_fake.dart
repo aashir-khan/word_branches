@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
+import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_remote_data_source.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
 import 'package:dr_words/injection.dart';
 import 'package:faker/faker.dart';
@@ -10,8 +10,8 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@LazySingleton(as: DictionaryWordSearchRemoteDataSource, env: Env.development)
-class DictionaryWordSearchRemoteDataSourceFake implements DictionaryWordSearchRemoteDataSource {
+@LazySingleton(as: IDictionaryWordSearchRemoteDataSource, env: Env.development)
+class DictionaryWordSearchRemoteDataSourceFake implements IDictionaryWordSearchRemoteDataSource {
   final SharedPreferences sharedPreferences;
 
   DictionaryWordSearchRemoteDataSourceFake({@required this.sharedPreferences});

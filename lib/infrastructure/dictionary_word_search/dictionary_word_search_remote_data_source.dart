@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
+import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_remote_data_source.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_search_exception.dart';
 import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
@@ -9,12 +9,12 @@ import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'package:kt_dart/collection.dart';
 
-@LazySingleton(as: DictionaryWordSearchRemoteDataSource, env: Env.production)
-class DictionaryWordSearchRemoteDataSourceImpl implements DictionaryWordSearchRemoteDataSource {
+@LazySingleton(as: IDictionaryWordSearchRemoteDataSource, env: Env.production)
+class DictionaryWordSearchRemoteDataSource implements IDictionaryWordSearchRemoteDataSource {
   final AccountDetails accountDetails;
   final http.Client client;
 
-  DictionaryWordSearchRemoteDataSourceImpl({
+  DictionaryWordSearchRemoteDataSource({
     this.client,
     this.accountDetails,
   });
