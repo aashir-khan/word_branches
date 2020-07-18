@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'query_search_exception.freezed.dart';
+part 'dictionary_word_search_exception.freezed.dart';
 
 @freezed
 abstract class DictionaryWordSearchException with _$DictionaryWordSearchException {

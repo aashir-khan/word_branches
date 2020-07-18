@@ -16,7 +16,7 @@ class DictionaryWordSearchRemoteDataSourceFake implements DictionaryWordSearchRe
 
   DictionaryWordSearchRemoteDataSourceFake({@required this.sharedPreferences});
 
-  static const dictionaryWordSearchResultsDbIdentifier = 'query_search_results';
+  static const dictionaryWordSearchResultsDbIdentifier = 'dictionary_word_search_results';
 
   @override
   Future<KtList<DictionaryWordDto>> getDictionaryWordSearchResults({

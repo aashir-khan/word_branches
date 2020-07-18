@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/application/dictionary_word_search/bloc.dart';
+import 'package:dr_words/application/dictionary_word_search/dictionary_word_search_bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/presentation/pages/search/search_page_search_delegate.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';

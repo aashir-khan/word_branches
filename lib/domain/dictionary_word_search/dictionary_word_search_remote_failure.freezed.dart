@@ -26,7 +26,8 @@ class _$DictionaryWordSearchRemoteFailureTearOff {
 }
 
 // ignore: unused_element
-const $DictionaryWordSearchRemoteFailure = _$DictionaryWordSearchRemoteFailureTearOff();
+const $DictionaryWordSearchRemoteFailure =
+    _$DictionaryWordSearchRemoteFailureTearOff();
 
 mixin _$DictionaryWordSearchRemoteFailure {
   @optionalTypeArgs
@@ -44,14 +45,21 @@ mixin _$DictionaryWordSearchRemoteFailure {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result networkError(
+            _DictionaryWordSearchRemoteFailureNetworkError value),
+    @required
+        Result noResultsFound(
+            _DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required
+        Result serverError(
+            _DictionaryWordSearchRemoteFailureServerException value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result noResultsFound(
+        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   });
@@ -59,7 +67,8 @@ mixin _$DictionaryWordSearchRemoteFailure {
 
 abstract class $DictionaryWordSearchRemoteFailureCopyWith<$Res> {
   factory $DictionaryWordSearchRemoteFailureCopyWith(
-          DictionaryWordSearchRemoteFailure value, $Res Function(DictionaryWordSearchRemoteFailure) then) =
+          DictionaryWordSearchRemoteFailure value,
+          $Res Function(DictionaryWordSearchRemoteFailure) then) =
       _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>;
 }
 
@@ -73,7 +82,8 @@ class _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
 }
 
 abstract class _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
-  factory _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith(_DictionaryWordSearchRemoteFailureNetworkError value,
+  factory _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith(
+          _DictionaryWordSearchRemoteFailureNetworkError value,
           $Res Function(_DictionaryWordSearchRemoteFailureNetworkError) then) =
       __$DictionaryWordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>;
 }
@@ -81,16 +91,19 @@ abstract class _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
 class __$DictionaryWordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>
     extends _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
     implements _$DictionaryWordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
-  __$DictionaryWordSearchRemoteFailureNetworkErrorCopyWithImpl(_DictionaryWordSearchRemoteFailureNetworkError _value,
+  __$DictionaryWordSearchRemoteFailureNetworkErrorCopyWithImpl(
+      _DictionaryWordSearchRemoteFailureNetworkError _value,
       $Res Function(_DictionaryWordSearchRemoteFailureNetworkError) _then)
-      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteFailureNetworkError));
+      : super(_value,
+            (v) => _then(v as _DictionaryWordSearchRemoteFailureNetworkError));
 
   @override
   _DictionaryWordSearchRemoteFailureNetworkError get _value =>
       super._value as _DictionaryWordSearchRemoteFailureNetworkError;
 }
 
-class _$_DictionaryWordSearchRemoteFailureNetworkError implements _DictionaryWordSearchRemoteFailureNetworkError {
+class _$_DictionaryWordSearchRemoteFailureNetworkError
+    implements _DictionaryWordSearchRemoteFailureNetworkError {
   const _$_DictionaryWordSearchRemoteFailureNetworkError();
 
   @override
@@ -100,7 +113,8 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError implements _DictionaryWor
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _DictionaryWordSearchRemoteFailureNetworkError);
+    return identical(this, other) ||
+        (other is _DictionaryWordSearchRemoteFailureNetworkError);
   }
 
   @override
@@ -137,9 +151,15 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError implements _DictionaryWor
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result networkError(
+            _DictionaryWordSearchRemoteFailureNetworkError value),
+    @required
+        Result noResultsFound(
+            _DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required
+        Result serverError(
+            _DictionaryWordSearchRemoteFailureServerException value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
@@ -151,7 +171,8 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError implements _DictionaryWor
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result noResultsFound(
+        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   }) {
@@ -163,14 +184,17 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError implements _DictionaryWor
   }
 }
 
-abstract class _DictionaryWordSearchRemoteFailureNetworkError implements DictionaryWordSearchRemoteFailure {
-  const factory _DictionaryWordSearchRemoteFailureNetworkError() = _$_DictionaryWordSearchRemoteFailureNetworkError;
+abstract class _DictionaryWordSearchRemoteFailureNetworkError
+    implements DictionaryWordSearchRemoteFailure {
+  const factory _DictionaryWordSearchRemoteFailureNetworkError() =
+      _$_DictionaryWordSearchRemoteFailureNetworkError;
 }
 
 abstract class _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith<$Res> {
   factory _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith(
           _DictionaryWordSearchRemoteFailureNoResultsFound value,
-          $Res Function(_DictionaryWordSearchRemoteFailureNoResultsFound) then) =
+          $Res Function(_DictionaryWordSearchRemoteFailureNoResultsFound)
+              then) =
       __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>;
 }
 
@@ -180,14 +204,18 @@ class __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>
   __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl(
       _DictionaryWordSearchRemoteFailureNoResultsFound _value,
       $Res Function(_DictionaryWordSearchRemoteFailureNoResultsFound) _then)
-      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteFailureNoResultsFound));
+      : super(
+            _value,
+            (v) =>
+                _then(v as _DictionaryWordSearchRemoteFailureNoResultsFound));
 
   @override
   _DictionaryWordSearchRemoteFailureNoResultsFound get _value =>
       super._value as _DictionaryWordSearchRemoteFailureNoResultsFound;
 }
 
-class _$_DictionaryWordSearchRemoteFailureNoResultsFound implements _DictionaryWordSearchRemoteFailureNoResultsFound {
+class _$_DictionaryWordSearchRemoteFailureNoResultsFound
+    implements _DictionaryWordSearchRemoteFailureNoResultsFound {
   const _$_DictionaryWordSearchRemoteFailureNoResultsFound();
 
   @override
@@ -197,7 +225,8 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound implements _DictionaryW
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _DictionaryWordSearchRemoteFailureNoResultsFound);
+    return identical(this, other) ||
+        (other is _DictionaryWordSearchRemoteFailureNoResultsFound);
   }
 
   @override
@@ -234,9 +263,15 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound implements _DictionaryW
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result networkError(
+            _DictionaryWordSearchRemoteFailureNetworkError value),
+    @required
+        Result noResultsFound(
+            _DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required
+        Result serverError(
+            _DictionaryWordSearchRemoteFailureServerException value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
@@ -248,7 +283,8 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound implements _DictionaryW
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result noResultsFound(
+        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   }) {
@@ -260,31 +296,40 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound implements _DictionaryW
   }
 }
 
-abstract class _DictionaryWordSearchRemoteFailureNoResultsFound implements DictionaryWordSearchRemoteFailure {
-  const factory _DictionaryWordSearchRemoteFailureNoResultsFound() = _$_DictionaryWordSearchRemoteFailureNoResultsFound;
+abstract class _DictionaryWordSearchRemoteFailureNoResultsFound
+    implements DictionaryWordSearchRemoteFailure {
+  const factory _DictionaryWordSearchRemoteFailureNoResultsFound() =
+      _$_DictionaryWordSearchRemoteFailureNoResultsFound;
 }
 
-abstract class _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith<$Res> {
+abstract class _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith<
+    $Res> {
   factory _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith(
           _DictionaryWordSearchRemoteFailureServerException value,
-          $Res Function(_DictionaryWordSearchRemoteFailureServerException) then) =
+          $Res Function(_DictionaryWordSearchRemoteFailureServerException)
+              then) =
       __$DictionaryWordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>;
 }
 
 class __$DictionaryWordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>
     extends _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
-    implements _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith<$Res> {
+    implements
+        _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith<$Res> {
   __$DictionaryWordSearchRemoteFailureServerExceptionCopyWithImpl(
       _DictionaryWordSearchRemoteFailureServerException _value,
       $Res Function(_DictionaryWordSearchRemoteFailureServerException) _then)
-      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteFailureServerException));
+      : super(
+            _value,
+            (v) =>
+                _then(v as _DictionaryWordSearchRemoteFailureServerException));
 
   @override
   _DictionaryWordSearchRemoteFailureServerException get _value =>
       super._value as _DictionaryWordSearchRemoteFailureServerException;
 }
 
-class _$_DictionaryWordSearchRemoteFailureServerException implements _DictionaryWordSearchRemoteFailureServerException {
+class _$_DictionaryWordSearchRemoteFailureServerException
+    implements _DictionaryWordSearchRemoteFailureServerException {
   const _$_DictionaryWordSearchRemoteFailureServerException();
 
   @override
@@ -294,7 +339,8 @@ class _$_DictionaryWordSearchRemoteFailureServerException implements _Dictionary
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _DictionaryWordSearchRemoteFailureServerException);
+    return identical(this, other) ||
+        (other is _DictionaryWordSearchRemoteFailureServerException);
   }
 
   @override
@@ -331,9 +377,15 @@ class _$_DictionaryWordSearchRemoteFailureServerException implements _Dictionary
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    @required Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result networkError(
+            _DictionaryWordSearchRemoteFailureNetworkError value),
+    @required
+        Result noResultsFound(
+            _DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required
+        Result serverError(
+            _DictionaryWordSearchRemoteFailureServerException value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
@@ -345,7 +397,8 @@ class _$_DictionaryWordSearchRemoteFailureServerException implements _Dictionary
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(_DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result noResultsFound(
+        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     @required Result orElse(),
   }) {
@@ -357,7 +410,8 @@ class _$_DictionaryWordSearchRemoteFailureServerException implements _Dictionary
   }
 }
 
-abstract class _DictionaryWordSearchRemoteFailureServerException implements DictionaryWordSearchRemoteFailure {
+abstract class _DictionaryWordSearchRemoteFailureServerException
+    implements DictionaryWordSearchRemoteFailure {
   const factory _DictionaryWordSearchRemoteFailureServerException() =
       _$_DictionaryWordSearchRemoteFailureServerException;
 }

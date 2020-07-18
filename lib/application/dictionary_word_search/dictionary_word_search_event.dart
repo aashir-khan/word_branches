@@ -1,7 +1,4 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'query_search_event.freezed.dart';
+part of 'dictionary_word_search_bloc.dart';
 
 @freezed
 abstract class DictionaryWordSearchEvent with _$DictionaryWordSearchEvent {

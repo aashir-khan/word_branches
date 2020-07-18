@@ -1,4 +1,4 @@
-import 'package:dr_words/application/dictionary_word_search/bloc.dart';
+import 'package:dr_words/application/dictionary_word_search/dictionary_word_search_bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +62,7 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
           initial: () => const Center(
             child: Text('Enter a query to search from'),
           ),
-          loadInProgreess: () => LoadingIndicator(),
+          loadInProgress: () => LoadingIndicator(),
           loadSearchResultsSuccess: (words) => words.isEmpty()
               ? const Center(
                   child: Text('No results found'),

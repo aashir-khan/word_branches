@@ -1,13 +1,20 @@
 import 'dart:async';
 import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
-import 'package:dr_words/application/dictionary_word_search/bloc.dart';
+import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_failure.dart';
 import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_repository.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'dictionary_word_search_event.dart';
+part 'dictionary_word_search_state.dart';
+
+part 'dictionary_word_search_bloc.freezed.dart';
 
 const serverFailureMessage = 'An error occurred trying to fetch search results';
 const networkFailureMessage = 'Seems like you are not connected to the Internet';
@@ -31,7 +38,7 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
         if (query.isEmpty) {
           yield const DictionaryWordSearchState.initial();
         } else {
-          yield const DictionaryWordSearchState.loadInProgreess();
+          yield const DictionaryWordSearchState.loadInProgress();
           final resultEither = await dictionaryWordSearchRepository.getDictionaryWordSearchResults(query: query);
 
           yield* resultEither.fold(
@@ -45,7 +52,7 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
         }
       },
       addNewRecentlySearchedWord: (word) async* {
-        yield const DictionaryWordSearchState.loadInProgreess();
+        yield const DictionaryWordSearchState.loadInProgress();
         final resultEither = await dictionaryWordSearchRepository.addNewRecentlySearchedWord(word);
 
         yield* resultEither.fold(
@@ -58,7 +65,7 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
         );
       },
       getRecentlySearchedWords: () async* {
-        yield const DictionaryWordSearchState.loadInProgreess();
+        yield const DictionaryWordSearchState.loadInProgress();
         final resultEither = await dictionaryWordSearchRepository.getRecentlySearchedWords();
 
         yield* resultEither.fold(

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'query_search_remote_failure.freezed.dart';
+part 'dictionary_word_search_remote_failure.freezed.dart';
 
 @freezed
 abstract class DictionaryWordSearchRemoteFailure with _$DictionaryWordSearchRemoteFailure {

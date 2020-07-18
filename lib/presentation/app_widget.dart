@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/application/dictionary_word_search/bloc.dart';
+import 'package:dr_words/application/dictionary_word_search/dictionary_word_search_bloc.dart';
 import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/constants/theme_data.dart';
