@@ -9,6 +9,8 @@ import 'package:dr_words/infrastructure/internal/account_details/account_details
 import 'package:dr_words/injectable_module.dart';
 import 'package:http/src/client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:dr_words/application/dictionary_word_entries/dictionary_word_entries_bloc.dart';
+import 'package:dr_words/domain/dictionary_word_entries/dictionary_word_entries_repository.dart';
 import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_search_local_data_source_impl.dart';
 import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_local_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,6 +29,8 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<Client>(() => injectableModule.httpClient);
   g.registerLazySingleton<DataConnectionChecker>(
       () => injectableModule.dataConnectionChecker);
+  g.registerFactory<DictionaryWordEntriesBloc>(() => DictionaryWordEntriesBloc(
+      dictionaryWordEntriesRepository: g<IDictionaryWordEntriesRepository>()));
   g.registerLazySingleton<DictionaryWordSearchLocalDataSource>(() =>
       DictionaryWordSearchLocalDataSourceImpl(
           sharedPreferences: g<SharedPreferences>()));
