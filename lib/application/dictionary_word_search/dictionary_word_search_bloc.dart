@@ -21,6 +21,8 @@ const networkFailureMessage = 'Seems like you are not connected to the Internet'
 const noResultsFoundMessage = 'No entry was found matching the query searched';
 const localDatabaseProcessingFailureMessage =
     'An error occurred trying to access/store a recently searched word on your device for retrieving';
+const unxexpectedFailureMessage =
+    'Unexpected error occurred while trying to get search results, please contact support';
 
 @injectable
 class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> {
@@ -101,5 +103,6 @@ String _mapRemoteFailureToMessage(DictionaryWordSearchRemoteFailure failure) {
     networkError: () => networkFailureMessage,
     noResultsFound: () => noResultsFoundMessage,
     serverError: () => serverFailureMessage,
+    unexpected: () => unxexpectedFailureMessage,
   );
 }

@@ -20,7 +20,7 @@ class _$SenseDtoTearOff {
       List<TextTypeDto> notes,
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
-      List<String> registers,
+      List<IdTextDto> registers,
       String type}) {
     return _SenseDto(
       definitions: definitions,
@@ -41,7 +41,7 @@ mixin _$SenseDto {
   List<TextTypeDto> get notes;
   List<ExampleDto> get examples;
   List<SenseDto> get subsenses;
-  List<String> get registers;
+  List<IdTextDto> get registers;
   String get type;
 
   Map<String, dynamic> toJson();
@@ -56,7 +56,7 @@ abstract class $SenseDtoCopyWith<$Res> {
       List<TextTypeDto> notes,
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
-      List<String> registers,
+      List<IdTextDto> registers,
       String type});
 }
 
@@ -85,8 +85,9 @@ class _$SenseDtoCopyWithImpl<$Res> implements $SenseDtoCopyWith<$Res> {
           examples == freezed ? _value.examples : examples as List<ExampleDto>,
       subsenses:
           subsenses == freezed ? _value.subsenses : subsenses as List<SenseDto>,
-      registers:
-          registers == freezed ? _value.registers : registers as List<String>,
+      registers: registers == freezed
+          ? _value.registers
+          : registers as List<IdTextDto>,
       type: type == freezed ? _value.type : type as String,
     ));
   }
@@ -101,7 +102,7 @@ abstract class _$SenseDtoCopyWith<$Res> implements $SenseDtoCopyWith<$Res> {
       List<TextTypeDto> notes,
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
-      List<String> registers,
+      List<IdTextDto> registers,
       String type});
 }
 
@@ -131,8 +132,9 @@ class __$SenseDtoCopyWithImpl<$Res> extends _$SenseDtoCopyWithImpl<$Res>
           examples == freezed ? _value.examples : examples as List<ExampleDto>,
       subsenses:
           subsenses == freezed ? _value.subsenses : subsenses as List<SenseDto>,
-      registers:
-          registers == freezed ? _value.registers : registers as List<String>,
+      registers: registers == freezed
+          ? _value.registers
+          : registers as List<IdTextDto>,
       type: type == freezed ? _value.type : type as String,
     ));
   }
@@ -160,7 +162,7 @@ class _$_SenseDto implements _SenseDto {
   @override
   final List<SenseDto> subsenses;
   @override
-  final List<String> registers;
+  final List<IdTextDto> registers;
   @override
   final String type;
 
@@ -217,7 +219,7 @@ abstract class _SenseDto implements SenseDto {
       List<TextTypeDto> notes,
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
-      List<String> registers,
+      List<IdTextDto> registers,
       String type}) = _$_SenseDto;
 
   factory _SenseDto.fromJson(Map<String, dynamic> json) = _$_SenseDto.fromJson;
@@ -231,7 +233,7 @@ abstract class _SenseDto implements SenseDto {
   @override
   List<SenseDto> get subsenses;
   @override
-  List<String> get registers;
+  List<IdTextDto> get registers;
   @override
   String get type;
   @override

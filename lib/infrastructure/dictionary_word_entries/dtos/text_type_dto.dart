@@ -1,5 +1,6 @@
 import 'package:dr_words/domain/dictionary_word_entries/entities/text_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:faker/faker.dart';
 
 part 'text_type_dto.g.dart';
 part 'text_type_dto.freezed.dart';
@@ -19,6 +20,13 @@ abstract class TextTypeDto with _$TextTypeDto {
   }
 
   factory TextTypeDto.fromJson(Map<String, dynamic> json) => _$TextTypeDtoFromJson(json);
+
+  factory TextTypeDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
+    final text = (customFieldValues['text'] ?? faker.lorem.word()) as String;
+    final type = (customFieldValues['type'] ?? faker.lorem.word()) as String;
+
+    return TextTypeDto(text: text, type: type);
+  }
 }
 
 extension TextTypeDtoX on TextTypeDto {

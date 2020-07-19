@@ -5,5 +5,6 @@ part 'dictionary_word_entries_failure.freezed.dart';
 @freezed
 abstract class DictionaryWordEntriesFailure with _$DictionaryWordEntriesFailure {
   const factory DictionaryWordEntriesFailure.serverError() = _ServerError;
+  const factory DictionaryWordEntriesFailure.networkError() = _NetworkError;
   const factory DictionaryWordEntriesFailure.unexpected() = _Unexpected;
 }

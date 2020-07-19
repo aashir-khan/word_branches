@@ -16,7 +16,7 @@ class _$LexicalEntryDtoTearOff {
   const _$LexicalEntryDtoTearOff();
 
   _LexicalEntryDto call(
-      {@required List<EntryDto> entries, @required String lexicalCategory}) {
+      {@required List<EntryDto> entries, @required IdTextDto lexicalCategory}) {
     return _LexicalEntryDto(
       entries: entries,
       lexicalCategory: lexicalCategory,
@@ -29,7 +29,7 @@ const $LexicalEntryDto = _$LexicalEntryDtoTearOff();
 
 mixin _$LexicalEntryDto {
   List<EntryDto> get entries;
-  String get lexicalCategory;
+  IdTextDto get lexicalCategory;
 
   Map<String, dynamic> toJson();
   $LexicalEntryDtoCopyWith<LexicalEntryDto> get copyWith;
@@ -39,7 +39,9 @@ abstract class $LexicalEntryDtoCopyWith<$Res> {
   factory $LexicalEntryDtoCopyWith(
           LexicalEntryDto value, $Res Function(LexicalEntryDto) then) =
       _$LexicalEntryDtoCopyWithImpl<$Res>;
-  $Res call({List<EntryDto> entries, String lexicalCategory});
+  $Res call({List<EntryDto> entries, IdTextDto lexicalCategory});
+
+  $IdTextDtoCopyWith<$Res> get lexicalCategory;
 }
 
 class _$LexicalEntryDtoCopyWithImpl<$Res>
@@ -59,8 +61,18 @@ class _$LexicalEntryDtoCopyWithImpl<$Res>
       entries: entries == freezed ? _value.entries : entries as List<EntryDto>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as String,
+          : lexicalCategory as IdTextDto,
     ));
+  }
+
+  @override
+  $IdTextDtoCopyWith<$Res> get lexicalCategory {
+    if (_value.lexicalCategory == null) {
+      return null;
+    }
+    return $IdTextDtoCopyWith<$Res>(_value.lexicalCategory, (value) {
+      return _then(_value.copyWith(lexicalCategory: value));
+    });
   }
 }
 
@@ -70,7 +82,10 @@ abstract class _$LexicalEntryDtoCopyWith<$Res>
           _LexicalEntryDto value, $Res Function(_LexicalEntryDto) then) =
       __$LexicalEntryDtoCopyWithImpl<$Res>;
   @override
-  $Res call({List<EntryDto> entries, String lexicalCategory});
+  $Res call({List<EntryDto> entries, IdTextDto lexicalCategory});
+
+  @override
+  $IdTextDtoCopyWith<$Res> get lexicalCategory;
 }
 
 class __$LexicalEntryDtoCopyWithImpl<$Res>
@@ -92,7 +107,7 @@ class __$LexicalEntryDtoCopyWithImpl<$Res>
       entries: entries == freezed ? _value.entries : entries as List<EntryDto>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as String,
+          : lexicalCategory as IdTextDto,
     ));
   }
 }
@@ -110,7 +125,7 @@ class _$_LexicalEntryDto implements _LexicalEntryDto {
   @override
   final List<EntryDto> entries;
   @override
-  final String lexicalCategory;
+  final IdTextDto lexicalCategory;
 
   @override
   String toString() {
@@ -148,7 +163,7 @@ class _$_LexicalEntryDto implements _LexicalEntryDto {
 abstract class _LexicalEntryDto implements LexicalEntryDto {
   const factory _LexicalEntryDto(
       {@required List<EntryDto> entries,
-      @required String lexicalCategory}) = _$_LexicalEntryDto;
+      @required IdTextDto lexicalCategory}) = _$_LexicalEntryDto;
 
   factory _LexicalEntryDto.fromJson(Map<String, dynamic> json) =
       _$_LexicalEntryDto.fromJson;
@@ -156,7 +171,7 @@ abstract class _LexicalEntryDto implements LexicalEntryDto {
   @override
   List<EntryDto> get entries;
   @override
-  String get lexicalCategory;
+  IdTextDto get lexicalCategory;
   @override
   _$LexicalEntryDtoCopyWith<_LexicalEntryDto> get copyWith;
 }

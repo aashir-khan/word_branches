@@ -18,7 +18,7 @@ class _$ExampleDtoTearOff {
   _ExampleDto call(
       {@required String text,
       List<String> definitions,
-      List<String> registers}) {
+      List<IdTextDto> registers}) {
     return _ExampleDto(
       text: text,
       definitions: definitions,
@@ -33,7 +33,7 @@ const $ExampleDto = _$ExampleDtoTearOff();
 mixin _$ExampleDto {
   String get text;
   List<String> get definitions;
-  List<String> get registers;
+  List<IdTextDto> get registers;
 
   Map<String, dynamic> toJson();
   $ExampleDtoCopyWith<ExampleDto> get copyWith;
@@ -43,7 +43,7 @@ abstract class $ExampleDtoCopyWith<$Res> {
   factory $ExampleDtoCopyWith(
           ExampleDto value, $Res Function(ExampleDto) then) =
       _$ExampleDtoCopyWithImpl<$Res>;
-  $Res call({String text, List<String> definitions, List<String> registers});
+  $Res call({String text, List<String> definitions, List<IdTextDto> registers});
 }
 
 class _$ExampleDtoCopyWithImpl<$Res> implements $ExampleDtoCopyWith<$Res> {
@@ -64,8 +64,9 @@ class _$ExampleDtoCopyWithImpl<$Res> implements $ExampleDtoCopyWith<$Res> {
       definitions: definitions == freezed
           ? _value.definitions
           : definitions as List<String>,
-      registers:
-          registers == freezed ? _value.registers : registers as List<String>,
+      registers: registers == freezed
+          ? _value.registers
+          : registers as List<IdTextDto>,
     ));
   }
 }
@@ -75,7 +76,7 @@ abstract class _$ExampleDtoCopyWith<$Res> implements $ExampleDtoCopyWith<$Res> {
           _ExampleDto value, $Res Function(_ExampleDto) then) =
       __$ExampleDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String text, List<String> definitions, List<String> registers});
+  $Res call({String text, List<String> definitions, List<IdTextDto> registers});
 }
 
 class __$ExampleDtoCopyWithImpl<$Res> extends _$ExampleDtoCopyWithImpl<$Res>
@@ -98,8 +99,9 @@ class __$ExampleDtoCopyWithImpl<$Res> extends _$ExampleDtoCopyWithImpl<$Res>
       definitions: definitions == freezed
           ? _value.definitions
           : definitions as List<String>,
-      registers:
-          registers == freezed ? _value.registers : registers as List<String>,
+      registers: registers == freezed
+          ? _value.registers
+          : registers as List<IdTextDto>,
     ));
   }
 }
@@ -117,7 +119,7 @@ class _$_ExampleDto implements _ExampleDto {
   @override
   final List<String> definitions;
   @override
-  final List<String> registers;
+  final List<IdTextDto> registers;
 
   @override
   String toString() {
@@ -159,7 +161,7 @@ abstract class _ExampleDto implements ExampleDto {
   const factory _ExampleDto(
       {@required String text,
       List<String> definitions,
-      List<String> registers}) = _$_ExampleDto;
+      List<IdTextDto> registers}) = _$_ExampleDto;
 
   factory _ExampleDto.fromJson(Map<String, dynamic> json) =
       _$_ExampleDto.fromJson;
@@ -169,7 +171,7 @@ abstract class _ExampleDto implements ExampleDto {
   @override
   List<String> get definitions;
   @override
-  List<String> get registers;
+  List<IdTextDto> get registers;
   @override
   _$ExampleDtoCopyWith<_ExampleDto> get copyWith;
 }

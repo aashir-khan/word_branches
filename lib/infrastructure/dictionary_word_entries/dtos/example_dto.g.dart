@@ -11,7 +11,10 @@ _$_ExampleDto _$_$_ExampleDtoFromJson(Map<String, dynamic> json) {
     text: json['text'] as String,
     definitions:
         (json['definitions'] as List)?.map((e) => e as String)?.toList(),
-    registers: (json['registers'] as List)?.map((e) => e as String)?.toList(),
+    registers: (json['registers'] as List)
+        ?.map((e) =>
+            e == null ? null : IdTextDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -19,5 +22,5 @@ Map<String, dynamic> _$_$_ExampleDtoToJson(_$_ExampleDto instance) =>
     <String, dynamic>{
       'text': instance.text,
       'definitions': instance.definitions,
-      'registers': instance.registers,
+      'registers': instance.registers?.map((e) => e?.toJson())?.toList(),
     };

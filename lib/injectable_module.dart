@@ -1,12 +1,16 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
+import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:injectable/injectable.dart';
 
 @module
 abstract class InjectableModule {
   @lazySingleton
-  http.Client get httpClient => http.Client();
-
-  @lazySingleton
   DataConnectionChecker get dataConnectionChecker => DataConnectionChecker();
+
+  Dio get dio {
+    final dioInstance = Dio();
+    dioInstance.interceptors.add(DioCacheManager(CacheConfig()).interceptor as Interceptor);
+    return dioInstance;
+  }
 }

@@ -22,7 +22,10 @@ _$_SenseDto _$_$_SenseDtoFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : SenseDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    registers: (json['registers'] as List)?.map((e) => e as String)?.toList(),
+    registers: (json['registers'] as List)
+        ?.map((e) =>
+            e == null ? null : IdTextDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
     type: json['type'] as String,
   );
 }
@@ -33,6 +36,6 @@ Map<String, dynamic> _$_$_SenseDtoToJson(_$_SenseDto instance) =>
       'notes': instance.notes?.map((e) => e?.toJson())?.toList(),
       'examples': instance.examples?.map((e) => e?.toJson())?.toList(),
       'subsenses': instance.subsenses?.map((e) => e?.toJson())?.toList(),
-      'registers': instance.registers,
+      'registers': instance.registers?.map((e) => e?.toJson())?.toList(),
       'type': instance.type,
     };

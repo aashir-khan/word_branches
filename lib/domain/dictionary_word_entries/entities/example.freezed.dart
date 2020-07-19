@@ -15,7 +15,7 @@ class _$ExampleTearOff {
   _Example call(
       {@required String text,
       KtList<String> definitions,
-      KtList<String> registers}) {
+      KtList<IdText> registers}) {
     return _Example(
       text: text,
       definitions: definitions,
@@ -30,7 +30,7 @@ const $Example = _$ExampleTearOff();
 mixin _$Example {
   String get text;
   KtList<String> get definitions;
-  KtList<String> get registers;
+  KtList<IdText> get registers;
 
   $ExampleCopyWith<Example> get copyWith;
 }
@@ -39,7 +39,7 @@ abstract class $ExampleCopyWith<$Res> {
   factory $ExampleCopyWith(Example value, $Res Function(Example) then) =
       _$ExampleCopyWithImpl<$Res>;
   $Res call(
-      {String text, KtList<String> definitions, KtList<String> registers});
+      {String text, KtList<String> definitions, KtList<IdText> registers});
 }
 
 class _$ExampleCopyWithImpl<$Res> implements $ExampleCopyWith<$Res> {
@@ -61,7 +61,7 @@ class _$ExampleCopyWithImpl<$Res> implements $ExampleCopyWith<$Res> {
           ? _value.definitions
           : definitions as KtList<String>,
       registers:
-          registers == freezed ? _value.registers : registers as KtList<String>,
+          registers == freezed ? _value.registers : registers as KtList<IdText>,
     ));
   }
 }
@@ -71,7 +71,7 @@ abstract class _$ExampleCopyWith<$Res> implements $ExampleCopyWith<$Res> {
       __$ExampleCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String text, KtList<String> definitions, KtList<String> registers});
+      {String text, KtList<String> definitions, KtList<IdText> registers});
 }
 
 class __$ExampleCopyWithImpl<$Res> extends _$ExampleCopyWithImpl<$Res>
@@ -94,7 +94,7 @@ class __$ExampleCopyWithImpl<$Res> extends _$ExampleCopyWithImpl<$Res>
           ? _value.definitions
           : definitions as KtList<String>,
       registers:
-          registers == freezed ? _value.registers : registers as KtList<String>,
+          registers == freezed ? _value.registers : registers as KtList<IdText>,
     ));
   }
 }
@@ -108,7 +108,7 @@ class _$_Example implements _Example {
   @override
   final KtList<String> definitions;
   @override
-  final KtList<String> registers;
+  final KtList<IdText> registers;
 
   @override
   String toString() {
@@ -145,14 +145,14 @@ abstract class _Example implements Example {
   const factory _Example(
       {@required String text,
       KtList<String> definitions,
-      KtList<String> registers}) = _$_Example;
+      KtList<IdText> registers}) = _$_Example;
 
   @override
   String get text;
   @override
   KtList<String> get definitions;
   @override
-  KtList<String> get registers;
+  KtList<IdText> get registers;
   @override
   _$ExampleCopyWith<_Example> get copyWith;
 }

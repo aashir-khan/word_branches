@@ -41,6 +41,7 @@ class DictionaryWordEntriesBloc extends Bloc<DictionaryWordEntriesEvent, Diction
   String _mapFailureToMessage(DictionaryWordEntriesFailure failure) {
     return failure.when(
       serverError: () => 'An error occurred trying to get dictionary word entries',
+      networkError: () => 'Seems like you are not connected to the Internet',
       unexpected: () => 'Unexpected error occurred while trying to get dictionary word entries, please contact support',
     );
   }

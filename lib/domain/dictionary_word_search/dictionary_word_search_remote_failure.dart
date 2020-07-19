@@ -7,4 +7,5 @@ abstract class DictionaryWordSearchRemoteFailure with _$DictionaryWordSearchRemo
   const factory DictionaryWordSearchRemoteFailure.networkError() = _DictionaryWordSearchRemoteFailureNetworkError;
   const factory DictionaryWordSearchRemoteFailure.noResultsFound() = _DictionaryWordSearchRemoteFailureNoResultsFound;
   const factory DictionaryWordSearchRemoteFailure.serverError() = _DictionaryWordSearchRemoteFailureServerException;
+  const factory DictionaryWordSearchRemoteFailure.unexpected() = _DictionaryWordSearchRemoteFailureUnexpected;
 }

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_local_data_source.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_dto.dart';
+import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';

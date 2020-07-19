@@ -16,6 +16,10 @@ class _$DictionaryWordEntriesFailureTearOff {
     return const _ServerError();
   }
 
+  _NetworkError networkError() {
+    return const _NetworkError();
+  }
+
   _Unexpected unexpected() {
     return const _Unexpected();
   }
@@ -28,22 +32,26 @@ mixin _$DictionaryWordEntriesFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result serverError(),
+    @required Result networkError(),
     @required Result unexpected(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result serverError(),
+    Result networkError(),
     Result unexpected(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result serverError(_ServerError value),
+    @required Result networkError(_NetworkError value),
     @required Result unexpected(_Unexpected value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result serverError(_ServerError value),
+    Result networkError(_NetworkError value),
     Result unexpected(_Unexpected value),
     @required Result orElse(),
   });
@@ -102,9 +110,11 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result serverError(),
+    @required Result networkError(),
     @required Result unexpected(),
   }) {
     assert(serverError != null);
+    assert(networkError != null);
     assert(unexpected != null);
     return serverError();
   }
@@ -113,6 +123,7 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result serverError(),
+    Result networkError(),
     Result unexpected(),
     @required Result orElse(),
   }) {
@@ -127,9 +138,11 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result serverError(_ServerError value),
+    @required Result networkError(_NetworkError value),
     @required Result unexpected(_Unexpected value),
   }) {
     assert(serverError != null);
+    assert(networkError != null);
     assert(unexpected != null);
     return serverError(this);
   }
@@ -138,6 +151,7 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result serverError(_ServerError value),
+    Result networkError(_NetworkError value),
     Result unexpected(_Unexpected value),
     @required Result orElse(),
   }) {
@@ -151,6 +165,100 @@ class _$_ServerError implements _ServerError {
 
 abstract class _ServerError implements DictionaryWordEntriesFailure {
   const factory _ServerError() = _$_ServerError;
+}
+
+abstract class _$NetworkErrorCopyWith<$Res> {
+  factory _$NetworkErrorCopyWith(
+          _NetworkError value, $Res Function(_NetworkError) then) =
+      __$NetworkErrorCopyWithImpl<$Res>;
+}
+
+class __$NetworkErrorCopyWithImpl<$Res>
+    extends _$DictionaryWordEntriesFailureCopyWithImpl<$Res>
+    implements _$NetworkErrorCopyWith<$Res> {
+  __$NetworkErrorCopyWithImpl(
+      _NetworkError _value, $Res Function(_NetworkError) _then)
+      : super(_value, (v) => _then(v as _NetworkError));
+
+  @override
+  _NetworkError get _value => super._value as _NetworkError;
+}
+
+class _$_NetworkError implements _NetworkError {
+  const _$_NetworkError();
+
+  @override
+  String toString() {
+    return 'DictionaryWordEntriesFailure.networkError()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _NetworkError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result serverError(),
+    @required Result networkError(),
+    @required Result unexpected(),
+  }) {
+    assert(serverError != null);
+    assert(networkError != null);
+    assert(unexpected != null);
+    return networkError();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result serverError(),
+    Result networkError(),
+    Result unexpected(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (networkError != null) {
+      return networkError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result serverError(_ServerError value),
+    @required Result networkError(_NetworkError value),
+    @required Result unexpected(_Unexpected value),
+  }) {
+    assert(serverError != null);
+    assert(networkError != null);
+    assert(unexpected != null);
+    return networkError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result serverError(_ServerError value),
+    Result networkError(_NetworkError value),
+    Result unexpected(_Unexpected value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (networkError != null) {
+      return networkError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NetworkError implements DictionaryWordEntriesFailure {
+  const factory _NetworkError() = _$_NetworkError;
 }
 
 abstract class _$UnexpectedCopyWith<$Res> {
@@ -190,9 +298,11 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result serverError(),
+    @required Result networkError(),
     @required Result unexpected(),
   }) {
     assert(serverError != null);
+    assert(networkError != null);
     assert(unexpected != null);
     return unexpected();
   }
@@ -201,6 +311,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result serverError(),
+    Result networkError(),
     Result unexpected(),
     @required Result orElse(),
   }) {
@@ -215,9 +326,11 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result serverError(_ServerError value),
+    @required Result networkError(_NetworkError value),
     @required Result unexpected(_Unexpected value),
   }) {
     assert(serverError != null);
+    assert(networkError != null);
     assert(unexpected != null);
     return unexpected(this);
   }
@@ -226,6 +339,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result serverError(_ServerError value),
+    Result networkError(_NetworkError value),
     Result unexpected(_Unexpected value),
     @required Result orElse(),
   }) {

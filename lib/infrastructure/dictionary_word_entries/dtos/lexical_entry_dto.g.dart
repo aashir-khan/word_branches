@@ -12,12 +12,14 @@ _$_LexicalEntryDto _$_$_LexicalEntryDtoFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : EntryDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    lexicalCategory: json['lexicalCategory'] as String,
+    lexicalCategory: json['lexicalCategory'] == null
+        ? null
+        : IdTextDto.fromJson(json['lexicalCategory'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$_$_LexicalEntryDtoToJson(_$_LexicalEntryDto instance) =>
     <String, dynamic>{
       'entries': instance.entries?.map((e) => e?.toJson())?.toList(),
-      'lexicalCategory': instance.lexicalCategory,
+      'lexicalCategory': instance.lexicalCategory?.toJson(),
     };

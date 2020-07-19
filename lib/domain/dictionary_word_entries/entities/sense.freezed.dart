@@ -17,7 +17,7 @@ class _$SenseTearOff {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<String> registers}) {
+      KtList<IdText> registers}) {
     return _Sense(
       definitions: definitions,
       notes: notes,
@@ -36,7 +36,7 @@ mixin _$Sense {
   KtList<TextType> get notes;
   KtList<Example> get examples;
   KtList<Sense> get subsenses;
-  KtList<String> get registers;
+  KtList<IdText> get registers;
 
   $SenseCopyWith<Sense> get copyWith;
 }
@@ -49,7 +49,7 @@ abstract class $SenseCopyWith<$Res> {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<String> registers});
+      KtList<IdText> registers});
 }
 
 class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
@@ -77,7 +77,7 @@ class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
       subsenses:
           subsenses == freezed ? _value.subsenses : subsenses as KtList<Sense>,
       registers:
-          registers == freezed ? _value.registers : registers as KtList<String>,
+          registers == freezed ? _value.registers : registers as KtList<IdText>,
     ));
   }
 }
@@ -91,7 +91,7 @@ abstract class _$SenseCopyWith<$Res> implements $SenseCopyWith<$Res> {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<String> registers});
+      KtList<IdText> registers});
 }
 
 class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
@@ -120,7 +120,7 @@ class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
       subsenses:
           subsenses == freezed ? _value.subsenses : subsenses as KtList<Sense>,
       registers:
-          registers == freezed ? _value.registers : registers as KtList<String>,
+          registers == freezed ? _value.registers : registers as KtList<IdText>,
     ));
   }
 }
@@ -142,7 +142,7 @@ class _$_Sense implements _Sense {
   @override
   final KtList<Sense> subsenses;
   @override
-  final KtList<String> registers;
+  final KtList<IdText> registers;
 
   @override
   String toString() {
@@ -189,7 +189,7 @@ abstract class _Sense implements Sense {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<String> registers}) = _$_Sense;
+      KtList<IdText> registers}) = _$_Sense;
 
   @override
   KtList<String> get definitions;
@@ -200,7 +200,7 @@ abstract class _Sense implements Sense {
   @override
   KtList<Sense> get subsenses;
   @override
-  KtList<String> get registers;
+  KtList<IdText> get registers;
   @override
   _$SenseCopyWith<_Sense> get copyWith;
 }

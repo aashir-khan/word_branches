@@ -23,6 +23,10 @@ class _$DictionaryWordSearchRemoteFailureTearOff {
   _DictionaryWordSearchRemoteFailureServerException serverError() {
     return const _DictionaryWordSearchRemoteFailureServerException();
   }
+
+  _DictionaryWordSearchRemoteFailureUnexpected unexpected() {
+    return const _DictionaryWordSearchRemoteFailureUnexpected();
+  }
 }
 
 // ignore: unused_element
@@ -35,12 +39,14 @@ mixin _$DictionaryWordSearchRemoteFailure {
     @required Result networkError(),
     @required Result noResultsFound(),
     @required Result serverError(),
+    @required Result unexpected(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result networkError(),
     Result noResultsFound(),
     Result serverError(),
+    Result unexpected(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -54,6 +60,8 @@ mixin _$DictionaryWordSearchRemoteFailure {
     @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -61,6 +69,7 @@ mixin _$DictionaryWordSearchRemoteFailure {
     Result noResultsFound(
         _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),
   });
 }
@@ -126,10 +135,12 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
     @required Result networkError(),
     @required Result noResultsFound(),
     @required Result serverError(),
+    @required Result unexpected(),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
     assert(serverError != null);
+    assert(unexpected != null);
     return networkError();
   }
 
@@ -139,6 +150,7 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
     Result networkError(),
     Result noResultsFound(),
     Result serverError(),
+    Result unexpected(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -160,10 +172,13 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
     @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
     assert(serverError != null);
+    assert(unexpected != null);
     return networkError(this);
   }
 
@@ -174,6 +189,7 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
     Result noResultsFound(
         _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -238,10 +254,12 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound
     @required Result networkError(),
     @required Result noResultsFound(),
     @required Result serverError(),
+    @required Result unexpected(),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
     assert(serverError != null);
+    assert(unexpected != null);
     return noResultsFound();
   }
 
@@ -251,6 +269,7 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound
     Result networkError(),
     Result noResultsFound(),
     Result serverError(),
+    Result unexpected(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -272,10 +291,13 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound
     @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
     assert(serverError != null);
+    assert(unexpected != null);
     return noResultsFound(this);
   }
 
@@ -286,6 +308,7 @@ class _$_DictionaryWordSearchRemoteFailureNoResultsFound
     Result noResultsFound(
         _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -352,10 +375,12 @@ class _$_DictionaryWordSearchRemoteFailureServerException
     @required Result networkError(),
     @required Result noResultsFound(),
     @required Result serverError(),
+    @required Result unexpected(),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
     assert(serverError != null);
+    assert(unexpected != null);
     return serverError();
   }
 
@@ -365,6 +390,7 @@ class _$_DictionaryWordSearchRemoteFailureServerException
     Result networkError(),
     Result noResultsFound(),
     Result serverError(),
+    Result unexpected(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -386,10 +412,13 @@ class _$_DictionaryWordSearchRemoteFailureServerException
     @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
     assert(noResultsFound != null);
     assert(serverError != null);
+    assert(unexpected != null);
     return serverError(this);
   }
 
@@ -400,6 +429,7 @@ class _$_DictionaryWordSearchRemoteFailureServerException
     Result noResultsFound(
         _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -414,4 +444,120 @@ abstract class _DictionaryWordSearchRemoteFailureServerException
     implements DictionaryWordSearchRemoteFailure {
   const factory _DictionaryWordSearchRemoteFailureServerException() =
       _$_DictionaryWordSearchRemoteFailureServerException;
+}
+
+abstract class _$DictionaryWordSearchRemoteFailureUnexpectedCopyWith<$Res> {
+  factory _$DictionaryWordSearchRemoteFailureUnexpectedCopyWith(
+          _DictionaryWordSearchRemoteFailureUnexpected value,
+          $Res Function(_DictionaryWordSearchRemoteFailureUnexpected) then) =
+      __$DictionaryWordSearchRemoteFailureUnexpectedCopyWithImpl<$Res>;
+}
+
+class __$DictionaryWordSearchRemoteFailureUnexpectedCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchRemoteFailureUnexpectedCopyWith<$Res> {
+  __$DictionaryWordSearchRemoteFailureUnexpectedCopyWithImpl(
+      _DictionaryWordSearchRemoteFailureUnexpected _value,
+      $Res Function(_DictionaryWordSearchRemoteFailureUnexpected) _then)
+      : super(_value,
+            (v) => _then(v as _DictionaryWordSearchRemoteFailureUnexpected));
+
+  @override
+  _DictionaryWordSearchRemoteFailureUnexpected get _value =>
+      super._value as _DictionaryWordSearchRemoteFailureUnexpected;
+}
+
+class _$_DictionaryWordSearchRemoteFailureUnexpected
+    implements _DictionaryWordSearchRemoteFailureUnexpected {
+  const _$_DictionaryWordSearchRemoteFailureUnexpected();
+
+  @override
+  String toString() {
+    return 'DictionaryWordSearchRemoteFailure.unexpected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DictionaryWordSearchRemoteFailureUnexpected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result networkError(),
+    @required Result noResultsFound(),
+    @required Result serverError(),
+    @required Result unexpected(),
+  }) {
+    assert(networkError != null);
+    assert(noResultsFound != null);
+    assert(serverError != null);
+    assert(unexpected != null);
+    return unexpected();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result networkError(),
+    Result noResultsFound(),
+    Result serverError(),
+    Result unexpected(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (unexpected != null) {
+      return unexpected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result networkError(
+            _DictionaryWordSearchRemoteFailureNetworkError value),
+    @required
+        Result noResultsFound(
+            _DictionaryWordSearchRemoteFailureNoResultsFound value),
+    @required
+        Result serverError(
+            _DictionaryWordSearchRemoteFailureServerException value),
+    @required
+        Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
+  }) {
+    assert(networkError != null);
+    assert(noResultsFound != null);
+    assert(serverError != null);
+    assert(unexpected != null);
+    return unexpected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
+    Result noResultsFound(
+        _DictionaryWordSearchRemoteFailureNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
+    Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (unexpected != null) {
+      return unexpected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DictionaryWordSearchRemoteFailureUnexpected
+    implements DictionaryWordSearchRemoteFailure {
+  const factory _DictionaryWordSearchRemoteFailureUnexpected() =
+      _$_DictionaryWordSearchRemoteFailureUnexpected;
 }

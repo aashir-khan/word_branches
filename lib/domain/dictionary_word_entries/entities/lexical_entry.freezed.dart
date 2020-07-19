@@ -13,7 +13,7 @@ class _$LexicalEntryTearOff {
   const _$LexicalEntryTearOff();
 
   _LexicalEntry call(
-      {@required KtList<Entry> entries, @required String lexicalCategory}) {
+      {@required KtList<Entry> entries, @required IdText lexicalCategory}) {
     return _LexicalEntry(
       entries: entries,
       lexicalCategory: lexicalCategory,
@@ -26,7 +26,7 @@ const $LexicalEntry = _$LexicalEntryTearOff();
 
 mixin _$LexicalEntry {
   KtList<Entry> get entries;
-  String get lexicalCategory;
+  IdText get lexicalCategory;
 
   $LexicalEntryCopyWith<LexicalEntry> get copyWith;
 }
@@ -35,7 +35,9 @@ abstract class $LexicalEntryCopyWith<$Res> {
   factory $LexicalEntryCopyWith(
           LexicalEntry value, $Res Function(LexicalEntry) then) =
       _$LexicalEntryCopyWithImpl<$Res>;
-  $Res call({KtList<Entry> entries, String lexicalCategory});
+  $Res call({KtList<Entry> entries, IdText lexicalCategory});
+
+  $IdTextCopyWith<$Res> get lexicalCategory;
 }
 
 class _$LexicalEntryCopyWithImpl<$Res> implements $LexicalEntryCopyWith<$Res> {
@@ -54,8 +56,18 @@ class _$LexicalEntryCopyWithImpl<$Res> implements $LexicalEntryCopyWith<$Res> {
       entries: entries == freezed ? _value.entries : entries as KtList<Entry>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as String,
+          : lexicalCategory as IdText,
     ));
+  }
+
+  @override
+  $IdTextCopyWith<$Res> get lexicalCategory {
+    if (_value.lexicalCategory == null) {
+      return null;
+    }
+    return $IdTextCopyWith<$Res>(_value.lexicalCategory, (value) {
+      return _then(_value.copyWith(lexicalCategory: value));
+    });
   }
 }
 
@@ -65,7 +77,10 @@ abstract class _$LexicalEntryCopyWith<$Res>
           _LexicalEntry value, $Res Function(_LexicalEntry) then) =
       __$LexicalEntryCopyWithImpl<$Res>;
   @override
-  $Res call({KtList<Entry> entries, String lexicalCategory});
+  $Res call({KtList<Entry> entries, IdText lexicalCategory});
+
+  @override
+  $IdTextCopyWith<$Res> get lexicalCategory;
 }
 
 class __$LexicalEntryCopyWithImpl<$Res> extends _$LexicalEntryCopyWithImpl<$Res>
@@ -86,7 +101,7 @@ class __$LexicalEntryCopyWithImpl<$Res> extends _$LexicalEntryCopyWithImpl<$Res>
       entries: entries == freezed ? _value.entries : entries as KtList<Entry>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as String,
+          : lexicalCategory as IdText,
     ));
   }
 }
@@ -100,7 +115,7 @@ class _$_LexicalEntry implements _LexicalEntry {
   @override
   final KtList<Entry> entries;
   @override
-  final String lexicalCategory;
+  final IdText lexicalCategory;
 
   @override
   String toString() {
@@ -133,12 +148,12 @@ class _$_LexicalEntry implements _LexicalEntry {
 abstract class _LexicalEntry implements LexicalEntry {
   const factory _LexicalEntry(
       {@required KtList<Entry> entries,
-      @required String lexicalCategory}) = _$_LexicalEntry;
+      @required IdText lexicalCategory}) = _$_LexicalEntry;
 
   @override
   KtList<Entry> get entries;
   @override
-  String get lexicalCategory;
+  IdText get lexicalCategory;
   @override
   _$LexicalEntryCopyWith<_LexicalEntry> get copyWith;
 }
