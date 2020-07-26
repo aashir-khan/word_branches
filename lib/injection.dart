@@ -1,4 +1,4 @@
-import 'package:dr_words/injection.iconfig.dart';
+import 'package:dr_words/injection.config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';

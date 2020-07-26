@@ -4,11 +4,12 @@ import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entrie
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/dictionary_word_entries_exception.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/headword_entry_dto.dart';
 import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
+import 'package:dr_words/injection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
-@LazySingleton(as: IDictionaryWordEntriesRemoteDataSource)
+@LazySingleton(as: IDictionaryWordEntriesRemoteDataSource, env: [Env.production])
 class DictionaryWordEntriesRemoteDataSource implements IDictionaryWordEntriesRemoteDataSource {
   final AccountDetails accountDetails;
   final Dio dio;

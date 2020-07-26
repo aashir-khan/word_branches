@@ -22,18 +22,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get_it: ^4.0.2
-  flutter_bloc: ^5.0.0
+  get_it: ^4.0.4
+  flutter_bloc: ^6.0.1
   rxdart: ^0.24.1
   async: ^2.4.1
   dartz: ^0.9.1
   data_connection_checker: ^0.3.4
   # For OS-specific directory paths
-  shared_preferences: ^0.5.7+3
+  shared_preferences: ^0.5.8
   shared_preferences_web: ^0.1.2+7
-  injectable: ^0.4.0+1
+  injectable: ^1.0.2
   flutter_svg: ^0.17.4
-  auto_route: ^0.6.1
+  auto_route: ^0.6.6
   freezed_annotation: ^0.11.0
   kt_dart: ^0.7.0+1
   dio: ^3.0.9
@@ -48,12 +48,12 @@ dev_dependencies:
     sdk: flutter
   faker: ^1.2.1
   mockito: ^4.1.1
-  bloc_test: ^6.0.0
+  bloc_test: ^7.0.0
   build_runner: ^1.10.0
-  injectable_generator: ^0.4.0
+  injectable_generator: ^1.0.2
   lint: ^1.2.0
-  auto_route_generator: ^0.6.0
-  freezed: ^0.11.2
+  auto_route_generator: ^0.6.6
+  freezed: ^0.11.4
   json_serializable: ^3.3.0
 
 # For information on the generic Dart part of this file, see the

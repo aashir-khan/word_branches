@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'dictionary_word_search_bloc.dart';
 
@@ -12,17 +12,20 @@ T _$identity<T>(T value) => value;
 class _$DictionaryWordSearchEventTearOff {
   const _$DictionaryWordSearchEventTearOff();
 
+// ignore: unused_element
   _DictionaryWordSearchEventGetRecentlySearchedWords
       getRecentlySearchedWords() {
     return const _DictionaryWordSearchEventGetRecentlySearchedWords();
   }
 
+// ignore: unused_element
   DictionaryWordSearchEventModifyQuery modifyQuery({String query}) {
     return DictionaryWordSearchEventModifyQuery(
       query: query,
     );
   }
 
+// ignore: unused_element
   _DictionaryWordSearchEventAddNewRecentlySearchedWord
       addNewRecentlySearchedWord({DictionaryWord newRecentlySearchedWord}) {
     return _DictionaryWordSearchEventAddNewRecentlySearchedWord(
@@ -532,14 +535,17 @@ abstract class _DictionaryWordSearchEventAddNewRecentlySearchedWord
 class _$DictionaryWordSearchStateTearOff {
   const _$DictionaryWordSearchStateTearOff();
 
+// ignore: unused_element
   _DictionaryWordSearchStateInitial initial() {
     return const _DictionaryWordSearchStateInitial();
   }
 
+// ignore: unused_element
   _DictionaryWordSearchStateLoadInProgress loadInProgress() {
     return const _DictionaryWordSearchStateLoadInProgress();
   }
 
+// ignore: unused_element
   _DictionaryWordSearchStateLoadSearchResultsSuccess loadSearchResultsSuccess(
       {KtList<DictionaryWord> words}) {
     return _DictionaryWordSearchStateLoadSearchResultsSuccess(
@@ -547,12 +553,14 @@ class _$DictionaryWordSearchStateTearOff {
     );
   }
 
+// ignore: unused_element
   _DictionaryWordSearchStateLoadFailure loadFailure({String message}) {
     return _DictionaryWordSearchStateLoadFailure(
       message: message,
     );
   }
 
+// ignore: unused_element
   _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
       newWordAddedToRecentlySearchedWords(
           {@required DictionaryWord addedWord}) {
@@ -561,6 +569,7 @@ class _$DictionaryWordSearchStateTearOff {
     );
   }
 
+// ignore: unused_element
   _DictionaryWordSearchLoadRecentlySearchedWordsSuccess
       loadRecentlySearchedWordsResultsSuccess(
           {KtList<DictionaryWord> recentlySearchedWords}) {

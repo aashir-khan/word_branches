@@ -4,13 +4,15 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: public_member_api_docs
+
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/presentation/pages/home/home_page.dart';
-import 'package:dr_words/presentation/pages/search/search_page.dart';
-import 'package:dr_words/presentation/pages/headword_entries/headword_entries_page.dart';
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
+import 'package:flutter/material.dart';
+
+import '../../domain/core/entities/dictionary_word.dart';
+import '../pages/headword_entries/headword_entries_page.dart';
+import '../pages/home/home_page.dart';
+import '../pages/search/search_page.dart';
 
 class Routes {
   static const String homePage = '/';
@@ -34,19 +36,19 @@ class Router extends RouterBase {
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
-    HomePage: (RouteData data) {
+    HomePage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => HomePage(),
         settings: data,
       );
     },
-    SearchPage: (RouteData data) {
+    SearchPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SearchPage(),
         settings: data,
       );
     },
-    HeadwordEntriesPage: (RouteData data) {
+    HeadwordEntriesPage: (data) {
       var args = data.getArgs<HeadwordEntriesPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
         builder: (context) => HeadwordEntriesPage(args.wordSelected),
@@ -56,11 +58,11 @@ class Router extends RouterBase {
   };
 }
 
-// *************************************************************************
-// Arguments holder classes
-// **************************************************************************
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
 
-//HeadwordEntriesPage arguments holder class
+/// HeadwordEntriesPage arguments holder class
 class HeadwordEntriesPageArguments {
   final DictionaryWord wordSelected;
   HeadwordEntriesPageArguments({@required this.wordSelected});

@@ -18,12 +18,12 @@ class _SearchPageState extends State<SearchPage> {
       final DictionaryWord result = await showSearch(
           context: context, delegate: WordDictionaryWordSearch(BlocProvider.of<DictionaryWordSearchBloc>(context)));
       if (result != null) {
-        await ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(
+        await ExtendedNavigator.root.replace(
           Routes.headwordEntriesPage,
           arguments: HeadwordEntriesPageArguments(wordSelected: result),
         );
       } else {
-        await ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(Routes.homePage);
+        await ExtendedNavigator.root.replace(Routes.homePage);
       }
     });
 

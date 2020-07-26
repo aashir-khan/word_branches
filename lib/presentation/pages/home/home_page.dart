@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () => ExtendedNavigator.ofRouter<Router>().pushReplacementNamed(Routes.searchPage),
+            onPressed: () => ExtendedNavigator.root.replace(Routes.searchPage),
           ),
           PopupMenuButton<String>(
             // ! TODO

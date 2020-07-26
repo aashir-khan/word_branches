@@ -7,7 +7,7 @@ import 'package:dr_words/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
-@LazySingleton(as: IDictionaryWordSearchRemoteDataSource, env: Env.production)
+@LazySingleton(as: IDictionaryWordSearchRemoteDataSource, env: [Env.production])
 class DictionaryWordSearchRemoteDataSource implements IDictionaryWordSearchRemoteDataSource {
   final AccountDetails accountDetails;
   final Dio dio;

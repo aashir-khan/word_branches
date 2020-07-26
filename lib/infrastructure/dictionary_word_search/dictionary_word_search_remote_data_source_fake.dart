@@ -10,7 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-@LazySingleton(as: IDictionaryWordSearchRemoteDataSource, env: Env.development)
+@LazySingleton(as: IDictionaryWordSearchRemoteDataSource, env: [Env.development])
 class DictionaryWordSearchRemoteDataSourceFake implements IDictionaryWordSearchRemoteDataSource {
   final SharedPreferences sharedPreferences;
 
