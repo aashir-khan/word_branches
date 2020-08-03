@@ -2,14 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<String> popupMenuChoices = ['Settings', 'Help', 'About'];
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +16,7 @@ class _HomePageState extends State<HomePage> {
           PopupMenuButton<String>(
             // ! TODO
             onSelected: (_) {},
-            itemBuilder: (context) => popupMenuChoices
+            itemBuilder: (context) => ['Settings', 'Help', 'About']
                 .map(
                   (choice) => PopupMenuItem<String>(
                     value: choice,
