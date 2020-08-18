@@ -26,16 +26,18 @@ class DictionaryWordEntriesBloc extends Bloc<DictionaryWordEntriesEvent, Diction
   Stream<DictionaryWordEntriesState> mapEventToState(
     DictionaryWordEntriesEvent event,
   ) async* {
-    yield* event.when(getWordEntries: (word) async* {
-      yield const DictionaryWordEntriesState.loadInProgress();
-      final resultEither = await dictionaryWordEntriesRepository.getWordEntries(word);
+    yield* event.when(
+      getWordEntries: (word) async* {
+        yield const DictionaryWordEntriesState.loadInProgress();
+        final resultEither = await dictionaryWordEntriesRepository.getWordEntries(word);
 
-      yield* resultEither.fold((failure) async* {
-        yield DictionaryWordEntriesState.loadFailure(message: _mapFailureToMessage(failure));
-      }, (results) async* {
-        yield DictionaryWordEntriesState.loadEntriesSuccess(results: results);
-      });
-    });
+        yield* resultEither.fold((failure) async* {
+          yield DictionaryWordEntriesState.loadFailure(message: _mapFailureToMessage(failure));
+        }, (results) async* {
+          yield DictionaryWordEntriesState.loadEntriesSuccess(results: results);
+        });
+      },
+    );
   }
 
   String _mapFailureToMessage(DictionaryWordEntriesFailure failure) {

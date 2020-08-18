@@ -39,10 +39,14 @@ dependencies:
   dio: ^3.0.9
   dio_http_cache: ^0.2.8
   flutter_hooks: ^0.12.0
+  enum_to_string: ^1.0.9
+  audioplayer: 0.8.1
+  audioplayer_web: 0.7.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  font_awesome_flutter: ^8.8.1
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +63,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -67,8 +70,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/icons/time_icon.svg
+  # assets:
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -79,6 +81,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+  - family:  CustomIcons
+    fonts:
+      - asset: fonts/CustomIcons.ttf
+  - family: RobotoMono
+    fonts:
+      - asset: fonts/RobotoMono-Italic.ttf
+        style: italic
   # fonts:
   #   - family: Schyler
   #     fonts:

@@ -2,7 +2,6 @@ import 'package:dr_words/domain/dictionary_word_entries/entities/example.dart';
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:faker/faker.dart';
 
 part 'example_dto.g.dart';
 part 'example_dto.freezed.dart';
@@ -25,37 +24,20 @@ abstract class ExampleDto with _$ExampleDto {
 
   factory ExampleDto.fromJson(Map<String, dynamic> json) => _$ExampleDtoFromJson(json);
 
-  factory ExampleDto.fromFakeData({
-    Map<String, dynamic> customFieldValues = const {},
-    Map<String, dynamic> options = const {},
-  }) {
-    List<String> definitions = [];
-    List<IdTextDto> registers = [];
-    String text;
+  factory ExampleDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
+    final definitions = customFieldValues['definitions'] as List<String>;
+    final registers = customFieldValues['registers'] as List<IdTextDto>;
+    final text = customFieldValues['text'] as String;
 
-    final definitionsCount = (options['definitionsCount'] ?? faker.randomGenerator.integer(5)) as int;
-    final registersCount = (options['registersCount'] ?? faker.randomGenerator.integer(5)) as int;
-
-    if (customFieldValues['definitions'] != null) {
-      definitions = customFieldValues['definitions'] as List<String>;
-    } else {
-      for (var i = 0; i < definitionsCount; i++) {
-        definitions.add(faker.lorem.sentence());
-      }
+    if (text == null) {
+      throw Exception();
     }
 
-    if (customFieldValues['registers'] != null) {
-      registers = customFieldValues['registers'] as List<IdTextDto>;
-    } else {
-      for (var i = 0; i < registersCount; i++) {
-        registers.add(
-            IdTextDto.fromFakeData(customFieldValues: (customFieldValues['idText'] ?? {}) as Map<String, dynamic>));
-      }
-    }
-
-    text = (customFieldValues['text'] ?? faker.lorem.word()) as String;
-
-    return ExampleDto(definitions: definitions, registers: registers, text: text);
+    return ExampleDto(
+      definitions: definitions,
+      registers: registers,
+      text: text,
+    );
   }
 }
 

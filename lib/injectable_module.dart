@@ -1,3 +1,4 @@
+import 'package:audioplayer/audioplayer.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
@@ -13,4 +14,6 @@ abstract class InjectableModule {
     dioInstance.interceptors.add(DioCacheManager(CacheConfig()).interceptor as Interceptor);
     return dioInstance;
   }
+
+  AudioPlayer get audioPlayer => AudioPlayer();
 }

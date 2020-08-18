@@ -1,4 +1,8 @@
 PODS:
+  - audioplayer (0.0.1):
+    - Flutter
+  - audioplayer_web (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -18,6 +22,8 @@ PODS:
     - FMDB (~> 2.7.2)
 
 DEPENDENCIES:
+  - audioplayer (from `.symlinks/plugins/audioplayer/ios`)
+  - audioplayer_web (from `.symlinks/plugins/audioplayer_web/ios`)
   - Flutter (from `Flutter`)
   - path_provider_linux (from `.symlinks/plugins/path_provider_linux/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
@@ -31,6 +37,10 @@ SPEC REPOS:
     - FMDB
 
 EXTERNAL SOURCES:
+  audioplayer:
+    :path: ".symlinks/plugins/audioplayer/ios"
+  audioplayer_web:
+    :path: ".symlinks/plugins/audioplayer_web/ios"
   Flutter:
     :path: Flutter
   path_provider_linux:
@@ -47,6 +57,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite/ios"
 
 SPEC CHECKSUMS:
+  audioplayer: 0584f31a697e4b0bbad405ae7903d7a93585e784
+  audioplayer_web: 790a332a481088f935107592964a4f36b7a18a8a
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider_linux: 4d630dc393e1f20364f3e3b4a2ff41d9674a84e4

@@ -21,8 +21,6 @@ abstract class HeadwordEntryDto with _$HeadwordEntryDto {
       id: headwordEntry.id,
       lexicalEntries:
           headwordEntry.lexicalEntries.map((lexicalEntry) => LexicalEntryDto.fromDomain(lexicalEntry)).asList(),
-      pronunciations:
-          headwordEntry.pronunciations.map((pronunciation) => PronunciationDto.fromDomain(pronunciation)).asList(),
     );
   }
 
@@ -30,38 +28,31 @@ abstract class HeadwordEntryDto with _$HeadwordEntryDto {
 
   factory HeadwordEntryDto.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
-    Map<String, dynamic> options = const {},
+    List<String> traits,
   }) {
-    String id;
-    List<LexicalEntryDto> lexicalEntries;
-    List<PronunciationDto> pronunciations;
+    final _id = (customFieldValues['id'] ?? faker.lorem.word()) as String;
+    var _lexicalEntries = customFieldValues['lexicalEntries'] as List<LexicalEntryDto>;
 
-    final lexicalEntriesCount = (options['lexicalEntriesCount'] ?? faker.randomGenerator.integer(5, min: 1)) as int;
-    final pronunciationsCount = (options['pronunciationsCount'] ?? faker.randomGenerator.integer(5)) as int;
+    if (traits.contains('withLexicalEntries')) {
+      _lexicalEntries = [];
 
-    id = (customFieldValues['id'] ?? faker.lorem.word()) as String;
-
-    if (customFieldValues['lexicalEntries'] != null) {
-      lexicalEntries = customFieldValues['lexicalEntries'] as List<LexicalEntryDto>;
-    } else {
-      for (var i = 0; i < lexicalEntriesCount; i++) {
-        lexicalEntries.add(
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _lexicalEntries.add(
           LexicalEntryDto.fromFakeData(
-              customFieldValues: (customFieldValues['lexicalEntries'] ?? {}) as Map<String, dynamic>,
-              options: (customFieldValues['lexicalEntriesOptions'] ?? {}) as Map<String, dynamic>),
+            traits: ['withEntries'],
+          ),
         );
       }
     }
 
-    if (customFieldValues['pronunciations'] != null) {
-      pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
-    } else {
-      for (var i = 0; i < pronunciationsCount; i++) {
-        pronunciations.add(PronunciationDto.fromFakeData());
-      }
+    if (_lexicalEntries == null) {
+      throw Exception();
     }
 
-    return HeadwordEntryDto(id: id, lexicalEntries: lexicalEntries, pronunciations: pronunciations);
+    return HeadwordEntryDto(
+      id: _id,
+      lexicalEntries: _lexicalEntries,
+    );
   }
 }
 
@@ -70,7 +61,6 @@ extension HeadwordEntryDtoX on HeadwordEntryDto {
     return HeadwordEntry(
       id: id,
       lexicalEntries: lexicalEntries.map((lexicalEntry) => lexicalEntry.toDomain()).toImmutableList(),
-      pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain())?.toImmutableList(),
     );
   }
 }

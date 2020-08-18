@@ -22,6 +22,8 @@ class _$SenseDtoTearOff {
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
       List<IdTextDto> registers,
+      List<IdTextDto> regions,
+      List<String> crossReferenceMarkers,
       String type}) {
     return _SenseDto(
       definitions: definitions,
@@ -29,6 +31,8 @@ class _$SenseDtoTearOff {
       examples: examples,
       subsenses: subsenses,
       registers: registers,
+      regions: regions,
+      crossReferenceMarkers: crossReferenceMarkers,
       type: type,
     );
   }
@@ -43,6 +47,8 @@ mixin _$SenseDto {
   List<ExampleDto> get examples;
   List<SenseDto> get subsenses;
   List<IdTextDto> get registers;
+  List<IdTextDto> get regions;
+  List<String> get crossReferenceMarkers;
   String get type;
 
   Map<String, dynamic> toJson();
@@ -58,6 +64,8 @@ abstract class $SenseDtoCopyWith<$Res> {
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
       List<IdTextDto> registers,
+      List<IdTextDto> regions,
+      List<String> crossReferenceMarkers,
       String type});
 }
 
@@ -75,6 +83,8 @@ class _$SenseDtoCopyWithImpl<$Res> implements $SenseDtoCopyWith<$Res> {
     Object examples = freezed,
     Object subsenses = freezed,
     Object registers = freezed,
+    Object regions = freezed,
+    Object crossReferenceMarkers = freezed,
     Object type = freezed,
   }) {
     return _then(_value.copyWith(
@@ -89,6 +99,10 @@ class _$SenseDtoCopyWithImpl<$Res> implements $SenseDtoCopyWith<$Res> {
       registers: registers == freezed
           ? _value.registers
           : registers as List<IdTextDto>,
+      regions: regions == freezed ? _value.regions : regions as List<IdTextDto>,
+      crossReferenceMarkers: crossReferenceMarkers == freezed
+          ? _value.crossReferenceMarkers
+          : crossReferenceMarkers as List<String>,
       type: type == freezed ? _value.type : type as String,
     ));
   }
@@ -104,6 +118,8 @@ abstract class _$SenseDtoCopyWith<$Res> implements $SenseDtoCopyWith<$Res> {
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
       List<IdTextDto> registers,
+      List<IdTextDto> regions,
+      List<String> crossReferenceMarkers,
       String type});
 }
 
@@ -122,6 +138,8 @@ class __$SenseDtoCopyWithImpl<$Res> extends _$SenseDtoCopyWithImpl<$Res>
     Object examples = freezed,
     Object subsenses = freezed,
     Object registers = freezed,
+    Object regions = freezed,
+    Object crossReferenceMarkers = freezed,
     Object type = freezed,
   }) {
     return _then(_SenseDto(
@@ -136,6 +154,10 @@ class __$SenseDtoCopyWithImpl<$Res> extends _$SenseDtoCopyWithImpl<$Res>
       registers: registers == freezed
           ? _value.registers
           : registers as List<IdTextDto>,
+      regions: regions == freezed ? _value.regions : regions as List<IdTextDto>,
+      crossReferenceMarkers: crossReferenceMarkers == freezed
+          ? _value.crossReferenceMarkers
+          : crossReferenceMarkers as List<String>,
       type: type == freezed ? _value.type : type as String,
     ));
   }
@@ -149,6 +171,8 @@ class _$_SenseDto implements _SenseDto {
       this.examples,
       this.subsenses,
       this.registers,
+      this.regions,
+      this.crossReferenceMarkers,
       this.type});
 
   factory _$_SenseDto.fromJson(Map<String, dynamic> json) =>
@@ -165,11 +189,15 @@ class _$_SenseDto implements _SenseDto {
   @override
   final List<IdTextDto> registers;
   @override
+  final List<IdTextDto> regions;
+  @override
+  final List<String> crossReferenceMarkers;
+  @override
   final String type;
 
   @override
   String toString() {
-    return 'SenseDto(definitions: $definitions, notes: $notes, examples: $examples, subsenses: $subsenses, registers: $registers, type: $type)';
+    return 'SenseDto(definitions: $definitions, notes: $notes, examples: $examples, subsenses: $subsenses, registers: $registers, regions: $regions, crossReferenceMarkers: $crossReferenceMarkers, type: $type)';
   }
 
   @override
@@ -190,6 +218,12 @@ class _$_SenseDto implements _SenseDto {
             (identical(other.registers, registers) ||
                 const DeepCollectionEquality()
                     .equals(other.registers, registers)) &&
+            (identical(other.regions, regions) ||
+                const DeepCollectionEquality()
+                    .equals(other.regions, regions)) &&
+            (identical(other.crossReferenceMarkers, crossReferenceMarkers) ||
+                const DeepCollectionEquality().equals(
+                    other.crossReferenceMarkers, crossReferenceMarkers)) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)));
   }
@@ -202,6 +236,8 @@ class _$_SenseDto implements _SenseDto {
       const DeepCollectionEquality().hash(examples) ^
       const DeepCollectionEquality().hash(subsenses) ^
       const DeepCollectionEquality().hash(registers) ^
+      const DeepCollectionEquality().hash(regions) ^
+      const DeepCollectionEquality().hash(crossReferenceMarkers) ^
       const DeepCollectionEquality().hash(type);
 
   @override
@@ -221,6 +257,8 @@ abstract class _SenseDto implements SenseDto {
       List<ExampleDto> examples,
       List<SenseDto> subsenses,
       List<IdTextDto> registers,
+      List<IdTextDto> regions,
+      List<String> crossReferenceMarkers,
       String type}) = _$_SenseDto;
 
   factory _SenseDto.fromJson(Map<String, dynamic> json) = _$_SenseDto.fromJson;
@@ -235,6 +273,10 @@ abstract class _SenseDto implements SenseDto {
   List<SenseDto> get subsenses;
   @override
   List<IdTextDto> get registers;
+  @override
+  List<IdTextDto> get regions;
+  @override
+  List<String> get crossReferenceMarkers;
   @override
   String get type;
   @override

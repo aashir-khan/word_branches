@@ -24,7 +24,7 @@ class DictionaryWordSearchRemoteDataSource implements IDictionaryWordSearchRemot
     final headers = accountDetails.oxfordAPIDetails['developer'] as Map<String, String>;
 
     final response = await dio.get(
-      'https://od-api.oxforddictionaries.com/api/v2/search/en-gb?q=$query',
+      'https://od-api.oxforddictionaries.com/api/v2/search/en-us?q=$query',
       options: Options(headers: headers),
     );
 

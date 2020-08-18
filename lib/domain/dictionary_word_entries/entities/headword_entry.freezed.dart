@@ -14,13 +14,10 @@ class _$HeadwordEntryTearOff {
 
 // ignore: unused_element
   _HeadwordEntry call(
-      {@required String id,
-      @required KtList<LexicalEntry> lexicalEntries,
-      KtList<Pronunciation> pronunciations}) {
+      {@required String id, @required KtList<LexicalEntry> lexicalEntries}) {
     return _HeadwordEntry(
       id: id,
       lexicalEntries: lexicalEntries,
-      pronunciations: pronunciations,
     );
   }
 }
@@ -31,7 +28,6 @@ const $HeadwordEntry = _$HeadwordEntryTearOff();
 mixin _$HeadwordEntry {
   String get id;
   KtList<LexicalEntry> get lexicalEntries;
-  KtList<Pronunciation> get pronunciations;
 
   $HeadwordEntryCopyWith<HeadwordEntry> get copyWith;
 }
@@ -40,10 +36,7 @@ abstract class $HeadwordEntryCopyWith<$Res> {
   factory $HeadwordEntryCopyWith(
           HeadwordEntry value, $Res Function(HeadwordEntry) then) =
       _$HeadwordEntryCopyWithImpl<$Res>;
-  $Res call(
-      {String id,
-      KtList<LexicalEntry> lexicalEntries,
-      KtList<Pronunciation> pronunciations});
+  $Res call({String id, KtList<LexicalEntry> lexicalEntries});
 }
 
 class _$HeadwordEntryCopyWithImpl<$Res>
@@ -58,16 +51,12 @@ class _$HeadwordEntryCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object lexicalEntries = freezed,
-    Object pronunciations = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       lexicalEntries: lexicalEntries == freezed
           ? _value.lexicalEntries
           : lexicalEntries as KtList<LexicalEntry>,
-      pronunciations: pronunciations == freezed
-          ? _value.pronunciations
-          : pronunciations as KtList<Pronunciation>,
     ));
   }
 }
@@ -78,10 +67,7 @@ abstract class _$HeadwordEntryCopyWith<$Res>
           _HeadwordEntry value, $Res Function(_HeadwordEntry) then) =
       __$HeadwordEntryCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String id,
-      KtList<LexicalEntry> lexicalEntries,
-      KtList<Pronunciation> pronunciations});
+  $Res call({String id, KtList<LexicalEntry> lexicalEntries});
 }
 
 class __$HeadwordEntryCopyWithImpl<$Res>
@@ -98,36 +84,30 @@ class __$HeadwordEntryCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object lexicalEntries = freezed,
-    Object pronunciations = freezed,
   }) {
     return _then(_HeadwordEntry(
       id: id == freezed ? _value.id : id as String,
       lexicalEntries: lexicalEntries == freezed
           ? _value.lexicalEntries
           : lexicalEntries as KtList<LexicalEntry>,
-      pronunciations: pronunciations == freezed
-          ? _value.pronunciations
-          : pronunciations as KtList<Pronunciation>,
     ));
   }
 }
 
-class _$_HeadwordEntry implements _HeadwordEntry {
-  const _$_HeadwordEntry(
-      {@required this.id, @required this.lexicalEntries, this.pronunciations})
+class _$_HeadwordEntry extends _HeadwordEntry {
+  const _$_HeadwordEntry({@required this.id, @required this.lexicalEntries})
       : assert(id != null),
-        assert(lexicalEntries != null);
+        assert(lexicalEntries != null),
+        super._();
 
   @override
   final String id;
   @override
   final KtList<LexicalEntry> lexicalEntries;
-  @override
-  final KtList<Pronunciation> pronunciations;
 
   @override
   String toString() {
-    return 'HeadwordEntry(id: $id, lexicalEntries: $lexicalEntries, pronunciations: $pronunciations)';
+    return 'HeadwordEntry(id: $id, lexicalEntries: $lexicalEntries)';
   }
 
   @override
@@ -138,36 +118,30 @@ class _$_HeadwordEntry implements _HeadwordEntry {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.lexicalEntries, lexicalEntries) ||
                 const DeepCollectionEquality()
-                    .equals(other.lexicalEntries, lexicalEntries)) &&
-            (identical(other.pronunciations, pronunciations) ||
-                const DeepCollectionEquality()
-                    .equals(other.pronunciations, pronunciations)));
+                    .equals(other.lexicalEntries, lexicalEntries)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(lexicalEntries) ^
-      const DeepCollectionEquality().hash(pronunciations);
+      const DeepCollectionEquality().hash(lexicalEntries);
 
   @override
   _$HeadwordEntryCopyWith<_HeadwordEntry> get copyWith =>
       __$HeadwordEntryCopyWithImpl<_HeadwordEntry>(this, _$identity);
 }
 
-abstract class _HeadwordEntry implements HeadwordEntry {
+abstract class _HeadwordEntry extends HeadwordEntry {
+  const _HeadwordEntry._() : super._();
   const factory _HeadwordEntry(
       {@required String id,
-      @required KtList<LexicalEntry> lexicalEntries,
-      KtList<Pronunciation> pronunciations}) = _$_HeadwordEntry;
+      @required KtList<LexicalEntry> lexicalEntries}) = _$_HeadwordEntry;
 
   @override
   String get id;
   @override
   KtList<LexicalEntry> get lexicalEntries;
-  @override
-  KtList<Pronunciation> get pronunciations;
   @override
   _$HeadwordEntryCopyWith<_HeadwordEntry> get copyWith;
 }

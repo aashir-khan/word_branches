@@ -1,6 +1,8 @@
 import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/entry_dto.dart';
+import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/pronunciation_dto.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:faker/faker.dart';
@@ -13,12 +15,15 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
   const factory LexicalEntryDto({
     @required List<EntryDto> entries,
     @required IdTextDto lexicalCategory,
+    List<PronunciationDto> pronunciations,
   }) = _LexicalEntryDto;
 
   factory LexicalEntryDto.fromDomain(LexicalEntry lexicalEntry) {
     return LexicalEntryDto(
       entries: lexicalEntry.entries.map((entry) => EntryDto.fromDomain(entry)).asList(),
       lexicalCategory: IdTextDto.fromDomain(lexicalEntry.lexicalCategory),
+      pronunciations:
+          lexicalEntry?.pronunciations?.map((pronunciation) => PronunciationDto.fromDomain(pronunciation))?.asList(),
     );
   }
 
@@ -26,30 +31,46 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
 
   factory LexicalEntryDto.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
-    Map<String, dynamic> options = const {},
+    List<String> traits,
   }) {
-    List<EntryDto> entries;
-    IdTextDto lexicalCategory;
+    var _entries = customFieldValues['entries'] as List<EntryDto>;
+    var _pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
+    var _lexicalCategory = customFieldValues['lexicalCategory'] as IdTextDto;
 
-    final entriesCount = (options['entriesCount'] ?? faker.randomGenerator.integer(5, min: 1)) as int;
+    if (traits.contains('withEntries')) {
+      _entries = [];
+      final lexicalCategoryEnum = faker.randomGenerator.element(LexicalCategoryEnum.values);
 
-    if (customFieldValues['entries'] != null) {
-      entries = customFieldValues['entries'] as List<EntryDto>;
-    } else {
-      for (var i = 0; i < entriesCount; i++) {
-        entries.add(
-          EntryDto.fromFakeData(
-              customFieldValues: (customFieldValues['entries'] ?? {}) as Map<String, dynamic>,
-              options: (customFieldValues['entriesOptions'] ?? {}) as Map<String, dynamic>),
-        );
+      _lexicalCategory = IdTextDto(
+        id: EnumToString.parse(lexicalCategoryEnum),
+        text: EnumToString.parse(lexicalCategoryEnum),
+      );
+
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _entries.add(EntryDto.fromFakeData(
+          traits: ['withSenses'],
+        ));
       }
     }
 
-    lexicalCategory = (customFieldValues['lexicalCategory'] ??
-        LexicalEntryDto.fromFakeData(
-            customFieldValues: (customFieldValues['lexicalCategory'] ?? {}) as Map<String, dynamic>)) as IdTextDto;
+    if (traits.contains('withPronunciations')) {
+      _pronunciations = [];
 
-    return LexicalEntryDto(entries: entries, lexicalCategory: lexicalCategory);
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _pronunciations
+            .add(const PronunciationDto(audioFile: 'http://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'));
+      }
+    }
+
+    if (_entries == null || _lexicalCategory == null) {
+      throw Exception();
+    }
+
+    return LexicalEntryDto(
+      entries: _entries,
+      pronunciations: _pronunciations,
+      lexicalCategory: _lexicalCategory,
+    );
   }
 }
 
@@ -57,6 +78,7 @@ extension LexicalEntryDtoX on LexicalEntryDto {
   LexicalEntry toDomain() {
     return LexicalEntry(
       entries: entries.map((entry) => entry.toDomain()).toImmutableList(),
+      pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain())?.toImmutableList(),
       lexicalCategory: lexicalCategory.toDomain(),
     );
   }

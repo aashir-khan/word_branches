@@ -5,7 +5,7 @@ import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_remote_data_source.dart';
 import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/dictionary_word_entries_exception.dart';
+import 'package:dr_words/infrastructure/dictionary_word_entries/dictionary_word_entries_exception.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/headword_entry_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';

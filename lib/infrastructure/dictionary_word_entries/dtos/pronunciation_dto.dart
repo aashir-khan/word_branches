@@ -19,9 +19,7 @@ abstract class PronunciationDto with _$PronunciationDto {
   factory PronunciationDto.fromJson(Map<String, dynamic> json) => _$PronunciationDtoFromJson(json);
 
   factory PronunciationDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    return PronunciationDto(
-        audioFile:
-            (customFieldValues['audioFile'] ?? 'http://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3') as String);
+    return PronunciationDto(audioFile: customFieldValues['audioFile'] as String);
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:dr_words/domain/dictionary_word_entries/entities/entry.dart';
+import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/pronunciation_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/sense_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
@@ -12,12 +13,15 @@ abstract class EntryDto with _$EntryDto {
   const factory EntryDto({
     List<String> etymologies,
     @required List<SenseDto> senses,
+    List<PronunciationDto> pronunciations,
   }) = _EntryDto;
 
   factory EntryDto.fromDomain(Entry entry) {
     return EntryDto(
       etymologies: entry.etymologies.asList(),
       senses: entry.senses.map((sense) => SenseDto.fromDomain(sense)).asList(),
+      pronunciations:
+          entry?.pronunciations?.map((pronunciation) => PronunciationDto.fromDomain(pronunciation))?.asList(),
     );
   }
 
@@ -25,35 +29,38 @@ abstract class EntryDto with _$EntryDto {
 
   factory EntryDto.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
-    Map<String, dynamic> options = const {},
+    List<String> traits,
   }) {
-    List<String> etymologies;
-    List<SenseDto> senses;
+    final _etymologies = customFieldValues['etymologies'] as List<String>;
+    var _senses = customFieldValues['senses'] as List<SenseDto>;
+    var _pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
 
-    final etymologiesCount = (options['etymologiesCount'] ?? faker.randomGenerator.integer(5)) as int;
-    final sensesCount = (options['sensesCount'] ?? faker.randomGenerator.integer(5, min: 1)) as int;
+    if (traits.contains('withSenses')) {
+      _senses = [];
 
-    if (customFieldValues['etymologies'] != null) {
-      etymologies = customFieldValues['etymologies'] as List<String>;
-    } else {
-      for (var i = 0; i < etymologiesCount; i++) {
-        etymologies.add(faker.lorem.sentence());
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _senses.add(SenseDto.fromFakeData());
       }
     }
 
-    if (customFieldValues['senses'] != null) {
-      senses = customFieldValues['senses'] as List<SenseDto>;
-    } else {
-      for (var i = 0; i < sensesCount; i++) {
-        senses.add(
-          SenseDto.fromFakeData(
-              customFieldValues: (customFieldValues['senses'] ?? {}) as Map<String, dynamic>,
-              options: (customFieldValues['sensesOptions'] ?? {}) as Map<String, dynamic>),
-        );
+    if (traits.contains('withPronunciations')) {
+      _pronunciations = [];
+
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _pronunciations
+            .add(const PronunciationDto(audioFile: 'http://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'));
       }
     }
 
-    return EntryDto(etymologies: etymologies, senses: senses);
+    if (_senses == null) {
+      throw Exception();
+    }
+
+    return EntryDto(
+      etymologies: _etymologies,
+      senses: _senses,
+      pronunciations: _pronunciations,
+    );
   }
 }
 
@@ -62,6 +69,7 @@ extension EntryDtoX on EntryDto {
     return Entry(
       etymologies: etymologies?.toImmutableList(),
       senses: senses?.map((sense) => sense.toDomain())?.toImmutableList(),
+      pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain())?.toImmutableList(),
     );
   }
 }

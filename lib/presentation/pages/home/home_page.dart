@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Favorites'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () => ExtendedNavigator.root.replace(Routes.searchPage),
           ),
           PopupMenuButton<String>(

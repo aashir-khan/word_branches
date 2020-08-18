@@ -1,10 +1,9 @@
 import 'package:dr_words/application/dictionary_word_search/dictionary_word_search_bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
+import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:dr_words/presentation/core/utils/icon_utils.dart';
 
 class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
   final Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> bloc;
@@ -97,17 +96,13 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
                 close(context, wordToGetHeadwordEntries);
               },
               child: Container(
-                // child: Text('foo'),
                 padding: const EdgeInsets.symmetric(
                   vertical: 12,
                   horizontal: 24,
                 ),
                 child: Row(
                   children: <Widget>[
-                    SvgPicture.asset(
-                      iconUtils['timeIcon'] as String,
-                      placeholderBuilder: (_) => const CircularProgressIndicator(),
-                    ),
+                    const Icon(CustomIcons.time_icon),
                     Padding(
                       padding: const EdgeInsets.only(top: 2, bottom: 2, left: 24),
                       child: Text(

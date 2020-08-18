@@ -83,10 +83,11 @@ class __$IdTextCopyWithImpl<$Res> extends _$IdTextCopyWithImpl<$Res>
   }
 }
 
-class _$_IdText with DiagnosticableTreeMixin implements _IdText {
+class _$_IdText extends _IdText with DiagnosticableTreeMixin {
   const _$_IdText({@required this.id, @required this.text})
       : assert(id != null),
-        assert(text != null);
+        assert(text != null),
+        super._();
 
   @override
   final String id;
@@ -128,7 +129,8 @@ class _$_IdText with DiagnosticableTreeMixin implements _IdText {
       __$IdTextCopyWithImpl<_IdText>(this, _$identity);
 }
 
-abstract class _IdText implements IdText {
+abstract class _IdText extends IdText {
+  const _IdText._() : super._();
   const factory _IdText({@required String id, @required String text}) =
       _$_IdText;
 

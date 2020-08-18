@@ -16,10 +16,14 @@ class _$EntryDtoTearOff {
   const _$EntryDtoTearOff();
 
 // ignore: unused_element
-  _EntryDto call({List<String> etymologies, @required List<SenseDto> senses}) {
+  _EntryDto call(
+      {List<String> etymologies,
+      @required List<SenseDto> senses,
+      List<PronunciationDto> pronunciations}) {
     return _EntryDto(
       etymologies: etymologies,
       senses: senses,
+      pronunciations: pronunciations,
     );
   }
 }
@@ -30,6 +34,7 @@ const $EntryDto = _$EntryDtoTearOff();
 mixin _$EntryDto {
   List<String> get etymologies;
   List<SenseDto> get senses;
+  List<PronunciationDto> get pronunciations;
 
   Map<String, dynamic> toJson();
   $EntryDtoCopyWith<EntryDto> get copyWith;
@@ -38,7 +43,10 @@ mixin _$EntryDto {
 abstract class $EntryDtoCopyWith<$Res> {
   factory $EntryDtoCopyWith(EntryDto value, $Res Function(EntryDto) then) =
       _$EntryDtoCopyWithImpl<$Res>;
-  $Res call({List<String> etymologies, List<SenseDto> senses});
+  $Res call(
+      {List<String> etymologies,
+      List<SenseDto> senses,
+      List<PronunciationDto> pronunciations});
 }
 
 class _$EntryDtoCopyWithImpl<$Res> implements $EntryDtoCopyWith<$Res> {
@@ -52,12 +60,16 @@ class _$EntryDtoCopyWithImpl<$Res> implements $EntryDtoCopyWith<$Res> {
   $Res call({
     Object etymologies = freezed,
     Object senses = freezed,
+    Object pronunciations = freezed,
   }) {
     return _then(_value.copyWith(
       etymologies: etymologies == freezed
           ? _value.etymologies
           : etymologies as List<String>,
       senses: senses == freezed ? _value.senses : senses as List<SenseDto>,
+      pronunciations: pronunciations == freezed
+          ? _value.pronunciations
+          : pronunciations as List<PronunciationDto>,
     ));
   }
 }
@@ -66,7 +78,10 @@ abstract class _$EntryDtoCopyWith<$Res> implements $EntryDtoCopyWith<$Res> {
   factory _$EntryDtoCopyWith(_EntryDto value, $Res Function(_EntryDto) then) =
       __$EntryDtoCopyWithImpl<$Res>;
   @override
-  $Res call({List<String> etymologies, List<SenseDto> senses});
+  $Res call(
+      {List<String> etymologies,
+      List<SenseDto> senses,
+      List<PronunciationDto> pronunciations});
 }
 
 class __$EntryDtoCopyWithImpl<$Res> extends _$EntryDtoCopyWithImpl<$Res>
@@ -81,19 +96,24 @@ class __$EntryDtoCopyWithImpl<$Res> extends _$EntryDtoCopyWithImpl<$Res>
   $Res call({
     Object etymologies = freezed,
     Object senses = freezed,
+    Object pronunciations = freezed,
   }) {
     return _then(_EntryDto(
       etymologies: etymologies == freezed
           ? _value.etymologies
           : etymologies as List<String>,
       senses: senses == freezed ? _value.senses : senses as List<SenseDto>,
+      pronunciations: pronunciations == freezed
+          ? _value.pronunciations
+          : pronunciations as List<PronunciationDto>,
     ));
   }
 }
 
 @JsonSerializable()
 class _$_EntryDto implements _EntryDto {
-  const _$_EntryDto({this.etymologies, @required this.senses})
+  const _$_EntryDto(
+      {this.etymologies, @required this.senses, this.pronunciations})
       : assert(senses != null);
 
   factory _$_EntryDto.fromJson(Map<String, dynamic> json) =>
@@ -103,10 +123,12 @@ class _$_EntryDto implements _EntryDto {
   final List<String> etymologies;
   @override
   final List<SenseDto> senses;
+  @override
+  final List<PronunciationDto> pronunciations;
 
   @override
   String toString() {
-    return 'EntryDto(etymologies: $etymologies, senses: $senses)';
+    return 'EntryDto(etymologies: $etymologies, senses: $senses, pronunciations: $pronunciations)';
   }
 
   @override
@@ -117,14 +139,18 @@ class _$_EntryDto implements _EntryDto {
                 const DeepCollectionEquality()
                     .equals(other.etymologies, etymologies)) &&
             (identical(other.senses, senses) ||
-                const DeepCollectionEquality().equals(other.senses, senses)));
+                const DeepCollectionEquality().equals(other.senses, senses)) &&
+            (identical(other.pronunciations, pronunciations) ||
+                const DeepCollectionEquality()
+                    .equals(other.pronunciations, pronunciations)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(etymologies) ^
-      const DeepCollectionEquality().hash(senses);
+      const DeepCollectionEquality().hash(senses) ^
+      const DeepCollectionEquality().hash(pronunciations);
 
   @override
   _$EntryDtoCopyWith<_EntryDto> get copyWith =>
@@ -139,7 +165,8 @@ class _$_EntryDto implements _EntryDto {
 abstract class _EntryDto implements EntryDto {
   const factory _EntryDto(
       {List<String> etymologies,
-      @required List<SenseDto> senses}) = _$_EntryDto;
+      @required List<SenseDto> senses,
+      List<PronunciationDto> pronunciations}) = _$_EntryDto;
 
   factory _EntryDto.fromJson(Map<String, dynamic> json) = _$_EntryDto.fromJson;
 
@@ -147,6 +174,8 @@ abstract class _EntryDto implements EntryDto {
   List<String> get etymologies;
   @override
   List<SenseDto> get senses;
+  @override
+  List<PronunciationDto> get pronunciations;
   @override
   _$EntryDtoCopyWith<_EntryDto> get copyWith;
 }

@@ -18,13 +18,17 @@ class _$SenseTearOff {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<IdText> registers}) {
+      KtList<IdText> registers,
+      KtList<IdText> regions,
+      KtList<String> crossReferenceMarkers}) {
     return _Sense(
       definitions: definitions,
       notes: notes,
       examples: examples,
       subsenses: subsenses,
       registers: registers,
+      regions: regions,
+      crossReferenceMarkers: crossReferenceMarkers,
     );
   }
 }
@@ -38,6 +42,8 @@ mixin _$Sense {
   KtList<Example> get examples;
   KtList<Sense> get subsenses;
   KtList<IdText> get registers;
+  KtList<IdText> get regions;
+  KtList<String> get crossReferenceMarkers;
 
   $SenseCopyWith<Sense> get copyWith;
 }
@@ -50,7 +56,9 @@ abstract class $SenseCopyWith<$Res> {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<IdText> registers});
+      KtList<IdText> registers,
+      KtList<IdText> regions,
+      KtList<String> crossReferenceMarkers});
 }
 
 class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
@@ -67,6 +75,8 @@ class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
     Object examples = freezed,
     Object subsenses = freezed,
     Object registers = freezed,
+    Object regions = freezed,
+    Object crossReferenceMarkers = freezed,
   }) {
     return _then(_value.copyWith(
       definitions: definitions == freezed
@@ -79,6 +89,10 @@ class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
           subsenses == freezed ? _value.subsenses : subsenses as KtList<Sense>,
       registers:
           registers == freezed ? _value.registers : registers as KtList<IdText>,
+      regions: regions == freezed ? _value.regions : regions as KtList<IdText>,
+      crossReferenceMarkers: crossReferenceMarkers == freezed
+          ? _value.crossReferenceMarkers
+          : crossReferenceMarkers as KtList<String>,
     ));
   }
 }
@@ -92,7 +106,9 @@ abstract class _$SenseCopyWith<$Res> implements $SenseCopyWith<$Res> {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<IdText> registers});
+      KtList<IdText> registers,
+      KtList<IdText> regions,
+      KtList<String> crossReferenceMarkers});
 }
 
 class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
@@ -110,6 +126,8 @@ class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
     Object examples = freezed,
     Object subsenses = freezed,
     Object registers = freezed,
+    Object regions = freezed,
+    Object crossReferenceMarkers = freezed,
   }) {
     return _then(_Sense(
       definitions: definitions == freezed
@@ -122,6 +140,10 @@ class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
           subsenses == freezed ? _value.subsenses : subsenses as KtList<Sense>,
       registers:
           registers == freezed ? _value.registers : registers as KtList<IdText>,
+      regions: regions == freezed ? _value.regions : regions as KtList<IdText>,
+      crossReferenceMarkers: crossReferenceMarkers == freezed
+          ? _value.crossReferenceMarkers
+          : crossReferenceMarkers as KtList<String>,
     ));
   }
 }
@@ -132,7 +154,9 @@ class _$_Sense implements _Sense {
       this.notes,
       this.examples,
       this.subsenses,
-      this.registers});
+      this.registers,
+      this.regions,
+      this.crossReferenceMarkers});
 
   @override
   final KtList<String> definitions;
@@ -144,10 +168,14 @@ class _$_Sense implements _Sense {
   final KtList<Sense> subsenses;
   @override
   final KtList<IdText> registers;
+  @override
+  final KtList<IdText> regions;
+  @override
+  final KtList<String> crossReferenceMarkers;
 
   @override
   String toString() {
-    return 'Sense(definitions: $definitions, notes: $notes, examples: $examples, subsenses: $subsenses, registers: $registers)';
+    return 'Sense(definitions: $definitions, notes: $notes, examples: $examples, subsenses: $subsenses, registers: $registers, regions: $regions, crossReferenceMarkers: $crossReferenceMarkers)';
   }
 
   @override
@@ -167,7 +195,13 @@ class _$_Sense implements _Sense {
                     .equals(other.subsenses, subsenses)) &&
             (identical(other.registers, registers) ||
                 const DeepCollectionEquality()
-                    .equals(other.registers, registers)));
+                    .equals(other.registers, registers)) &&
+            (identical(other.regions, regions) ||
+                const DeepCollectionEquality()
+                    .equals(other.regions, regions)) &&
+            (identical(other.crossReferenceMarkers, crossReferenceMarkers) ||
+                const DeepCollectionEquality().equals(
+                    other.crossReferenceMarkers, crossReferenceMarkers)));
   }
 
   @override
@@ -177,7 +211,9 @@ class _$_Sense implements _Sense {
       const DeepCollectionEquality().hash(notes) ^
       const DeepCollectionEquality().hash(examples) ^
       const DeepCollectionEquality().hash(subsenses) ^
-      const DeepCollectionEquality().hash(registers);
+      const DeepCollectionEquality().hash(registers) ^
+      const DeepCollectionEquality().hash(regions) ^
+      const DeepCollectionEquality().hash(crossReferenceMarkers);
 
   @override
   _$SenseCopyWith<_Sense> get copyWith =>
@@ -190,7 +226,9 @@ abstract class _Sense implements Sense {
       KtList<TextType> notes,
       KtList<Example> examples,
       KtList<Sense> subsenses,
-      KtList<IdText> registers}) = _$_Sense;
+      KtList<IdText> registers,
+      KtList<IdText> regions,
+      KtList<String> crossReferenceMarkers}) = _$_Sense;
 
   @override
   KtList<String> get definitions;
@@ -202,6 +240,10 @@ abstract class _Sense implements Sense {
   KtList<Sense> get subsenses;
   @override
   KtList<IdText> get registers;
+  @override
+  KtList<IdText> get regions;
+  @override
+  KtList<String> get crossReferenceMarkers;
   @override
   _$SenseCopyWith<_Sense> get copyWith;
 }

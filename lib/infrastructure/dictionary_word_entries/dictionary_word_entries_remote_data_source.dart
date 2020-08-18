@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_remote_data_source.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/dictionary_word_entries_exception.dart';
+import 'package:dr_words/infrastructure/dictionary_word_entries/dictionary_word_entries_exception.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/headword_entry_dto.dart';
 import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
 import 'package:dr_words/injection.dart';
@@ -23,7 +23,7 @@ class DictionaryWordEntriesRemoteDataSource implements IDictionaryWordEntriesRem
   Future<KtList<HeadwordEntryDto>> getWordEntries(DictionaryWord word) async {
     final headers = accountDetails.oxfordAPIDetails['developer'] as Map<String, String>;
 
-    final response = await dio.get('https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/${word.id}',
+    final response = await dio.get('https://od-api.oxforddictionaries.com/api/v2/entries/en-us/${word.id}',
         options: Options(headers: headers));
 
     if (response.statusCode == 200) {

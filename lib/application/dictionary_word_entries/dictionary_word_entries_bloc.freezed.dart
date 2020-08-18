@@ -14,7 +14,7 @@ class _$DictionaryWordEntriesEventTearOff {
 
 // ignore: unused_element
   _DictionaryWordEntriesEventGetWordEntries getWordEntries(
-      {DictionaryWord word}) {
+      {@required DictionaryWord word}) {
     return _DictionaryWordEntriesEventGetWordEntries(
       word: word,
     );
@@ -125,7 +125,8 @@ class __$DictionaryWordEntriesEventGetWordEntriesCopyWithImpl<$Res>
 
 class _$_DictionaryWordEntriesEventGetWordEntries
     implements _DictionaryWordEntriesEventGetWordEntries {
-  const _$_DictionaryWordEntriesEventGetWordEntries({this.word});
+  const _$_DictionaryWordEntriesEventGetWordEntries({@required this.word})
+      : assert(word != null);
 
   @override
   final DictionaryWord word;
@@ -202,7 +203,8 @@ class _$_DictionaryWordEntriesEventGetWordEntries
 abstract class _DictionaryWordEntriesEventGetWordEntries
     implements DictionaryWordEntriesEvent {
   const factory _DictionaryWordEntriesEventGetWordEntries(
-      {DictionaryWord word}) = _$_DictionaryWordEntriesEventGetWordEntries;
+          {@required DictionaryWord word}) =
+      _$_DictionaryWordEntriesEventGetWordEntries;
 
   @override
   DictionaryWord get word;

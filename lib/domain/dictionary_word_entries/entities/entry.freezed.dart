@@ -13,10 +13,14 @@ class _$EntryTearOff {
   const _$EntryTearOff();
 
 // ignore: unused_element
-  _Entry call({KtList<String> etymologies, @required KtList<Sense> senses}) {
+  _Entry call(
+      {KtList<String> etymologies,
+      @required KtList<Sense> senses,
+      KtList<Pronunciation> pronunciations}) {
     return _Entry(
       etymologies: etymologies,
       senses: senses,
+      pronunciations: pronunciations,
     );
   }
 }
@@ -27,6 +31,7 @@ const $Entry = _$EntryTearOff();
 mixin _$Entry {
   KtList<String> get etymologies;
   KtList<Sense> get senses;
+  KtList<Pronunciation> get pronunciations;
 
   $EntryCopyWith<Entry> get copyWith;
 }
@@ -34,7 +39,10 @@ mixin _$Entry {
 abstract class $EntryCopyWith<$Res> {
   factory $EntryCopyWith(Entry value, $Res Function(Entry) then) =
       _$EntryCopyWithImpl<$Res>;
-  $Res call({KtList<String> etymologies, KtList<Sense> senses});
+  $Res call(
+      {KtList<String> etymologies,
+      KtList<Sense> senses,
+      KtList<Pronunciation> pronunciations});
 }
 
 class _$EntryCopyWithImpl<$Res> implements $EntryCopyWith<$Res> {
@@ -48,12 +56,16 @@ class _$EntryCopyWithImpl<$Res> implements $EntryCopyWith<$Res> {
   $Res call({
     Object etymologies = freezed,
     Object senses = freezed,
+    Object pronunciations = freezed,
   }) {
     return _then(_value.copyWith(
       etymologies: etymologies == freezed
           ? _value.etymologies
           : etymologies as KtList<String>,
       senses: senses == freezed ? _value.senses : senses as KtList<Sense>,
+      pronunciations: pronunciations == freezed
+          ? _value.pronunciations
+          : pronunciations as KtList<Pronunciation>,
     ));
   }
 }
@@ -62,7 +74,10 @@ abstract class _$EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
   factory _$EntryCopyWith(_Entry value, $Res Function(_Entry) then) =
       __$EntryCopyWithImpl<$Res>;
   @override
-  $Res call({KtList<String> etymologies, KtList<Sense> senses});
+  $Res call(
+      {KtList<String> etymologies,
+      KtList<Sense> senses,
+      KtList<Pronunciation> pronunciations});
 }
 
 class __$EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res>
@@ -77,28 +92,34 @@ class __$EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res>
   $Res call({
     Object etymologies = freezed,
     Object senses = freezed,
+    Object pronunciations = freezed,
   }) {
     return _then(_Entry(
       etymologies: etymologies == freezed
           ? _value.etymologies
           : etymologies as KtList<String>,
       senses: senses == freezed ? _value.senses : senses as KtList<Sense>,
+      pronunciations: pronunciations == freezed
+          ? _value.pronunciations
+          : pronunciations as KtList<Pronunciation>,
     ));
   }
 }
 
 class _$_Entry implements _Entry {
-  const _$_Entry({this.etymologies, @required this.senses})
+  const _$_Entry({this.etymologies, @required this.senses, this.pronunciations})
       : assert(senses != null);
 
   @override
   final KtList<String> etymologies;
   @override
   final KtList<Sense> senses;
+  @override
+  final KtList<Pronunciation> pronunciations;
 
   @override
   String toString() {
-    return 'Entry(etymologies: $etymologies, senses: $senses)';
+    return 'Entry(etymologies: $etymologies, senses: $senses, pronunciations: $pronunciations)';
   }
 
   @override
@@ -109,14 +130,18 @@ class _$_Entry implements _Entry {
                 const DeepCollectionEquality()
                     .equals(other.etymologies, etymologies)) &&
             (identical(other.senses, senses) ||
-                const DeepCollectionEquality().equals(other.senses, senses)));
+                const DeepCollectionEquality().equals(other.senses, senses)) &&
+            (identical(other.pronunciations, pronunciations) ||
+                const DeepCollectionEquality()
+                    .equals(other.pronunciations, pronunciations)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(etymologies) ^
-      const DeepCollectionEquality().hash(senses);
+      const DeepCollectionEquality().hash(senses) ^
+      const DeepCollectionEquality().hash(pronunciations);
 
   @override
   _$EntryCopyWith<_Entry> get copyWith =>
@@ -125,12 +150,16 @@ class _$_Entry implements _Entry {
 
 abstract class _Entry implements Entry {
   const factory _Entry(
-      {KtList<String> etymologies, @required KtList<Sense> senses}) = _$_Entry;
+      {KtList<String> etymologies,
+      @required KtList<Sense> senses,
+      KtList<Pronunciation> pronunciations}) = _$_Entry;
 
   @override
   KtList<String> get etymologies;
   @override
   KtList<Sense> get senses;
+  @override
+  KtList<Pronunciation> get pronunciations;
   @override
   _$EntryCopyWith<_Entry> get copyWith;
 }
