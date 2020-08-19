@@ -1,4 +1,4 @@
-part of 'dictionary_word_entries_bloc.dart';
+part of 'dictionary_word_entries_cubit.dart';
 
 @freezed
 abstract class DictionaryWordEntriesState with _$DictionaryWordEntriesState {

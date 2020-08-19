@@ -31,14 +31,14 @@ dependencies:
   # For OS-specific directory paths
   shared_preferences: ^0.5.8
   shared_preferences_web: ^0.1.2+7
-  injectable: ^1.0.2
+  injectable: ^1.0.4
   flutter_svg: ^0.17.4
-  auto_route: ^0.6.6
-  freezed_annotation: ^0.11.0
+  auto_route: ^0.6.7
+  freezed_annotation: ^0.11.0+1
   kt_dart: ^0.7.0+1
-  dio: ^3.0.9
+  dio: ^3.0.10
   dio_http_cache: ^0.2.8
-  flutter_hooks: ^0.12.0
+  flutter_hooks: ^0.13.1
   enum_to_string: ^1.0.9
   audioplayer: 0.8.1
   audioplayer_web: 0.7.1
@@ -53,13 +53,13 @@ dev_dependencies:
     sdk: flutter
   faker: ^1.2.1
   mockito: ^4.1.1
-  bloc_test: ^7.0.0
+  bloc_test: ^7.0.1
   build_runner: ^1.10.0
-  injectable_generator: ^1.0.2
+  injectable_generator: ^1.0.4
   lint: ^1.2.0
-  auto_route_generator: ^0.6.6
-  freezed: ^0.11.4
-  json_serializable: ^3.3.0
+  auto_route_generator: ^0.6.8
+  freezed: ^0.11.5
+  json_serializable: ^3.4.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

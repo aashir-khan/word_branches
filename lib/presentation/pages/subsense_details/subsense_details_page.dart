@@ -25,7 +25,7 @@ class SubsenseDetailsPage extends HookWidget {
     final audioFile = headwordEntry.audioFile;
 
     widgets.add(Tooltip(
-      // onPressed: () {},
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       message: 'This screen lists all the subsenses for the chosen sense.',
       child: Padding(
         padding: const EdgeInsets.only(right: 8),

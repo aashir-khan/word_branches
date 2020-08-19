@@ -55,7 +55,17 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
       bloc.add(DictionaryWordSearchEvent.modifyQuery(query: query));
     }
 
-    final blocBuilder = BlocBuilder<DictionaryWordSearchBloc, DictionaryWordSearchState>(
+    return BlocConsumer<DictionaryWordSearchBloc, DictionaryWordSearchState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          newWordAddedToRecentlySearchedWords: (addedWord) => close(context, addedWord),
+          orElse: () => null,
+        );
+      },
+      listenWhen: (_, currentState) => currentState.maybeWhen(
+        newWordAddedToRecentlySearchedWords: (_) => true,
+        orElse: () => false,
+      ),
       builder: (context, state) {
         return state.when(
           initial: () => const Center(
@@ -119,20 +129,6 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
           ),
         );
       },
-    );
-
-    return BlocListener<DictionaryWordSearchBloc, DictionaryWordSearchState>(
-      listener: (context, state) {
-        state.maybeWhen(
-          newWordAddedToRecentlySearchedWords: (addedWord) => close(context, addedWord),
-          orElse: () => null,
-        );
-      },
-      listenWhen: (_, currentState) => currentState.maybeWhen(
-        newWordAddedToRecentlySearchedWords: (_) => true,
-        orElse: () => false,
-      ),
-      child: blocBuilder,
     );
   }
 }

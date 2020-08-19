@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/application/dictionary_word_entries/dictionary_word_entries_bloc.dart';
+import 'package:dr_words/application/dictionary_word_entries/dictionary_word_entries_cubit.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
@@ -18,9 +18,8 @@ class HeadwordEntriesPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) =>
-          getIt<DictionaryWordEntriesBloc>()..add(DictionaryWordEntriesEvent.getWordEntries(word: wordSelected)),
-      child: BlocBuilder<DictionaryWordEntriesBloc, DictionaryWordEntriesState>(
+      create: (_) => getIt<DictionaryWordEntriesCubit>()..getWordEntries(wordSelected),
+      child: BlocBuilder<DictionaryWordEntriesCubit, DictionaryWordEntriesState>(
         builder: (_, state) {
           return Scaffold(
             appBar: AppBar(
@@ -36,6 +35,7 @@ class HeadwordEntriesPage extends HookWidget {
               ),
               actions: <Widget>[
                 Tooltip(
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
                   message: 'A headword entry is a dictionary entry and all the data related to it',
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),

@@ -8,28 +8,28 @@ import 'package:audioplayer/audioplayer.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:injectable/get_it_helper.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'application/dictionary_word_entries/dictionary_word_entries_bloc.dart';
+import 'infrastructure/internal/account_details/account_details.dart';
+import 'infrastructure/internal/account_details/account_details_impl.dart';
+import 'application/dictionary_word_entries/dictionary_word_entries_cubit.dart';
+import 'infrastructure/dictionary_word_entries/dictionary_word_entries_remote_data_source.dart';
+import 'infrastructure/dictionary_word_entries/dictionary_word_entries_remote_data_source_fake.dart';
+import 'infrastructure/dictionary_word_entries/dictionary_word_entries_repository.dart';
 import 'application/dictionary_word_search/dictionary_word_search_bloc.dart';
-import 'domain/core/i_network_info.dart';
+import 'infrastructure/dictionary_word_search/dictionary_word_search_local_data_source.dart';
+import 'infrastructure/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
+import 'infrastructure/dictionary_word_search/dictionary_word_search_remote_data_source_fake.dart';
+import 'infrastructure/dictionary_word_search/dictionary_word_search_repository.dart';
 import 'domain/dictionary_word_entries/i_dictionary_word_entries_remote_data_source.dart';
 import 'domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
 import 'domain/dictionary_word_search/i_dictionary_word_search_local_data_source.dart';
 import 'domain/dictionary_word_search/i_dictionary_word_search_remote_data_source.dart';
 import 'domain/dictionary_word_search/i_dictionary_word_search_repository.dart';
-import 'infrastructure/core/network_info_impl.dart';
-import 'infrastructure/dictionary_word_entries/dictionary_word_entries_remote_data_source.dart';
-import 'infrastructure/dictionary_word_entries/dictionary_word_entries_remote_data_source_fake.dart';
-import 'infrastructure/dictionary_word_entries/dictionary_word_entries_repository.dart';
-import 'infrastructure/dictionary_word_search/dictionary_word_search_local_data_source.dart';
-import 'infrastructure/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
-import 'infrastructure/dictionary_word_search/dictionary_word_search_remote_data_source_fake.dart';
-import 'infrastructure/dictionary_word_search/dictionary_word_search_repository.dart';
-import 'infrastructure/internal/account_details/account_details.dart';
-import 'infrastructure/internal/account_details/account_details_impl.dart';
+import 'domain/core/i_network_info.dart';
 import 'injectable_module.dart';
+import 'infrastructure/core/network_info_impl.dart';
 
 /// Environment names
 const _production = 'production';
@@ -38,8 +38,12 @@ const _development = 'development';
 /// adds generated dependencies
 /// to the provided [GetIt] instance
 
-void $initGetIt(GetIt g, {String environment}) {
-  final gh = GetItHelper(g, environment);
+GetIt $initGetIt(
+  GetIt get, {
+  String environment,
+  EnvironmentFilter environmentFilter,
+}) {
+  final gh = GetItHelper(get, environment, environmentFilter);
   final injectableModule = _$InjectableModule();
   gh.lazySingleton<AccountDetails>(() => AccountDetailsImpl(),
       registerFor: {_production});
@@ -49,39 +53,41 @@ void $initGetIt(GetIt g, {String environment}) {
   gh.factory<Dio>(() => injectableModule.dio);
   gh.lazySingleton<IDictionaryWordEntriesRemoteDataSource>(
       () => DictionaryWordEntriesRemoteDataSource(
-          accountDetails: g<AccountDetails>(), dio: g<Dio>()),
+          accountDetails: get<AccountDetails>(), dio: get<Dio>()),
       registerFor: {_production});
   gh.lazySingleton<IDictionaryWordEntriesRemoteDataSource>(
       () => DictionaryWordEntriesRemoteDataSourceFake(
-          sharedPreferences: g<SharedPreferences>()),
+          sharedPreferences: get<SharedPreferences>()),
       registerFor: {_development});
   gh.lazySingleton<IDictionaryWordSearchLocalDataSource>(() =>
       DictionaryWordSearchLocalDataSource(
-          sharedPreferences: g<SharedPreferences>()));
+          sharedPreferences: get<SharedPreferences>()));
   gh.lazySingleton<IDictionaryWordSearchRemoteDataSource>(
       () => DictionaryWordSearchRemoteDataSource(
-          dio: g<Dio>(), accountDetails: g<AccountDetails>()),
+          dio: get<Dio>(), accountDetails: get<AccountDetails>()),
       registerFor: {_production});
   gh.lazySingleton<IDictionaryWordSearchRemoteDataSource>(
       () => DictionaryWordSearchRemoteDataSourceFake(
-          sharedPreferences: g<SharedPreferences>()),
+          sharedPreferences: get<SharedPreferences>()),
       registerFor: {_development});
   gh.lazySingleton<INetworkInfo>(
-      () => NetworkInfoImpl(g<DataConnectionChecker>()));
+      () => NetworkInfoImpl(get<DataConnectionChecker>()));
   gh.lazySingleton<IDictionaryWordEntriesRepository>(() =>
       DictionaryWordEntriesRepository(
-          networkInfo: g<INetworkInfo>(),
-          remoteDataSource: g<IDictionaryWordEntriesRemoteDataSource>()));
+          networkInfo: get<INetworkInfo>(),
+          remoteDataSource: get<IDictionaryWordEntriesRemoteDataSource>()));
   gh.lazySingleton<IDictionaryWordSearchRepository>(
       () => DictionaryWordSearchRepository(
-            remoteDataSource: g<IDictionaryWordSearchRemoteDataSource>(),
-            localDataSource: g<IDictionaryWordSearchLocalDataSource>(),
-            networkInfo: g<INetworkInfo>(),
+            remoteDataSource: get<IDictionaryWordSearchRemoteDataSource>(),
+            localDataSource: get<IDictionaryWordSearchLocalDataSource>(),
+            networkInfo: get<INetworkInfo>(),
           ));
-  gh.factory<DictionaryWordEntriesBloc>(() => DictionaryWordEntriesBloc(
-      dictionaryWordEntriesRepository: g<IDictionaryWordEntriesRepository>()));
+  gh.factory<DictionaryWordEntriesCubit>(() => DictionaryWordEntriesCubit(
+      dictionaryWordEntriesRepository:
+          get<IDictionaryWordEntriesRepository>()));
   gh.factory<DictionaryWordSearchBloc>(() => DictionaryWordSearchBloc(
-      dictionaryWordSearchRepository: g<IDictionaryWordSearchRepository>()));
+      dictionaryWordSearchRepository: get<IDictionaryWordSearchRepository>()));
+  return get;
 }
 
 class _$InjectableModule extends InjectableModule {}

@@ -60,14 +60,15 @@ class Router extends RouterBase {
       );
     },
     HeadwordEntriesPage: (data) {
-      var args = data.getArgs<HeadwordEntriesPageArguments>(nullOk: false);
+      final args = data.getArgs<HeadwordEntriesPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
         builder: (context) => HeadwordEntriesPage(args.wordSelected),
         settings: data,
       );
     },
     HeadwordEntryDetailsPage: (data) {
-      var args = data.getArgs<HeadwordEntryDetailsPageArguments>(nullOk: false);
+      final args =
+          data.getArgs<HeadwordEntryDetailsPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
         builder: (context) => HeadwordEntryDetailsPage(
           headwordEntry: args.headwordEntry,
@@ -77,7 +78,7 @@ class Router extends RouterBase {
       );
     },
     SubsenseDetailsPage: (data) {
-      var args = data.getArgs<SubsenseDetailsPageArguments>(nullOk: false);
+      final args = data.getArgs<SubsenseDetailsPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
         builder: (context) => SubsenseDetailsPage(
           key: args.key,

@@ -21,7 +21,7 @@ class HeadwordEntryDetailsPage extends HookWidget {
     final audioFile = headwordEntry.audioFile;
 
     widgets.add(Tooltip(
-      // onPressed: () {},
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       message:
           'This screen lists all the lexical entries (a grouping of various senses in a specific language, and a lexical category that relates to a word) for the current headword entry.',
       child: Padding(
