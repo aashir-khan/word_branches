@@ -16,12 +16,12 @@ part 'dictionary_word_search_state.dart';
 
 part 'dictionary_word_search_bloc.freezed.dart';
 
-const serverFailureMessage = 'An error occurred trying to fetch search results';
-const networkFailureMessage = 'Seems like you are not connected to the Internet';
-const noResultsFoundMessage = 'No entry was found matching the query searched';
-const localDatabaseProcessingFailureMessage =
+const _serverFailureMessage = 'An error occurred trying to fetch search results';
+const _networkFailureMessage = 'Seems like you are not connected to the Internet';
+const _noResultsFoundMessage = 'No entry was found matching the query searched';
+const _localDatabaseProcessingFailureMessage =
     'An error occurred trying to access/store a recently searched word on your device for retrieving';
-const unxexpectedFailureMessage =
+const _unexpectedFailureMessage =
     'Unexpected error occurred while trying to get search results, please contact support';
 
 @injectable
@@ -59,7 +59,7 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
 
         yield* resultEither.fold(
           (failure) async* {
-            yield const DictionaryWordSearchState.loadFailure(message: localDatabaseProcessingFailureMessage);
+            yield const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage);
           },
           (addedWord) async* {
             yield DictionaryWordSearchState.newWordAddedToRecentlySearchedWords(addedWord: addedWord);
@@ -72,7 +72,7 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
 
         yield* resultEither.fold(
           (failure) async* {
-            yield const DictionaryWordSearchState.loadFailure(message: localDatabaseProcessingFailureMessage);
+            yield const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage);
           },
           (results) async* {
             yield results.isEmpty()
@@ -100,9 +100,9 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
 
 String _mapRemoteFailureToMessage(DictionaryWordSearchRemoteFailure failure) {
   return failure.when(
-    networkError: () => networkFailureMessage,
-    noResultsFound: () => noResultsFoundMessage,
-    serverError: () => serverFailureMessage,
-    unexpected: () => unxexpectedFailureMessage,
+    networkError: () => _networkFailureMessage,
+    noResultsFound: () => _noResultsFoundMessage,
+    serverError: () => _serverFailureMessage,
+    unexpected: () => _unexpectedFailureMessage,
   );
 }
