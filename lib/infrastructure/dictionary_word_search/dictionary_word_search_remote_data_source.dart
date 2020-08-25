@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_remote_data_source.dart';
 import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
-import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_search_exception.dart';
+import 'package:dr_words/infrastructure/dictionary_word_search/dictionary_word_search_remote_exception.dart';
 import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
 import 'package:dr_words/injection.dart';
 import 'package:injectable/injectable.dart';
@@ -33,11 +33,11 @@ class DictionaryWordSearchRemoteDataSource implements IDictionaryWordSearchRemot
       response.data['results'].forEach((word) => words.add(DictionaryWordDto.fromJson(word as Map<String, dynamic>)));
       return words.toImmutableList();
     } else if (response.statusCode == 404) {
-      throw const DictionaryWordSearchException.noResultsFound();
+      throw const DictionaryWordSearchRemoteException.noResultsFound();
     } else if (response.statusCode == 500) {
-      throw const DictionaryWordSearchException.serverError();
+      throw const DictionaryWordSearchRemoteException.serverError();
     } else {
-      throw const DictionaryWordSearchException.unexpected();
+      throw const DictionaryWordSearchRemoteException.unexpected();
     }
   }
 }

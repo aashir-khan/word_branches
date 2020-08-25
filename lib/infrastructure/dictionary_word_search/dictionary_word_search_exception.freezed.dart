@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'dictionary_word_search_exception.dart';
+part of 'dictionary_word_search_remote_exception.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,29 +9,29 @@ part of 'dictionary_word_search_exception.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$DictionaryWordSearchExceptionTearOff {
-  const _$DictionaryWordSearchExceptionTearOff();
+class _$DictionaryWordSearchRemoteExceptionTearOff {
+  const _$DictionaryWordSearchRemoteExceptionTearOff();
 
 // ignore: unused_element
-  _DictionaryWordSearchExceptionNoResultsFound noResultsFound() {
-    return const _DictionaryWordSearchExceptionNoResultsFound();
+  _DictionaryWordSearchRemoteExceptionNoResultsFound noResultsFound() {
+    return const _DictionaryWordSearchRemoteExceptionNoResultsFound();
   }
 
 // ignore: unused_element
-  _DictionaryWordSearchExceptionServerError serverError() {
-    return const _DictionaryWordSearchExceptionServerError();
+  _DictionaryWordSearchRemoteExceptionServerError serverError() {
+    return const _DictionaryWordSearchRemoteExceptionServerError();
   }
 
 // ignore: unused_element
-  _DictionaryWordSearchExceptionUnexpected unexpected() {
-    return const _DictionaryWordSearchExceptionUnexpected();
+  _DictionaryWordSearchRemoteExceptionUnexpected unexpected() {
+    return const _DictionaryWordSearchRemoteExceptionUnexpected();
   }
 }
 
 // ignore: unused_element
-const $DictionaryWordSearchException = _$DictionaryWordSearchExceptionTearOff();
+const $DictionaryWordSearchRemoteException = _$DictionaryWordSearchRemoteExceptionTearOff();
 
-mixin _$DictionaryWordSearchException {
+mixin _$DictionaryWordSearchRemoteException {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result noResultsFound(),
@@ -47,72 +47,66 @@ mixin _$DictionaryWordSearchException {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result noResultsFound(
-            _DictionaryWordSearchExceptionNoResultsFound value),
-    @required
-        Result serverError(_DictionaryWordSearchExceptionServerError value),
-    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
-    Result serverError(_DictionaryWordSearchExceptionServerError value),
-    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
     @required Result orElse(),
   });
 }
 
-abstract class $DictionaryWordSearchExceptionCopyWith<$Res> {
-  factory $DictionaryWordSearchExceptionCopyWith(
-          DictionaryWordSearchException value,
-          $Res Function(DictionaryWordSearchException) then) =
-      _$DictionaryWordSearchExceptionCopyWithImpl<$Res>;
+abstract class $DictionaryWordSearchRemoteExceptionCopyWith<$Res> {
+  factory $DictionaryWordSearchRemoteExceptionCopyWith(
+          DictionaryWordSearchRemoteException value, $Res Function(DictionaryWordSearchRemoteException) then) =
+      _$DictionaryWordSearchRemoteExceptionCopyWithImpl<$Res>;
 }
 
-class _$DictionaryWordSearchExceptionCopyWithImpl<$Res>
-    implements $DictionaryWordSearchExceptionCopyWith<$Res> {
-  _$DictionaryWordSearchExceptionCopyWithImpl(this._value, this._then);
+class _$DictionaryWordSearchRemoteExceptionCopyWithImpl<$Res>
+    implements $DictionaryWordSearchRemoteExceptionCopyWith<$Res> {
+  _$DictionaryWordSearchRemoteExceptionCopyWithImpl(this._value, this._then);
 
-  final DictionaryWordSearchException _value;
+  final DictionaryWordSearchRemoteException _value;
   // ignore: unused_field
-  final $Res Function(DictionaryWordSearchException) _then;
+  final $Res Function(DictionaryWordSearchRemoteException) _then;
 }
 
-abstract class _$DictionaryWordSearchExceptionNoResultsFoundCopyWith<$Res> {
-  factory _$DictionaryWordSearchExceptionNoResultsFoundCopyWith(
-          _DictionaryWordSearchExceptionNoResultsFound value,
-          $Res Function(_DictionaryWordSearchExceptionNoResultsFound) then) =
-      __$DictionaryWordSearchExceptionNoResultsFoundCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchRemoteExceptionNoResultsFoundCopyWith<$Res> {
+  factory _$DictionaryWordSearchRemoteExceptionNoResultsFoundCopyWith(
+          _DictionaryWordSearchRemoteExceptionNoResultsFound value,
+          $Res Function(_DictionaryWordSearchRemoteExceptionNoResultsFound) then) =
+      __$DictionaryWordSearchRemoteExceptionNoResultsFoundCopyWithImpl<$Res>;
 }
 
-class __$DictionaryWordSearchExceptionNoResultsFoundCopyWithImpl<$Res>
-    extends _$DictionaryWordSearchExceptionCopyWithImpl<$Res>
-    implements _$DictionaryWordSearchExceptionNoResultsFoundCopyWith<$Res> {
-  __$DictionaryWordSearchExceptionNoResultsFoundCopyWithImpl(
-      _DictionaryWordSearchExceptionNoResultsFound _value,
-      $Res Function(_DictionaryWordSearchExceptionNoResultsFound) _then)
-      : super(_value,
-            (v) => _then(v as _DictionaryWordSearchExceptionNoResultsFound));
+class __$DictionaryWordSearchRemoteExceptionNoResultsFoundCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchRemoteExceptionCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchRemoteExceptionNoResultsFoundCopyWith<$Res> {
+  __$DictionaryWordSearchRemoteExceptionNoResultsFoundCopyWithImpl(
+      _DictionaryWordSearchRemoteExceptionNoResultsFound _value,
+      $Res Function(_DictionaryWordSearchRemoteExceptionNoResultsFound) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteExceptionNoResultsFound));
 
   @override
-  _DictionaryWordSearchExceptionNoResultsFound get _value =>
-      super._value as _DictionaryWordSearchExceptionNoResultsFound;
+  _DictionaryWordSearchRemoteExceptionNoResultsFound get _value =>
+      super._value as _DictionaryWordSearchRemoteExceptionNoResultsFound;
 }
 
-class _$_DictionaryWordSearchExceptionNoResultsFound
-    implements _DictionaryWordSearchExceptionNoResultsFound {
-  const _$_DictionaryWordSearchExceptionNoResultsFound();
+class _$_DictionaryWordSearchRemoteExceptionNoResultsFound
+    implements _DictionaryWordSearchRemoteExceptionNoResultsFound {
+  const _$_DictionaryWordSearchRemoteExceptionNoResultsFound();
 
   @override
   String toString() {
-    return 'DictionaryWordSearchException.noResultsFound()';
+    return 'DictionaryWordSearchRemoteException.noResultsFound()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _DictionaryWordSearchExceptionNoResultsFound);
+    return identical(this, other) || (other is _DictionaryWordSearchRemoteExceptionNoResultsFound);
   }
 
   @override
@@ -149,12 +143,9 @@ class _$_DictionaryWordSearchExceptionNoResultsFound
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result noResultsFound(
-            _DictionaryWordSearchExceptionNoResultsFound value),
-    @required
-        Result serverError(_DictionaryWordSearchExceptionServerError value),
-    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
   }) {
     assert(noResultsFound != null);
     assert(serverError != null);
@@ -165,9 +156,9 @@ class _$_DictionaryWordSearchExceptionNoResultsFound
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
-    Result serverError(_DictionaryWordSearchExceptionServerError value),
-    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -178,46 +169,41 @@ class _$_DictionaryWordSearchExceptionNoResultsFound
   }
 }
 
-abstract class _DictionaryWordSearchExceptionNoResultsFound
-    implements DictionaryWordSearchException {
-  const factory _DictionaryWordSearchExceptionNoResultsFound() =
-      _$_DictionaryWordSearchExceptionNoResultsFound;
+abstract class _DictionaryWordSearchRemoteExceptionNoResultsFound implements DictionaryWordSearchRemoteException {
+  const factory _DictionaryWordSearchRemoteExceptionNoResultsFound() =
+      _$_DictionaryWordSearchRemoteExceptionNoResultsFound;
 }
 
-abstract class _$DictionaryWordSearchExceptionServerErrorCopyWith<$Res> {
-  factory _$DictionaryWordSearchExceptionServerErrorCopyWith(
-          _DictionaryWordSearchExceptionServerError value,
-          $Res Function(_DictionaryWordSearchExceptionServerError) then) =
-      __$DictionaryWordSearchExceptionServerErrorCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchRemoteExceptionServerErrorCopyWith<$Res> {
+  factory _$DictionaryWordSearchRemoteExceptionServerErrorCopyWith(
+          _DictionaryWordSearchRemoteExceptionServerError value,
+          $Res Function(_DictionaryWordSearchRemoteExceptionServerError) then) =
+      __$DictionaryWordSearchRemoteExceptionServerErrorCopyWithImpl<$Res>;
 }
 
-class __$DictionaryWordSearchExceptionServerErrorCopyWithImpl<$Res>
-    extends _$DictionaryWordSearchExceptionCopyWithImpl<$Res>
-    implements _$DictionaryWordSearchExceptionServerErrorCopyWith<$Res> {
-  __$DictionaryWordSearchExceptionServerErrorCopyWithImpl(
-      _DictionaryWordSearchExceptionServerError _value,
-      $Res Function(_DictionaryWordSearchExceptionServerError) _then)
-      : super(_value,
-            (v) => _then(v as _DictionaryWordSearchExceptionServerError));
+class __$DictionaryWordSearchRemoteExceptionServerErrorCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchRemoteExceptionCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchRemoteExceptionServerErrorCopyWith<$Res> {
+  __$DictionaryWordSearchRemoteExceptionServerErrorCopyWithImpl(_DictionaryWordSearchRemoteExceptionServerError _value,
+      $Res Function(_DictionaryWordSearchRemoteExceptionServerError) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteExceptionServerError));
 
   @override
-  _DictionaryWordSearchExceptionServerError get _value =>
-      super._value as _DictionaryWordSearchExceptionServerError;
+  _DictionaryWordSearchRemoteExceptionServerError get _value =>
+      super._value as _DictionaryWordSearchRemoteExceptionServerError;
 }
 
-class _$_DictionaryWordSearchExceptionServerError
-    implements _DictionaryWordSearchExceptionServerError {
-  const _$_DictionaryWordSearchExceptionServerError();
+class _$_DictionaryWordSearchRemoteExceptionServerError implements _DictionaryWordSearchRemoteExceptionServerError {
+  const _$_DictionaryWordSearchRemoteExceptionServerError();
 
   @override
   String toString() {
-    return 'DictionaryWordSearchException.serverError()';
+    return 'DictionaryWordSearchRemoteException.serverError()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _DictionaryWordSearchExceptionServerError);
+    return identical(this, other) || (other is _DictionaryWordSearchRemoteExceptionServerError);
   }
 
   @override
@@ -254,12 +240,9 @@ class _$_DictionaryWordSearchExceptionServerError
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result noResultsFound(
-            _DictionaryWordSearchExceptionNoResultsFound value),
-    @required
-        Result serverError(_DictionaryWordSearchExceptionServerError value),
-    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
   }) {
     assert(noResultsFound != null);
     assert(serverError != null);
@@ -270,9 +253,9 @@ class _$_DictionaryWordSearchExceptionServerError
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
-    Result serverError(_DictionaryWordSearchExceptionServerError value),
-    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -283,46 +266,39 @@ class _$_DictionaryWordSearchExceptionServerError
   }
 }
 
-abstract class _DictionaryWordSearchExceptionServerError
-    implements DictionaryWordSearchException {
-  const factory _DictionaryWordSearchExceptionServerError() =
-      _$_DictionaryWordSearchExceptionServerError;
+abstract class _DictionaryWordSearchRemoteExceptionServerError implements DictionaryWordSearchRemoteException {
+  const factory _DictionaryWordSearchRemoteExceptionServerError() = _$_DictionaryWordSearchRemoteExceptionServerError;
 }
 
-abstract class _$DictionaryWordSearchExceptionUnexpectedCopyWith<$Res> {
-  factory _$DictionaryWordSearchExceptionUnexpectedCopyWith(
-          _DictionaryWordSearchExceptionUnexpected value,
-          $Res Function(_DictionaryWordSearchExceptionUnexpected) then) =
-      __$DictionaryWordSearchExceptionUnexpectedCopyWithImpl<$Res>;
+abstract class _$DictionaryWordSearchRemoteExceptionUnexpectedCopyWith<$Res> {
+  factory _$DictionaryWordSearchRemoteExceptionUnexpectedCopyWith(_DictionaryWordSearchRemoteExceptionUnexpected value,
+          $Res Function(_DictionaryWordSearchRemoteExceptionUnexpected) then) =
+      __$DictionaryWordSearchRemoteExceptionUnexpectedCopyWithImpl<$Res>;
 }
 
-class __$DictionaryWordSearchExceptionUnexpectedCopyWithImpl<$Res>
-    extends _$DictionaryWordSearchExceptionCopyWithImpl<$Res>
-    implements _$DictionaryWordSearchExceptionUnexpectedCopyWith<$Res> {
-  __$DictionaryWordSearchExceptionUnexpectedCopyWithImpl(
-      _DictionaryWordSearchExceptionUnexpected _value,
-      $Res Function(_DictionaryWordSearchExceptionUnexpected) _then)
-      : super(_value,
-            (v) => _then(v as _DictionaryWordSearchExceptionUnexpected));
+class __$DictionaryWordSearchRemoteExceptionUnexpectedCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchRemoteExceptionCopyWithImpl<$Res>
+    implements _$DictionaryWordSearchRemoteExceptionUnexpectedCopyWith<$Res> {
+  __$DictionaryWordSearchRemoteExceptionUnexpectedCopyWithImpl(_DictionaryWordSearchRemoteExceptionUnexpected _value,
+      $Res Function(_DictionaryWordSearchRemoteExceptionUnexpected) _then)
+      : super(_value, (v) => _then(v as _DictionaryWordSearchRemoteExceptionUnexpected));
 
   @override
-  _DictionaryWordSearchExceptionUnexpected get _value =>
-      super._value as _DictionaryWordSearchExceptionUnexpected;
+  _DictionaryWordSearchRemoteExceptionUnexpected get _value =>
+      super._value as _DictionaryWordSearchRemoteExceptionUnexpected;
 }
 
-class _$_DictionaryWordSearchExceptionUnexpected
-    implements _DictionaryWordSearchExceptionUnexpected {
-  const _$_DictionaryWordSearchExceptionUnexpected();
+class _$_DictionaryWordSearchRemoteExceptionUnexpected implements _DictionaryWordSearchRemoteExceptionUnexpected {
+  const _$_DictionaryWordSearchRemoteExceptionUnexpected();
 
   @override
   String toString() {
-    return 'DictionaryWordSearchException.unexpected()';
+    return 'DictionaryWordSearchRemoteException.unexpected()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _DictionaryWordSearchExceptionUnexpected);
+    return identical(this, other) || (other is _DictionaryWordSearchRemoteExceptionUnexpected);
   }
 
   @override
@@ -359,12 +335,9 @@ class _$_DictionaryWordSearchExceptionUnexpected
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required
-        Result noResultsFound(
-            _DictionaryWordSearchExceptionNoResultsFound value),
-    @required
-        Result serverError(_DictionaryWordSearchExceptionServerError value),
-    @required Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    @required Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    @required Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    @required Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
   }) {
     assert(noResultsFound != null);
     assert(serverError != null);
@@ -375,9 +348,9 @@ class _$_DictionaryWordSearchExceptionUnexpected
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result noResultsFound(_DictionaryWordSearchExceptionNoResultsFound value),
-    Result serverError(_DictionaryWordSearchExceptionServerError value),
-    Result unexpected(_DictionaryWordSearchExceptionUnexpected value),
+    Result noResultsFound(_DictionaryWordSearchRemoteExceptionNoResultsFound value),
+    Result serverError(_DictionaryWordSearchRemoteExceptionServerError value),
+    Result unexpected(_DictionaryWordSearchRemoteExceptionUnexpected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -388,8 +361,6 @@ class _$_DictionaryWordSearchExceptionUnexpected
   }
 }
 
-abstract class _DictionaryWordSearchExceptionUnexpected
-    implements DictionaryWordSearchException {
-  const factory _DictionaryWordSearchExceptionUnexpected() =
-      _$_DictionaryWordSearchExceptionUnexpected;
+abstract class _DictionaryWordSearchRemoteExceptionUnexpected implements DictionaryWordSearchRemoteException {
+  const factory _DictionaryWordSearchRemoteExceptionUnexpected() = _$_DictionaryWordSearchRemoteExceptionUnexpected;
 }
