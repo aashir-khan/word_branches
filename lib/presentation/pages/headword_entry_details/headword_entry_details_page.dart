@@ -47,11 +47,11 @@ class HeadwordEntryDetailsPage extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: Tooltip(
-          message: headwordEntry.id,
+          message: headwordEntry.wordLabel,
           showDuration: Duration.zero,
           child: Row(
             children: <Widget>[
-              Text(headwordEntry.id, overflow: TextOverflow.ellipsis),
+              Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
             ],
           ),
         ),

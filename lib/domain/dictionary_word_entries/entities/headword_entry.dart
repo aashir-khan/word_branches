@@ -33,4 +33,6 @@ abstract class HeadwordEntry implements _$HeadwordEntry {
 
     return null;
   }
+
+  String get wordLabel => id.replaceAll(RegExp('_'), ' ');
 }

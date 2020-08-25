@@ -8,10 +8,15 @@ abstract class DictionaryWord with _$DictionaryWord {
   const factory DictionaryWord({
     @required String id,
     @required String label,
+    bool isFavorited,
   }) = _DictionaryWord;
 
   factory DictionaryWord.fromFakeData() {
     final fakeLabel = faker.lorem.word();
-    return DictionaryWord(id: fakeLabel, label: fakeLabel);
+    return DictionaryWord(
+      id: fakeLabel,
+      label: fakeLabel,
+      isFavorited: false,
+    );
   }
 }

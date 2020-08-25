@@ -13,10 +13,12 @@ class _$DictionaryWordTearOff {
   const _$DictionaryWordTearOff();
 
 // ignore: unused_element
-  _DictionaryWord call({@required String id, @required String label}) {
+  _DictionaryWord call(
+      {@required String id, @required String label, bool isFavorited}) {
     return _DictionaryWord(
       id: id,
       label: label,
+      isFavorited: isFavorited,
     );
   }
 }
@@ -27,6 +29,7 @@ const $DictionaryWord = _$DictionaryWordTearOff();
 mixin _$DictionaryWord {
   String get id;
   String get label;
+  bool get isFavorited;
 
   $DictionaryWordCopyWith<DictionaryWord> get copyWith;
 }
@@ -35,7 +38,7 @@ abstract class $DictionaryWordCopyWith<$Res> {
   factory $DictionaryWordCopyWith(
           DictionaryWord value, $Res Function(DictionaryWord) then) =
       _$DictionaryWordCopyWithImpl<$Res>;
-  $Res call({String id, String label});
+  $Res call({String id, String label, bool isFavorited});
 }
 
 class _$DictionaryWordCopyWithImpl<$Res>
@@ -50,10 +53,13 @@ class _$DictionaryWordCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object label = freezed,
+    Object isFavorited = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       label: label == freezed ? _value.label : label as String,
+      isFavorited:
+          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
     ));
   }
 }
@@ -64,7 +70,7 @@ abstract class _$DictionaryWordCopyWith<$Res>
           _DictionaryWord value, $Res Function(_DictionaryWord) then) =
       __$DictionaryWordCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String label});
+  $Res call({String id, String label, bool isFavorited});
 }
 
 class __$DictionaryWordCopyWithImpl<$Res>
@@ -81,16 +87,20 @@ class __$DictionaryWordCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object label = freezed,
+    Object isFavorited = freezed,
   }) {
     return _then(_DictionaryWord(
       id: id == freezed ? _value.id : id as String,
       label: label == freezed ? _value.label : label as String,
+      isFavorited:
+          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
     ));
   }
 }
 
 class _$_DictionaryWord implements _DictionaryWord {
-  const _$_DictionaryWord({@required this.id, @required this.label})
+  const _$_DictionaryWord(
+      {@required this.id, @required this.label, this.isFavorited})
       : assert(id != null),
         assert(label != null);
 
@@ -98,10 +108,12 @@ class _$_DictionaryWord implements _DictionaryWord {
   final String id;
   @override
   final String label;
+  @override
+  final bool isFavorited;
 
   @override
   String toString() {
-    return 'DictionaryWord(id: $id, label: $label)';
+    return 'DictionaryWord(id: $id, label: $label, isFavorited: $isFavorited)';
   }
 
   @override
@@ -111,14 +123,18 @@ class _$_DictionaryWord implements _DictionaryWord {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.label, label) ||
-                const DeepCollectionEquality().equals(other.label, label)));
+                const DeepCollectionEquality().equals(other.label, label)) &&
+            (identical(other.isFavorited, isFavorited) ||
+                const DeepCollectionEquality()
+                    .equals(other.isFavorited, isFavorited)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(label);
+      const DeepCollectionEquality().hash(label) ^
+      const DeepCollectionEquality().hash(isFavorited);
 
   @override
   _$DictionaryWordCopyWith<_DictionaryWord> get copyWith =>
@@ -126,13 +142,17 @@ class _$_DictionaryWord implements _DictionaryWord {
 }
 
 abstract class _DictionaryWord implements DictionaryWord {
-  const factory _DictionaryWord({@required String id, @required String label}) =
-      _$_DictionaryWord;
+  const factory _DictionaryWord(
+      {@required String id,
+      @required String label,
+      bool isFavorited}) = _$_DictionaryWord;
 
   @override
   String get id;
   @override
   String get label;
+  @override
+  bool get isFavorited;
   @override
   _$DictionaryWordCopyWith<_DictionaryWord> get copyWith;
 }

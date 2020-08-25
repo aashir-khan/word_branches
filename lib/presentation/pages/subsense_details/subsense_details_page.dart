@@ -51,9 +51,9 @@ class SubsenseDetailsPage extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: Tooltip(
-          message: headwordEntry.id,
+          message: headwordEntry.wordLabel,
           showDuration: Duration.zero,
-          child: Text(headwordEntry.id, overflow: TextOverflow.ellipsis),
+          child: Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
         ),
         actions: buildActions(),
       ),
