@@ -1,4 +1,5 @@
 // ignore_for_file: argument_type_not_assignable, constant_identifier_names, avoid_redundant_argument_values
+// ignore_for_file: argument_type_not_assignable, constant_identifier_names, avoid_redundant_argument_values
 
 /// Flutter icons CustomIcons
 /// Copyright (C) 2020 by original authors @ fluttericon.com, fontello.com
@@ -14,6 +15,10 @@
 ///       - asset: fonts/CustomIcons.ttf
 ///
 ///
+/// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
+///         Author:    Dave Gandy
+///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
+///         Homepage:  http://fortawesome.github.com/Font-Awesome/
 ///
 import 'package:flutter/widgets.dart';
 
@@ -26,4 +31,6 @@ class CustomIcons {
   static const IconData checkmark_circle_icon = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData time_icon = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sound_on_icon = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData heart_outline_icon = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData heart_broken = IconData(0xf7a9, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

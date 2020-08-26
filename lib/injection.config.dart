@@ -22,11 +22,17 @@ import 'infrastructure/dictionary_word_search/dictionary_word_search_local_data_
 import 'infrastructure/dictionary_word_search/dictionary_word_search_remote_data_source.dart';
 import 'infrastructure/dictionary_word_search/dictionary_word_search_remote_data_source_fake.dart';
 import 'infrastructure/dictionary_word_search/dictionary_word_search_repository.dart';
+import 'application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
+import 'infrastructure/favorited_words/favorited_words_local_data_source.dart';
+import 'infrastructure/favorited_words/favorited_words_repository.dart';
+import 'application/favorited_words/favorited_words_watcher/favorited_words_watcher_cubit.dart';
 import 'domain/dictionary_word_entries/i_dictionary_word_entries_remote_data_source.dart';
 import 'domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
 import 'domain/dictionary_word_search/i_dictionary_word_search_local_data_source.dart';
 import 'domain/dictionary_word_search/i_dictionary_word_search_remote_data_source.dart';
 import 'domain/dictionary_word_search/i_dictionary_word_search_repository.dart';
+import 'domain/favorited_words/i_favorited_words_local_data_source.dart';
+import 'domain/favorited_words/i_favorited_words_repository.dart';
 import 'domain/core/i_network_info.dart';
 import 'injectable_module.dart';
 import 'infrastructure/core/network_info_impl.dart';
@@ -70,8 +76,17 @@ GetIt $initGetIt(
       () => DictionaryWordSearchRemoteDataSourceFake(
           sharedPreferences: get<SharedPreferences>()),
       registerFor: {_development});
+  gh.lazySingleton<IFavoritedWordsLocalDataSource>(() =>
+      FavoritedWordsLocalDataSource(
+          sharedPreferences: get<SharedPreferences>()));
+  gh.lazySingleton<IFavoritedWordsRepository>(() => FavoritedWordsRepository(
+      localDataSource: get<IFavoritedWordsLocalDataSource>()));
   gh.lazySingleton<INetworkInfo>(
       () => NetworkInfoImpl(get<DataConnectionChecker>()));
+  gh.factory<FavoritedWordsActorCubit>(() => FavoritedWordsActorCubit(
+      favoritedWordsRepository: get<IFavoritedWordsRepository>()));
+  gh.factory<FavoritedWordsWatcherCubit>(() => FavoritedWordsWatcherCubit(
+      favoritedWordsRepository: get<IFavoritedWordsRepository>()));
   gh.lazySingleton<IDictionaryWordEntriesRepository>(() =>
       DictionaryWordEntriesRepository(
           networkInfo: get<INetworkInfo>(),

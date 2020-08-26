@@ -16,7 +16,10 @@ abstract class DictionaryWordDto with _$DictionaryWordDto {
 
   factory DictionaryWordDto.fromDomain(DictionaryWord dictionaryWord) {
     return DictionaryWordDto(
-        id: dictionaryWord.id, label: dictionaryWord.label, isFavorited: dictionaryWord.isFavorited);
+      id: dictionaryWord.id,
+      label: dictionaryWord.label,
+      isFavorited: dictionaryWord.isFavorited,
+    );
   }
 
   factory DictionaryWordDto.fromJson(Map<String, dynamic> json) => _$DictionaryWordDtoFromJson(json);
@@ -27,12 +30,11 @@ abstract class DictionaryWordDto with _$DictionaryWordDto {
     final Map<String, dynamic> defaultFieldValues = {
       'id': defaultLabel,
       'label': defaultLabel,
-      'isFavorited': false,
     };
 
     final id = (customFieldValues['id'] ?? defaultFieldValues['id']) as String;
     final label = (customFieldValues['label'] ?? defaultFieldValues['label']) as String;
-    final isFavorited = (customFieldValues['isFavorited'] ?? defaultFieldValues['isFavorited']) as bool;
+    final isFavorited = customFieldValues['isFavorited'] as bool;
 
     return DictionaryWordDto(
       id: id,

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dr_words/presentation/pages/home/widgets/favorited_words_widget.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -13,19 +14,11 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.search),
             onPressed: () => ExtendedNavigator.root.replace(Routes.searchPage),
           ),
-          PopupMenuButton<String>(
-            // ! TODO
-            onSelected: (_) {},
-            itemBuilder: (context) => ['Settings', 'Help', 'About']
-                .map(
-                  (choice) => PopupMenuItem<String>(
-                    value: choice,
-                    child: Text(choice),
-                  ),
-                )
-                .toList(),
-          )
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: FavoritedWordsWidget(),
       ),
     );
   }

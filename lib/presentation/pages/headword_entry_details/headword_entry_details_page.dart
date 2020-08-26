@@ -17,18 +17,30 @@ class HeadwordEntryDetailsPage extends HookWidget {
   });
 
   List<Widget> buildActions() {
+    Widget buildTooltip() {
+      final tooltipKey = GlobalKey();
+      return GestureDetector(
+        onTap: () {
+          final dynamic tooltip = tooltipKey.currentState;
+          tooltip.ensureTooltipVisible();
+        },
+        child: Tooltip(
+          key: tooltipKey,
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          message:
+              'This screen lists all the lexical entries (a grouping of various senses in a specific language, and a lexical category that relates to a word) for the current headword entry.',
+          child: Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: Icon(Icons.info),
+          ),
+        ),
+      );
+    }
+
     final List<Widget> widgets = [];
     final audioFile = headwordEntry.audioFile;
 
-    widgets.add(Tooltip(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      message:
-          'This screen lists all the lexical entries (a grouping of various senses in a specific language, and a lexical category that relates to a word) for the current headword entry.',
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8),
-        child: Icon(Icons.info),
-      ),
-    ));
+    widgets.add(buildTooltip());
 
     if (audioFile != null) {
       widgets.add(
@@ -44,15 +56,24 @@ class HeadwordEntryDetailsPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tooltipKey = GlobalKey();
+
     return Scaffold(
       appBar: AppBar(
-        title: Tooltip(
-          message: headwordEntry.wordLabel,
-          showDuration: Duration.zero,
-          child: Row(
-            children: <Widget>[
-              Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
-            ],
+        title: GestureDetector(
+          onTap: () {
+            final dynamic tooltip = tooltipKey.currentState;
+            tooltip.ensureTooltipVisible();
+          },
+          child: Tooltip(
+            key: tooltipKey,
+            message: headwordEntry.wordLabel,
+            showDuration: Duration.zero,
+            child: Row(
+              children: <Widget>[
+                Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
+              ],
+            ),
           ),
         ),
         actions: buildActions(),

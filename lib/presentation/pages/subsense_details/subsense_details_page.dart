@@ -24,14 +24,26 @@ class SubsenseDetailsPage extends HookWidget {
     final List<Widget> widgets = [];
     final audioFile = headwordEntry.audioFile;
 
-    widgets.add(Tooltip(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      message: 'This screen lists all the subsenses for the chosen sense.',
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8),
-        child: Icon(Icons.info),
-      ),
-    ));
+    Widget buildTooltip() {
+      final tooltipKey = GlobalKey();
+      return GestureDetector(
+        onTap: () {
+          final dynamic tooltip = tooltipKey.currentState;
+          tooltip.ensureTooltipVisible();
+        },
+        child: Tooltip(
+          key: tooltipKey,
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          message: 'This screen lists all the subsenses for the chosen sense.',
+          child: Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: Icon(Icons.info),
+          ),
+        ),
+      );
+    }
+
+    widgets.add(buildTooltip());
 
     if (audioFile != null) {
       widgets.add(

@@ -1,22 +1,24 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/application/dictionary_word_entries/dictionary_word_entries_cubit.dart';
+import 'package:dr_words/application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
+import 'package:dr_words/presentation/pages/headword_entries/widgets/favorited_word_toggle_card_widget.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class HeadwordEntriesPage extends HookWidget {
+class HeadwordEntriesPage extends StatelessWidget {
   final DictionaryWord wordSelected;
 
   const HeadwordEntriesPage(this.wordSelected);
 
   @override
   Widget build(BuildContext context) {
+    final tooltipKey = GlobalKey();
     return BlocProvider(
       create: (_) => getIt<DictionaryWordEntriesCubit>()..getWordEntries(wordSelected),
       child: BlocBuilder<DictionaryWordEntriesCubit, DictionaryWordEntriesState>(
@@ -34,12 +36,19 @@ class HeadwordEntriesPage extends HookWidget {
                 onPressed: () => ExtendedNavigator.root.replace(Routes.homePage),
               ),
               actions: <Widget>[
-                Tooltip(
-                  margin: const EdgeInsets.symmetric(horizontal: 16),
-                  message: 'A headword entry is a dictionary entry and all the data related to it',
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Icon(Icons.info),
+                GestureDetector(
+                  onTap: () {
+                    final dynamic tooltip = tooltipKey.currentState;
+                    tooltip.ensureTooltipVisible();
+                  },
+                  child: Tooltip(
+                    key: tooltipKey,
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    message: 'A headword entry is a dictionary entry and all the data related to it',
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Icon(Icons.info),
+                    ),
                   ),
                 ),
               ],
@@ -49,13 +58,15 @@ class HeadwordEntriesPage extends HookWidget {
               loadInProgress: () => LoadingIndicator(),
               loadEntriesSuccess: (entries) => Column(
                 children: <Widget>[
-                  // TODO: Implement favoriting dictionary word UI
                   Expanded(
-                    flex: 37,
-                    child: Container(color: colors.primaryColorLight),
+                    flex: 30,
+                    child: BlocProvider(
+                      create: (context) => getIt<FavoritedWordsActorCubit>(),
+                      child: FavoritedWordToggleCard(word: wordSelected),
+                    ),
                   ),
                   Expanded(
-                    flex: 63,
+                    flex: 70,
                     child: ListView.builder(
                       itemCount: entries.size,
                       itemBuilder: (context, index) => ListTile(

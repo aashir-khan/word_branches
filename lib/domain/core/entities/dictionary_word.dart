@@ -13,10 +13,6 @@ abstract class DictionaryWord with _$DictionaryWord {
 
   factory DictionaryWord.fromFakeData() {
     final fakeLabel = faker.lorem.word();
-    return DictionaryWord(
-      id: fakeLabel,
-      label: fakeLabel,
-      isFavorited: false,
-    );
+    return DictionaryWord(id: fakeLabel, label: fakeLabel);
   }
 }
