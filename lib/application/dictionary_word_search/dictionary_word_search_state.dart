@@ -9,6 +9,7 @@ abstract class DictionaryWordSearchState with _$DictionaryWordSearchState {
   const factory DictionaryWordSearchState.loadFailure({String message}) = _DictionaryWordSearchStateLoadFailure;
   const factory DictionaryWordSearchState.newWordAddedToRecentlySearchedWords({@required DictionaryWord addedWord}) =
       _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords;
+  const factory DictionaryWordSearchState.deleteSuccess({@required DictionaryWord deletedWord}) = _DeleteSuccess;
   const factory DictionaryWordSearchState.loadRecentlySearchedWordsResultsSuccess(
       {KtList<DictionaryWord> recentlySearchedWords}) = _DictionaryWordSearchLoadRecentlySearchedWordsSuccess;
 }

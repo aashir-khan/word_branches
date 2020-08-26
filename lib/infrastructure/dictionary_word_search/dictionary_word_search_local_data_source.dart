@@ -51,4 +51,21 @@ class DictionaryWordSearchLocalDataSource implements IDictionaryWordSearchLocalD
       throw const DictionaryWordSearchLocalException.localDatabaseProcessingException();
     }
   }
+
+  @override
+  Future<DictionaryWordDto> deleteRecentlySearchedWod(DictionaryWordDto wordToDelete) async {
+    try {
+      final initialDataStored = sharedPreferences.getStringList(recentlySearchedWordsDbIdentifier) ?? [];
+
+      final List<DictionaryWordDto> dictionaryWords =
+          initialDataStored.map((str) => DictionaryWordDto.fromJson(json.decode(str) as Map<String, dynamic>)).toList();
+      dictionaryWords.remove(wordToDelete);
+      final updatedRecentlySearchedWordsEncoded = dictionaryWords.map((word) => json.encode(word.toJson())).toList();
+      await sharedPreferences.setStringList(recentlySearchedWordsDbIdentifier, updatedRecentlySearchedWordsEncoded);
+
+      return wordToDelete;
+    } catch (e) {
+      throw const DictionaryWordSearchLocalException.localDatabaseProcessingException();
+    }
+  }
 }

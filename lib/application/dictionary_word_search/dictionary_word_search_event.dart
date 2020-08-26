@@ -7,4 +7,6 @@ abstract class DictionaryWordSearchEvent with _$DictionaryWordSearchEvent {
   const factory DictionaryWordSearchEvent.modifyQuery({String query}) = DictionaryWordSearchEventModifyQuery;
   const factory DictionaryWordSearchEvent.addNewRecentlySearchedWord({DictionaryWord newRecentlySearchedWord}) =
       _DictionaryWordSearchEventAddNewRecentlySearchedWord;
+  const factory DictionaryWordSearchEvent.deleteRecentlySearchedWord({@required DictionaryWord wordToDelete}) =
+      _DictionaryWordSearchEventDeleteRecentlySearchedWord;
 }

@@ -32,6 +32,14 @@ class _$DictionaryWordSearchEventTearOff {
       newRecentlySearchedWord: newRecentlySearchedWord,
     );
   }
+
+// ignore: unused_element
+  _DictionaryWordSearchEventDeleteRecentlySearchedWord
+      deleteRecentlySearchedWord({@required DictionaryWord wordToDelete}) {
+    return _DictionaryWordSearchEventDeleteRecentlySearchedWord(
+      wordToDelete: wordToDelete,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -45,12 +53,14 @@ mixin _$DictionaryWordSearchEvent {
     @required
         Result addNewRecentlySearchedWord(
             DictionaryWord newRecentlySearchedWord),
+    @required Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result getRecentlySearchedWords(),
     Result modifyQuery(String query),
     Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
+    Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -62,6 +72,9 @@ mixin _$DictionaryWordSearchEvent {
     @required
         Result addNewRecentlySearchedWord(
             _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    @required
+        Result deleteRecentlySearchedWord(
+            _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -70,6 +83,8 @@ mixin _$DictionaryWordSearchEvent {
     Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
     Result addNewRecentlySearchedWord(
         _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    Result deleteRecentlySearchedWord(
+        _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
     @required Result orElse(),
   });
 }
@@ -150,10 +165,12 @@ class _$_DictionaryWordSearchEventGetRecentlySearchedWords
     @required
         Result addNewRecentlySearchedWord(
             DictionaryWord newRecentlySearchedWord),
+    @required Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
     assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
     return getRecentlySearchedWords();
   }
 
@@ -163,6 +180,7 @@ class _$_DictionaryWordSearchEventGetRecentlySearchedWords
     Result getRecentlySearchedWords(),
     Result modifyQuery(String query),
     Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
+    Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -182,10 +200,14 @@ class _$_DictionaryWordSearchEventGetRecentlySearchedWords
     @required
         Result addNewRecentlySearchedWord(
             _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    @required
+        Result deleteRecentlySearchedWord(
+            _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
     assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
     return getRecentlySearchedWords(this);
   }
 
@@ -197,6 +219,8 @@ class _$_DictionaryWordSearchEventGetRecentlySearchedWords
     Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
     Result addNewRecentlySearchedWord(
         _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    Result deleteRecentlySearchedWord(
+        _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -291,10 +315,12 @@ class _$DictionaryWordSearchEventModifyQuery
     @required
         Result addNewRecentlySearchedWord(
             DictionaryWord newRecentlySearchedWord),
+    @required Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
     assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
     return modifyQuery(query);
   }
 
@@ -304,6 +330,7 @@ class _$DictionaryWordSearchEventModifyQuery
     Result getRecentlySearchedWords(),
     Result modifyQuery(String query),
     Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
+    Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -323,10 +350,14 @@ class _$DictionaryWordSearchEventModifyQuery
     @required
         Result addNewRecentlySearchedWord(
             _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    @required
+        Result deleteRecentlySearchedWord(
+            _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
     assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
     return modifyQuery(this);
   }
 
@@ -338,6 +369,8 @@ class _$DictionaryWordSearchEventModifyQuery
     Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
     Result addNewRecentlySearchedWord(
         _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    Result deleteRecentlySearchedWord(
+        _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -464,10 +497,12 @@ class _$_DictionaryWordSearchEventAddNewRecentlySearchedWord
     @required
         Result addNewRecentlySearchedWord(
             DictionaryWord newRecentlySearchedWord),
+    @required Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
     assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
     return addNewRecentlySearchedWord(newRecentlySearchedWord);
   }
 
@@ -477,6 +512,7 @@ class _$_DictionaryWordSearchEventAddNewRecentlySearchedWord
     Result getRecentlySearchedWords(),
     Result modifyQuery(String query),
     Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
+    Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -496,10 +532,14 @@ class _$_DictionaryWordSearchEventAddNewRecentlySearchedWord
     @required
         Result addNewRecentlySearchedWord(
             _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    @required
+        Result deleteRecentlySearchedWord(
+            _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
   }) {
     assert(getRecentlySearchedWords != null);
     assert(modifyQuery != null);
     assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
     return addNewRecentlySearchedWord(this);
   }
 
@@ -511,6 +551,8 @@ class _$_DictionaryWordSearchEventAddNewRecentlySearchedWord
     Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
     Result addNewRecentlySearchedWord(
         _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    Result deleteRecentlySearchedWord(
+        _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -530,6 +572,186 @@ abstract class _DictionaryWordSearchEventAddNewRecentlySearchedWord
   DictionaryWord get newRecentlySearchedWord;
   _$DictionaryWordSearchEventAddNewRecentlySearchedWordCopyWith<
       _DictionaryWordSearchEventAddNewRecentlySearchedWord> get copyWith;
+}
+
+abstract class _$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWith<
+    $Res> {
+  factory _$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWith(
+          _DictionaryWordSearchEventDeleteRecentlySearchedWord value,
+          $Res Function(_DictionaryWordSearchEventDeleteRecentlySearchedWord)
+              then) =
+      __$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWithImpl<$Res>;
+  $Res call({DictionaryWord wordToDelete});
+
+  $DictionaryWordCopyWith<$Res> get wordToDelete;
+}
+
+class __$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchEventCopyWithImpl<$Res>
+    implements
+        _$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWith<$Res> {
+  __$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWithImpl(
+      _DictionaryWordSearchEventDeleteRecentlySearchedWord _value,
+      $Res Function(_DictionaryWordSearchEventDeleteRecentlySearchedWord) _then)
+      : super(
+            _value,
+            (v) => _then(
+                v as _DictionaryWordSearchEventDeleteRecentlySearchedWord));
+
+  @override
+  _DictionaryWordSearchEventDeleteRecentlySearchedWord get _value =>
+      super._value as _DictionaryWordSearchEventDeleteRecentlySearchedWord;
+
+  @override
+  $Res call({
+    Object wordToDelete = freezed,
+  }) {
+    return _then(_DictionaryWordSearchEventDeleteRecentlySearchedWord(
+      wordToDelete: wordToDelete == freezed
+          ? _value.wordToDelete
+          : wordToDelete as DictionaryWord,
+    ));
+  }
+
+  @override
+  $DictionaryWordCopyWith<$Res> get wordToDelete {
+    if (_value.wordToDelete == null) {
+      return null;
+    }
+    return $DictionaryWordCopyWith<$Res>(_value.wordToDelete, (value) {
+      return _then(_value.copyWith(wordToDelete: value));
+    });
+  }
+}
+
+class _$_DictionaryWordSearchEventDeleteRecentlySearchedWord
+    with DiagnosticableTreeMixin
+    implements _DictionaryWordSearchEventDeleteRecentlySearchedWord {
+  const _$_DictionaryWordSearchEventDeleteRecentlySearchedWord(
+      {@required this.wordToDelete})
+      : assert(wordToDelete != null);
+
+  @override
+  final DictionaryWord wordToDelete;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DictionaryWordSearchEvent.deleteRecentlySearchedWord(wordToDelete: $wordToDelete)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'DictionaryWordSearchEvent.deleteRecentlySearchedWord'))
+      ..add(DiagnosticsProperty('wordToDelete', wordToDelete));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DictionaryWordSearchEventDeleteRecentlySearchedWord &&
+            (identical(other.wordToDelete, wordToDelete) ||
+                const DeepCollectionEquality()
+                    .equals(other.wordToDelete, wordToDelete)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(wordToDelete);
+
+  @override
+  _$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWith<
+          _DictionaryWordSearchEventDeleteRecentlySearchedWord>
+      get copyWith =>
+          __$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWithImpl<
+                  _DictionaryWordSearchEventDeleteRecentlySearchedWord>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result getRecentlySearchedWords(),
+    @required Result modifyQuery(String query),
+    @required
+        Result addNewRecentlySearchedWord(
+            DictionaryWord newRecentlySearchedWord),
+    @required Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
+  }) {
+    assert(getRecentlySearchedWords != null);
+    assert(modifyQuery != null);
+    assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
+    return deleteRecentlySearchedWord(wordToDelete);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result getRecentlySearchedWords(),
+    Result modifyQuery(String query),
+    Result addNewRecentlySearchedWord(DictionaryWord newRecentlySearchedWord),
+    Result deleteRecentlySearchedWord(DictionaryWord wordToDelete),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteRecentlySearchedWord != null) {
+      return deleteRecentlySearchedWord(wordToDelete);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result getRecentlySearchedWords(
+            _DictionaryWordSearchEventGetRecentlySearchedWords value),
+    @required Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    @required
+        Result addNewRecentlySearchedWord(
+            _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    @required
+        Result deleteRecentlySearchedWord(
+            _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
+  }) {
+    assert(getRecentlySearchedWords != null);
+    assert(modifyQuery != null);
+    assert(addNewRecentlySearchedWord != null);
+    assert(deleteRecentlySearchedWord != null);
+    return deleteRecentlySearchedWord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result getRecentlySearchedWords(
+        _DictionaryWordSearchEventGetRecentlySearchedWords value),
+    Result modifyQuery(DictionaryWordSearchEventModifyQuery value),
+    Result addNewRecentlySearchedWord(
+        _DictionaryWordSearchEventAddNewRecentlySearchedWord value),
+    Result deleteRecentlySearchedWord(
+        _DictionaryWordSearchEventDeleteRecentlySearchedWord value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteRecentlySearchedWord != null) {
+      return deleteRecentlySearchedWord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DictionaryWordSearchEventDeleteRecentlySearchedWord
+    implements DictionaryWordSearchEvent {
+  const factory _DictionaryWordSearchEventDeleteRecentlySearchedWord(
+          {@required DictionaryWord wordToDelete}) =
+      _$_DictionaryWordSearchEventDeleteRecentlySearchedWord;
+
+  DictionaryWord get wordToDelete;
+  _$DictionaryWordSearchEventDeleteRecentlySearchedWordCopyWith<
+      _DictionaryWordSearchEventDeleteRecentlySearchedWord> get copyWith;
 }
 
 class _$DictionaryWordSearchStateTearOff {
@@ -570,6 +792,13 @@ class _$DictionaryWordSearchStateTearOff {
   }
 
 // ignore: unused_element
+  _DeleteSuccess deleteSuccess({@required DictionaryWord deletedWord}) {
+    return _DeleteSuccess(
+      deletedWord: deletedWord,
+    );
+  }
+
+// ignore: unused_element
   _DictionaryWordSearchLoadRecentlySearchedWordsSuccess
       loadRecentlySearchedWordsResultsSuccess(
           {KtList<DictionaryWord> recentlySearchedWords}) {
@@ -591,6 +820,7 @@ mixin _$DictionaryWordSearchState {
     @required Result loadFailure(String message),
     @required
         Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             KtList<DictionaryWord> recentlySearchedWords),
@@ -602,6 +832,7 @@ mixin _$DictionaryWordSearchState {
     Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         KtList<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -619,6 +850,7 @@ mixin _$DictionaryWordSearchState {
         Result newWordAddedToRecentlySearchedWords(
             _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
                 value),
+    @required Result deleteSuccess(_DeleteSuccess value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
@@ -632,6 +864,7 @@ mixin _$DictionaryWordSearchState {
     Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
         _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -708,6 +941,7 @@ class _$_DictionaryWordSearchStateInitial
     @required Result loadFailure(String message),
     @required
         Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             KtList<DictionaryWord> recentlySearchedWords),
@@ -717,6 +951,7 @@ class _$_DictionaryWordSearchStateInitial
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return initial();
   }
@@ -729,6 +964,7 @@ class _$_DictionaryWordSearchStateInitial
     Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         KtList<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -754,6 +990,7 @@ class _$_DictionaryWordSearchStateInitial
         Result newWordAddedToRecentlySearchedWords(
             _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
                 value),
+    @required Result deleteSuccess(_DeleteSuccess value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
@@ -763,6 +1000,7 @@ class _$_DictionaryWordSearchStateInitial
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return initial(this);
   }
@@ -777,6 +1015,7 @@ class _$_DictionaryWordSearchStateInitial
     Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
         _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -852,6 +1091,7 @@ class _$_DictionaryWordSearchStateLoadInProgress
     @required Result loadFailure(String message),
     @required
         Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             KtList<DictionaryWord> recentlySearchedWords),
@@ -861,6 +1101,7 @@ class _$_DictionaryWordSearchStateLoadInProgress
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadInProgress();
   }
@@ -873,6 +1114,7 @@ class _$_DictionaryWordSearchStateLoadInProgress
     Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         KtList<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -898,6 +1140,7 @@ class _$_DictionaryWordSearchStateLoadInProgress
         Result newWordAddedToRecentlySearchedWords(
             _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
                 value),
+    @required Result deleteSuccess(_DeleteSuccess value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
@@ -907,6 +1150,7 @@ class _$_DictionaryWordSearchStateLoadInProgress
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadInProgress(this);
   }
@@ -921,6 +1165,7 @@ class _$_DictionaryWordSearchStateLoadInProgress
     Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
         _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -1026,6 +1271,7 @@ class _$_DictionaryWordSearchStateLoadSearchResultsSuccess
     @required Result loadFailure(String message),
     @required
         Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             KtList<DictionaryWord> recentlySearchedWords),
@@ -1035,6 +1281,7 @@ class _$_DictionaryWordSearchStateLoadSearchResultsSuccess
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadSearchResultsSuccess(words);
   }
@@ -1047,6 +1294,7 @@ class _$_DictionaryWordSearchStateLoadSearchResultsSuccess
     Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         KtList<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -1072,6 +1320,7 @@ class _$_DictionaryWordSearchStateLoadSearchResultsSuccess
         Result newWordAddedToRecentlySearchedWords(
             _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
                 value),
+    @required Result deleteSuccess(_DeleteSuccess value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
@@ -1081,6 +1330,7 @@ class _$_DictionaryWordSearchStateLoadSearchResultsSuccess
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadSearchResultsSuccess(this);
   }
@@ -1095,6 +1345,7 @@ class _$_DictionaryWordSearchStateLoadSearchResultsSuccess
     Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
         _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -1197,6 +1448,7 @@ class _$_DictionaryWordSearchStateLoadFailure
     @required Result loadFailure(String message),
     @required
         Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             KtList<DictionaryWord> recentlySearchedWords),
@@ -1206,6 +1458,7 @@ class _$_DictionaryWordSearchStateLoadFailure
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadFailure(message);
   }
@@ -1218,6 +1471,7 @@ class _$_DictionaryWordSearchStateLoadFailure
     Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         KtList<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -1243,6 +1497,7 @@ class _$_DictionaryWordSearchStateLoadFailure
         Result newWordAddedToRecentlySearchedWords(
             _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
                 value),
+    @required Result deleteSuccess(_DeleteSuccess value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
@@ -1252,6 +1507,7 @@ class _$_DictionaryWordSearchStateLoadFailure
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadFailure(this);
   }
@@ -1266,6 +1522,7 @@ class _$_DictionaryWordSearchStateLoadFailure
     Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
         _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -1397,6 +1654,7 @@ class _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
     @required Result loadFailure(String message),
     @required
         Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             KtList<DictionaryWord> recentlySearchedWords),
@@ -1406,6 +1664,7 @@ class _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return newWordAddedToRecentlySearchedWords(addedWord);
   }
@@ -1418,6 +1677,7 @@ class _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
     Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         KtList<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -1443,6 +1703,7 @@ class _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
         Result newWordAddedToRecentlySearchedWords(
             _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
                 value),
+    @required Result deleteSuccess(_DeleteSuccess value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
@@ -1452,6 +1713,7 @@ class _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return newWordAddedToRecentlySearchedWords(this);
   }
@@ -1466,6 +1728,7 @@ class _$_DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
     Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
         _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),
@@ -1488,6 +1751,189 @@ abstract class _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
   _$DictionaryWordSearchStateNewWordAddedToRecentlySearchedWordsCopyWith<
           _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords>
       get copyWith;
+}
+
+abstract class _$DeleteSuccessCopyWith<$Res> {
+  factory _$DeleteSuccessCopyWith(
+          _DeleteSuccess value, $Res Function(_DeleteSuccess) then) =
+      __$DeleteSuccessCopyWithImpl<$Res>;
+  $Res call({DictionaryWord deletedWord});
+
+  $DictionaryWordCopyWith<$Res> get deletedWord;
+}
+
+class __$DeleteSuccessCopyWithImpl<$Res>
+    extends _$DictionaryWordSearchStateCopyWithImpl<$Res>
+    implements _$DeleteSuccessCopyWith<$Res> {
+  __$DeleteSuccessCopyWithImpl(
+      _DeleteSuccess _value, $Res Function(_DeleteSuccess) _then)
+      : super(_value, (v) => _then(v as _DeleteSuccess));
+
+  @override
+  _DeleteSuccess get _value => super._value as _DeleteSuccess;
+
+  @override
+  $Res call({
+    Object deletedWord = freezed,
+  }) {
+    return _then(_DeleteSuccess(
+      deletedWord: deletedWord == freezed
+          ? _value.deletedWord
+          : deletedWord as DictionaryWord,
+    ));
+  }
+
+  @override
+  $DictionaryWordCopyWith<$Res> get deletedWord {
+    if (_value.deletedWord == null) {
+      return null;
+    }
+    return $DictionaryWordCopyWith<$Res>(_value.deletedWord, (value) {
+      return _then(_value.copyWith(deletedWord: value));
+    });
+  }
+}
+
+class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
+  const _$_DeleteSuccess({@required this.deletedWord})
+      : assert(deletedWord != null);
+
+  @override
+  final DictionaryWord deletedWord;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DictionaryWordSearchState.deleteSuccess(deletedWord: $deletedWord)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'DictionaryWordSearchState.deleteSuccess'))
+      ..add(DiagnosticsProperty('deletedWord', deletedWord));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DeleteSuccess &&
+            (identical(other.deletedWord, deletedWord) ||
+                const DeepCollectionEquality()
+                    .equals(other.deletedWord, deletedWord)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(deletedWord);
+
+  @override
+  _$DeleteSuccessCopyWith<_DeleteSuccess> get copyWith =>
+      __$DeleteSuccessCopyWithImpl<_DeleteSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loadInProgress(),
+    @required Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
+    @required Result loadFailure(String message),
+    @required
+        Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
+    @required
+        Result loadRecentlySearchedWordsResultsSuccess(
+            KtList<DictionaryWord> recentlySearchedWords),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSearchResultsSuccess != null);
+    assert(loadFailure != null);
+    assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
+    assert(loadRecentlySearchedWordsResultsSuccess != null);
+    return deleteSuccess(deletedWord);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loadInProgress(),
+    Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
+    Result loadFailure(String message),
+    Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
+    Result loadRecentlySearchedWordsResultsSuccess(
+        KtList<DictionaryWord> recentlySearchedWords),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteSuccess != null) {
+      return deleteSuccess(deletedWord);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_DictionaryWordSearchStateInitial value),
+    @required
+        Result loadInProgress(_DictionaryWordSearchStateLoadInProgress value),
+    @required
+        Result loadSearchResultsSuccess(
+            _DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    @required Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    @required
+        Result newWordAddedToRecentlySearchedWords(
+            _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
+                value),
+    @required Result deleteSuccess(_DeleteSuccess value),
+    @required
+        Result loadRecentlySearchedWordsResultsSuccess(
+            _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSearchResultsSuccess != null);
+    assert(loadFailure != null);
+    assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
+    assert(loadRecentlySearchedWordsResultsSuccess != null);
+    return deleteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_DictionaryWordSearchStateInitial value),
+    Result loadInProgress(_DictionaryWordSearchStateLoadInProgress value),
+    Result loadSearchResultsSuccess(
+        _DictionaryWordSearchStateLoadSearchResultsSuccess value),
+    Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
+    Result newWordAddedToRecentlySearchedWords(
+        _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
+    Result loadRecentlySearchedWordsResultsSuccess(
+        _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteSuccess != null) {
+      return deleteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteSuccess implements DictionaryWordSearchState {
+  const factory _DeleteSuccess({@required DictionaryWord deletedWord}) =
+      _$_DeleteSuccess;
+
+  DictionaryWord get deletedWord;
+  _$DeleteSuccessCopyWith<_DeleteSuccess> get copyWith;
 }
 
 abstract class _$DictionaryWordSearchLoadRecentlySearchedWordsSuccessCopyWith<
@@ -1584,6 +2030,7 @@ class _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess
     @required Result loadFailure(String message),
     @required
         Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    @required Result deleteSuccess(DictionaryWord deletedWord),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             KtList<DictionaryWord> recentlySearchedWords),
@@ -1593,6 +2040,7 @@ class _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadRecentlySearchedWordsResultsSuccess(recentlySearchedWords);
   }
@@ -1605,6 +2053,7 @@ class _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess
     Result loadSearchResultsSuccess(KtList<DictionaryWord> words),
     Result loadFailure(String message),
     Result newWordAddedToRecentlySearchedWords(DictionaryWord addedWord),
+    Result deleteSuccess(DictionaryWord deletedWord),
     Result loadRecentlySearchedWordsResultsSuccess(
         KtList<DictionaryWord> recentlySearchedWords),
     @required Result orElse(),
@@ -1630,6 +2079,7 @@ class _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess
         Result newWordAddedToRecentlySearchedWords(
             _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords
                 value),
+    @required Result deleteSuccess(_DeleteSuccess value),
     @required
         Result loadRecentlySearchedWordsResultsSuccess(
             _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
@@ -1639,6 +2089,7 @@ class _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess
     assert(loadSearchResultsSuccess != null);
     assert(loadFailure != null);
     assert(newWordAddedToRecentlySearchedWords != null);
+    assert(deleteSuccess != null);
     assert(loadRecentlySearchedWordsResultsSuccess != null);
     return loadRecentlySearchedWordsResultsSuccess(this);
   }
@@ -1653,6 +2104,7 @@ class _$_DictionaryWordSearchLoadRecentlySearchedWordsSuccess
     Result loadFailure(_DictionaryWordSearchStateLoadFailure value),
     Result newWordAddedToRecentlySearchedWords(
         _DictionaryWordSearchStateNewWordAddedToRecentlySearchedWords value),
+    Result deleteSuccess(_DeleteSuccess value),
     Result loadRecentlySearchedWordsResultsSuccess(
         _DictionaryWordSearchLoadRecentlySearchedWordsSuccess value),
     @required Result orElse(),

@@ -81,6 +81,19 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
           },
         );
       },
+      deleteRecentlySearchedWord: (wordToDelete) async* {
+        yield const DictionaryWordSearchState.loadInProgress();
+        final resultEither = await dictionaryWordSearchRepository.deleteRecentlySearchedWord(wordToDelete);
+
+        yield* resultEither.fold(
+          (failure) async* {
+            yield const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage);
+          },
+          (deletedWord) async* {
+            yield DictionaryWordSearchState.deleteSuccess(deletedWord: deletedWord);
+          },
+        );
+      },
     );
   }
 

@@ -125,35 +125,28 @@ class FavoritedWordsListEmpty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<FavoritedWordsWatcherCubit>()..getFavoritedWords(),
-      child: BlocBuilder<FavoritedWordsWatcherCubit, FavoritedWordsWatcherState>(
-        builder: (context, state) {
-          return Container(
-            width: double.infinity,
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 30,
+            child: Container(),
+          ),
+          Expanded(
+            flex: 70,
             child: Column(
               children: <Widget>[
-                Expanded(
-                  flex: 30,
-                  child: Container(),
+                FaIcon(FontAwesomeIcons.heartBroken, color: colors.primaryColorLight, size: 132),
+                const Text(
+                  'Hmm... looks like you have no favorited words. Begin searching to find some.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20),
                 ),
-                Expanded(
-                  flex: 70,
-                  child: Column(
-                    children: <Widget>[
-                      FaIcon(FontAwesomeIcons.heartBroken, color: colors.primaryColorLight, size: 132),
-                      const Text(
-                        'Hmm... looks like you have no favorited words. Begin searching to find some.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
-                )
               ],
             ),
-          );
-        },
+          )
+        ],
       ),
     );
   }

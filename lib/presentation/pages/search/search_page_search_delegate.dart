@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/application/dictionary_word_search/dictionary_word_search_bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
+import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -68,12 +70,33 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
       builder: (context, state) {
         return state.when(
           initial: () => const Center(
-            child: Text('Enter a query to search from'),
+            child: Text('Enter a query to search from', style: TextStyle(fontSize: 20)),
           ),
           loadInProgress: () => LoadingIndicator(),
           loadSearchResultsSuccess: (words) => words.isEmpty()
-              ? const Center(
-                  child: Text('No results found'),
+              ? Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const <Widget>[
+                      Flexible(
+                        child: Text(
+                          'No results found',
+                          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                          // textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Flexible(
+                        child: Text(
+                          'Try adjusting your search',
+                          style: TextStyle(fontSize: 16),
+                          // textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               : ListView.builder(
                   itemCount: words.size,
@@ -97,12 +120,43 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
                 ),
           loadFailure: (message) => Center(child: Text(message)),
           newWordAddedToRecentlySearchedWords: (_) => Container(),
+          deleteSuccess: (_) => Container(),
           loadRecentlySearchedWordsResultsSuccess: (words) => ListView.builder(
             itemCount: words.size,
             itemBuilder: (context, index) => InkWell(
               onTap: () async {
                 final DictionaryWord wordToGetHeadwordEntries = words[index];
                 close(context, wordToGetHeadwordEntries);
+              },
+              onLongPress: () {
+                final bloc = getIt<DictionaryWordSearchBloc>();
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return BlocProvider.value(
+                          value: bloc,
+                          child: AlertDialog(
+                            title: const Text(
+                              'Selected recently searched word:',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            content: Text(words[index].label),
+                            actions: <Widget>[
+                              FlatButton(
+                                onPressed: () => ExtendedNavigator.root.pop(),
+                                child: const Text('CANCEL'),
+                              ),
+                              FlatButton(
+                                onPressed: () {
+                                  bloc.add(
+                                      DictionaryWordSearchEvent.deleteRecentlySearchedWord(wordToDelete: words[index]));
+                                  ExtendedNavigator.root.pop();
+                                },
+                                child: const Text('DELETE'),
+                              )
+                            ],
+                          ));
+                    });
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(

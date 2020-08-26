@@ -13,4 +13,7 @@ abstract class IDictionaryWordSearchRepository {
 
   Future<Either<DictionaryWordSearchLocalFailure, DictionaryWord>> addNewRecentlySearchedWord(
       DictionaryWord newWordToAdd);
+
+  Future<Either<DictionaryWordSearchLocalFailure, DictionaryWord>> deleteRecentlySearchedWord(
+      DictionaryWord wordToDelete);
 }

@@ -4,4 +4,5 @@ import 'package:kt_dart/collection.dart';
 abstract class IDictionaryWordSearchLocalDataSource {
   Future<KtList<DictionaryWordDto>> getRecentlySearchedWords();
   Future<DictionaryWordDto> addNewRecentlySearchedWord(DictionaryWordDto newWordToAdd);
+  Future<DictionaryWordDto> deleteRecentlySearchedWod(DictionaryWordDto wordToDelete);
 }

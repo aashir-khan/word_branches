@@ -70,4 +70,21 @@ class DictionaryWordSearchRepository implements IDictionaryWordSearchRepository 
       );
     }
   }
+
+  @override
+  Future<Either<DictionaryWordSearchLocalFailure, DictionaryWord>> deleteRecentlySearchedWord(
+      DictionaryWord wordToDelete) async {
+    try {
+      final deletedWord = await localDataSource.deleteRecentlySearchedWod(DictionaryWordDto.fromDomain(wordToDelete));
+      return Right(deletedWord.toDomain());
+    } on DictionaryWordSearchLocalException catch (e) {
+      return Left(handleLocalException(e));
+    }
+  }
+}
+
+DictionaryWordSearchLocalFailure handleLocalException(DictionaryWordSearchLocalException exception) {
+  return exception.when(
+    localDatabaseProcessingException: () => const DictionaryWordSearchLocalFailure.localDatabaseProcessingFailure(),
+  );
 }
