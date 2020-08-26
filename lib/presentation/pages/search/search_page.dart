@@ -7,9 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchPage extends StatefulWidget {
-  final DictionaryWord cachedWord;
-
-  const SearchPage({Key key, this.cachedWord}) : super(key: key);
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -19,9 +16,7 @@ class _SearchPageState extends State<SearchPage> {
   void didChangeDependencies() {
     Future.delayed(Duration.zero, () async {
       final DictionaryWord result = await showSearch(
-          context: context,
-          delegate: WordDictionaryWordSearch(
-              bloc: BlocProvider.of<DictionaryWordSearchBloc>(context), cachedWord: widget.cachedWord));
+          context: context, delegate: WordDictionaryWordSearch(BlocProvider.of<DictionaryWordSearchBloc>(context)));
       if (result != null) {
         await ExtendedNavigator.root.replace(
           Routes.headwordEntriesPage,

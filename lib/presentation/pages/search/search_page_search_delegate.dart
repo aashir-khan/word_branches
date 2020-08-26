@@ -6,16 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
-  Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> _bloc;
-  DictionaryWord cachedWord;
-
-  WordDictionaryWordSearch(
-      {@required Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> bloc, DictionaryWord cachedWord}) {
-    _bloc = bloc;
-    if (cachedWord != null) {
-      query = cachedWord.id;
-    }
-  }
+  final Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> bloc;
+  WordDictionaryWordSearch(this.bloc);
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -57,9 +49,9 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
   @override
   Widget buildSuggestions(BuildContext context) {
     if (query.isEmpty) {
-      _bloc.add(const DictionaryWordSearchEvent.getRecentlySearchedWords());
+      bloc.add(const DictionaryWordSearchEvent.getRecentlySearchedWords());
     } else {
-      _bloc.add(DictionaryWordSearchEvent.modifyQuery(query: query));
+      bloc.add(DictionaryWordSearchEvent.modifyQuery(query: query));
     }
 
     return BlocConsumer<DictionaryWordSearchBloc, DictionaryWordSearchState>(
@@ -88,7 +80,7 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
                       final querySingleSearchResult = words[index];
-                      _bloc.add(DictionaryWordSearchEvent.addNewRecentlySearchedWord(
+                      bloc.add(DictionaryWordSearchEvent.addNewRecentlySearchedWord(
                           newRecentlySearchedWord: querySingleSearchResult));
                     },
                     child: Container(

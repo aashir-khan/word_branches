@@ -54,14 +54,8 @@ class Router extends RouterBase {
       );
     },
     SearchPage: (data) {
-      final args = data.getArgs<SearchPageArguments>(
-        orElse: () => SearchPageArguments(),
-      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SearchPage(
-          key: args.key,
-          cachedWord: args.cachedWord,
-        ),
+        builder: (context) => SearchPage(),
         settings: data,
       );
     },
@@ -101,13 +95,6 @@ class Router extends RouterBase {
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
-
-/// SearchPage arguments holder class
-class SearchPageArguments {
-  final Key key;
-  final DictionaryWord cachedWord;
-  SearchPageArguments({this.key, this.cachedWord});
-}
 
 /// HeadwordEntriesPage arguments holder class
 class HeadwordEntriesPageArguments {
