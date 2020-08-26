@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dr_words/application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
 import 'package:dr_words/application/favorited_words/favorited_words_watcher/favorited_words_watcher_cubit.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
@@ -84,10 +85,27 @@ class FavoritedWordsWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      child: Text(
-                        favoritedWord.label,
-                        style: const TextStyle(fontSize: 20),
-                        textAlign: TextAlign.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            favoritedWord.label,
+                            style: const TextStyle(fontSize: 20),
+                            textAlign: TextAlign.center,
+                          ),
+                          BlocProvider(
+                            create: (context) => getIt<FavoritedWordsActorCubit>(),
+                            child: Builder(
+                              builder: (context) => IconButton(
+                                icon: Icon(Icons.close),
+                                onPressed: () async {
+                                  await context.bloc<FavoritedWordsActorCubit>().deleteFavoritedWord(favoritedWord);
+                                  await context.bloc<FavoritedWordsWatcherCubit>().getFavoritedWords();
+                                },
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   );
