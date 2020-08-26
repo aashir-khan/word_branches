@@ -4,6 +4,6 @@ import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureInjection(Env.production);
+  await configureInjection(Env.development);
   runApp(AppWidget());
 }

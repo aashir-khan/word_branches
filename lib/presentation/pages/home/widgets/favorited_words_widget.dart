@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
 import 'package:dr_words/application/favorited_words/favorited_words_watcher/favorited_words_watcher_cubit.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,8 +31,25 @@ class FavoritedWordsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => getIt<FavoritedWordsWatcherCubit>()..getFavoritedWords(),
-        child: BlocBuilder<FavoritedWordsWatcherCubit, FavoritedWordsWatcherState>(builder: (context, state) {
+      create: (context) => getIt<FavoritedWordsWatcherCubit>()..getFavoritedWords(),
+      child: BlocConsumer<FavoritedWordsWatcherCubit, FavoritedWordsWatcherState>(
+        listener: (context, state) {
+          state.maybeWhen(
+            loadFailure: (message) => Flushbar(
+              backgroundColor: colors.primaryColorDark,
+              duration: const Duration(seconds: 50),
+              messageText: Text(
+                message,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ).show(context),
+            orElse: () => null,
+          );
+        },
+        builder: (context, state) {
           return state.when(
             inital: () => Container(),
             loadInProgress: () => const Center(child: CircularProgressIndicator()),
@@ -77,9 +94,11 @@ class FavoritedWordsWidget extends StatelessWidget {
                 },
               );
             },
-            loadFailure: (message) => Center(child: Text(message)),
+            loadFailure: (message) => Container(),
           );
-        }));
+        },
+      ),
+    );
   }
 }
 

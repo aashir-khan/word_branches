@@ -8,6 +8,7 @@ import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 import 'package:dr_words/presentation/pages/headword_entries/widgets/favorited_word_toggle_card_widget.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +19,6 @@ class HeadwordEntriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tooltipKey = GlobalKey();
     return BlocProvider(
       create: (_) => getIt<DictionaryWordEntriesCubit>()..getWordEntries(wordSelected),
       child: BlocBuilder<DictionaryWordEntriesCubit, DictionaryWordEntriesState>(
@@ -36,20 +36,15 @@ class HeadwordEntriesPage extends StatelessWidget {
                 onPressed: () => ExtendedNavigator.root.replace(Routes.homePage),
               ),
               actions: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    final dynamic tooltip = tooltipKey.currentState;
-                    tooltip.ensureTooltipVisible();
-                  },
-                  child: Tooltip(
-                    key: tooltipKey,
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
-                    message: 'A headword entry is a dictionary entry and all the data related to it',
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Icon(Icons.info),
-                    ),
-                  ),
+                IconButton(
+                  icon: Icon(Icons.info),
+                  onPressed: () => Flushbar(
+                    backgroundColor: colors.secondaryColorDark,
+                    dismissDirection: FlushbarDismissDirection.HORIZONTAL,
+                    flushbarPosition: FlushbarPosition.TOP,
+                    title: 'Headword Entries Page',
+                    message: 'A headword entry is a dictionary entry and all the data related to it.',
+                  )..show(context),
                 ),
               ],
             ),

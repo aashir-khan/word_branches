@@ -4,6 +4,7 @@ import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/pages/headword_entry_details/widgets/etymology_and_senses_card.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:kt_dart/collection.dart';
@@ -20,30 +21,22 @@ class SubsenseDetailsPage extends HookWidget {
     @required this.parentSenseDefinition,
   }) : super(key: key);
 
-  List<Widget> buildActions() {
+  List<Widget> buildActions(BuildContext context) {
     final List<Widget> widgets = [];
     final audioFile = headwordEntry.audioFile;
 
-    Widget buildTooltip() {
-      final tooltipKey = GlobalKey();
-      return GestureDetector(
-        onTap: () {
-          final dynamic tooltip = tooltipKey.currentState;
-          tooltip.ensureTooltipVisible();
-        },
-        child: Tooltip(
-          key: tooltipKey,
-          margin: const EdgeInsets.symmetric(horizontal: 16),
+    widgets.add(
+      IconButton(
+        icon: Icon(Icons.info),
+        onPressed: () => Flushbar(
+          backgroundColor: colors.secondaryColorDark,
+          dismissDirection: FlushbarDismissDirection.HORIZONTAL,
+          flushbarPosition: FlushbarPosition.TOP,
+          title: 'Subsenses Screen',
           message: 'This screen lists all the subsenses for the chosen sense.',
-          child: Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Icon(Icons.info),
-          ),
-        ),
-      );
-    }
-
-    widgets.add(buildTooltip());
+        )..show(context),
+      ),
+    );
 
     if (audioFile != null) {
       widgets.add(
@@ -60,14 +53,22 @@ class SubsenseDetailsPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final senses = subsenses;
+    final tooltipKey = GlobalKey();
     return Scaffold(
       appBar: AppBar(
-        title: Tooltip(
-          message: headwordEntry.wordLabel,
-          showDuration: Duration.zero,
-          child: Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
+        title: GestureDetector(
+          onTap: () {
+            final dynamic tooltip = tooltipKey.currentState;
+            tooltip.ensureTooltipVisible();
+          },
+          child: Tooltip(
+            key: tooltipKey,
+            message: headwordEntry.wordLabel,
+            showDuration: Duration.zero,
+            child: Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
+          ),
         ),
-        actions: buildActions(),
+        actions: buildActions(context),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

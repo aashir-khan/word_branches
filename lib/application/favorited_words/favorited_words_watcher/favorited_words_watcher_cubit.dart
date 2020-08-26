@@ -8,8 +8,7 @@ import 'package:kt_dart/collection.dart';
 part 'favorited_words_watcher_state.dart';
 part 'favorited_words_watcher_cubit.freezed.dart';
 
-const _localDatabaseProcessingFailureMessage =
-    'An error occurred trying to access/store a recently searched word on your device for retrieving';
+const _localDatabaseProcessingFailureMessage = 'An error occurred trying to access/store a recently searched word';
 
 @injectable
 class FavoritedWordsWatcherCubit extends Cubit<FavoritedWordsWatcherState> {
