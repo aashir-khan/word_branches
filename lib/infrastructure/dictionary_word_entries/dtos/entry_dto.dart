@@ -29,12 +29,18 @@ abstract class EntryDto with _$EntryDto {
 
   factory EntryDto.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
-    List<String> traits,
+    List<String> traits = const [],
   }) {
-    final _etymologies = customFieldValues['etymologies'] as List<String>;
+    var _etymologies = customFieldValues['etymologies'] as List<String>;
     var _senses = customFieldValues['senses'] as List<SenseDto>;
     var _pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
 
+    if (traits.contains('withEtymologies')) {
+      _etymologies = [];
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _etymologies.add(faker.lorem.sentence());
+      }
+    }
     if (traits.contains('withSenses')) {
       _senses = [];
 

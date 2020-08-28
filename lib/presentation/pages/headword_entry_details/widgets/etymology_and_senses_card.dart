@@ -48,7 +48,7 @@ class EtymologyAndSensesCard extends StatelessWidget {
 
     if (senseNumber != null) {
       widgets.addAll([
-        Text('$senseNumber.', style: TextStyle(fontWeight: FontWeight.bold)),
+        Text('$senseNumber.', style: const TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
       ]);
     }

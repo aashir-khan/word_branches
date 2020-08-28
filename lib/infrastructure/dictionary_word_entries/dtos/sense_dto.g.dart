@@ -33,7 +33,6 @@ _$_SenseDto _$_$_SenseDtoFromJson(Map<String, dynamic> json) {
     crossReferenceMarkers: (json['crossReferenceMarkers'] as List)
         ?.map((e) => e as String)
         ?.toList(),
-    type: json['type'] as String,
   );
 }
 
@@ -46,5 +45,4 @@ Map<String, dynamic> _$_$_SenseDtoToJson(_$_SenseDto instance) =>
       'registers': instance.registers?.map((e) => e?.toJson())?.toList(),
       'regions': instance.regions?.map((e) => e?.toJson())?.toList(),
       'crossReferenceMarkers': instance.crossReferenceMarkers,
-      'type': instance.type,
     };

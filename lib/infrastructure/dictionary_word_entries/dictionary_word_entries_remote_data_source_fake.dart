@@ -25,7 +25,7 @@ class DictionaryWordEntriesRemoteDataSourceFake implements IDictionaryWordEntrie
     final parsedStoredData =
         rawStoredData.map((str) => HeadwordEntryDto.fromJson(json.decode(str) as Map<String, dynamic>)).toList();
 
-    final entriesForWord = parsedStoredData.where((entry) => entry.id == word.id);
+    final entriesForWord = parsedStoredData.where((entry) => entry.id == word.id).toList();
 
     return Future.delayed(const Duration(milliseconds: 1), () => entriesForWord.toImmutableList());
   }

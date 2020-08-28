@@ -141,7 +141,7 @@ class FavoritedWordsListEmpty extends StatelessWidget {
                 const Text(
                   'Hmm... looks like you have no favorited words. Begin searching to find some.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, color: Colors.black54),
                 ),
               ],
             ),

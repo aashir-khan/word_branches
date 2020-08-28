@@ -2,8 +2,10 @@ import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/example_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/text_type_dto.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:faker/faker.dart';
 
 part 'sense_dto.g.dart';
 part 'sense_dto.freezed.dart';
@@ -18,7 +20,6 @@ abstract class SenseDto with _$SenseDto {
     List<IdTextDto> registers,
     List<IdTextDto> regions,
     List<String> crossReferenceMarkers,
-    String type,
   }) = _SenseDto;
 
   factory SenseDto.fromDomain(Sense sense) {
@@ -36,25 +37,62 @@ abstract class SenseDto with _$SenseDto {
 
   factory SenseDto.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
+    List<String> traits = const [],
   }) {
-    final List<String> definitions = customFieldValues['definitions'] as List<String>;
-    final List<TextTypeDto> notes = customFieldValues['notes'] as List<TextTypeDto>;
-    final List<ExampleDto> examples = customFieldValues['examples'] as List<ExampleDto>;
-    final List<SenseDto> subsenses = customFieldValues['subsenses'] as List<SenseDto>;
-    final List<IdTextDto> registers = customFieldValues['registers'] as List<IdTextDto>;
-    final List<IdTextDto> regions = customFieldValues['regions'] as List<IdTextDto>;
-    final List<String> crossReferenceMarkers = customFieldValues['crossReferenceMarkers'] as List<String>;
-    final String type = customFieldValues['type'] as String;
+    List<String> _definitions = customFieldValues['definitions'] as List<String>;
+    List<TextTypeDto> _notes = customFieldValues['notes'] as List<TextTypeDto>;
+    List<ExampleDto> _examples = customFieldValues['examples'] as List<ExampleDto>;
+    List<SenseDto> _subsenses = customFieldValues['subsenses'] as List<SenseDto>;
+    final List<IdTextDto> _registers = customFieldValues['registers'] as List<IdTextDto>;
+    final List<IdTextDto> _regions = customFieldValues['regions'] as List<IdTextDto>;
+    final List<String> _crossReferenceMarkers = customFieldValues['crossReferenceMarkers'] as List<String>;
+
+    if (traits.contains('withDefinitions')) {
+      _definitions = [];
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _definitions.add(faker.lorem.sentence());
+      }
+    }
+
+    if (traits.contains('withNotes')) {
+      _notes = [];
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _notes.add(TextTypeDto.fromFakeData(
+          customFieldValues: {
+            'type': EnumToString.parse(NoteTypeEnum.technicalNote),
+            'text': faker.lorem.sentence(),
+          },
+        ));
+      }
+    }
+
+    if (traits.contains('withExamples')) {
+      _examples = [];
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _examples.add(ExampleDto.fromFakeData(
+          customFieldValues: {'text': faker.lorem.sentence()},
+        ));
+      }
+    }
+
+    if (traits.contains('withSubsenses')) {
+      _subsenses = [];
+
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        final _subsensesTraitsList = List<String>.from(traits);
+        _subsensesTraitsList.remove('withSubsenses');
+        _subsenses.add(SenseDto.fromFakeData(customFieldValues: customFieldValues, traits: _subsensesTraitsList));
+      }
+    }
 
     return SenseDto(
-      definitions: definitions,
-      notes: notes,
-      examples: examples,
-      subsenses: subsenses,
-      registers: registers,
-      regions: regions,
-      crossReferenceMarkers: crossReferenceMarkers,
-      type: type,
+      definitions: _definitions,
+      notes: _notes,
+      examples: _examples,
+      subsenses: _subsenses,
+      registers: _registers,
+      regions: _regions,
+      crossReferenceMarkers: _crossReferenceMarkers,
     );
   }
 }

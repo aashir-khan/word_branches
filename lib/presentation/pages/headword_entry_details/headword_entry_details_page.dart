@@ -39,7 +39,7 @@ class HeadwordEntryDetailsPage extends HookWidget {
     if (audioFile != null) {
       widgets.add(
         IconButton(
-          icon: Icon(CustomIcons.sound_on_icon),
+          icon: const Icon(CustomIcons.sound_on_icon),
           onPressed: () => getIt<AudioPlayer>().play(audioFile),
         ),
       );

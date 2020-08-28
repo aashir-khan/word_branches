@@ -28,7 +28,7 @@ abstract class HeadwordEntryDto with _$HeadwordEntryDto {
 
   factory HeadwordEntryDto.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
-    List<String> traits,
+    List<String> traits = const [],
   }) {
     final _id = (customFieldValues['id'] ?? faker.lorem.word()) as String;
     var _lexicalEntries = customFieldValues['lexicalEntries'] as List<LexicalEntryDto>;
@@ -37,11 +37,7 @@ abstract class HeadwordEntryDto with _$HeadwordEntryDto {
       _lexicalEntries = [];
 
       for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _lexicalEntries.add(
-          LexicalEntryDto.fromFakeData(
-            traits: ['withEntries'],
-          ),
-        );
+        _lexicalEntries.add(LexicalEntryDto.fromFakeData());
       }
     }
 

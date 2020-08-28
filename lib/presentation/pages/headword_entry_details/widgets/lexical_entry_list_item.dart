@@ -23,7 +23,7 @@ class LexicalEntryListItem extends StatelessWidget {
       key: PageStorageKey<LexicalEntry>(lexicalEntry),
       title: Text(
         lexicalEntry.lexicalCategory.text,
-        style: TextStyle(color: colors.secondaryColor, fontWeight: FontWeight.bold),
+        style: const TextStyle(color: colors.secondaryColor, fontWeight: FontWeight.bold),
       ),
       children: lexicalEntry.entries.iter
           .map(

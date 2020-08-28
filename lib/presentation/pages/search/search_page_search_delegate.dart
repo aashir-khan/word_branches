@@ -84,15 +84,13 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
                       Flexible(
                         child: Text(
                           'No results found',
-                          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                          // textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black54),
                         ),
                       ),
                       Flexible(
                         child: Text(
                           'Try adjusting your search',
-                          style: TextStyle(fontSize: 16),
-                          // textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16, color: Colors.black54),
                         ),
                       ),
                     ],

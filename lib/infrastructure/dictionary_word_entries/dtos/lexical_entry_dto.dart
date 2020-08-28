@@ -31,7 +31,7 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
 
   factory LexicalEntryDto.fromFakeData({
     Map<String, dynamic> customFieldValues = const {},
-    List<String> traits,
+    List<String> traits = const [],
   }) {
     var _entries = customFieldValues['entries'] as List<EntryDto>;
     var _pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
@@ -47,9 +47,7 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
       );
 
       for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _entries.add(EntryDto.fromFakeData(
-          traits: ['withSenses'],
-        ));
+        _entries.add(EntryDto.fromFakeData());
       }
     }
 
