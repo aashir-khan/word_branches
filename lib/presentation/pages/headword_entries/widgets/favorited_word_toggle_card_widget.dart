@@ -27,8 +27,8 @@ class FavoritedWordToggleCard extends HookWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: size.height * 0.45,
-              height: size.height * 0.45,
+              width: size.height * 0.6,
+              height: size.height * 0.6,
               child: FloatingActionButton(
                 elevation: 0,
                 onPressed: () {
@@ -37,14 +37,16 @@ class FavoritedWordToggleCard extends HookWidget {
                   isFavorited.value = !isFavorited.value;
                 },
                 backgroundColor: colors.primaryColorLight,
-                child: Icon(
-                  CustomIcons.heart_outline_icon,
-                  size: size.height * 0.3,
-                  color: isFavorited.value ? colors.secondaryColor : Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    isFavorited.value ? CustomIcons.heart_filled_icon : CustomIcons.heart_outline_icon,
+                    size: size.height * 0.4,
+                    color: isFavorited.value ? colors.secondaryColorLight : Colors.white,
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 12),
             GestureDetector(
               onTap: () {
                 final dynamic tooltip = tooltipKey.currentState;

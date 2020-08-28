@@ -54,14 +54,14 @@ class HeadwordEntriesPage extends StatelessWidget {
               loadEntriesSuccess: (entries) => Column(
                 children: <Widget>[
                   Expanded(
-                    flex: 30,
+                    flex: 45,
                     child: BlocProvider(
                       create: (context) => getIt<FavoritedWordsActorCubit>(),
                       child: FavoritedWordToggleCard(word: wordSelected),
                     ),
                   ),
                   Expanded(
-                    flex: 70,
+                    flex: 55,
                     child: ListView.builder(
                       itemCount: entries.size,
                       itemBuilder: (context, index) => ListTile(

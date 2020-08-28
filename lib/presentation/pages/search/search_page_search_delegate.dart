@@ -126,19 +126,19 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
                 final DictionaryWord wordToGetHeadwordEntries = words[index];
                 close(context, wordToGetHeadwordEntries);
               },
-              onLongPress: () {
-                final bloc = getIt<DictionaryWordSearchBloc>();
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return BlocProvider.value(
+              child: ListTile(
+                leading: const Icon(CustomIcons.time_icon, color: Colors.black),
+                title: Text(words[index].label, style: const TextStyle(fontSize: 16)),
+                trailing: InkWell(
+                  onTap: () {
+                    final bloc = getIt<DictionaryWordSearchBloc>();
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return BlocProvider.value(
                           value: bloc,
                           child: AlertDialog(
-                            title: const Text(
-                              'Selected recently searched word:',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            content: Text(words[index].label),
+                            content: Text(words[index].label, style: const TextStyle(fontWeight: FontWeight.bold)),
                             actions: <Widget>[
                               FlatButton(
                                 onPressed: () => ExtendedNavigator.root.pop(),
@@ -153,27 +153,12 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
                                 child: const Text('DELETE'),
                               )
                             ],
-                          ));
-                    });
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 24,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    const Icon(CustomIcons.time_icon),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2, bottom: 2, left: 24),
-                      child: Text(
-                        words[index].label,
-                        style: const TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  child: Icon(Icons.delete, color: Colors.red),
                 ),
               ),
             ),

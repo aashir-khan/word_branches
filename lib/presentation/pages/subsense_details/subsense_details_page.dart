@@ -70,43 +70,45 @@ class SubsenseDetailsPage extends HookWidget {
         ),
         actions: buildActions(context),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            alignment: Alignment.centerLeft,
-            width: double.infinity,
-            color: colors.primaryColorLight,
-            child: Text(
-              parentSenseDefinition,
-              style: const TextStyle(
-                fontSize: 18,
-                color: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              alignment: Alignment.centerLeft,
+              width: double.infinity,
+              color: colors.primaryColorLight,
+              child: Text(
+                parentSenseDefinition,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              key: PageStorageKey(senses),
-              shrinkWrap: true,
-              separatorBuilder: (_, __) => const SizedBox(height: 16),
-              itemCount: senses.size,
-              itemBuilder: (context, index) {
-                final sense = senses.get(index);
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: ListView.separated(
+                physics: const NeverScrollableScrollPhysics(),
+                key: PageStorageKey(senses),
+                shrinkWrap: true,
+                separatorBuilder: (_, __) => const SizedBox(height: 16),
+                itemCount: senses.size,
+                itemBuilder: (context, index) {
+                  final sense = senses.get(index);
 
-                return EtymologyAndSensesCard(
-                  headwordEntry: headwordEntry,
-                  senseNumber: index + 1,
-                  sense: sense,
-                  totalSenses: senses.size,
-                );
-              },
-            ),
-          )
-        ],
+                  return EtymologyAndSensesCard(
+                    headwordEntry: headwordEntry,
+                    senseNumber: index + 1,
+                    sense: sense,
+                    totalSenses: senses.size,
+                  );
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

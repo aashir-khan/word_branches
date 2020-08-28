@@ -1,5 +1,4 @@
 // ignore_for_file: argument_type_not_assignable, constant_identifier_names, avoid_redundant_argument_values
-// ignore_for_file: argument_type_not_assignable, constant_identifier_names, avoid_redundant_argument_values
 
 /// Flutter icons CustomIcons
 /// Copyright (C) 2020 by original authors @ fluttericon.com, fontello.com
@@ -32,5 +31,6 @@ class CustomIcons {
   static const IconData time_icon = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sound_on_icon = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData heart_outline_icon = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData heart_filled_icon = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData heart_broken = IconData(0xf7a9, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

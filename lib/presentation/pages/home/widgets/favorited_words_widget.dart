@@ -41,7 +41,7 @@ class FavoritedWordsWidget extends StatelessWidget {
               duration: const Duration(seconds: 50),
               messageText: Text(
                 message,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
@@ -97,7 +97,7 @@ class FavoritedWordsWidget extends StatelessWidget {
                             create: (context) => getIt<FavoritedWordsActorCubit>(),
                             child: Builder(
                               builder: (context) => IconButton(
-                                icon: Icon(Icons.close),
+                                icon: Icon(Icons.delete),
                                 onPressed: () async {
                                   await context.bloc<FavoritedWordsActorCubit>().deleteFavoritedWord(favoritedWord);
                                   await context.bloc<FavoritedWordsWatcherCubit>().getFavoritedWords();
