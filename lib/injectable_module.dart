@@ -16,4 +16,8 @@ abstract class InjectableModule {
   }
 
   AudioPlayer get audioPlayer => AudioPlayer();
+
+  // @preResolve
+  // Future<AppDatabase> get database => $FloorAppDatabase.databaseBuilder('app_database.db').build();
+
 }

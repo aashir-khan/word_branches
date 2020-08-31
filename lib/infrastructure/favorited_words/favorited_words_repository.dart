@@ -37,14 +37,10 @@ class FavoritedWordsRepository implements IFavoritedWordsRepository {
   }
 
   @override
-  Future<Either<FavoritedWordsFailure, KtList<DictionaryWord>>> getFavoritedWords() async {
-    try {
-      final favoritedWords = await localDataSource.getFavoritedWords();
-      final domainFavoritedWords = favoritedWords.map((word) => word.toDomain());
-      return Right(domainFavoritedWords);
-    } on FavoritedWordsException catch (e) {
-      return Left(handleException(e));
-    }
+  Stream<Either<FavoritedWordsFailure, KtList<DictionaryWord>>> getFavoritedWords() async* {
+    final favoritedWordsRawStream = localDataSource.getFavoritedWords();
+    yield* favoritedWordsRawStream.map((list) => Right(list.map((dto) => dto.toDomain())));
+    // final domainFavoritedWords = favoritedWords.map((word) => word.toDomain());
   }
 }
 

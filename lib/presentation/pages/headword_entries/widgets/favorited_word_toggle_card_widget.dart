@@ -57,7 +57,7 @@ class FavoritedWordToggleCard extends HookWidget {
                   message: word.label,
                   child: Text(
                     word.label,
-                    style: TextStyle(fontSize: 40, color: Colors.white),
+                    style: const TextStyle(fontSize: 40, color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   )),
             )

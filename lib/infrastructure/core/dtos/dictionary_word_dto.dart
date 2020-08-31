@@ -1,18 +1,20 @@
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:flutter/foundation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:floor/floor.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:faker/faker.dart';
 
-part 'dictionary_word_dto.freezed.dart';
 part 'dictionary_word_dto.g.dart';
 
-@freezed
-abstract class DictionaryWordDto with _$DictionaryWordDto {
-  factory DictionaryWordDto({
-    @required String id,
-    @required String label,
-    bool isFavorited,
-  }) = _DictionaryWordDto;
+@entity
+@JsonSerializable()
+class DictionaryWordDto extends Equatable {
+  @primaryKey
+  final String id;
+  final String label;
+  final bool isFavorited;
+
+  const DictionaryWordDto({@required this.id, @required this.label, this.isFavorited});
 
   factory DictionaryWordDto.fromDomain(DictionaryWord dictionaryWord) {
     return DictionaryWordDto(
@@ -23,6 +25,7 @@ abstract class DictionaryWordDto with _$DictionaryWordDto {
   }
 
   factory DictionaryWordDto.fromJson(Map<String, dynamic> json) => _$DictionaryWordDtoFromJson(json);
+  Map<String, dynamic> toJson() => _$DictionaryWordDtoToJson(this);
 
   factory DictionaryWordDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
     final defaultLabel = faker.lorem.word();
@@ -42,6 +45,9 @@ abstract class DictionaryWordDto with _$DictionaryWordDto {
       isFavorited: isFavorited,
     );
   }
+
+  @override
+  List<Object> get props => [id, label, isFavorited];
 }
 
 extension DictionaryWordDtoX on DictionaryWordDto {

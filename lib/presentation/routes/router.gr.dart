@@ -49,7 +49,7 @@ class Router extends RouterBase {
   final _pagesMap = <Type, AutoRouteFactory>{
     HomePage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => HomePage(),
+        builder: (context) => HomePage().wrappedRoute(context),
         settings: data,
       );
     },

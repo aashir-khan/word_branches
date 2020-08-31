@@ -26,6 +26,7 @@ import 'application/favorited_words/favorited_words_actor/favorited_words_actor_
 import 'infrastructure/favorited_words/favorited_words_local_data_source.dart';
 import 'infrastructure/favorited_words/favorited_words_repository.dart';
 import 'application/favorited_words/favorited_words_watcher/favorited_words_watcher_cubit.dart';
+import 'application/favorited_words/favorited_words_watcher/favorited_words_watcher_state_notifier.dart';
 import 'domain/dictionary_word_entries/i_dictionary_word_entries_remote_data_source.dart';
 import 'domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
 import 'domain/dictionary_word_search/i_dictionary_word_search_local_data_source.dart';
@@ -87,6 +88,9 @@ GetIt $initGetIt(
       favoritedWordsRepository: get<IFavoritedWordsRepository>()));
   gh.factory<FavoritedWordsWatcherCubit>(() => FavoritedWordsWatcherCubit(
       favoritedWordsRepository: get<IFavoritedWordsRepository>()));
+  gh.factory<FavoritedWordsWatcherStateNotifier>(() =>
+      FavoritedWordsWatcherStateNotifier(
+          favoritedWordsRepository: get<IFavoritedWordsRepository>()));
   gh.lazySingleton<IDictionaryWordEntriesRepository>(() =>
       DictionaryWordEntriesRepository(
           networkInfo: get<INetworkInfo>(),

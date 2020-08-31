@@ -4,7 +4,7 @@ import 'package:dr_words/domain/favorited_words/favorited_words_failure.dart';
 import 'package:kt_dart/collection.dart';
 
 abstract class IFavoritedWordsRepository {
-  Future<Either<FavoritedWordsFailure, KtList<DictionaryWord>>> getFavoritedWords();
+  Stream<Either<FavoritedWordsFailure, KtList<DictionaryWord>>> getFavoritedWords();
   Future<Either<FavoritedWordsFailure, DictionaryWord>> addFavoritedWord(DictionaryWord word);
   Future<Either<FavoritedWordsFailure, DictionaryWord>> deleteFavoritedWord(DictionaryWord favoritedWord);
 }

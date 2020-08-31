@@ -1,15 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
 import 'package:dr_words/application/favorited_words/favorited_words_watcher/favorited_words_watcher_cubit.dart';
+import 'package:dr_words/application/favorited_words/favorited_words_watcher/favorited_words_watcher_state_notifier.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
-import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
+import 'package:provider/provider.dart';
 
-class FavoritedWordsWidget extends StatelessWidget {
+class FavoritedWordsWidget extends HookWidget {
   List<Map<String, Color>> get gradientColorsList => const [
         {
           'start': Color.fromRGBO(0, 78, 146, 1),
@@ -31,91 +34,73 @@ class FavoritedWordsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<FavoritedWordsWatcherCubit>()..getFavoritedWords(),
-      child: BlocConsumer<FavoritedWordsWatcherCubit, FavoritedWordsWatcherState>(
-        listener: (context, state) {
-          state.maybeWhen(
-            loadFailure: (message) => Flushbar(
-              backgroundColor: colors.primaryColorDark,
-              duration: const Duration(seconds: 50),
-              messageText: Text(
-                message,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ).show(context),
-            orElse: () => null,
-          );
-        },
-        builder: (context, state) {
-          return state.when(
-            inital: () => Container(),
-            loadInProgress: () => const Center(child: CircularProgressIndicator()),
-            loadFavoritedWordsSuccess: (favoritedWords) {
-              if (favoritedWords.isEmpty()) {
-                return const FavoritedWordsListEmpty();
-              }
+    return StateNotifierProvider<FavoritedWordsWatcherStateNotifier, FavoritedWordsWatcherState>(
+      create: (_) => getIt<FavoritedWordsWatcherStateNotifier>()..getFavoritedWords(),
+      builder: (context, _) {
+        final state = context.watch<FavoritedWordsWatcherState>();
+        // builder: (context, state) {
+        return state.when(
+          inital: () => Container(),
+          loadInProgress: () => const Center(child: CircularProgressIndicator()),
+          loadFavoritedWordsSuccess: (favoritedWords) {
+            if (favoritedWords.isEmpty()) {
+              return const FavoritedWordsListEmpty();
+            }
 
-              return ListView.separated(
-                separatorBuilder: (_, __) => const SizedBox(height: 12),
-                itemCount: favoritedWords.size,
-                itemBuilder: (context, index) {
-                  final favoritedWord = favoritedWords[index];
-                  final currentItemGradientColors = gradientColorsList[index % gradientColorsList.length];
-                  return RaisedButton(
-                    padding: const EdgeInsets.all(0),
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    onPressed: () {
-                      ExtendedNavigator.root.replace(Routes.headwordEntriesPage,
-                          arguments: HeadwordEntriesPageArguments(wordSelected: favoritedWord));
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: <Color>[
-                            currentItemGradientColors['start'],
-                            currentItemGradientColors['end'],
-                          ],
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            favoritedWord.label,
-                            style: const TextStyle(fontSize: 20),
-                            textAlign: TextAlign.center,
-                          ),
-                          BlocProvider(
-                            create: (context) => getIt<FavoritedWordsActorCubit>(),
-                            child: Builder(
-                              builder: (context) => IconButton(
-                                icon: Icon(Icons.delete),
-                                onPressed: () async {
-                                  await context.bloc<FavoritedWordsActorCubit>().deleteFavoritedWord(favoritedWord);
-                                  await context.bloc<FavoritedWordsWatcherCubit>().getFavoritedWords();
-                                },
-                              ),
-                            ),
-                          )
+            return ListView.separated(
+              separatorBuilder: (_, __) => const SizedBox(height: 12),
+              itemCount: favoritedWords.size,
+              itemBuilder: (context, index) {
+                final favoritedWord = favoritedWords[index];
+                final currentItemGradientColors = gradientColorsList[index % gradientColorsList.length];
+                return RaisedButton(
+                  padding: const EdgeInsets.all(0),
+                  textColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  onPressed: () {
+                    ExtendedNavigator.root.replace(Routes.headwordEntriesPage,
+                        arguments: HeadwordEntriesPageArguments(wordSelected: favoritedWord));
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          currentItemGradientColors['start'],
+                          currentItemGradientColors['end'],
                         ],
                       ),
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                  );
-                },
-              );
-            },
-            loadFailure: (message) => Container(),
-          );
-        },
-      ),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          favoritedWord.label,
+                          style: const TextStyle(fontSize: 20),
+                          textAlign: TextAlign.center,
+                        ),
+                        BlocProvider(
+                          create: (context) => getIt<FavoritedWordsActorCubit>(),
+                          child: Builder(
+                            builder: (context) => IconButton(
+                              icon: Icon(Icons.delete),
+                              onPressed: () =>
+                                  context.read<FavoritedWordsWatcherStateNotifier>().deleteFavoritedWord(favoritedWord),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+          loadFailure: (message) => Container(),
+        );
+      },
     );
   }
 }

@@ -13,26 +13,27 @@ class _$FavoritedWordsWatcherStateTearOff {
   const _$FavoritedWordsWatcherStateTearOff();
 
 // ignore: unused_element
-  _Initial inital() {
-    return const _Initial();
+  FavoritedWordsWatcherStateInitial inital() {
+    return const FavoritedWordsWatcherStateInitial();
   }
 
 // ignore: unused_element
-  _LoadInProgress loadInProgress() {
-    return const _LoadInProgress();
+  FavoritedWordsWatcherStateLoadInProgress loadInProgress() {
+    return const FavoritedWordsWatcherStateLoadInProgress();
   }
 
 // ignore: unused_element
-  _LoadFavoritedWordsSuccess loadFavoritedWordsSuccess(
+  FavoritedWordsWatcherStateLoadFavoritedWordsSuccess loadFavoritedWordsSuccess(
       {@required KtList<DictionaryWord> words}) {
-    return _LoadFavoritedWordsSuccess(
+    return FavoritedWordsWatcherStateLoadFavoritedWordsSuccess(
       words: words,
     );
   }
 
 // ignore: unused_element
-  _FavoritedWordsStateLoadFailure loadFailure({@required String message}) {
-    return _FavoritedWordsStateLoadFailure(
+  FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure loadFailure(
+      {@required String message}) {
+    return FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure(
       message: message,
     );
   }
@@ -59,18 +60,24 @@ mixin _$FavoritedWordsWatcherState {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result inital(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
+    @required Result inital(FavoritedWordsWatcherStateInitial value),
     @required
-        Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    @required Result loadFailure(_FavoritedWordsStateLoadFailure value),
+        Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    @required
+        Result loadFavoritedWordsSuccess(
+            FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    @required
+        Result loadFailure(
+            FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result inital(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    Result loadFailure(_FavoritedWordsStateLoadFailure value),
+    Result inital(FavoritedWordsWatcherStateInitial value),
+    Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    Result loadFavoritedWordsSuccess(
+        FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    Result loadFailure(
+        FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
     @required Result orElse(),
   });
 }
@@ -90,23 +97,29 @@ class _$FavoritedWordsWatcherStateCopyWithImpl<$Res>
   final $Res Function(FavoritedWordsWatcherState) _then;
 }
 
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class $FavoritedWordsWatcherStateInitialCopyWith<$Res> {
+  factory $FavoritedWordsWatcherStateInitialCopyWith(
+          FavoritedWordsWatcherStateInitial value,
+          $Res Function(FavoritedWordsWatcherStateInitial) then) =
+      _$FavoritedWordsWatcherStateInitialCopyWithImpl<$Res>;
 }
 
-class __$InitialCopyWithImpl<$Res>
+class _$FavoritedWordsWatcherStateInitialCopyWithImpl<$Res>
     extends _$FavoritedWordsWatcherStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+    implements $FavoritedWordsWatcherStateInitialCopyWith<$Res> {
+  _$FavoritedWordsWatcherStateInitialCopyWithImpl(
+      FavoritedWordsWatcherStateInitial _value,
+      $Res Function(FavoritedWordsWatcherStateInitial) _then)
+      : super(_value, (v) => _then(v as FavoritedWordsWatcherStateInitial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  FavoritedWordsWatcherStateInitial get _value =>
+      super._value as FavoritedWordsWatcherStateInitial;
 }
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$FavoritedWordsWatcherStateInitial
+    implements FavoritedWordsWatcherStateInitial {
+  const _$FavoritedWordsWatcherStateInitial();
 
   @override
   String toString() {
@@ -115,7 +128,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other is FavoritedWordsWatcherStateInitial);
   }
 
   @override
@@ -155,11 +169,15 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result inital(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
+    @required Result inital(FavoritedWordsWatcherStateInitial value),
     @required
-        Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    @required Result loadFailure(_FavoritedWordsStateLoadFailure value),
+        Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    @required
+        Result loadFavoritedWordsSuccess(
+            FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    @required
+        Result loadFailure(
+            FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
   }) {
     assert(inital != null);
     assert(loadInProgress != null);
@@ -171,10 +189,12 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result inital(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    Result loadFailure(_FavoritedWordsStateLoadFailure value),
+    Result inital(FavoritedWordsWatcherStateInitial value),
+    Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    Result loadFavoritedWordsSuccess(
+        FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    Result loadFailure(
+        FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -185,29 +205,36 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements FavoritedWordsWatcherState {
-  const factory _Initial() = _$_Initial;
+abstract class FavoritedWordsWatcherStateInitial
+    implements FavoritedWordsWatcherState {
+  const factory FavoritedWordsWatcherStateInitial() =
+      _$FavoritedWordsWatcherStateInitial;
 }
 
-abstract class _$LoadInProgressCopyWith<$Res> {
-  factory _$LoadInProgressCopyWith(
-          _LoadInProgress value, $Res Function(_LoadInProgress) then) =
-      __$LoadInProgressCopyWithImpl<$Res>;
+abstract class $FavoritedWordsWatcherStateLoadInProgressCopyWith<$Res> {
+  factory $FavoritedWordsWatcherStateLoadInProgressCopyWith(
+          FavoritedWordsWatcherStateLoadInProgress value,
+          $Res Function(FavoritedWordsWatcherStateLoadInProgress) then) =
+      _$FavoritedWordsWatcherStateLoadInProgressCopyWithImpl<$Res>;
 }
 
-class __$LoadInProgressCopyWithImpl<$Res>
+class _$FavoritedWordsWatcherStateLoadInProgressCopyWithImpl<$Res>
     extends _$FavoritedWordsWatcherStateCopyWithImpl<$Res>
-    implements _$LoadInProgressCopyWith<$Res> {
-  __$LoadInProgressCopyWithImpl(
-      _LoadInProgress _value, $Res Function(_LoadInProgress) _then)
-      : super(_value, (v) => _then(v as _LoadInProgress));
+    implements $FavoritedWordsWatcherStateLoadInProgressCopyWith<$Res> {
+  _$FavoritedWordsWatcherStateLoadInProgressCopyWithImpl(
+      FavoritedWordsWatcherStateLoadInProgress _value,
+      $Res Function(FavoritedWordsWatcherStateLoadInProgress) _then)
+      : super(_value,
+            (v) => _then(v as FavoritedWordsWatcherStateLoadInProgress));
 
   @override
-  _LoadInProgress get _value => super._value as _LoadInProgress;
+  FavoritedWordsWatcherStateLoadInProgress get _value =>
+      super._value as FavoritedWordsWatcherStateLoadInProgress;
 }
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
+class _$FavoritedWordsWatcherStateLoadInProgress
+    implements FavoritedWordsWatcherStateLoadInProgress {
+  const _$FavoritedWordsWatcherStateLoadInProgress();
 
   @override
   String toString() {
@@ -216,7 +243,8 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoadInProgress);
+    return identical(this, other) ||
+        (other is FavoritedWordsWatcherStateLoadInProgress);
   }
 
   @override
@@ -256,11 +284,15 @@ class _$_LoadInProgress implements _LoadInProgress {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result inital(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
+    @required Result inital(FavoritedWordsWatcherStateInitial value),
     @required
-        Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    @required Result loadFailure(_FavoritedWordsStateLoadFailure value),
+        Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    @required
+        Result loadFavoritedWordsSuccess(
+            FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    @required
+        Result loadFailure(
+            FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
   }) {
     assert(inital != null);
     assert(loadInProgress != null);
@@ -272,10 +304,12 @@ class _$_LoadInProgress implements _LoadInProgress {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result inital(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    Result loadFailure(_FavoritedWordsStateLoadFailure value),
+    Result inital(FavoritedWordsWatcherStateInitial value),
+    Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    Result loadFavoritedWordsSuccess(
+        FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    Result loadFailure(
+        FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -286,40 +320,52 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 }
 
-abstract class _LoadInProgress implements FavoritedWordsWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
+abstract class FavoritedWordsWatcherStateLoadInProgress
+    implements FavoritedWordsWatcherState {
+  const factory FavoritedWordsWatcherStateLoadInProgress() =
+      _$FavoritedWordsWatcherStateLoadInProgress;
 }
 
-abstract class _$LoadFavoritedWordsSuccessCopyWith<$Res> {
-  factory _$LoadFavoritedWordsSuccessCopyWith(_LoadFavoritedWordsSuccess value,
-          $Res Function(_LoadFavoritedWordsSuccess) then) =
-      __$LoadFavoritedWordsSuccessCopyWithImpl<$Res>;
+abstract class $FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWith<
+    $Res> {
+  factory $FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWith(
+          FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value,
+          $Res Function(FavoritedWordsWatcherStateLoadFavoritedWordsSuccess)
+              then) =
+      _$FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWithImpl<$Res>;
   $Res call({KtList<DictionaryWord> words});
 }
 
-class __$LoadFavoritedWordsSuccessCopyWithImpl<$Res>
+class _$FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWithImpl<$Res>
     extends _$FavoritedWordsWatcherStateCopyWithImpl<$Res>
-    implements _$LoadFavoritedWordsSuccessCopyWith<$Res> {
-  __$LoadFavoritedWordsSuccessCopyWithImpl(_LoadFavoritedWordsSuccess _value,
-      $Res Function(_LoadFavoritedWordsSuccess) _then)
-      : super(_value, (v) => _then(v as _LoadFavoritedWordsSuccess));
+    implements
+        $FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWith<$Res> {
+  _$FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWithImpl(
+      FavoritedWordsWatcherStateLoadFavoritedWordsSuccess _value,
+      $Res Function(FavoritedWordsWatcherStateLoadFavoritedWordsSuccess) _then)
+      : super(
+            _value,
+            (v) => _then(
+                v as FavoritedWordsWatcherStateLoadFavoritedWordsSuccess));
 
   @override
-  _LoadFavoritedWordsSuccess get _value =>
-      super._value as _LoadFavoritedWordsSuccess;
+  FavoritedWordsWatcherStateLoadFavoritedWordsSuccess get _value =>
+      super._value as FavoritedWordsWatcherStateLoadFavoritedWordsSuccess;
 
   @override
   $Res call({
     Object words = freezed,
   }) {
-    return _then(_LoadFavoritedWordsSuccess(
+    return _then(FavoritedWordsWatcherStateLoadFavoritedWordsSuccess(
       words: words == freezed ? _value.words : words as KtList<DictionaryWord>,
     ));
   }
 }
 
-class _$_LoadFavoritedWordsSuccess implements _LoadFavoritedWordsSuccess {
-  const _$_LoadFavoritedWordsSuccess({@required this.words})
+class _$FavoritedWordsWatcherStateLoadFavoritedWordsSuccess
+    implements FavoritedWordsWatcherStateLoadFavoritedWordsSuccess {
+  const _$FavoritedWordsWatcherStateLoadFavoritedWordsSuccess(
+      {@required this.words})
       : assert(words != null);
 
   @override
@@ -333,7 +379,7 @@ class _$_LoadFavoritedWordsSuccess implements _LoadFavoritedWordsSuccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadFavoritedWordsSuccess &&
+        (other is FavoritedWordsWatcherStateLoadFavoritedWordsSuccess &&
             (identical(other.words, words) ||
                 const DeepCollectionEquality().equals(other.words, words)));
   }
@@ -343,9 +389,11 @@ class _$_LoadFavoritedWordsSuccess implements _LoadFavoritedWordsSuccess {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(words);
 
   @override
-  _$LoadFavoritedWordsSuccessCopyWith<_LoadFavoritedWordsSuccess>
+  $FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWith<
+          FavoritedWordsWatcherStateLoadFavoritedWordsSuccess>
       get copyWith =>
-          __$LoadFavoritedWordsSuccessCopyWithImpl<_LoadFavoritedWordsSuccess>(
+          _$FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWithImpl<
+                  FavoritedWordsWatcherStateLoadFavoritedWordsSuccess>(
               this, _$identity);
 
   @override
@@ -382,11 +430,15 @@ class _$_LoadFavoritedWordsSuccess implements _LoadFavoritedWordsSuccess {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result inital(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
+    @required Result inital(FavoritedWordsWatcherStateInitial value),
     @required
-        Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    @required Result loadFailure(_FavoritedWordsStateLoadFailure value),
+        Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    @required
+        Result loadFavoritedWordsSuccess(
+            FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    @required
+        Result loadFailure(
+            FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
   }) {
     assert(inital != null);
     assert(loadInProgress != null);
@@ -398,10 +450,12 @@ class _$_LoadFavoritedWordsSuccess implements _LoadFavoritedWordsSuccess {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result inital(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    Result loadFailure(_FavoritedWordsStateLoadFailure value),
+    Result inital(FavoritedWordsWatcherStateInitial value),
+    Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    Result loadFavoritedWordsSuccess(
+        FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    Result loadFailure(
+        FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -412,48 +466,61 @@ class _$_LoadFavoritedWordsSuccess implements _LoadFavoritedWordsSuccess {
   }
 }
 
-abstract class _LoadFavoritedWordsSuccess
+abstract class FavoritedWordsWatcherStateLoadFavoritedWordsSuccess
     implements FavoritedWordsWatcherState {
-  const factory _LoadFavoritedWordsSuccess(
-      {@required KtList<DictionaryWord> words}) = _$_LoadFavoritedWordsSuccess;
+  const factory FavoritedWordsWatcherStateLoadFavoritedWordsSuccess(
+          {@required KtList<DictionaryWord> words}) =
+      _$FavoritedWordsWatcherStateLoadFavoritedWordsSuccess;
 
   KtList<DictionaryWord> get words;
-  _$LoadFavoritedWordsSuccessCopyWith<_LoadFavoritedWordsSuccess> get copyWith;
+  $FavoritedWordsWatcherStateLoadFavoritedWordsSuccessCopyWith<
+      FavoritedWordsWatcherStateLoadFavoritedWordsSuccess> get copyWith;
 }
 
-abstract class _$FavoritedWordsStateLoadFailureCopyWith<$Res> {
-  factory _$FavoritedWordsStateLoadFailureCopyWith(
-          _FavoritedWordsStateLoadFailure value,
-          $Res Function(_FavoritedWordsStateLoadFailure) then) =
-      __$FavoritedWordsStateLoadFailureCopyWithImpl<$Res>;
+abstract class $FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWith<
+    $Res> {
+  factory $FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWith(
+          FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value,
+          $Res Function(
+                  FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure)
+              then) =
+      _$FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWithImpl<
+          $Res>;
   $Res call({String message});
 }
 
-class __$FavoritedWordsStateLoadFailureCopyWithImpl<$Res>
-    extends _$FavoritedWordsWatcherStateCopyWithImpl<$Res>
-    implements _$FavoritedWordsStateLoadFailureCopyWith<$Res> {
-  __$FavoritedWordsStateLoadFailureCopyWithImpl(
-      _FavoritedWordsStateLoadFailure _value,
-      $Res Function(_FavoritedWordsStateLoadFailure) _then)
-      : super(_value, (v) => _then(v as _FavoritedWordsStateLoadFailure));
+class _$FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWithImpl<
+        $Res> extends _$FavoritedWordsWatcherStateCopyWithImpl<$Res>
+    implements
+        $FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWith<
+            $Res> {
+  _$FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWithImpl(
+      FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure _value,
+      $Res Function(FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure)
+          _then)
+      : super(
+            _value,
+            (v) => _then(
+                v as FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure));
 
   @override
-  _FavoritedWordsStateLoadFailure get _value =>
-      super._value as _FavoritedWordsStateLoadFailure;
+  FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure get _value =>
+      super._value as FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure;
 
   @override
   $Res call({
     Object message = freezed,
   }) {
-    return _then(_FavoritedWordsStateLoadFailure(
+    return _then(FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure(
       message: message == freezed ? _value.message : message as String,
     ));
   }
 }
 
-class _$_FavoritedWordsStateLoadFailure
-    implements _FavoritedWordsStateLoadFailure {
-  const _$_FavoritedWordsStateLoadFailure({@required this.message})
+class _$FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure
+    implements FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure {
+  const _$FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure(
+      {@required this.message})
       : assert(message != null);
 
   @override
@@ -467,7 +534,7 @@ class _$_FavoritedWordsStateLoadFailure
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FavoritedWordsStateLoadFailure &&
+        (other is FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality().equals(other.message, message)));
   }
@@ -477,9 +544,12 @@ class _$_FavoritedWordsStateLoadFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
   @override
-  _$FavoritedWordsStateLoadFailureCopyWith<_FavoritedWordsStateLoadFailure>
-      get copyWith => __$FavoritedWordsStateLoadFailureCopyWithImpl<
-          _FavoritedWordsStateLoadFailure>(this, _$identity);
+  $FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWith<
+          FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure>
+      get copyWith =>
+          _$FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWithImpl<
+                  FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -515,11 +585,15 @@ class _$_FavoritedWordsStateLoadFailure
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result inital(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
+    @required Result inital(FavoritedWordsWatcherStateInitial value),
     @required
-        Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    @required Result loadFailure(_FavoritedWordsStateLoadFailure value),
+        Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    @required
+        Result loadFavoritedWordsSuccess(
+            FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    @required
+        Result loadFailure(
+            FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
   }) {
     assert(inital != null);
     assert(loadInProgress != null);
@@ -531,10 +605,12 @@ class _$_FavoritedWordsStateLoadFailure
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result inital(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFavoritedWordsSuccess(_LoadFavoritedWordsSuccess value),
-    Result loadFailure(_FavoritedWordsStateLoadFailure value),
+    Result inital(FavoritedWordsWatcherStateInitial value),
+    Result loadInProgress(FavoritedWordsWatcherStateLoadInProgress value),
+    Result loadFavoritedWordsSuccess(
+        FavoritedWordsWatcherStateLoadFavoritedWordsSuccess value),
+    Result loadFailure(
+        FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -545,12 +621,13 @@ class _$_FavoritedWordsStateLoadFailure
   }
 }
 
-abstract class _FavoritedWordsStateLoadFailure
+abstract class FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure
     implements FavoritedWordsWatcherState {
-  const factory _FavoritedWordsStateLoadFailure({@required String message}) =
-      _$_FavoritedWordsStateLoadFailure;
+  const factory FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure(
+          {@required String message}) =
+      _$FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure;
 
   String get message;
-  _$FavoritedWordsStateLoadFailureCopyWith<_FavoritedWordsStateLoadFailure>
-      get copyWith;
+  $FavoritedWordsWatcherStateFavoritedWordsStateLoadFailureCopyWith<
+      FavoritedWordsWatcherStateFavoritedWordsStateLoadFailure> get copyWith;
 }

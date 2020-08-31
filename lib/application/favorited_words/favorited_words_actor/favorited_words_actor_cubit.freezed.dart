@@ -30,8 +30,8 @@ class _$FavoritedWordsActorStateTearOff {
   }
 
 // ignore: unused_element
-  _DeleteSuccess deleteSuccess({@required DictionaryWord word}) {
-    return _DeleteSuccess(
+  DeleteSuccess deleteSuccess({@required DictionaryWord word}) {
+    return DeleteSuccess(
       word: word,
     );
   }
@@ -70,7 +70,7 @@ mixin _$FavoritedWordsActorState {
     @required Result inital(_Initial value),
     @required Result actionInProgress(_ActionInProgress value),
     @required Result addSuccess(_AddSuccess value),
-    @required Result deleteSuccess(_DeleteSuccess value),
+    @required Result deleteSuccess(DeleteSuccess value),
     @required Result actionFailure(_ActionFailure value),
   });
   @optionalTypeArgs
@@ -78,7 +78,7 @@ mixin _$FavoritedWordsActorState {
     Result inital(_Initial value),
     Result actionInProgress(_ActionInProgress value),
     Result addSuccess(_AddSuccess value),
-    Result deleteSuccess(_DeleteSuccess value),
+    Result deleteSuccess(DeleteSuccess value),
     Result actionFailure(_ActionFailure value),
     @required Result orElse(),
   });
@@ -170,7 +170,7 @@ class _$_Initial implements _Initial {
     @required Result inital(_Initial value),
     @required Result actionInProgress(_ActionInProgress value),
     @required Result addSuccess(_AddSuccess value),
-    @required Result deleteSuccess(_DeleteSuccess value),
+    @required Result deleteSuccess(DeleteSuccess value),
     @required Result actionFailure(_ActionFailure value),
   }) {
     assert(inital != null);
@@ -187,7 +187,7 @@ class _$_Initial implements _Initial {
     Result inital(_Initial value),
     Result actionInProgress(_ActionInProgress value),
     Result addSuccess(_AddSuccess value),
-    Result deleteSuccess(_DeleteSuccess value),
+    Result deleteSuccess(DeleteSuccess value),
     Result actionFailure(_ActionFailure value),
     @required Result orElse(),
   }) {
@@ -276,7 +276,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     @required Result inital(_Initial value),
     @required Result actionInProgress(_ActionInProgress value),
     @required Result addSuccess(_AddSuccess value),
-    @required Result deleteSuccess(_DeleteSuccess value),
+    @required Result deleteSuccess(DeleteSuccess value),
     @required Result actionFailure(_ActionFailure value),
   }) {
     assert(inital != null);
@@ -293,7 +293,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     Result inital(_Initial value),
     Result actionInProgress(_ActionInProgress value),
     Result addSuccess(_AddSuccess value),
-    Result deleteSuccess(_DeleteSuccess value),
+    Result deleteSuccess(DeleteSuccess value),
     Result actionFailure(_ActionFailure value),
     @required Result orElse(),
   }) {
@@ -415,7 +415,7 @@ class _$_AddSuccess implements _AddSuccess {
     @required Result inital(_Initial value),
     @required Result actionInProgress(_ActionInProgress value),
     @required Result addSuccess(_AddSuccess value),
-    @required Result deleteSuccess(_DeleteSuccess value),
+    @required Result deleteSuccess(DeleteSuccess value),
     @required Result actionFailure(_ActionFailure value),
   }) {
     assert(inital != null);
@@ -432,7 +432,7 @@ class _$_AddSuccess implements _AddSuccess {
     Result inital(_Initial value),
     Result actionInProgress(_ActionInProgress value),
     Result addSuccess(_AddSuccess value),
-    Result deleteSuccess(_DeleteSuccess value),
+    Result deleteSuccess(DeleteSuccess value),
     Result actionFailure(_ActionFailure value),
     @required Result orElse(),
   }) {
@@ -451,30 +451,30 @@ abstract class _AddSuccess implements FavoritedWordsActorState {
   _$AddSuccessCopyWith<_AddSuccess> get copyWith;
 }
 
-abstract class _$DeleteSuccessCopyWith<$Res> {
-  factory _$DeleteSuccessCopyWith(
-          _DeleteSuccess value, $Res Function(_DeleteSuccess) then) =
-      __$DeleteSuccessCopyWithImpl<$Res>;
+abstract class $DeleteSuccessCopyWith<$Res> {
+  factory $DeleteSuccessCopyWith(
+          DeleteSuccess value, $Res Function(DeleteSuccess) then) =
+      _$DeleteSuccessCopyWithImpl<$Res>;
   $Res call({DictionaryWord word});
 
   $DictionaryWordCopyWith<$Res> get word;
 }
 
-class __$DeleteSuccessCopyWithImpl<$Res>
+class _$DeleteSuccessCopyWithImpl<$Res>
     extends _$FavoritedWordsActorStateCopyWithImpl<$Res>
-    implements _$DeleteSuccessCopyWith<$Res> {
-  __$DeleteSuccessCopyWithImpl(
-      _DeleteSuccess _value, $Res Function(_DeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _DeleteSuccess));
+    implements $DeleteSuccessCopyWith<$Res> {
+  _$DeleteSuccessCopyWithImpl(
+      DeleteSuccess _value, $Res Function(DeleteSuccess) _then)
+      : super(_value, (v) => _then(v as DeleteSuccess));
 
   @override
-  _DeleteSuccess get _value => super._value as _DeleteSuccess;
+  DeleteSuccess get _value => super._value as DeleteSuccess;
 
   @override
   $Res call({
     Object word = freezed,
   }) {
-    return _then(_DeleteSuccess(
+    return _then(DeleteSuccess(
       word: word == freezed ? _value.word : word as DictionaryWord,
     ));
   }
@@ -490,8 +490,8 @@ class __$DeleteSuccessCopyWithImpl<$Res>
   }
 }
 
-class _$_DeleteSuccess implements _DeleteSuccess {
-  const _$_DeleteSuccess({@required this.word}) : assert(word != null);
+class _$DeleteSuccess implements DeleteSuccess {
+  const _$DeleteSuccess({@required this.word}) : assert(word != null);
 
   @override
   final DictionaryWord word;
@@ -504,7 +504,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DeleteSuccess &&
+        (other is DeleteSuccess &&
             (identical(other.word, word) ||
                 const DeepCollectionEquality().equals(other.word, word)));
   }
@@ -514,8 +514,8 @@ class _$_DeleteSuccess implements _DeleteSuccess {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(word);
 
   @override
-  _$DeleteSuccessCopyWith<_DeleteSuccess> get copyWith =>
-      __$DeleteSuccessCopyWithImpl<_DeleteSuccess>(this, _$identity);
+  $DeleteSuccessCopyWith<DeleteSuccess> get copyWith =>
+      _$DeleteSuccessCopyWithImpl<DeleteSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -557,7 +557,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     @required Result inital(_Initial value),
     @required Result actionInProgress(_ActionInProgress value),
     @required Result addSuccess(_AddSuccess value),
-    @required Result deleteSuccess(_DeleteSuccess value),
+    @required Result deleteSuccess(DeleteSuccess value),
     @required Result actionFailure(_ActionFailure value),
   }) {
     assert(inital != null);
@@ -574,7 +574,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     Result inital(_Initial value),
     Result actionInProgress(_ActionInProgress value),
     Result addSuccess(_AddSuccess value),
-    Result deleteSuccess(_DeleteSuccess value),
+    Result deleteSuccess(DeleteSuccess value),
     Result actionFailure(_ActionFailure value),
     @required Result orElse(),
   }) {
@@ -586,12 +586,12 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   }
 }
 
-abstract class _DeleteSuccess implements FavoritedWordsActorState {
-  const factory _DeleteSuccess({@required DictionaryWord word}) =
-      _$_DeleteSuccess;
+abstract class DeleteSuccess implements FavoritedWordsActorState {
+  const factory DeleteSuccess({@required DictionaryWord word}) =
+      _$DeleteSuccess;
 
   DictionaryWord get word;
-  _$DeleteSuccessCopyWith<_DeleteSuccess> get copyWith;
+  $DeleteSuccessCopyWith<DeleteSuccess> get copyWith;
 }
 
 abstract class _$ActionFailureCopyWith<$Res> {
@@ -688,7 +688,7 @@ class _$_ActionFailure implements _ActionFailure {
     @required Result inital(_Initial value),
     @required Result actionInProgress(_ActionInProgress value),
     @required Result addSuccess(_AddSuccess value),
-    @required Result deleteSuccess(_DeleteSuccess value),
+    @required Result deleteSuccess(DeleteSuccess value),
     @required Result actionFailure(_ActionFailure value),
   }) {
     assert(inital != null);
@@ -705,7 +705,7 @@ class _$_ActionFailure implements _ActionFailure {
     Result inital(_Initial value),
     Result actionInProgress(_ActionInProgress value),
     Result addSuccess(_AddSuccess value),
-    Result deleteSuccess(_DeleteSuccess value),
+    Result deleteSuccess(DeleteSuccess value),
     Result actionFailure(_ActionFailure value),
     @required Result orElse(),
   }) {
