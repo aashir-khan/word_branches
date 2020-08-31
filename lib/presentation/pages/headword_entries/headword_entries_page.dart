@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/application/dictionary_word_entries/dictionary_word_entries_bloc.dart';
 import 'package:dr_words/application/favorited_words/favorited_words_bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
@@ -21,9 +20,7 @@ class HeadwordEntriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) =>
-          DictionaryWordEntriesBloc(dictionaryWordEntriesRepository: getIt<IDictionaryWordEntriesRepository>())
-            ..add(DictionaryWordEntriesEvent.getWordEntries(wordSelected)),
+      create: (_) => getIt<DictionaryWordEntriesBloc>()..add(DictionaryWordEntriesEvent.getWordEntries(wordSelected)),
       child: BlocBuilder<DictionaryWordEntriesBloc, DictionaryWordEntriesState>(
         builder: (_, state) {
           return Scaffold(

@@ -28,8 +28,10 @@ const _unexpectedFailureMessage =
 class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, DictionaryWordSearchState> {
   final IDictionaryWordSearchRepository dictionaryWordSearchRepository;
 
-  DictionaryWordSearchBloc({@required this.dictionaryWordSearchRepository})
-      : super(const DictionaryWordSearchState.initial());
+  DictionaryWordSearchBloc({@required this.dictionaryWordSearchRepository});
+
+  @override
+  DictionaryWordSearchState get initialState => const DictionaryWordSearchState.initial();
 
   @override
   Stream<DictionaryWordSearchState> mapEventToState(
@@ -43,13 +45,9 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
           yield const DictionaryWordSearchState.loadInProgress();
           final resultEither = await dictionaryWordSearchRepository.getDictionaryWordSearchResults(query: query);
 
-          yield* resultEither.fold(
-            (failure) async* {
-              yield DictionaryWordSearchState.loadFailure(message: _mapRemoteFailureToMessage(failure));
-            },
-            (results) async* {
-              yield DictionaryWordSearchState.loadSearchResultsSuccess(words: results);
-            },
+          yield resultEither.fold(
+            (failure) => DictionaryWordSearchState.loadFailure(message: _mapRemoteFailureToMessage(failure)),
+            (results) => DictionaryWordSearchState.loadSearchResultsSuccess(words: results),
           );
         }
       },
@@ -57,41 +55,28 @@ class DictionaryWordSearchBloc extends Bloc<DictionaryWordSearchEvent, Dictionar
         yield const DictionaryWordSearchState.loadInProgress();
         final resultEither = await dictionaryWordSearchRepository.addNewRecentlySearchedWord(word);
 
-        yield* resultEither.fold(
-          (failure) async* {
-            yield const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage);
-          },
-          (addedWord) async* {
-            yield DictionaryWordSearchState.newWordAddedToRecentlySearchedWords(addedWord: addedWord);
-          },
+        yield resultEither.fold(
+          (failure) => const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage),
+          (addedWord) => DictionaryWordSearchState.newWordAddedToRecentlySearchedWords(addedWord: addedWord),
         );
       },
       getRecentlySearchedWords: () async* {
         yield const DictionaryWordSearchState.loadInProgress();
         final resultEither = await dictionaryWordSearchRepository.getRecentlySearchedWords();
 
-        yield* resultEither.fold(
-          (failure) async* {
-            yield const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage);
-          },
-          (results) async* {
-            yield results.isEmpty()
+        yield resultEither.fold(
+            (failure) => const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage),
+            (results) => results.isEmpty()
                 ? const DictionaryWordSearchState.initial()
-                : DictionaryWordSearchState.loadRecentlySearchedWordsResultsSuccess(recentlySearchedWords: results);
-          },
-        );
+                : DictionaryWordSearchState.loadRecentlySearchedWordsResultsSuccess(recentlySearchedWords: results));
       },
       deleteRecentlySearchedWord: (wordToDelete) async* {
         yield const DictionaryWordSearchState.loadInProgress();
         final resultEither = await dictionaryWordSearchRepository.deleteRecentlySearchedWord(wordToDelete);
 
-        yield* resultEither.fold(
-          (failure) async* {
-            yield const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage);
-          },
-          (deletedWord) async* {
-            yield DictionaryWordSearchState.deleteSuccess(deletedWord: deletedWord);
-          },
+        yield resultEither.fold(
+          (failure) => const DictionaryWordSearchState.loadFailure(message: _localDatabaseProcessingFailureMessage),
+          (deletedWord) => DictionaryWordSearchState.deleteSuccess(deletedWord: deletedWord),
         );
       },
     );

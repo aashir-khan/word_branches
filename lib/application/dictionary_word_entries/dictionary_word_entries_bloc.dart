@@ -16,8 +16,10 @@ part 'dictionary_word_entries_bloc.freezed.dart';
 @injectable
 class DictionaryWordEntriesBloc extends Bloc<DictionaryWordEntriesEvent, DictionaryWordEntriesState> {
   final IDictionaryWordEntriesRepository dictionaryWordEntriesRepository;
-  DictionaryWordEntriesBloc({@required this.dictionaryWordEntriesRepository})
-      : super(const _DictionaryWordEntriesStateInitial());
+  DictionaryWordEntriesBloc({@required this.dictionaryWordEntriesRepository});
+
+  @override
+  DictionaryWordEntriesState get initialState => const _DictionaryWordEntriesStateInitial();
 
   @override
   Stream<DictionaryWordEntriesState> mapEventToState(
@@ -25,15 +27,12 @@ class DictionaryWordEntriesBloc extends Bloc<DictionaryWordEntriesEvent, Diction
   ) async* {
     yield* event.when(
       getWordEntries: (word) async* {
-        yield const DictionaryWordEntriesState.loadInProgress();
         final resultEither = await dictionaryWordEntriesRepository.getWordEntries(word);
 
-        yield* resultEither.fold(
-          (failure) async* {
-            yield DictionaryWordEntriesState.loadFailure(message: _mapFailureToMessage(failure));
-          },
-          (results) async* {
-            yield DictionaryWordEntriesState.loadEntriesSuccess(results: results);
+        yield resultEither.fold(
+          (failure) => DictionaryWordEntriesState.loadFailure(message: _mapFailureToMessage(failure)),
+          (results) {
+            return DictionaryWordEntriesState.loadEntriesSuccess(results: results);
           },
         );
       },

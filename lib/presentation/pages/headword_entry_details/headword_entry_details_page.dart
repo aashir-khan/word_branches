@@ -3,7 +3,6 @@ import 'package:dr_words/application/dictionary_word_entries/dictionary_word_ent
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
-import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/pages/headword_entry_details/widgets/lexical_entry_list_item.dart';
@@ -57,8 +56,7 @@ class HeadwordEntryDetailsPage extends HookWidget {
     final tooltipKey = GlobalKey();
 
     return BlocProvider(
-        create: (_) =>
-            DictionaryWordEntriesBloc(dictionaryWordEntriesRepository: getIt<IDictionaryWordEntriesRepository>()),
+        create: (_) => getIt<DictionaryWordEntriesBloc>(),
         child: Scaffold(
           appBar: AppBar(
             title: GestureDetector(
@@ -85,14 +83,14 @@ class HeadwordEntryDetailsPage extends HookWidget {
                     lexicalEntry: lexicalEntry,
                     headwordEntry: headwordEntry,
                   ),
-                  FlatButton(
-                      onPressed: () {
-                        DictionaryWordEntriesBloc(
-                                dictionaryWordEntriesRepository: getIt<IDictionaryWordEntriesRepository>())
-                            .add(const DictionaryWordEntriesEvent.getWordEntries(
-                                DictionaryWord(id: 'foo', label: 'foo')));
-                      },
-                      child: const Text('hello'))
+                  Builder(
+                    builder: (context) => FlatButton(
+                        onPressed: () {
+                          getIt<DictionaryWordEntriesBloc>().add(
+                              const DictionaryWordEntriesEvent.getWordEntries(DictionaryWord(id: 'foo', label: 'foo')));
+                        },
+                        child: const Text('hello')),
+                  )
                 ],
               );
             },

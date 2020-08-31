@@ -17,7 +17,10 @@ const _localDatabaseProcessingFailureMessage = 'An error occurred trying to acce
 class FavoritedWordsBloc extends Bloc<FavoritedWordsEvent, FavoritedWordsState> {
   final IFavoritedWordsRepository favoritedWordsRepository;
 
-  FavoritedWordsBloc({@required this.favoritedWordsRepository}) : super(const _Initial());
+  FavoritedWordsBloc({@required this.favoritedWordsRepository});
+
+  @override
+  FavoritedWordsState get initialState => const _Initial();
 
   @override
   Stream<FavoritedWordsState> mapEventToState(
@@ -27,17 +30,13 @@ class FavoritedWordsBloc extends Bloc<FavoritedWordsEvent, FavoritedWordsState> 
       getFavoritedWords: () async* {
         final resultEither = await favoritedWordsRepository.getFavoritedWords();
 
-        yield* resultEither.fold(
-          (failure) async* {
-            yield FavoritedWordsState.loadFailure(
-              message: failure.when(
-                localDatabaseProcessingFailure: () => _localDatabaseProcessingFailureMessage,
-              ),
-            );
-          },
-          (results) async* {
-            yield FavoritedWordsState.loadFavoritedWordsSuccess(words: results);
-          },
+        yield resultEither.fold(
+          (failure) => FavoritedWordsState.loadFailure(
+            message: failure.when(
+              localDatabaseProcessingFailure: () => _localDatabaseProcessingFailureMessage,
+            ),
+          ),
+          (results) => FavoritedWordsState.loadFavoritedWordsSuccess(words: results),
         );
       },
       addFavoritedWord: (word) async* {
@@ -54,17 +53,13 @@ class FavoritedWordsBloc extends Bloc<FavoritedWordsEvent, FavoritedWordsState> 
           (_) async* {
             final resultEither = await favoritedWordsRepository.getFavoritedWords();
 
-            yield* resultEither.fold(
-              (failure) async* {
-                yield FavoritedWordsState.loadFailure(
-                  message: failure.when(
-                    localDatabaseProcessingFailure: () => _localDatabaseProcessingFailureMessage,
-                  ),
-                );
-              },
-              (results) async* {
-                yield FavoritedWordsState.loadFavoritedWordsSuccess(words: results);
-              },
+            yield resultEither.fold(
+              (failure) => FavoritedWordsState.loadFailure(
+                message: failure.when(
+                  localDatabaseProcessingFailure: () => _localDatabaseProcessingFailureMessage,
+                ),
+              ),
+              (results) => FavoritedWordsState.loadFavoritedWordsSuccess(words: results),
             );
           },
         );
@@ -83,17 +78,13 @@ class FavoritedWordsBloc extends Bloc<FavoritedWordsEvent, FavoritedWordsState> 
           (_) async* {
             final resultEither = await favoritedWordsRepository.getFavoritedWords();
 
-            yield* resultEither.fold(
-              (failure) async* {
-                yield FavoritedWordsState.loadFailure(
-                  message: failure.when(
-                    localDatabaseProcessingFailure: () => _localDatabaseProcessingFailureMessage,
-                  ),
-                );
-              },
-              (results) async* {
-                yield FavoritedWordsState.loadFavoritedWordsSuccess(words: results);
-              },
+            yield resultEither.fold(
+              (failure) => FavoritedWordsState.loadFailure(
+                message: failure.when(
+                  localDatabaseProcessingFailure: () => _localDatabaseProcessingFailureMessage,
+                ),
+              ),
+              (results) => FavoritedWordsState.loadFavoritedWordsSuccess(words: results),
             );
           },
         );
