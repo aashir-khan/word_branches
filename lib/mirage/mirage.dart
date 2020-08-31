@@ -13,8 +13,8 @@ import 'package:faker/faker.dart';
 
 Future<void> setupMirage({bool isActive = false}) async {
   if (isActive == true) {
-    final sharedPreferences = getIt<SharedPreferences>();
-    await sharedPreferences.clear();
+    // final sharedPreferences = getIt<SharedPreferences>();
+    // await sharedPreferences.clear();
 
     const dictionaryWordsCount = 5;
     const headwordEntriesCount = 5;

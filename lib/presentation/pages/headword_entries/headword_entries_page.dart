@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/application/dictionary_word_entries/dictionary_word_entries_cubit.dart';
-import 'package:dr_words/application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
+import 'package:dr_words/application/favorited_words/favorited_words_cubit.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
@@ -56,7 +56,7 @@ class HeadwordEntriesPage extends StatelessWidget {
                   Expanded(
                     flex: 45,
                     child: BlocProvider(
-                      create: (context) => getIt<FavoritedWordsActorCubit>(),
+                      create: (context) => getIt<FavoritedWordsCubit>(),
                       child: FavoritedWordToggleCard(word: wordSelected),
                     ),
                   ),
