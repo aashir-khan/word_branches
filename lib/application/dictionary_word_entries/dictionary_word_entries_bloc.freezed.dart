@@ -1,13 +1,202 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'dictionary_word_entries_cubit.dart';
+part of 'dictionary_word_entries_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+class _$DictionaryWordEntriesEventTearOff {
+  const _$DictionaryWordEntriesEventTearOff();
+
+// ignore: unused_element
+  _GetWordEntries getWordEntries(DictionaryWord word) {
+    return _GetWordEntries(
+      word,
+    );
+  }
+}
+
+// ignore: unused_element
+const $DictionaryWordEntriesEvent = _$DictionaryWordEntriesEventTearOff();
+
+mixin _$DictionaryWordEntriesEvent {
+  DictionaryWord get word;
+
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result getWordEntries(DictionaryWord word),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result getWordEntries(DictionaryWord word),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result getWordEntries(_GetWordEntries value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result getWordEntries(_GetWordEntries value),
+    @required Result orElse(),
+  });
+
+  $DictionaryWordEntriesEventCopyWith<DictionaryWordEntriesEvent> get copyWith;
+}
+
+abstract class $DictionaryWordEntriesEventCopyWith<$Res> {
+  factory $DictionaryWordEntriesEventCopyWith(DictionaryWordEntriesEvent value,
+          $Res Function(DictionaryWordEntriesEvent) then) =
+      _$DictionaryWordEntriesEventCopyWithImpl<$Res>;
+  $Res call({DictionaryWord word});
+
+  $DictionaryWordCopyWith<$Res> get word;
+}
+
+class _$DictionaryWordEntriesEventCopyWithImpl<$Res>
+    implements $DictionaryWordEntriesEventCopyWith<$Res> {
+  _$DictionaryWordEntriesEventCopyWithImpl(this._value, this._then);
+
+  final DictionaryWordEntriesEvent _value;
+  // ignore: unused_field
+  final $Res Function(DictionaryWordEntriesEvent) _then;
+
+  @override
+  $Res call({
+    Object word = freezed,
+  }) {
+    return _then(_value.copyWith(
+      word: word == freezed ? _value.word : word as DictionaryWord,
+    ));
+  }
+
+  @override
+  $DictionaryWordCopyWith<$Res> get word {
+    if (_value.word == null) {
+      return null;
+    }
+    return $DictionaryWordCopyWith<$Res>(_value.word, (value) {
+      return _then(_value.copyWith(word: value));
+    });
+  }
+}
+
+abstract class _$GetWordEntriesCopyWith<$Res>
+    implements $DictionaryWordEntriesEventCopyWith<$Res> {
+  factory _$GetWordEntriesCopyWith(
+          _GetWordEntries value, $Res Function(_GetWordEntries) then) =
+      __$GetWordEntriesCopyWithImpl<$Res>;
+  @override
+  $Res call({DictionaryWord word});
+
+  @override
+  $DictionaryWordCopyWith<$Res> get word;
+}
+
+class __$GetWordEntriesCopyWithImpl<$Res>
+    extends _$DictionaryWordEntriesEventCopyWithImpl<$Res>
+    implements _$GetWordEntriesCopyWith<$Res> {
+  __$GetWordEntriesCopyWithImpl(
+      _GetWordEntries _value, $Res Function(_GetWordEntries) _then)
+      : super(_value, (v) => _then(v as _GetWordEntries));
+
+  @override
+  _GetWordEntries get _value => super._value as _GetWordEntries;
+
+  @override
+  $Res call({
+    Object word = freezed,
+  }) {
+    return _then(_GetWordEntries(
+      word == freezed ? _value.word : word as DictionaryWord,
+    ));
+  }
+}
+
+class _$_GetWordEntries implements _GetWordEntries {
+  const _$_GetWordEntries(this.word) : assert(word != null);
+
+  @override
+  final DictionaryWord word;
+
+  @override
+  String toString() {
+    return 'DictionaryWordEntriesEvent.getWordEntries(word: $word)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _GetWordEntries &&
+            (identical(other.word, word) ||
+                const DeepCollectionEquality().equals(other.word, word)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(word);
+
+  @override
+  _$GetWordEntriesCopyWith<_GetWordEntries> get copyWith =>
+      __$GetWordEntriesCopyWithImpl<_GetWordEntries>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result getWordEntries(DictionaryWord word),
+  }) {
+    assert(getWordEntries != null);
+    return getWordEntries(word);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result getWordEntries(DictionaryWord word),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (getWordEntries != null) {
+      return getWordEntries(word);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result getWordEntries(_GetWordEntries value),
+  }) {
+    assert(getWordEntries != null);
+    return getWordEntries(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result getWordEntries(_GetWordEntries value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (getWordEntries != null) {
+      return getWordEntries(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetWordEntries implements DictionaryWordEntriesEvent {
+  const factory _GetWordEntries(DictionaryWord word) = _$_GetWordEntries;
+
+  @override
+  DictionaryWord get word;
+  @override
+  _$GetWordEntriesCopyWith<_GetWordEntries> get copyWith;
+}
 
 class _$DictionaryWordEntriesStateTearOff {
   const _$DictionaryWordEntriesStateTearOff();
@@ -24,9 +213,10 @@ class _$DictionaryWordEntriesStateTearOff {
 
 // ignore: unused_element
   _DictionaryWordEntriesStateLoadEntriesSuccess loadEntriesSuccess(
-      {KtList<HeadwordEntry> results}) {
+      {KtList<HeadwordEntry> results, bool isLoadedAll}) {
     return _DictionaryWordEntriesStateLoadEntriesSuccess(
       results: results,
+      isLoadedAll: isLoadedAll,
     );
   }
 
@@ -46,14 +236,16 @@ mixin _$DictionaryWordEntriesState {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    @required
+        Result loadEntriesSuccess(
+            KtList<HeadwordEntry> results, bool isLoadedAll),
     @required Result loadFailure(String message),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    Result loadEntriesSuccess(KtList<HeadwordEntry> results, bool isLoadedAll),
     Result loadFailure(String message),
     @required Result orElse(),
   });
@@ -136,7 +328,9 @@ class _$_DictionaryWordEntriesStateInitial
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    @required
+        Result loadEntriesSuccess(
+            KtList<HeadwordEntry> results, bool isLoadedAll),
     @required Result loadFailure(String message),
   }) {
     assert(initial != null);
@@ -151,7 +345,7 @@ class _$_DictionaryWordEntriesStateInitial
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    Result loadEntriesSuccess(KtList<HeadwordEntry> results, bool isLoadedAll),
     Result loadFailure(String message),
     @required Result orElse(),
   }) {
@@ -248,7 +442,9 @@ class _$_DictionaryWordEntriesStateLoadInProgress
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    @required
+        Result loadEntriesSuccess(
+            KtList<HeadwordEntry> results, bool isLoadedAll),
     @required Result loadFailure(String message),
   }) {
     assert(initial != null);
@@ -263,7 +459,7 @@ class _$_DictionaryWordEntriesStateLoadInProgress
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    Result loadEntriesSuccess(KtList<HeadwordEntry> results, bool isLoadedAll),
     Result loadFailure(String message),
     @required Result orElse(),
   }) {
@@ -321,7 +517,7 @@ abstract class _$DictionaryWordEntriesStateLoadEntriesSuccessCopyWith<$Res> {
           _DictionaryWordEntriesStateLoadEntriesSuccess value,
           $Res Function(_DictionaryWordEntriesStateLoadEntriesSuccess) then) =
       __$DictionaryWordEntriesStateLoadEntriesSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<HeadwordEntry> results});
+  $Res call({KtList<HeadwordEntry> results, bool isLoadedAll});
 }
 
 class __$DictionaryWordEntriesStateLoadEntriesSuccessCopyWithImpl<$Res>
@@ -340,25 +536,31 @@ class __$DictionaryWordEntriesStateLoadEntriesSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object results = freezed,
+    Object isLoadedAll = freezed,
   }) {
     return _then(_DictionaryWordEntriesStateLoadEntriesSuccess(
       results: results == freezed
           ? _value.results
           : results as KtList<HeadwordEntry>,
+      isLoadedAll:
+          isLoadedAll == freezed ? _value.isLoadedAll : isLoadedAll as bool,
     ));
   }
 }
 
 class _$_DictionaryWordEntriesStateLoadEntriesSuccess
     implements _DictionaryWordEntriesStateLoadEntriesSuccess {
-  const _$_DictionaryWordEntriesStateLoadEntriesSuccess({this.results});
+  const _$_DictionaryWordEntriesStateLoadEntriesSuccess(
+      {this.results, this.isLoadedAll});
 
   @override
   final KtList<HeadwordEntry> results;
+  @override
+  final bool isLoadedAll;
 
   @override
   String toString() {
-    return 'DictionaryWordEntriesState.loadEntriesSuccess(results: $results)';
+    return 'DictionaryWordEntriesState.loadEntriesSuccess(results: $results, isLoadedAll: $isLoadedAll)';
   }
 
   @override
@@ -366,12 +568,18 @@ class _$_DictionaryWordEntriesStateLoadEntriesSuccess
     return identical(this, other) ||
         (other is _DictionaryWordEntriesStateLoadEntriesSuccess &&
             (identical(other.results, results) ||
-                const DeepCollectionEquality().equals(other.results, results)));
+                const DeepCollectionEquality()
+                    .equals(other.results, results)) &&
+            (identical(other.isLoadedAll, isLoadedAll) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLoadedAll, isLoadedAll)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(results);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(results) ^
+      const DeepCollectionEquality().hash(isLoadedAll);
 
   @override
   _$DictionaryWordEntriesStateLoadEntriesSuccessCopyWith<
@@ -385,14 +593,16 @@ class _$_DictionaryWordEntriesStateLoadEntriesSuccess
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    @required
+        Result loadEntriesSuccess(
+            KtList<HeadwordEntry> results, bool isLoadedAll),
     @required Result loadFailure(String message),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadEntriesSuccess != null);
     assert(loadFailure != null);
-    return loadEntriesSuccess(results);
+    return loadEntriesSuccess(results, isLoadedAll);
   }
 
   @override
@@ -400,13 +610,13 @@ class _$_DictionaryWordEntriesStateLoadEntriesSuccess
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    Result loadEntriesSuccess(KtList<HeadwordEntry> results, bool isLoadedAll),
     Result loadFailure(String message),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (loadEntriesSuccess != null) {
-      return loadEntriesSuccess(results);
+      return loadEntriesSuccess(results, isLoadedAll);
     }
     return orElse();
   }
@@ -450,10 +660,11 @@ class _$_DictionaryWordEntriesStateLoadEntriesSuccess
 abstract class _DictionaryWordEntriesStateLoadEntriesSuccess
     implements DictionaryWordEntriesState {
   const factory _DictionaryWordEntriesStateLoadEntriesSuccess(
-          {KtList<HeadwordEntry> results}) =
-      _$_DictionaryWordEntriesStateLoadEntriesSuccess;
+      {KtList<HeadwordEntry> results,
+      bool isLoadedAll}) = _$_DictionaryWordEntriesStateLoadEntriesSuccess;
 
   KtList<HeadwordEntry> get results;
+  bool get isLoadedAll;
   _$DictionaryWordEntriesStateLoadEntriesSuccessCopyWith<
       _DictionaryWordEntriesStateLoadEntriesSuccess> get copyWith;
 }
@@ -524,7 +735,9 @@ class _$_DictionaryWordEntriesStateLoadFailure
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    @required
+        Result loadEntriesSuccess(
+            KtList<HeadwordEntry> results, bool isLoadedAll),
     @required Result loadFailure(String message),
   }) {
     assert(initial != null);
@@ -539,7 +752,7 @@ class _$_DictionaryWordEntriesStateLoadFailure
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadEntriesSuccess(KtList<HeadwordEntry> results),
+    Result loadEntriesSuccess(KtList<HeadwordEntry> results, bool isLoadedAll),
     Result loadFailure(String message),
     @required Result orElse(),
   }) {

@@ -30,7 +30,7 @@ class WordDictionaryWordSearch extends SearchDelegate<DictionaryWord> {
   ThemeData appBarTheme(BuildContext context) => Theme.of(context);
 
   @override
-  TextInputAction get textInputAction => TextInputAction.done;
+  TextInputAction get textInputAction => TextInputAction.none;
 
   @override
   Widget buildLeading(BuildContext context) {

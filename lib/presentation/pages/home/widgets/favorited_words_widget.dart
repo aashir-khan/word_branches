@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
-import 'package:dr_words/application/favorited_words/favorited_words_watcher/favorited_words_watcher_cubit.dart';
+import 'package:dr_words/application/favorited_words/favorited_words_bloc.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flushbar/flushbar.dart';
@@ -32,8 +31,8 @@ class FavoritedWordsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<FavoritedWordsWatcherCubit>()..getFavoritedWords(),
-      child: BlocConsumer<FavoritedWordsWatcherCubit, FavoritedWordsWatcherState>(
+      create: (context) => getIt<FavoritedWordsBloc>()..add(const FavoritedWordsEvent.getFavoritedWords()),
+      child: BlocConsumer<FavoritedWordsBloc, FavoritedWordsState>(
         listener: (context, state) {
           state.maybeWhen(
             loadFailure: (message) => Flushbar(
@@ -51,8 +50,8 @@ class FavoritedWordsWidget extends StatelessWidget {
           );
         },
         builder: (context, state) {
-          return state.when(
-            inital: () => Container(),
+          return state.maybeWhen(
+            initial: () => Container(),
             loadInProgress: () => const Center(child: CircularProgressIndicator()),
             loadFavoritedWordsSuccess: (favoritedWords) {
               if (favoritedWords.isEmpty()) {
@@ -94,13 +93,15 @@ class FavoritedWordsWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                           BlocProvider(
-                            create: (context) => getIt<FavoritedWordsActorCubit>(),
+                            create: (context) => getIt<FavoritedWordsBloc>(),
                             child: Builder(
                               builder: (context) => IconButton(
                                 icon: Icon(Icons.delete),
                                 onPressed: () async {
-                                  await context.bloc<FavoritedWordsActorCubit>().deleteFavoritedWord(favoritedWord);
-                                  await context.bloc<FavoritedWordsWatcherCubit>().getFavoritedWords();
+                                  context
+                                      .bloc<FavoritedWordsBloc>()
+                                      .add(FavoritedWordsEvent.deleteFavoritedWord(favoritedWord));
+                                  context.bloc<FavoritedWordsBloc>().add(const FavoritedWordsEvent.getFavoritedWords());
                                 },
                               ),
                             ),
@@ -113,6 +114,8 @@ class FavoritedWordsWidget extends StatelessWidget {
               );
             },
             loadFailure: (message) => Container(),
+            actionFailure: (message) => Container(),
+            orElse: () => Container(),
           );
         },
       ),

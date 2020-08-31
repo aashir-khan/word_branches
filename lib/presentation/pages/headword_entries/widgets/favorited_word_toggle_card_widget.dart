@@ -1,4 +1,4 @@
-import 'package:dr_words/application/favorited_words/favorited_words_actor/favorited_words_actor_cubit.dart';
+import 'package:dr_words/application/favorited_words/favorited_words_bloc.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/responsive_safe_area.dart';
@@ -32,8 +32,12 @@ class FavoritedWordToggleCard extends HookWidget {
               child: FloatingActionButton(
                 elevation: 0,
                 onPressed: () {
-                  final cubit = context.bloc<FavoritedWordsActorCubit>();
-                  isFavorited.value ? cubit.deleteFavoritedWord(word) : cubit.addFavoritedWord(word);
+                  final bloc = context.bloc<FavoritedWordsBloc>();
+                  bloc.add(
+                    isFavorited.value
+                        ? FavoritedWordsEvent.deleteFavoritedWord(word)
+                        : FavoritedWordsEvent.addFavoritedWord(word),
+                  );
                   isFavorited.value = !isFavorited.value;
                 },
                 backgroundColor: colors.primaryColorLight,
@@ -57,7 +61,7 @@ class FavoritedWordToggleCard extends HookWidget {
                   message: word.label,
                   child: Text(
                     word.label,
-                    style: TextStyle(fontSize: 40, color: Colors.white),
+                    style: const TextStyle(fontSize: 40, color: Colors.white),
                     overflow: TextOverflow.ellipsis,
                   )),
             )

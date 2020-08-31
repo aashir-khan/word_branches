@@ -1,11 +1,15 @@
 import 'package:audioplayer/audioplayer.dart';
+import 'package:dr_words/application/dictionary_word_entries/dictionary_word_entries_bloc.dart';
+import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
+import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/pages/headword_entry_details/widgets/lexical_entry_list_item.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 
@@ -52,32 +56,47 @@ class HeadwordEntryDetailsPage extends HookWidget {
   Widget build(BuildContext context) {
     final tooltipKey = GlobalKey();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: GestureDetector(
-          onTap: () {
-            final dynamic tooltip = tooltipKey.currentState;
-            tooltip.ensureTooltipVisible();
-          },
-          child: Tooltip(
-            key: tooltipKey,
-            message: headwordEntry.wordLabel,
-            showDuration: Duration.zero,
-            child: Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
+    return BlocProvider(
+        create: (_) =>
+            DictionaryWordEntriesBloc(dictionaryWordEntriesRepository: getIt<IDictionaryWordEntriesRepository>()),
+        child: Scaffold(
+          appBar: AppBar(
+            title: GestureDetector(
+              onTap: () {
+                final dynamic tooltip = tooltipKey.currentState;
+                tooltip.ensureTooltipVisible();
+              },
+              child: Tooltip(
+                key: tooltipKey,
+                message: headwordEntry.wordLabel,
+                showDuration: Duration.zero,
+                child: Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
+              ),
+            ),
+            actions: buildActions(context),
           ),
-        ),
-        actions: buildActions(context),
-      ),
-      body: ListView.builder(
-        itemCount: headwordEntry.lexicalEntries.size,
-        itemBuilder: (context, index) {
-          final lexicalEntry = headwordEntry.lexicalEntries[index];
-          return LexicalEntryListItem(
-            lexicalEntry: lexicalEntry,
-            headwordEntry: headwordEntry,
-          );
-        },
-      ),
-    );
+          body: ListView.builder(
+            itemCount: headwordEntry.lexicalEntries.size,
+            itemBuilder: (context, index) {
+              final lexicalEntry = headwordEntry.lexicalEntries[index];
+              return Column(
+                children: <Widget>[
+                  LexicalEntryListItem(
+                    lexicalEntry: lexicalEntry,
+                    headwordEntry: headwordEntry,
+                  ),
+                  FlatButton(
+                      onPressed: () {
+                        DictionaryWordEntriesBloc(
+                                dictionaryWordEntriesRepository: getIt<IDictionaryWordEntriesRepository>())
+                            .add(const DictionaryWordEntriesEvent.getWordEntries(
+                                DictionaryWord(id: 'foo', label: 'foo')));
+                      },
+                      child: const Text('hello'))
+                ],
+              );
+            },
+          ),
+        ));
   }
 }
