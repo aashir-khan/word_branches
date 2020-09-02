@@ -11,8 +11,8 @@ abstract class Env {
 }
 
 Future<void> configureInjection(String environment) async {
-  await configureManualInjection(environment);
   configureAutomaticInjection(environment);
+  await configureManualInjection(environment);
 }
 
 final GetIt getIt = GetIt.instance;

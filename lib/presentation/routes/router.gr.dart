@@ -13,24 +13,24 @@ import 'package:kt_dart/collection.dart';
 import '../../domain/core/entities/dictionary_word.dart';
 import '../../domain/dictionary_word_entries/entities/headword_entry.dart';
 import '../../domain/dictionary_word_entries/entities/sense.dart';
-import '../pages/headword_entries/headword_entries_page.dart';
-import '../pages/headword_entry_details/headword_entry_details_page.dart';
-import '../pages/home/home_page.dart';
-import '../pages/search/search_page.dart';
-import '../pages/subsense_details/subsense_details_page.dart';
+import '../views/headword_entries/headword_entries_view.dart';
+import '../views/headword_entry_details/headword_entry_details_view.dart';
+import '../views/home/home_view.dart';
+import '../views/search/search_view.dart';
+import '../views/subsense_details/subsense_details_view.dart';
 
 class Routes {
-  static const String homePage = '/';
-  static const String searchPage = '/search-page';
-  static const String headwordEntriesPage = '/headword-entries-page';
-  static const String headwordEntryDetailsPage = '/headword-entry-details-page';
-  static const String subsenseDetailsPage = '/subsense-details-page';
+  static const String homeView = '/';
+  static const String searchView = '/search-view';
+  static const String headwordEntriesView = '/headword-entries-view';
+  static const String headwordEntryDetailsView = '/headword-entry-details-view';
+  static const String subsenseDetailsView = '/subsense-details-view';
   static const all = <String>{
-    homePage,
-    searchPage,
-    headwordEntriesPage,
-    headwordEntryDetailsPage,
-    subsenseDetailsPage,
+    homeView,
+    searchView,
+    headwordEntriesView,
+    headwordEntryDetailsView,
+    subsenseDetailsView,
   };
 }
 
@@ -38,49 +38,49 @@ class Router extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
-    RouteDef(Routes.homePage, page: HomePage),
-    RouteDef(Routes.searchPage, page: SearchPage),
-    RouteDef(Routes.headwordEntriesPage, page: HeadwordEntriesPage),
-    RouteDef(Routes.headwordEntryDetailsPage, page: HeadwordEntryDetailsPage),
-    RouteDef(Routes.subsenseDetailsPage, page: SubsenseDetailsPage),
+    RouteDef(Routes.homeView, page: HomeView),
+    RouteDef(Routes.searchView, page: SearchView),
+    RouteDef(Routes.headwordEntriesView, page: HeadwordEntriesView),
+    RouteDef(Routes.headwordEntryDetailsView, page: HeadwordEntryDetailsView),
+    RouteDef(Routes.subsenseDetailsView, page: SubsenseDetailsView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
-    HomePage: (data) {
+    HomeView: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => HomePage(),
+        builder: (context) => HomeView(),
         settings: data,
       );
     },
-    SearchPage: (data) {
+    SearchView: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SearchPage(),
+        builder: (context) => SearchView(),
         settings: data,
       );
     },
-    HeadwordEntriesPage: (data) {
-      final args = data.getArgs<HeadwordEntriesPageArguments>(nullOk: false);
+    HeadwordEntriesView: (data) {
+      final args = data.getArgs<HeadwordEntriesViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => HeadwordEntriesPage(args.wordSelected),
+        builder: (context) => HeadwordEntriesView(args.wordSelected),
         settings: data,
       );
     },
-    HeadwordEntryDetailsPage: (data) {
+    HeadwordEntryDetailsView: (data) {
       final args =
-          data.getArgs<HeadwordEntryDetailsPageArguments>(nullOk: false);
+          data.getArgs<HeadwordEntryDetailsViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => HeadwordEntryDetailsPage(
+        builder: (context) => HeadwordEntryDetailsView(
           headwordEntry: args.headwordEntry,
           parentSense: args.parentSense,
         ),
         settings: data,
       );
     },
-    SubsenseDetailsPage: (data) {
-      final args = data.getArgs<SubsenseDetailsPageArguments>(nullOk: false);
+    SubsenseDetailsView: (data) {
+      final args = data.getArgs<SubsenseDetailsViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SubsenseDetailsPage(
+        builder: (context) => SubsenseDetailsView(
           key: args.key,
           headwordEntry: args.headwordEntry,
           subsenses: args.subsenses,
@@ -96,27 +96,27 @@ class Router extends RouterBase {
 /// Arguments holder classes
 /// *************************************************************************
 
-/// HeadwordEntriesPage arguments holder class
-class HeadwordEntriesPageArguments {
+/// HeadwordEntriesView arguments holder class
+class HeadwordEntriesViewArguments {
   final DictionaryWord wordSelected;
-  HeadwordEntriesPageArguments({@required this.wordSelected});
+  HeadwordEntriesViewArguments({@required this.wordSelected});
 }
 
-/// HeadwordEntryDetailsPage arguments holder class
-class HeadwordEntryDetailsPageArguments {
+/// HeadwordEntryDetailsView arguments holder class
+class HeadwordEntryDetailsViewArguments {
   final HeadwordEntry headwordEntry;
   final Sense parentSense;
-  HeadwordEntryDetailsPageArguments(
+  HeadwordEntryDetailsViewArguments(
       {@required this.headwordEntry, this.parentSense});
 }
 
-/// SubsenseDetailsPage arguments holder class
-class SubsenseDetailsPageArguments {
+/// SubsenseDetailsView arguments holder class
+class SubsenseDetailsViewArguments {
   final Key key;
   final HeadwordEntry headwordEntry;
   final KtList<Sense> subsenses;
   final String parentSenseDefinition;
-  SubsenseDetailsPageArguments(
+  SubsenseDetailsViewArguments(
       {this.key,
       @required this.headwordEntry,
       @required this.subsenses,

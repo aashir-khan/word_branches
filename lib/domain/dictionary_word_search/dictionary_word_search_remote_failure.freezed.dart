@@ -18,11 +18,6 @@ class _$DictionaryWordSearchRemoteFailureTearOff {
   }
 
 // ignore: unused_element
-  _DictionaryWordSearchRemoteFailureNoResultsFound noResultsFound() {
-    return const _DictionaryWordSearchRemoteFailureNoResultsFound();
-  }
-
-// ignore: unused_element
   _DictionaryWordSearchRemoteFailureServerException serverError() {
     return const _DictionaryWordSearchRemoteFailureServerException();
   }
@@ -41,14 +36,12 @@ mixin _$DictionaryWordSearchRemoteFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result networkError(),
-    @required Result noResultsFound(),
     @required Result serverError(),
     @required Result unexpected(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result networkError(),
-    Result noResultsFound(),
     Result serverError(),
     Result unexpected(),
     @required Result orElse(),
@@ -59,9 +52,6 @@ mixin _$DictionaryWordSearchRemoteFailure {
         Result networkError(
             _DictionaryWordSearchRemoteFailureNetworkError value),
     @required
-        Result noResultsFound(
-            _DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
     @required
@@ -70,8 +60,6 @@ mixin _$DictionaryWordSearchRemoteFailure {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(
-        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),
@@ -137,12 +125,10 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result networkError(),
-    @required Result noResultsFound(),
     @required Result serverError(),
     @required Result unexpected(),
   }) {
     assert(networkError != null);
-    assert(noResultsFound != null);
     assert(serverError != null);
     assert(unexpected != null);
     return networkError();
@@ -152,7 +138,6 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result networkError(),
-    Result noResultsFound(),
     Result serverError(),
     Result unexpected(),
     @required Result orElse(),
@@ -171,16 +156,12 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
         Result networkError(
             _DictionaryWordSearchRemoteFailureNetworkError value),
     @required
-        Result noResultsFound(
-            _DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
     @required
         Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
-    assert(noResultsFound != null);
     assert(serverError != null);
     assert(unexpected != null);
     return networkError(this);
@@ -190,8 +171,6 @@ class _$_DictionaryWordSearchRemoteFailureNetworkError
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(
-        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),
@@ -208,125 +187,6 @@ abstract class _DictionaryWordSearchRemoteFailureNetworkError
     implements DictionaryWordSearchRemoteFailure {
   const factory _DictionaryWordSearchRemoteFailureNetworkError() =
       _$_DictionaryWordSearchRemoteFailureNetworkError;
-}
-
-abstract class _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith<$Res> {
-  factory _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith(
-          _DictionaryWordSearchRemoteFailureNoResultsFound value,
-          $Res Function(_DictionaryWordSearchRemoteFailureNoResultsFound)
-              then) =
-      __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>;
-}
-
-class __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl<$Res>
-    extends _$DictionaryWordSearchRemoteFailureCopyWithImpl<$Res>
-    implements _$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWith<$Res> {
-  __$DictionaryWordSearchRemoteFailureNoResultsFoundCopyWithImpl(
-      _DictionaryWordSearchRemoteFailureNoResultsFound _value,
-      $Res Function(_DictionaryWordSearchRemoteFailureNoResultsFound) _then)
-      : super(
-            _value,
-            (v) =>
-                _then(v as _DictionaryWordSearchRemoteFailureNoResultsFound));
-
-  @override
-  _DictionaryWordSearchRemoteFailureNoResultsFound get _value =>
-      super._value as _DictionaryWordSearchRemoteFailureNoResultsFound;
-}
-
-class _$_DictionaryWordSearchRemoteFailureNoResultsFound
-    implements _DictionaryWordSearchRemoteFailureNoResultsFound {
-  const _$_DictionaryWordSearchRemoteFailureNoResultsFound();
-
-  @override
-  String toString() {
-    return 'DictionaryWordSearchRemoteFailure.noResultsFound()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _DictionaryWordSearchRemoteFailureNoResultsFound);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result networkError(),
-    @required Result noResultsFound(),
-    @required Result serverError(),
-    @required Result unexpected(),
-  }) {
-    assert(networkError != null);
-    assert(noResultsFound != null);
-    assert(serverError != null);
-    assert(unexpected != null);
-    return noResultsFound();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result networkError(),
-    Result noResultsFound(),
-    Result serverError(),
-    Result unexpected(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (noResultsFound != null) {
-      return noResultsFound();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required
-        Result networkError(
-            _DictionaryWordSearchRemoteFailureNetworkError value),
-    @required
-        Result noResultsFound(
-            _DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required
-        Result serverError(
-            _DictionaryWordSearchRemoteFailureServerException value),
-    @required
-        Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
-  }) {
-    assert(networkError != null);
-    assert(noResultsFound != null);
-    assert(serverError != null);
-    assert(unexpected != null);
-    return noResultsFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(
-        _DictionaryWordSearchRemoteFailureNoResultsFound value),
-    Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
-    Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (noResultsFound != null) {
-      return noResultsFound(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DictionaryWordSearchRemoteFailureNoResultsFound
-    implements DictionaryWordSearchRemoteFailure {
-  const factory _DictionaryWordSearchRemoteFailureNoResultsFound() =
-      _$_DictionaryWordSearchRemoteFailureNoResultsFound;
 }
 
 abstract class _$DictionaryWordSearchRemoteFailureServerExceptionCopyWith<
@@ -377,12 +237,10 @@ class _$_DictionaryWordSearchRemoteFailureServerException
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result networkError(),
-    @required Result noResultsFound(),
     @required Result serverError(),
     @required Result unexpected(),
   }) {
     assert(networkError != null);
-    assert(noResultsFound != null);
     assert(serverError != null);
     assert(unexpected != null);
     return serverError();
@@ -392,7 +250,6 @@ class _$_DictionaryWordSearchRemoteFailureServerException
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result networkError(),
-    Result noResultsFound(),
     Result serverError(),
     Result unexpected(),
     @required Result orElse(),
@@ -411,16 +268,12 @@ class _$_DictionaryWordSearchRemoteFailureServerException
         Result networkError(
             _DictionaryWordSearchRemoteFailureNetworkError value),
     @required
-        Result noResultsFound(
-            _DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
     @required
         Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
-    assert(noResultsFound != null);
     assert(serverError != null);
     assert(unexpected != null);
     return serverError(this);
@@ -430,8 +283,6 @@ class _$_DictionaryWordSearchRemoteFailureServerException
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(
-        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),
@@ -493,12 +344,10 @@ class _$_DictionaryWordSearchRemoteFailureUnexpected
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result networkError(),
-    @required Result noResultsFound(),
     @required Result serverError(),
     @required Result unexpected(),
   }) {
     assert(networkError != null);
-    assert(noResultsFound != null);
     assert(serverError != null);
     assert(unexpected != null);
     return unexpected();
@@ -508,7 +357,6 @@ class _$_DictionaryWordSearchRemoteFailureUnexpected
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result networkError(),
-    Result noResultsFound(),
     Result serverError(),
     Result unexpected(),
     @required Result orElse(),
@@ -527,16 +375,12 @@ class _$_DictionaryWordSearchRemoteFailureUnexpected
         Result networkError(
             _DictionaryWordSearchRemoteFailureNetworkError value),
     @required
-        Result noResultsFound(
-            _DictionaryWordSearchRemoteFailureNoResultsFound value),
-    @required
         Result serverError(
             _DictionaryWordSearchRemoteFailureServerException value),
     @required
         Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
-    assert(noResultsFound != null);
     assert(serverError != null);
     assert(unexpected != null);
     return unexpected(this);
@@ -546,8 +390,6 @@ class _$_DictionaryWordSearchRemoteFailureUnexpected
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result networkError(_DictionaryWordSearchRemoteFailureNetworkError value),
-    Result noResultsFound(
-        _DictionaryWordSearchRemoteFailureNoResultsFound value),
     Result serverError(_DictionaryWordSearchRemoteFailureServerException value),
     Result unexpected(_DictionaryWordSearchRemoteFailureUnexpected value),
     @required Result orElse(),

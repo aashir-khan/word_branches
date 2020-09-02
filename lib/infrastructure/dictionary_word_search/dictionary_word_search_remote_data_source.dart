@@ -33,7 +33,7 @@ class DictionaryWordSearchRemoteDataSource implements IDictionaryWordSearchRemot
       response.data['results'].forEach((word) => words.add(DictionaryWordDto.fromJson(word as Map<String, dynamic>)));
       return words.toImmutableList();
     } else if (response.statusCode == 404) {
-      throw const DictionaryWordSearchRemoteException.noResultsFound();
+      return emptyList();
     } else if (response.statusCode == 500) {
       throw const DictionaryWordSearchRemoteException.serverError();
     } else {

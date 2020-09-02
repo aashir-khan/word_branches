@@ -35,9 +35,9 @@ class DictionaryWordSearchRepository implements IDictionaryWordSearchRepository 
         return Right(domainWords.toImmutableList());
       } on DictionaryWordSearchRemoteException catch (e) {
         return e.when(
-            noResultsFound: () => const Left(DictionaryWordSearchRemoteFailure.noResultsFound()),
-            serverError: () => const Left(DictionaryWordSearchRemoteFailure.serverError()),
-            unexpected: () => const Left(DictionaryWordSearchRemoteFailure.unexpected()));
+          serverError: () => const Left(DictionaryWordSearchRemoteFailure.serverError()),
+          unexpected: () => const Left(DictionaryWordSearchRemoteFailure.unexpected()),
+        );
       }
     } else {
       return const Left(DictionaryWordSearchRemoteFailure.networkError());

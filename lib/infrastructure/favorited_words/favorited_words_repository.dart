@@ -8,10 +8,14 @@ import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:stacked/stacked.dart';
 
 @LazySingleton(as: IFavoritedWordsRepository)
-class FavoritedWordsRepository implements IFavoritedWordsRepository {
+class FavoritedWordsRepository with ReactiveServiceMixin implements IFavoritedWordsRepository {
   final IFavoritedWordsLocalDataSource localDataSource;
+  Either<FavoritedWordsFailure, KtList<DictionaryWord>> _favoritedWordsFailureEither;
+
+  Either<FavoritedWordsFailure, KtList<DictionaryWord>> get favoritedWordsFailureEither => _favoritedWordsFailureEither;
 
   FavoritedWordsRepository({@required this.localDataSource});
 
@@ -41,8 +45,10 @@ class FavoritedWordsRepository implements IFavoritedWordsRepository {
     try {
       final favoritedWords = await localDataSource.getFavoritedWords();
       final domainFavoritedWords = favoritedWords.map((word) => word.toDomain());
+      _favoritedWordsFailureEither = Right(domainFavoritedWords);
       return Right(domainFavoritedWords);
     } on FavoritedWordsException catch (e) {
+      _favoritedWordsFailureEither = Left(handleException(e));
       return Left(handleException(e));
     }
   }

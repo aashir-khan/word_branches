@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'dtos/dictionary_word_entries_exception.freezed.dart';
+part 'dictionary_word_entries_exception.freezed.dart';
 
 @freezed
 abstract class DictionaryWordEntriesException with _$DictionaryWordEntriesException {

@@ -23,22 +23,19 @@ dependencies:
   flutter:
     sdk: flutter
   get_it: ^4.0.4
-  flutter_bloc: ^6.0.1
   rxdart: ^0.24.1
-  async: ^2.4.1
   dartz: ^0.9.1
   data_connection_checker: ^0.3.4
   # For OS-specific directory paths
   shared_preferences: ^0.5.8
   shared_preferences_web: ^0.1.2+7
   injectable: ^1.0.4
-  flutter_svg: ^0.17.4
   auto_route: ^0.6.7
   freezed_annotation: ^0.11.0+1
   kt_dart: ^0.7.0+1
   dio: ^3.0.10
   dio_http_cache: ^0.2.8
-  flutter_hooks: ^0.13.1
+  flutter_hooks: ^0.12.0
   enum_to_string: ^1.0.9
   audioplayer: 0.8.1
   audioplayer_web: 0.7.1
@@ -48,13 +45,14 @@ dependencies:
   cupertino_icons: ^0.1.3
   font_awesome_flutter: ^8.8.1
   flushbar: ^1.10.4
+  stacked: ^1.7.6
+  stacked_hooks: ^0.1.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   faker: ^1.2.1
   mockito: ^4.1.1
-  bloc_test: ^7.0.1
   build_runner: ^1.10.0
   injectable_generator: ^1.0.4
   lint: ^1.2.0
