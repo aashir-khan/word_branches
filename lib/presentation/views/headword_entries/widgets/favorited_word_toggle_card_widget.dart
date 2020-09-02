@@ -41,46 +41,48 @@ class FavoritedWordToggleCard extends HookWidget {
             WidgetsBinding.instance.addPostFrameCallback((_) => _handleError(context, model.modelError as String));
           }
 
-          return Container(
-            width: double.infinity,
-            color: colors.primaryColorLight,
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: size.height * 0.6,
-                  height: size.height * 0.6,
-                  child: FloatingActionButton(
-                    elevation: 0,
-                    onPressed: () => model.toggleFavoritedState(),
-                    backgroundColor: colors.primaryColorLight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Icon(
-                        model.isFavorited ? CustomIcons.heart_filled_icon : CustomIcons.heart_outline_icon,
-                        size: size.height * 0.4,
-                        color: model.isFavorited ? colors.secondaryColorLight : Colors.white,
+          return SingleChildScrollView(
+            child: Container(
+              width: double.infinity,
+              color: colors.primaryColorLight,
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: size.height * 0.6,
+                    height: size.height * 0.6,
+                    child: FloatingActionButton(
+                      elevation: 0,
+                      onPressed: () => model.toggleFavoritedState(),
+                      backgroundColor: colors.primaryColorLight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          model.isFavorited ? CustomIcons.heart_filled_icon : CustomIcons.heart_outline_icon,
+                          size: size.height * 0.4,
+                          color: model.isFavorited ? colors.secondaryColorLight : Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    final dynamic tooltip = tooltipKey.currentState;
-                    tooltip.ensureTooltipVisible();
-                  },
-                  child: Tooltip(
-                      key: tooltipKey,
-                      message: word.label,
-                      child: Text(
-                        word.label,
-                        style: const TextStyle(fontSize: 40, color: Colors.white),
-                        overflow: TextOverflow.ellipsis,
-                      )),
-                )
-              ],
+                  GestureDetector(
+                    onTap: () {
+                      final dynamic tooltip = tooltipKey.currentState;
+                      tooltip.ensureTooltipVisible();
+                    },
+                    child: Tooltip(
+                        key: tooltipKey,
+                        message: word.label,
+                        child: Text(
+                          word.label,
+                          style: const TextStyle(fontSize: 40, color: Colors.white),
+                          overflow: TextOverflow.ellipsis,
+                        )),
+                  )
+                ],
+              ),
             ),
           );
         },

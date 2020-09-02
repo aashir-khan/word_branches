@@ -91,14 +91,6 @@ class SearchViewModel extends BaseViewModel {
     _query = '';
     notifyListeners();
   }
-
-  // void handleQueryChange(String query) => _queryTerms.add(query);
-
-  // @override
-  // void dispose() {
-  //   _queryTerms.close();
-  //   super.dispose();
-  // }
 }
 
 String _mapRemoteFailureToMessage(DictionaryWordSearchRemoteFailure failure) {

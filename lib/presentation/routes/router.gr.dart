@@ -70,10 +70,8 @@ class Router extends RouterBase {
       final args =
           data.getArgs<HeadwordEntryDetailsViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => HeadwordEntryDetailsView(
-          headwordEntry: args.headwordEntry,
-          parentSense: args.parentSense,
-        ),
+        builder: (context) =>
+            HeadwordEntryDetailsView(headwordEntry: args.headwordEntry),
         settings: data,
       );
     },
@@ -105,9 +103,7 @@ class HeadwordEntriesViewArguments {
 /// HeadwordEntryDetailsView arguments holder class
 class HeadwordEntryDetailsViewArguments {
   final HeadwordEntry headwordEntry;
-  final Sense parentSense;
-  HeadwordEntryDetailsViewArguments(
-      {@required this.headwordEntry, this.parentSense});
+  HeadwordEntryDetailsViewArguments({@required this.headwordEntry});
 }
 
 /// SubsenseDetailsView arguments holder class

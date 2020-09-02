@@ -1,7 +1,5 @@
 import 'package:audioplayer/audioplayer.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
-import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/views/headword_entry_details/widgets/lexical_entry_list_item.dart';
 import 'package:flushbar/flushbar.dart';
@@ -11,11 +9,9 @@ import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 
 class HeadwordEntryDetailsView extends HookWidget {
   final HeadwordEntry headwordEntry;
-  final Sense parentSense;
 
   const HeadwordEntryDetailsView({
     @required this.headwordEntry,
-    this.parentSense,
   });
 
   List<Widget> buildActions(BuildContext context) {
@@ -40,7 +36,7 @@ class HeadwordEntryDetailsView extends HookWidget {
       widgets.add(
         IconButton(
           icon: const Icon(CustomIcons.sound_on_icon),
-          onPressed: () => getIt<AudioPlayer>().play(audioFile),
+          onPressed: () => AudioPlayer().play(audioFile),
         ),
       );
     }

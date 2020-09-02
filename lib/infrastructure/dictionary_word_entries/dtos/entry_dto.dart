@@ -54,7 +54,7 @@ abstract class EntryDto with _$EntryDto {
 
       for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
         _pronunciations
-            .add(const PronunciationDto(audioFile: 'http://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'));
+            .add(const PronunciationDto(audioFile: 'https://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'));
       }
     }
 

@@ -20,7 +20,7 @@ Future<void> setupMirage({bool isActive = false}) async {
     }
 
     const dictionaryWordsCount = 1;
-    const headwordEntriesCount = 5;
+    const headwordEntriesCount = 1;
     const lexicalEntriesCount = 5;
 
     final dictionaryWords = await createDictionarySearchWords(totalCount: dictionaryWordsCount);
@@ -30,12 +30,13 @@ Future<void> setupMirage({bool isActive = false}) async {
       print(word.id);
       for (var i = 0; i < headwordEntriesCount; i++) {
         final List<LexicalEntryDto> lexicalEntries = [];
-        for (var i = 0; i < lexicalEntriesCount; i++) {
-          final senses = await createSenses(traits: ['withDefinitions', 'withNotes', 'withExamples', 'withSubsenses']);
-          final entries = await createEntries(
-            customFieldValues: {'senses': senses},
-            traits: ['withEtymologies'],
+        for (var j = 0; j < lexicalEntriesCount; j++) {
+          final senses = await createSenses(
+            traits: ['withDefinitions', 'withNotes', 'withExamples', 'withSubsenses'],
+            totalCount: j + 1,
           );
+
+          final entries = await createEntries(customFieldValues: {'senses': senses}, traits: ['withEtymologies']);
 
           final lexicalCategoryEnum = faker.randomGenerator.element(LexicalCategoryEnum.values);
 

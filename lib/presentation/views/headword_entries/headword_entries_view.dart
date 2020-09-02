@@ -37,7 +37,7 @@ class HeadwordEntriesView extends StatelessWidget {
             itemCount: entries.size,
             itemBuilder: (context, index) => ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 6),
-              leading: Icon(CustomIcons.checkmark_circle_icon, size: 40, color: colors.primaryColorDark),
+              leading: const Icon(CustomIcons.checkmark_circle_icon, size: 40, color: colors.primaryColorDark),
               title: Text('Headword Entry #${index + 1}', style: const TextStyle(fontSize: 20)),
               onTap: () => ExtendedNavigator.root.push(Routes.headwordEntryDetailsView,
                   arguments: HeadwordEntryDetailsViewArguments(headwordEntry: entries[index])),

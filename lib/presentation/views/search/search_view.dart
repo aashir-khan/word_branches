@@ -43,14 +43,14 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
       );
     }
 
-    List<Widget> buildActions(BuildContext context) {
+    List<Widget> buildActions(BuildContext context, TextEditingController controller) {
       return [
         IconButton(
           icon: AnimatedIcon(
             icon: AnimatedIcons.close_menu,
             progress: transitionAnimation(),
           ),
-          onPressed: model.resetQueryText,
+          onPressed: () => controller.text = '',
         )
       ];
     }
@@ -160,14 +160,13 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
           controller: queryController,
           style: theme.textTheme.headline6,
           textInputAction: TextInputAction.none,
-          // onChanged: model.handleQueryChange,
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: MaterialLocalizations.of(context).searchFieldLabel,
             hintStyle: theme.inputDecorationTheme.hintStyle,
           ),
         ),
-        actions: buildActions(context),
+        actions: buildActions(context, queryController),
       ),
       body: buildBody(),
     );
