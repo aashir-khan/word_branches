@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/presentation/views/headword_entries/headword_entries_viewmodel.dart';
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 import 'package:dr_words/presentation/views/headword_entries/widgets/favorited_word_toggle_card_widget.dart';
@@ -37,8 +36,7 @@ class HeadwordEntriesView extends StatelessWidget {
             itemCount: entries.size,
             itemBuilder: (context, index) => ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 6),
-              leading: const Icon(CustomIcons.checkmark_circle_icon, size: 40, color: colors.primaryColorDark),
-              title: Text('Headword Entry #${index + 1}', style: const TextStyle(fontSize: 20)),
+              title: Text('Context #${index + 1}', style: const TextStyle(fontSize: 20)),
               onTap: () => ExtendedNavigator.root.push(Routes.headwordEntryDetailsView,
                   arguments: HeadwordEntryDetailsViewArguments(headwordEntry: entries[index])),
             ),
@@ -67,8 +65,9 @@ class HeadwordEntriesView extends StatelessWidget {
                   backgroundColor: colors.secondaryColorDark,
                   dismissDirection: FlushbarDismissDirection.HORIZONTAL,
                   flushbarPosition: FlushbarPosition.TOP,
-                  title: 'Headword Entries Page',
-                  message: 'A headword entry is a dictionary entry and all the data related to it.',
+                  title: 'Contexts Screen',
+                  message:
+                      'A dictionary word has one or more contexts it can be used in. This screen lists those various contexts.',
                 )..show(context),
               ),
             ],

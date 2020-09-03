@@ -27,7 +27,7 @@ class HeadwordEntryDetailsView extends HookWidget {
           flushbarPosition: FlushbarPosition.TOP,
           title: 'Lexical Entries Screen',
           message:
-              'This screen lists all the lexical entries (a grouping of various senses in a specific language, and a lexical category that relates to a word) for the current headword entry.',
+              'This screen lists all the lexical entries for the current context. A lexical entry is a grouping of senses (a way in which an expression or a situation can be interpreted; a meaning) in a specific language, and a lexical category that relates to a word.',
         )..show(context),
       ),
     );

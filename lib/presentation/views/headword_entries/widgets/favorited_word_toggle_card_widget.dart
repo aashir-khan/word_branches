@@ -62,7 +62,7 @@ class FavoritedWordToggleCard extends HookWidget {
                         child: Icon(
                           model.isFavorited ? CustomIcons.heart_filled_icon : CustomIcons.heart_outline_icon,
                           size: size.height * 0.4,
-                          color: model.isFavorited ? colors.secondaryColorLight : Colors.white,
+                          color: Colors.white,
                         ),
                       ),
                     ),
