@@ -1,5 +1,4 @@
 import 'package:dr_words/injection.config.dart';
-import 'package:dr_words/mirage/mirage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,7 +34,6 @@ Future _registerProductionDependencies() async {
 
 Future _registerDevelopmentDependencies() async {
   await registerSharedPreferences();
-  await setupMirage(isActive: true);
 }
 
 Future<void> registerSharedPreferences() async {

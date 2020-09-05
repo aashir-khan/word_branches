@@ -3,7 +3,8 @@ import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.
 import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
-import 'package:dr_words/presentation/views/headword_entry_details/widgets/etymology_and_senses_card.dart';
+import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card.dart';
+import 'package:dr_words/presentation/views/utils/ui_utils.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -14,12 +15,14 @@ class SubsenseDetailsView extends HookWidget {
   final HeadwordEntry headwordEntry;
   final KtList<Sense> subsenses;
   final String parentSenseDefinition;
+  final int headwordEntryNumber;
 
   const SubsenseDetailsView({
     Key key,
     @required this.headwordEntry,
     @required this.subsenses,
     @required this.parentSenseDefinition,
+    @required this.headwordEntryNumber,
   }) : super(key: key);
 
   List<Widget> buildActions(BuildContext context) {
@@ -67,7 +70,8 @@ class SubsenseDetailsView extends HookWidget {
             key: tooltipKey,
             message: headwordEntry.wordLabel,
             showDuration: Duration.zero,
-            child: Text(headwordEntry.wordLabel, overflow: TextOverflow.ellipsis),
+            child: UIUtils.buildTextWithSuperscript(context, headwordEntry.wordLabel, headwordEntryNumber.toString(),
+                textColor: Colors.white),
           ),
         ),
         actions: buildActions(context),
@@ -105,6 +109,7 @@ class SubsenseDetailsView extends HookWidget {
                     senseNumber: index + 1,
                     sense: sense,
                     totalSenses: senses.size,
+                    headwordEntryNumber: headwordEntryNumber,
                   );
                 },
               ),

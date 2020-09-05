@@ -2,6 +2,7 @@ import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.d
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/entry_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/pronunciation_dto.dart';
+import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/related_entry_dto.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
@@ -16,14 +17,23 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
     @required List<EntryDto> entries,
     @required IdTextDto lexicalCategory,
     List<PronunciationDto> pronunciations,
+    List<RelatedEntryDto> derivativeOf,
   }) = _LexicalEntryDto;
 
   factory LexicalEntryDto.fromDomain(LexicalEntry lexicalEntry) {
     return LexicalEntryDto(
       entries: lexicalEntry.entries.map((entry) => EntryDto.fromDomain(entry)).asList(),
       lexicalCategory: IdTextDto.fromDomain(lexicalEntry.lexicalCategory),
-      pronunciations:
-          lexicalEntry?.pronunciations?.map((pronunciation) => PronunciationDto.fromDomain(pronunciation))?.asList(),
+      pronunciations: lexicalEntry?.pronunciations
+          ?.map(
+            (pronunciation) => PronunciationDto.fromDomain(pronunciation),
+          )
+          ?.asList(),
+      derivativeOf: lexicalEntry?.derivativeOf
+          ?.map(
+            (relatedEntry) => RelatedEntryDto.fromDomain(relatedEntry),
+          )
+          ?.asList(),
     );
   }
 
@@ -36,6 +46,7 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
     var _entries = customFieldValues['entries'] as List<EntryDto>;
     var _pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
     var _lexicalCategory = customFieldValues['lexicalCategory'] as IdTextDto;
+    var _derivativeOf = customFieldValues['derivativeOf'] as List<RelatedEntryDto>;
 
     if (traits.contains('withEntries')) {
       _entries = [];
@@ -60,6 +71,14 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
       }
     }
 
+    if (traits.contains('withDerivateOf')) {
+      _derivativeOf = [];
+
+      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
+        _derivativeOf.add(RelatedEntryDto.fromFakeData());
+      }
+    }
+
     if (_entries == null || _lexicalCategory == null) {
       throw Exception();
     }
@@ -68,6 +87,7 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
       entries: _entries,
       pronunciations: _pronunciations,
       lexicalCategory: _lexicalCategory,
+      derivativeOf: _derivativeOf,
     );
   }
 }
@@ -78,6 +98,7 @@ extension LexicalEntryDtoX on LexicalEntryDto {
       entries: entries.map((entry) => entry.toDomain()).toImmutableList(),
       pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain())?.toImmutableList(),
       lexicalCategory: lexicalCategory.toDomain(),
+      derivativeOf: derivativeOf?.map((relatedEntry) => relatedEntry.toDomain())?.toImmutableList(),
     );
   }
 }

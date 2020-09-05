@@ -1,9 +1,6 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
-import 'package:dr_words/domain/favorited_words/i_favorited_words_repository.dart';
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
 import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/lexical_entry_dto.dart';
-import 'package:dr_words/injection.dart';
 import 'package:dr_words/mirage/features/dictionary_word_entries/dictionary_word_entries.dart';
 import 'package:dr_words/mirage/features/dictionary_word_entries/entry.dart';
 import 'package:dr_words/mirage/features/dictionary_word_entries/lexical_entry.dart';
@@ -14,13 +11,8 @@ import 'package:faker/faker.dart';
 
 Future<void> setupMirage({bool isActive = false}) async {
   if (isActive == true) {
-    final _favoritedWordsRepository = getIt<IFavoritedWordsRepository>();
-    for (var i = 0; i < 10; i++) {
-      await _favoritedWordsRepository.addFavoritedWord(DictionaryWord(id: i.toString(), label: i.toString()));
-    }
-
     const dictionaryWordsCount = 1;
-    const headwordEntriesCount = 1;
+    const headwordEntriesCount = 2;
     const lexicalEntriesCount = 5;
 
     final dictionaryWords = await createDictionarySearchWords(totalCount: dictionaryWordsCount);

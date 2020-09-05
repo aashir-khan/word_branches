@@ -16,11 +16,13 @@ class _$LexicalEntryTearOff {
   _LexicalEntry call(
       {@required KtList<Entry> entries,
       @required IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations}) {
+      KtList<Pronunciation> pronunciations,
+      KtList<RelatedEntry> derivativeOf}) {
     return _LexicalEntry(
       entries: entries,
       lexicalCategory: lexicalCategory,
       pronunciations: pronunciations,
+      derivativeOf: derivativeOf,
     );
   }
 }
@@ -32,6 +34,7 @@ mixin _$LexicalEntry {
   KtList<Entry> get entries;
   IdText get lexicalCategory;
   KtList<Pronunciation> get pronunciations;
+  KtList<RelatedEntry> get derivativeOf;
 
   $LexicalEntryCopyWith<LexicalEntry> get copyWith;
 }
@@ -43,7 +46,8 @@ abstract class $LexicalEntryCopyWith<$Res> {
   $Res call(
       {KtList<Entry> entries,
       IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations});
+      KtList<Pronunciation> pronunciations,
+      KtList<RelatedEntry> derivativeOf});
 
   $IdTextCopyWith<$Res> get lexicalCategory;
 }
@@ -60,6 +64,7 @@ class _$LexicalEntryCopyWithImpl<$Res> implements $LexicalEntryCopyWith<$Res> {
     Object entries = freezed,
     Object lexicalCategory = freezed,
     Object pronunciations = freezed,
+    Object derivativeOf = freezed,
   }) {
     return _then(_value.copyWith(
       entries: entries == freezed ? _value.entries : entries as KtList<Entry>,
@@ -69,6 +74,9 @@ class _$LexicalEntryCopyWithImpl<$Res> implements $LexicalEntryCopyWith<$Res> {
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
           : pronunciations as KtList<Pronunciation>,
+      derivativeOf: derivativeOf == freezed
+          ? _value.derivativeOf
+          : derivativeOf as KtList<RelatedEntry>,
     ));
   }
 
@@ -92,7 +100,8 @@ abstract class _$LexicalEntryCopyWith<$Res>
   $Res call(
       {KtList<Entry> entries,
       IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations});
+      KtList<Pronunciation> pronunciations,
+      KtList<RelatedEntry> derivativeOf});
 
   @override
   $IdTextCopyWith<$Res> get lexicalCategory;
@@ -112,6 +121,7 @@ class __$LexicalEntryCopyWithImpl<$Res> extends _$LexicalEntryCopyWithImpl<$Res>
     Object entries = freezed,
     Object lexicalCategory = freezed,
     Object pronunciations = freezed,
+    Object derivativeOf = freezed,
   }) {
     return _then(_LexicalEntry(
       entries: entries == freezed ? _value.entries : entries as KtList<Entry>,
@@ -121,6 +131,9 @@ class __$LexicalEntryCopyWithImpl<$Res> extends _$LexicalEntryCopyWithImpl<$Res>
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
           : pronunciations as KtList<Pronunciation>,
+      derivativeOf: derivativeOf == freezed
+          ? _value.derivativeOf
+          : derivativeOf as KtList<RelatedEntry>,
     ));
   }
 }
@@ -129,7 +142,8 @@ class _$_LexicalEntry implements _LexicalEntry {
   const _$_LexicalEntry(
       {@required this.entries,
       @required this.lexicalCategory,
-      this.pronunciations})
+      this.pronunciations,
+      this.derivativeOf})
       : assert(entries != null),
         assert(lexicalCategory != null);
 
@@ -139,10 +153,12 @@ class _$_LexicalEntry implements _LexicalEntry {
   final IdText lexicalCategory;
   @override
   final KtList<Pronunciation> pronunciations;
+  @override
+  final KtList<RelatedEntry> derivativeOf;
 
   @override
   String toString() {
-    return 'LexicalEntry(entries: $entries, lexicalCategory: $lexicalCategory, pronunciations: $pronunciations)';
+    return 'LexicalEntry(entries: $entries, lexicalCategory: $lexicalCategory, pronunciations: $pronunciations, derivativeOf: $derivativeOf)';
   }
 
   @override
@@ -157,7 +173,10 @@ class _$_LexicalEntry implements _LexicalEntry {
                     .equals(other.lexicalCategory, lexicalCategory)) &&
             (identical(other.pronunciations, pronunciations) ||
                 const DeepCollectionEquality()
-                    .equals(other.pronunciations, pronunciations)));
+                    .equals(other.pronunciations, pronunciations)) &&
+            (identical(other.derivativeOf, derivativeOf) ||
+                const DeepCollectionEquality()
+                    .equals(other.derivativeOf, derivativeOf)));
   }
 
   @override
@@ -165,7 +184,8 @@ class _$_LexicalEntry implements _LexicalEntry {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(entries) ^
       const DeepCollectionEquality().hash(lexicalCategory) ^
-      const DeepCollectionEquality().hash(pronunciations);
+      const DeepCollectionEquality().hash(pronunciations) ^
+      const DeepCollectionEquality().hash(derivativeOf);
 
   @override
   _$LexicalEntryCopyWith<_LexicalEntry> get copyWith =>
@@ -176,7 +196,8 @@ abstract class _LexicalEntry implements LexicalEntry {
   const factory _LexicalEntry(
       {@required KtList<Entry> entries,
       @required IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations}) = _$_LexicalEntry;
+      KtList<Pronunciation> pronunciations,
+      KtList<RelatedEntry> derivativeOf}) = _$_LexicalEntry;
 
   @override
   KtList<Entry> get entries;
@@ -184,6 +205,8 @@ abstract class _LexicalEntry implements LexicalEntry {
   IdText get lexicalCategory;
   @override
   KtList<Pronunciation> get pronunciations;
+  @override
+  KtList<RelatedEntry> get derivativeOf;
   @override
   _$LexicalEntryCopyWith<_LexicalEntry> get copyWith;
 }

@@ -15,11 +15,13 @@ class EtymologyAndSensesCard extends StatelessWidget {
   final int totalSenses;
   final String heading;
   final String etymologyText;
+  final int headwordEntryNumber;
 
   const EtymologyAndSensesCard({
     Key key,
     @required this.headwordEntry,
-    @required this.sense,
+    this.sense,
+    @required this.headwordEntryNumber,
     this.senseNumber,
     this.totalSenses,
     this.heading,
@@ -29,6 +31,21 @@ class EtymologyAndSensesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> widgets = [];
+
+    final hasAnyContentToDisplay = heading != null ||
+        (sense != null &&
+            (sense.regions != null ||
+                sense.registers != null ||
+                sense.definitions != null ||
+                sense.notes != null ||
+                etymologyText != null ||
+                sense.examples != null ||
+                sense.crossReferenceMarkers != null ||
+                sense.subsenses != null));
+
+    if (!hasAnyContentToDisplay) {
+      return Container();
+    }
 
     if (heading != null) {
       widgets.addAll(
@@ -175,6 +192,7 @@ class EtymologyAndSensesCard extends StatelessWidget {
                     headwordEntry: headwordEntry,
                     parentSenseDefinition: sense.definitions.get(0),
                     subsenses: sense.subsenses,
+                    headwordEntryNumber: headwordEntryNumber,
                   ));
             },
             child: Row(
@@ -189,16 +207,18 @@ class EtymologyAndSensesCard extends StatelessWidget {
       ]);
     }
 
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: colors.primaryColorLight, width: 2),
-        borderRadius: BorderRadius.circular(8),
+    return Card(
+      margin: EdgeInsets.zero,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(4.0)),
+        side: BorderSide(color: colors.primaryColorLight),
       ),
-      width: double.infinity,
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: widgets,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: widgets,
+        ),
       ),
     );
   }

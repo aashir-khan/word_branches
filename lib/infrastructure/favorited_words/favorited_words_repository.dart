@@ -8,10 +8,9 @@ import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:stacked/stacked.dart';
 
 @LazySingleton(as: IFavoritedWordsRepository)
-class FavoritedWordsRepository with ReactiveServiceMixin implements IFavoritedWordsRepository {
+class FavoritedWordsRepository implements IFavoritedWordsRepository {
   final IFavoritedWordsLocalDataSource localDataSource;
   Either<FavoritedWordsFailure, KtList<DictionaryWord>> _favoritedWordsFailureEither;
 

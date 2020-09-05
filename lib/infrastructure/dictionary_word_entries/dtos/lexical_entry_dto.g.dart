@@ -20,6 +20,11 @@ _$_LexicalEntryDto _$_$_LexicalEntryDtoFromJson(Map<String, dynamic> json) {
             ? null
             : PronunciationDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    derivativeOf: (json['derivativeOf'] as List)
+        ?.map((e) => e == null
+            ? null
+            : RelatedEntryDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -29,4 +34,5 @@ Map<String, dynamic> _$_$_LexicalEntryDtoToJson(_$_LexicalEntryDto instance) =>
       'lexicalCategory': instance.lexicalCategory?.toJson(),
       'pronunciations':
           instance.pronunciations?.map((e) => e?.toJson())?.toList(),
+      'derivativeOf': instance.derivativeOf?.map((e) => e?.toJson())?.toList(),
     };

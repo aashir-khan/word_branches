@@ -12,10 +12,11 @@ import 'package:kt_dart/collection.dart';
 
 import '../../domain/core/entities/dictionary_word.dart';
 import '../../domain/dictionary_word_entries/entities/headword_entry.dart';
+import '../../domain/dictionary_word_entries/entities/lexical_entry.dart';
 import '../../domain/dictionary_word_entries/entities/sense.dart';
 import '../views/headword_entries/headword_entries_view.dart';
-import '../views/headword_entry_details/headword_entry_details_view.dart';
 import '../views/home/home_view.dart';
+import '../views/lexical_entry/lexical_entry_view.dart';
 import '../views/search/search_view.dart';
 import '../views/subsense_details/subsense_details_view.dart';
 
@@ -23,13 +24,13 @@ class Routes {
   static const String homeView = '/';
   static const String searchView = '/search-view';
   static const String headwordEntriesView = '/headword-entries-view';
-  static const String headwordEntryDetailsView = '/headword-entry-details-view';
+  static const String lexicalEntryView = '/lexical-entry-view';
   static const String subsenseDetailsView = '/subsense-details-view';
   static const all = <String>{
     homeView,
     searchView,
     headwordEntriesView,
-    headwordEntryDetailsView,
+    lexicalEntryView,
     subsenseDetailsView,
   };
 }
@@ -41,7 +42,7 @@ class Router extends RouterBase {
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.searchView, page: SearchView),
     RouteDef(Routes.headwordEntriesView, page: HeadwordEntriesView),
-    RouteDef(Routes.headwordEntryDetailsView, page: HeadwordEntryDetailsView),
+    RouteDef(Routes.lexicalEntryView, page: LexicalEntryView),
     RouteDef(Routes.subsenseDetailsView, page: SubsenseDetailsView),
   ];
   @override
@@ -62,16 +63,19 @@ class Router extends RouterBase {
     HeadwordEntriesView: (data) {
       final args = data.getArgs<HeadwordEntriesViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => HeadwordEntriesView(args.wordSelected),
+        builder: (context) =>
+            HeadwordEntriesView(wordSelected: args.wordSelected),
         settings: data,
       );
     },
-    HeadwordEntryDetailsView: (data) {
-      final args =
-          data.getArgs<HeadwordEntryDetailsViewArguments>(nullOk: false);
+    LexicalEntryView: (data) {
+      final args = data.getArgs<LexicalEntryViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) =>
-            HeadwordEntryDetailsView(headwordEntry: args.headwordEntry),
+        builder: (context) => LexicalEntryView(
+          headwordEntry: args.headwordEntry,
+          lexicalEntry: args.lexicalEntry,
+          headwordEntryNumber: args.headwordEntryNumber,
+        ),
         settings: data,
       );
     },
@@ -83,6 +87,7 @@ class Router extends RouterBase {
           headwordEntry: args.headwordEntry,
           subsenses: args.subsenses,
           parentSenseDefinition: args.parentSenseDefinition,
+          headwordEntryNumber: args.headwordEntryNumber,
         ),
         settings: data,
       );
@@ -100,10 +105,15 @@ class HeadwordEntriesViewArguments {
   HeadwordEntriesViewArguments({@required this.wordSelected});
 }
 
-/// HeadwordEntryDetailsView arguments holder class
-class HeadwordEntryDetailsViewArguments {
+/// LexicalEntryView arguments holder class
+class LexicalEntryViewArguments {
   final HeadwordEntry headwordEntry;
-  HeadwordEntryDetailsViewArguments({@required this.headwordEntry});
+  final LexicalEntry lexicalEntry;
+  final int headwordEntryNumber;
+  LexicalEntryViewArguments(
+      {@required this.headwordEntry,
+      @required this.lexicalEntry,
+      @required this.headwordEntryNumber});
 }
 
 /// SubsenseDetailsView arguments holder class
@@ -112,9 +122,11 @@ class SubsenseDetailsViewArguments {
   final HeadwordEntry headwordEntry;
   final KtList<Sense> subsenses;
   final String parentSenseDefinition;
+  final int headwordEntryNumber;
   SubsenseDetailsViewArguments(
       {this.key,
       @required this.headwordEntry,
       @required this.subsenses,
-      @required this.parentSenseDefinition});
+      @required this.parentSenseDefinition,
+      @required this.headwordEntryNumber});
 }

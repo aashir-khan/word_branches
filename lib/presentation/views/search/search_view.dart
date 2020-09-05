@@ -146,8 +146,10 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
       queryChangeHandler.add(queryController.text);
     });
 
-    queryChangeHandler.stream.debounceTime(const Duration(milliseconds: 500)).forEach(
-        (query) => query.isEmpty ? model.getRecentlySearchedWords() : model.getDictionaryWordSearchResults(query));
+    void debounceFunction(String query) =>
+        query.isEmpty ? model.getRecentlySearchedWords() : model.getDictionaryWordSearchResults(query);
+
+    queryChangeHandler.stream.debounceTime(const Duration(milliseconds: 500)).forEach(debounceFunction);
 
     return Scaffold(
       appBar: AppBar(
