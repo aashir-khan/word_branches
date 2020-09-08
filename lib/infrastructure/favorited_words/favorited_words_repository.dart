@@ -16,20 +16,20 @@ class FavoritedWordsRepository implements IFavoritedWordsRepository {
   FavoritedWordsRepository({@required this.localDataSource});
 
   @override
-  Future<Either<FavoritedWordsFailure, WordSearch>> addFavoritedSearch(WordSearch search) async {
+  Future<Either<FavoritedWordsFailure, Unit>> addFavoritedSearch(WordSearch search) async {
     try {
-      final savedFavoritedWord = await localDataSource.addFavoritedSearch(WordSearchDto.fromDomain(search));
-      return Right(savedFavoritedWord.toDomain());
+      await localDataSource.addFavoritedSearch(WordSearchDto.fromDomain(search));
+      return Right(unit);
     } on FavoritedWordsException catch (e) {
       return Left(handleException(e));
     }
   }
 
   @override
-  Future<Either<FavoritedWordsFailure, WordSearch>> deleteFavoritedSearch(WordSearch search) async {
+  Future<Either<FavoritedWordsFailure, Unit>> deleteFavoritedSearch(WordSearch search) async {
     try {
-      final deletedDto = await localDataSource.deleteFavoritedSearch(WordSearchDto.fromDomain(search));
-      return Right(deletedDto.toDomain());
+      await localDataSource.deleteFavoritedSearch(WordSearchDto.fromDomain(search));
+      return Right(unit);
     } on FavoritedWordsException catch (e) {
       return Left(handleException(e));
     }

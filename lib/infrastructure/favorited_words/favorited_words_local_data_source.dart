@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:dr_words/domain/favorited_words/favorited_words_exception.dart';
 import 'package:dr_words/domain/favorited_words/i_favorited_words_local_data_source.dart';
 import 'package:dr_words/infrastructure/core/daos/word_search_dao.dart';
@@ -15,17 +16,16 @@ class FavoritedWordsLocalDataSource implements IFavoritedWordsLocalDataSource {
   FavoritedWordsLocalDataSource({@required this.wordSearchDao});
 
   @override
-  Future<WordSearchDto> addFavoritedSearch(WordSearchDto search) async {
+  Future<Unit> addFavoritedSearch(WordSearchDto search) async {
     try {
       final existingOrNullWordSearch = await wordSearchDao.findById(search.word.id);
       if (existingOrNullWordSearch == null) {
-        final insertedDto = WordSearchDto(word: search.word);
         await wordSearchDao.insert(WordSearchDto(word: search.word, isFavorited: true));
-        return insertedDto;
+        return unit;
       } else {
         final updatedObj = existingOrNullWordSearch.copyWith(isFavorited: true);
         await wordSearchDao.update(updatedObj);
-        return updatedObj;
+        return unit;
       }
     } catch (e) {
       throw const FavoritedWordsException.localDatabaseProcessingException();
@@ -33,16 +33,16 @@ class FavoritedWordsLocalDataSource implements IFavoritedWordsLocalDataSource {
   }
 
   @override
-  Future<WordSearchDto> deleteFavoritedSearch(WordSearchDto search) async {
+  Future<Unit> deleteFavoritedSearch(WordSearchDto search) async {
     try {
       final existingSearch = await wordSearchDao.findById(search.word.id);
       if (existingSearch.lastSearchedAt != null) {
         final updatedSearch = existingSearch.copyWith(isFavorited: null);
         await wordSearchDao.update(updatedSearch);
-        return updatedSearch;
+        return unit;
       } else {
         await wordSearchDao.delete(existingSearch);
-        return existingSearch;
+        return unit;
       }
     } catch (e) {
       throw const FavoritedWordsException.localDatabaseProcessingException();

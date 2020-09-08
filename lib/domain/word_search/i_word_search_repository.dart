@@ -9,7 +9,7 @@ abstract class IWordSearchRepository {
 
   Future<Either<WordSearchLocalFailure, KtList<WordSearch>>> getRecentlySearchedWords();
 
-  Future<Either<WordSearchLocalFailure, WordSearch>> addRecentSearch(WordSearch search);
+  Future<Either<WordSearchLocalFailure, Unit>> addRecentSearch(WordSearch search);
 
-  Future<Either<WordSearchLocalFailure, WordSearch>> deleteRecentSearch(WordSearch search);
+  Future<Either<WordSearchLocalFailure, Unit>> deleteRecentSearch(WordSearch search);
 }

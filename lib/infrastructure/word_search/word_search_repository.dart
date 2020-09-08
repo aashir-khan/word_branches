@@ -57,10 +57,10 @@ class WordSearchRepository implements IWordSearchRepository {
   }
 
   @override
-  Future<Either<WordSearchLocalFailure, WordSearch>> addRecentSearch(WordSearch search) async {
+  Future<Either<WordSearchLocalFailure, Unit>> addRecentSearch(WordSearch search) async {
     try {
-      final savedDtoWord = await localDataSource.addRecentSearch(WordSearchDto.fromDomain(search));
-      return Right(savedDtoWord.toDomain());
+      await localDataSource.addRecentSearch(WordSearchDto.fromDomain(search));
+      return Right(unit);
     } on WordSearchLocalException catch (e) {
       return e.when(
         localDatabaseProcessingException: () => const Left(WordSearchLocalFailure.localDatabaseProcessingFailure()),
@@ -69,10 +69,10 @@ class WordSearchRepository implements IWordSearchRepository {
   }
 
   @override
-  Future<Either<WordSearchLocalFailure, WordSearch>> deleteRecentSearch(WordSearch search) async {
+  Future<Either<WordSearchLocalFailure, Unit>> deleteRecentSearch(WordSearch search) async {
     try {
-      final deletedWordSearch = await localDataSource.deleteRecentSearch(WordSearchDto.fromDomain(search));
-      return Right(deletedWordSearch.toDomain());
+      await localDataSource.deleteRecentSearch(WordSearchDto.fromDomain(search));
+      return Right(unit);
     } on WordSearchLocalException catch (e) {
       return Left(handleLocalException(e));
     }

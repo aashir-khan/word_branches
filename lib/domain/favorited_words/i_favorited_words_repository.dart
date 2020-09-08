@@ -5,6 +5,6 @@ import 'package:kt_dart/collection.dart';
 
 abstract class IFavoritedWordsRepository {
   Future<Either<FavoritedWordsFailure, KtList<WordSearch>>> getFavoritedSearches();
-  Future<Either<FavoritedWordsFailure, WordSearch>> addFavoritedSearch(WordSearch search);
-  Future<Either<FavoritedWordsFailure, WordSearch>> deleteFavoritedSearch(WordSearch search);
+  Future<Either<FavoritedWordsFailure, Unit>> addFavoritedSearch(WordSearch search);
+  Future<Either<FavoritedWordsFailure, Unit>> deleteFavoritedSearch(WordSearch search);
 }
