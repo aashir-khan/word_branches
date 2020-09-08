@@ -1,10 +1,10 @@
+import 'package:dr_words/domain/core/entities/word_search.dart';
 import 'package:dr_words/domain/favorited_words/favorited_words_exception.dart';
 import 'package:dr_words/domain/favorited_words/favorited_words_failure.dart';
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
 import 'package:dr_words/domain/favorited_words/i_favorited_words_local_data_source.dart';
 import 'package:dr_words/domain/favorited_words/i_favorited_words_repository.dart';
-import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -12,16 +12,13 @@ import 'package:kt_dart/collection.dart';
 @LazySingleton(as: IFavoritedWordsRepository)
 class FavoritedWordsRepository implements IFavoritedWordsRepository {
   final IFavoritedWordsLocalDataSource localDataSource;
-  Either<FavoritedWordsFailure, KtList<DictionaryWord>> _favoritedWordsFailureEither;
-
-  Either<FavoritedWordsFailure, KtList<DictionaryWord>> get favoritedWordsFailureEither => _favoritedWordsFailureEither;
 
   FavoritedWordsRepository({@required this.localDataSource});
 
   @override
-  Future<Either<FavoritedWordsFailure, DictionaryWord>> addFavoritedWord(DictionaryWord word) async {
+  Future<Either<FavoritedWordsFailure, WordSearch>> addFavoritedSearch(WordSearch search) async {
     try {
-      final savedFavoritedWord = await localDataSource.addNewFavoritedWord(DictionaryWordDto.fromDomain(word));
+      final savedFavoritedWord = await localDataSource.addFavoritedSearch(WordSearchDto.fromDomain(search));
       return Right(savedFavoritedWord.toDomain());
     } on FavoritedWordsException catch (e) {
       return Left(handleException(e));
@@ -29,25 +26,22 @@ class FavoritedWordsRepository implements IFavoritedWordsRepository {
   }
 
   @override
-  Future<Either<FavoritedWordsFailure, DictionaryWord>> deleteFavoritedWord(DictionaryWord favoritedWord) async {
+  Future<Either<FavoritedWordsFailure, WordSearch>> deleteFavoritedSearch(WordSearch search) async {
     try {
-      final deletedFavoritedWord =
-          await localDataSource.deleteFavoritedWord(DictionaryWordDto.fromDomain(favoritedWord));
-      return Right(deletedFavoritedWord.toDomain());
+      final deletedDto = await localDataSource.deleteFavoritedSearch(WordSearchDto.fromDomain(search));
+      return Right(deletedDto.toDomain());
     } on FavoritedWordsException catch (e) {
       return Left(handleException(e));
     }
   }
 
   @override
-  Future<Either<FavoritedWordsFailure, KtList<DictionaryWord>>> getFavoritedWords() async {
+  Future<Either<FavoritedWordsFailure, KtList<WordSearch>>> getFavoritedSearches() async {
     try {
-      final favoritedWords = await localDataSource.getFavoritedWords();
-      final domainFavoritedWords = favoritedWords.map((word) => word.toDomain());
-      _favoritedWordsFailureEither = Right(domainFavoritedWords);
-      return Right(domainFavoritedWords);
+      final favoritedWords = await localDataSource.getFavoritedSearches();
+      final domainFavoritedSearches = favoritedWords.map((word) => word.toDomain());
+      return Right(domainFavoritedSearches);
     } on FavoritedWordsException catch (e) {
-      _favoritedWordsFailureEither = Left(handleException(e));
       return Left(handleException(e));
     }
   }

@@ -1,25 +1,30 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
+import 'package:dr_words/domain/core/entities/word_search.dart';
 import 'package:dr_words/domain/favorited_words/favorited_words_failure.dart';
 import 'package:dr_words/domain/favorited_words/i_favorited_words_repository.dart';
+import 'package:dr_words/domain/word_search/i_word_search_repository.dart';
 import 'package:dr_words/injection.dart';
+import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 @injectable
 class FavoritedWordsViewModel extends BaseViewModel {
   final _favoritedWordsRepository = getIt<IFavoritedWordsRepository>();
+  final _wordSearchRepository = getIt<IWordSearchRepository>();
+  final _navigationService = getIt<NavigationService>();
 
-  KtList<DictionaryWord> _favoritedWords;
-  KtList<DictionaryWord> get favoritedWords => _favoritedWords;
+  KtList<WordSearch> _favoritedSearches;
+  KtList<WordSearch> get favoritedSearches => _favoritedSearches;
 
   Future initialise() async {
-    await getFavoritedWords();
+    await getFavoritedSearches();
   }
 
-  Future getFavoritedWords() async {
+  Future getFavoritedSearches() async {
     setBusy(true);
-    final resultEither = await _favoritedWordsRepository.getFavoritedWords();
+    final resultEither = await _favoritedWordsRepository.getFavoritedSearches();
     setBusy(false);
 
     resultEither.fold(
@@ -27,28 +32,58 @@ class FavoritedWordsViewModel extends BaseViewModel {
         setError(mapFailureToMessage(failure));
       },
       (results) {
-        _favoritedWords = results;
+        _favoritedSearches = results;
         notifyListeners();
       },
     );
   }
 
-  Future deleteFavoritedWord(DictionaryWord word, {bool pollForNewWords = true}) async {
-    final resultEither = await _favoritedWordsRepository.deleteFavoritedWord(word);
+  Future<bool> deleteFavoritedSearch(WordSearch favoritedSearch) async {
+    bool isDeletionSuccessful;
+    final resultEither = await _favoritedWordsRepository.deleteFavoritedSearch(favoritedSearch);
 
     resultEither.fold(
-      (failure) => setError(mapFailureToMessage(failure)),
-      (_) => pollForNewWords ? getFavoritedWords() : null,
+      (failure) {
+        setError(mapFailureToMessage(failure));
+        isDeletionSuccessful = false;
+      },
+      (_) => isDeletionSuccessful = true,
     );
+
+    return isDeletionSuccessful;
   }
 
-  Future addFavoritedWord(DictionaryWord word, {bool pollForNewWords = true}) async {
-    final resultEither = await _favoritedWordsRepository.addFavoritedWord(word);
+  Future deleteFavoritedSearchAndRefresh(WordSearch favoritedSearch) async {
+    final isDeletionSuccessful = await deleteFavoritedSearch(favoritedSearch);
+    if (isDeletionSuccessful) {
+      await getFavoritedSearches();
+    }
+  }
+
+  Future<bool> addFavoritedSearch(WordSearch favoritedSearch) async {
+    bool isAdditionSuccessful;
+    final resultEither = await _favoritedWordsRepository.addFavoritedSearch(favoritedSearch);
 
     resultEither.fold(
-      (failure) => setError(mapFailureToMessage(failure)),
-      (_) => pollForNewWords ? getFavoritedWords() : null,
+      (failure) {
+        setError(mapFailureToMessage(failure));
+        isAdditionSuccessful = false;
+      },
+      (_) => isAdditionSuccessful = true,
     );
+
+    return isAdditionSuccessful;
+  }
+
+  Future navigateToHeadwordEntriesView(WordSearch favoritedSearch) async {
+    final resultEither = await _wordSearchRepository.addRecentSearch(favoritedSearch);
+
+    resultEither.fold((failure) => null, (search) async {
+      await _navigationService.replaceWith(
+        Routes.headwordEntriesView,
+        arguments: HeadwordEntriesViewArguments(wordSearch: favoritedSearch),
+      );
+    });
   }
 }
 

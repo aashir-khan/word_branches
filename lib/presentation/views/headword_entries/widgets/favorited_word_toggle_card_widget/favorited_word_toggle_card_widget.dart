@@ -1,4 +1,4 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
+import 'package:dr_words/domain/core/entities/word_search.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/responsive_safe_area.dart';
 import 'package:dr_words/presentation/views/headword_entries/widgets/favorited_word_toggle_card_widget/favorited_word_toggle_card_widget_viewmodel.dart';
@@ -9,9 +9,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
 
 class FavoritedWordToggleCard extends HookWidget {
-  final DictionaryWord word;
+  final WordSearch wordSearch;
 
-  const FavoritedWordToggleCard({Key key, @required this.word}) : super(key: key);
+  const FavoritedWordToggleCard({Key key, @required this.wordSearch}) : super(key: key);
 
   void _handleError(BuildContext context, String error) {
     Flushbar(
@@ -33,7 +33,7 @@ class FavoritedWordToggleCard extends HookWidget {
   Widget build(BuildContext context) {
     final tooltipKey = GlobalKey();
 
-    return ViewModelBuilder<FavoritedWordToggleCardWidgetViewModel>.reactive(
+    return ViewModelBuilder<FavoritedWordToggleCardViewModel>.reactive(
       onModelReady: (model) => model.initialise(),
       builder: (context, model, child) => ResponsiveSafeArea(
         builder: (context, size) {
@@ -45,47 +45,48 @@ class FavoritedWordToggleCard extends HookWidget {
             width: double.infinity,
             color: colors.primaryColorLight,
             padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: size.height * 0.5,
-                  height: size.height * 0.5,
-                  child: FloatingActionButton(
-                    elevation: 0,
-                    onPressed: () => model.toggleFavoritedState(),
-                    backgroundColor: colors.primaryColorLight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Icon(
-                        model.isFavorited ? CustomIcons.heart_filled_icon : CustomIcons.heart_outline_icon,
-                        size: size.height * 0.3,
-                        color: Colors.white,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: size.height * 0.5,
+                    height: size.height * 0.5,
+                    child: FloatingActionButton(
+                      elevation: 0,
+                      onPressed: () => model.toggleFavoritedState(),
+                      backgroundColor: colors.primaryColorLight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          model.isFavorited ? CustomIcons.heart_filled_icon : CustomIcons.heart_outline_icon,
+                          size: size.height * 0.3,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    final dynamic tooltip = tooltipKey.currentState;
-                    tooltip.ensureTooltipVisible();
-                  },
-                  child: Tooltip(
-                      key: tooltipKey,
-                      message: word.label,
-                      child: Text(
-                        word.label,
-                        style: const TextStyle(fontSize: 40, color: Colors.white),
-                        overflow: TextOverflow.ellipsis,
-                      )),
-                )
-              ],
+                  GestureDetector(
+                    onTap: () {
+                      final dynamic tooltip = tooltipKey.currentState;
+                      tooltip.ensureTooltipVisible();
+                    },
+                    child: Tooltip(
+                        key: tooltipKey,
+                        message: wordSearch.word.label,
+                        child: Text(
+                          wordSearch.word.label,
+                          style: const TextStyle(fontSize: 40, color: Colors.white),
+                          overflow: TextOverflow.ellipsis,
+                        )),
+                  )
+                ],
+              ),
             ),
           );
         },
       ),
-      viewModelBuilder: () => FavoritedWordToggleCardWidgetViewModel(favoritableWord: word),
+      viewModelBuilder: () => FavoritedWordToggleCardViewModel(wordSearch: wordSearch),
     );
   }
 }

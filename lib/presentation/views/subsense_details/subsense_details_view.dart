@@ -3,7 +3,7 @@ import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.
 import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
-import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card.dart';
+import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card.dart';
 import 'package:dr_words/presentation/views/utils/ui_utils.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';

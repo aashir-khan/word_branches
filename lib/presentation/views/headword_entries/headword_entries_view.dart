@@ -1,22 +1,19 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dr_words/domain/core/entities/word_search.dart';
 import 'package:dr_words/presentation/core/widgets/responsive_safe_area.dart';
 import 'package:dr_words/presentation/views/headword_entries/headword_entries_viewmodel.dart';
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 import 'package:dr_words/presentation/views/headword_entries/widgets/favorited_word_toggle_card_widget/favorited_word_toggle_card_widget.dart';
-import 'package:dr_words/presentation/routes/router.gr.dart';
-import 'package:dr_words/presentation/views/headword_entries/widgets/lexical_entry_information_preview_card_widget.dart';
+import 'package:dr_words/presentation/views/headword_entries/widgets/lexical_entry_information_preview_card_widget/lexical_entry_information_preview_card_widget.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 class HeadwordEntriesView extends StatelessWidget {
-  final DictionaryWord wordSelected;
+  final WordSearch wordSearch;
 
-  const HeadwordEntriesView({
-    @required this.wordSelected,
-  });
+  const HeadwordEntriesView({@required this.wordSearch});
 
   Widget buildBody(BuildContext context, HeadwordEntriesViewModel model) {
     if (model.isBusy) {
@@ -30,7 +27,7 @@ class HeadwordEntriesView extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 35,
-            child: FavoritedWordToggleCard(word: wordSelected),
+            child: FavoritedWordToggleCard(wordSearch: wordSearch),
           ),
           Expanded(
             flex: 65,
@@ -65,7 +62,7 @@ class HeadwordEntriesView extends StatelessWidget {
             title: Text(model.hasEntries ? '' : 'Headword Entries'),
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
-              onPressed: () => ExtendedNavigator.root.replace(Routes.homeView),
+              onPressed: model.navigateToHomeView,
             ),
             actions: <Widget>[
               IconButton(
@@ -84,7 +81,7 @@ class HeadwordEntriesView extends StatelessWidget {
           body: buildBody(context, model),
         );
       },
-      viewModelBuilder: () => HeadwordEntriesViewModel(word: wordSelected),
+      viewModelBuilder: () => HeadwordEntriesViewModel(wordSearch: wordSearch),
     );
   }
 }

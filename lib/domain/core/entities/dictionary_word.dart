@@ -8,7 +8,6 @@ abstract class DictionaryWord with _$DictionaryWord {
   const factory DictionaryWord({
     @required String id,
     @required String label,
-    bool isFavorited,
   }) = _DictionaryWord;
 
   factory DictionaryWord.fromFakeData() {

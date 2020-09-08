@@ -1,14 +1,14 @@
 import 'package:dr_words/domain/dictionary_word_entries/entities/entry.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card.dart';
+import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card.dart';
 import 'package:flutter/material.dart';
 
-class EntryInformationWidget extends StatelessWidget {
+class EntryInformation extends StatelessWidget {
   final Entry entry;
   final HeadwordEntry headwordEntry;
   final int headwordEntryNumber;
 
-  const EntryInformationWidget({
+  const EntryInformation({
     Key key,
     @required this.headwordEntry,
     @required this.headwordEntryNumber,
@@ -51,6 +51,6 @@ class EntryInformationWidget extends StatelessWidget {
       ]);
     }
 
-    return Column(children: widgets);
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: widgets);
   }
 }

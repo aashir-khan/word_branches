@@ -10,7 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../domain/core/entities/dictionary_word.dart';
+import '../../domain/core/entities/word_search.dart';
 import '../../domain/dictionary_word_entries/entities/headword_entry.dart';
 import '../../domain/dictionary_word_entries/entities/lexical_entry.dart';
 import '../../domain/dictionary_word_entries/entities/sense.dart';
@@ -63,8 +63,7 @@ class Router extends RouterBase {
     HeadwordEntriesView: (data) {
       final args = data.getArgs<HeadwordEntriesViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) =>
-            HeadwordEntriesView(wordSelected: args.wordSelected),
+        builder: (context) => HeadwordEntriesView(wordSearch: args.wordSearch),
         settings: data,
       );
     },
@@ -101,8 +100,8 @@ class Router extends RouterBase {
 
 /// HeadwordEntriesView arguments holder class
 class HeadwordEntriesViewArguments {
-  final DictionaryWord wordSelected;
-  HeadwordEntriesViewArguments({@required this.wordSelected});
+  final WordSearch wordSearch;
+  HeadwordEntriesViewArguments({@required this.wordSearch});
 }
 
 /// LexicalEntryView arguments holder class

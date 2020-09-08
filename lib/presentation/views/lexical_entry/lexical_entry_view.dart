@@ -3,7 +3,7 @@ import 'package:dr_words/domain/dictionary_word_entries/entities/entry.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
 import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
-import 'package:dr_words/presentation/views/lexical_entry/widgets/entry_information_widget/entry_information_widget.dart';
+import 'package:dr_words/presentation/views/lexical_entry/widgets/entry_information_widget.dart';
 import 'package:dr_words/presentation/views/utils/ui_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -102,7 +102,7 @@ class LexicalEntryView extends HookWidget {
   Widget _buildSingleEntryWidget(Entry entry) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-      child: EntryInformationWidget(
+      child: EntryInformation(
         entry: entry,
         headwordEntry: headwordEntry,
         headwordEntryNumber: headwordEntryNumber,

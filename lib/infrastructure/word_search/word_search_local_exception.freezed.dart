@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'dictionary_word_search_local_exception.dart';
+part of 'word_search_local_exception.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,8 +9,8 @@ part of 'dictionary_word_search_local_exception.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$DictionaryWordSearchLocalExceptionTearOff {
-  const _$DictionaryWordSearchLocalExceptionTearOff();
+class _$WordSearchLocalExceptionTearOff {
+  const _$WordSearchLocalExceptionTearOff();
 
 // ignore: unused_element
   _LocalDatabaseProcessingException localDatabaseProcessingException() {
@@ -19,10 +19,9 @@ class _$DictionaryWordSearchLocalExceptionTearOff {
 }
 
 // ignore: unused_element
-const $DictionaryWordSearchLocalException =
-    _$DictionaryWordSearchLocalExceptionTearOff();
+const $WordSearchLocalException = _$WordSearchLocalExceptionTearOff();
 
-mixin _$DictionaryWordSearchLocalException {
+mixin _$WordSearchLocalException {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result localDatabaseProcessingException(),
@@ -46,20 +45,19 @@ mixin _$DictionaryWordSearchLocalException {
   });
 }
 
-abstract class $DictionaryWordSearchLocalExceptionCopyWith<$Res> {
-  factory $DictionaryWordSearchLocalExceptionCopyWith(
-          DictionaryWordSearchLocalException value,
-          $Res Function(DictionaryWordSearchLocalException) then) =
-      _$DictionaryWordSearchLocalExceptionCopyWithImpl<$Res>;
+abstract class $WordSearchLocalExceptionCopyWith<$Res> {
+  factory $WordSearchLocalExceptionCopyWith(WordSearchLocalException value,
+          $Res Function(WordSearchLocalException) then) =
+      _$WordSearchLocalExceptionCopyWithImpl<$Res>;
 }
 
-class _$DictionaryWordSearchLocalExceptionCopyWithImpl<$Res>
-    implements $DictionaryWordSearchLocalExceptionCopyWith<$Res> {
-  _$DictionaryWordSearchLocalExceptionCopyWithImpl(this._value, this._then);
+class _$WordSearchLocalExceptionCopyWithImpl<$Res>
+    implements $WordSearchLocalExceptionCopyWith<$Res> {
+  _$WordSearchLocalExceptionCopyWithImpl(this._value, this._then);
 
-  final DictionaryWordSearchLocalException _value;
+  final WordSearchLocalException _value;
   // ignore: unused_field
-  final $Res Function(DictionaryWordSearchLocalException) _then;
+  final $Res Function(WordSearchLocalException) _then;
 }
 
 abstract class _$LocalDatabaseProcessingExceptionCopyWith<$Res> {
@@ -70,7 +68,7 @@ abstract class _$LocalDatabaseProcessingExceptionCopyWith<$Res> {
 }
 
 class __$LocalDatabaseProcessingExceptionCopyWithImpl<$Res>
-    extends _$DictionaryWordSearchLocalExceptionCopyWithImpl<$Res>
+    extends _$WordSearchLocalExceptionCopyWithImpl<$Res>
     implements _$LocalDatabaseProcessingExceptionCopyWith<$Res> {
   __$LocalDatabaseProcessingExceptionCopyWithImpl(
       _LocalDatabaseProcessingException _value,
@@ -88,7 +86,7 @@ class _$_LocalDatabaseProcessingException
 
   @override
   String toString() {
-    return 'DictionaryWordSearchLocalException.localDatabaseProcessingException()';
+    return 'WordSearchLocalException.localDatabaseProcessingException()';
   }
 
   @override
@@ -149,7 +147,7 @@ class _$_LocalDatabaseProcessingException
 }
 
 abstract class _LocalDatabaseProcessingException
-    implements DictionaryWordSearchLocalException {
+    implements WordSearchLocalException {
   const factory _LocalDatabaseProcessingException() =
       _$_LocalDatabaseProcessingException;
 }

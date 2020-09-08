@@ -1,13 +1,13 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
+import 'package:dr_words/domain/core/entities/word_search.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/views/home/widgets/favorited_words_viewmodel.dart';
 import 'package:flutter/foundation.dart';
 import 'package:stacked/stacked.dart';
 
-class FavoritedWordToggleCardWidgetViewModel extends BaseViewModel {
-  DictionaryWord favoritableWord;
+class FavoritedWordToggleCardViewModel extends BaseViewModel {
+  WordSearch wordSearch;
 
-  FavoritedWordToggleCardWidgetViewModel({@required this.favoritableWord});
+  FavoritedWordToggleCardViewModel({@required this.wordSearch});
 
   final _favoritedWordsViewModel = getIt<FavoritedWordsViewModel>();
 
@@ -15,15 +15,15 @@ class FavoritedWordToggleCardWidgetViewModel extends BaseViewModel {
   bool get isFavorited => _isFavorited;
 
   void initialise() {
-    _isFavorited = favoritableWord.isFavorited ?? false;
+    _isFavorited = wordSearch.isFavorited ?? false;
     notifyListeners();
   }
 
   Future toggleFavoritedState() async {
     if (isFavorited) {
-      await _favoritedWordsViewModel.deleteFavoritedWord(favoritableWord, pollForNewWords: false);
+      await _favoritedWordsViewModel.deleteFavoritedSearch(wordSearch);
     } else {
-      await _favoritedWordsViewModel.addFavoritedWord(favoritableWord, pollForNewWords: false);
+      await _favoritedWordsViewModel.addFavoritedSearch(wordSearch);
     }
 
     if (_favoritedWordsViewModel.hasError) {

@@ -11,14 +11,12 @@ abstract class DictionaryWordDto with _$DictionaryWordDto {
   factory DictionaryWordDto({
     @required String id,
     @required String label,
-    bool isFavorited,
   }) = _DictionaryWordDto;
 
   factory DictionaryWordDto.fromDomain(DictionaryWord dictionaryWord) {
     return DictionaryWordDto(
       id: dictionaryWord.id,
       label: dictionaryWord.label,
-      isFavorited: dictionaryWord.isFavorited,
     );
   }
 
@@ -34,12 +32,10 @@ abstract class DictionaryWordDto with _$DictionaryWordDto {
 
     final id = (customFieldValues['id'] ?? defaultFieldValues['id']) as String;
     final label = (customFieldValues['label'] ?? defaultFieldValues['label']) as String;
-    final isFavorited = customFieldValues['isFavorited'] as bool;
 
     return DictionaryWordDto(
       id: id,
       label: label,
-      isFavorited: isFavorited,
     );
   }
 }
@@ -49,7 +45,6 @@ extension DictionaryWordDtoX on DictionaryWordDto {
     return DictionaryWord(
       id: id,
       label: label,
-      isFavorited: isFavorited,
     );
   }
 }

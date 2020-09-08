@@ -1,7 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/presentation/views/home/widgets/favorited_words_viewmodel.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
-import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,23 +33,20 @@ class FavoritedWordsWidget extends StatelessWidget {
           return Container();
         }
 
-        final favoritedWords = model.favoritedWords;
+        final favoritedSearches = model.favoritedSearches;
 
-        return favoritedWords == null || favoritedWords.isEmpty()
+        return favoritedSearches == null || favoritedSearches.isEmpty()
             ? const FavoritedWordsListEmpty()
             : ListView.separated(
                 separatorBuilder: (_, __) => const SizedBox(height: 12),
-                itemCount: favoritedWords.size,
+                itemCount: favoritedSearches.size,
                 itemBuilder: (context, index) {
-                  final favoritedWord = favoritedWords[index];
+                  final favoritedSearch = favoritedSearches[index];
                   return RaisedButton(
                     padding: const EdgeInsets.all(0),
                     textColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    onPressed: () {
-                      ExtendedNavigator.root.replace(Routes.headwordEntriesView,
-                          arguments: HeadwordEntriesViewArguments(wordSelected: favoritedWord));
-                    },
+                    onPressed: () => model.navigateToHeadwordEntriesView(favoritedSearch),
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
@@ -68,13 +63,15 @@ class FavoritedWordsWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            favoritedWord.label,
+                            favoritedSearch.word.label,
                             style: const TextStyle(fontSize: 20),
                             textAlign: TextAlign.center,
                           ),
                           IconButton(
                             icon: Icon(Icons.delete),
-                            onPressed: () => model.deleteFavoritedWord(favoritedWord),
+                            onPressed: () {
+                              model.deleteFavoritedSearchAndRefresh(favoritedSearch);
+                            },
                           ),
                         ],
                       ),

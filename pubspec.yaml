@@ -26,9 +26,6 @@ dependencies:
   rxdart: ^0.24.1
   dartz: ^0.9.1
   data_connection_checker: ^0.3.4
-  # For OS-specific directory paths
-  shared_preferences: ^0.5.8
-  shared_preferences_web: ^0.1.2+7
   injectable: ^1.0.4
   auto_route: ^0.6.7
   freezed_annotation: ^0.11.0+1
@@ -47,6 +44,10 @@ dependencies:
   flushbar: ^1.10.4
   stacked: ^1.7.6
   stacked_hooks: ^0.1.3
+  sembast: ^2.4.7+6
+  path_provider: ^1.6.14
+  path: 1.6.4
+  stacked_services: ^0.5.4+2
 
 dev_dependencies:
   flutter_test:

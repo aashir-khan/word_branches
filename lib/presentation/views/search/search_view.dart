@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dr_words/presentation/views/search/search_viewmodel.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
-import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
@@ -39,7 +37,7 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
           icon: AnimatedIcons.arrow_menu,
           progress: transitionAnimation(),
         ),
-        onPressed: () => ExtendedNavigator.root.replace(Routes.homeView),
+        onPressed: model.navigateToHomeView,
       );
     }
 
@@ -66,24 +64,14 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
         return ListView.builder(
           itemCount: model.searchResults.size,
           itemBuilder: (context, index) => InkWell(
-            onTap: () async {
-              final wordSelected = model.searchResults[index];
-              final isAdditionSuccessful = await model.addNewRecentlySearchedWord(wordSelected);
-
-              if (isAdditionSuccessful) {
-                ExtendedNavigator.root.replace(
-                  Routes.headwordEntriesView,
-                  arguments: HeadwordEntriesViewArguments(wordSelected: wordSelected),
-                );
-              }
-            },
+            onTap: () => model.viewSearchResultsForSearch(model.searchResults[index]),
             child: Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 16,
                 horizontal: 24,
               ),
               child: Text(
-                model.searchResults[index].label,
+                model.searchResults[index].word.label,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -112,22 +100,17 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
             ],
           ),
         );
-      } else if (model.hasSomeRecentlySearchedWords) {
-        final recentlySearchedWords = model.recentlySearchedWords;
+      } else if (model.hasSomeRecentSearches) {
+        final recentSearch = model.recentSearches;
         return ListView.builder(
-          itemCount: recentlySearchedWords.size,
+          itemCount: recentSearch.size,
           itemBuilder: (context, index) => InkWell(
-            onTap: () async {
-              ExtendedNavigator.root.push(
-                Routes.headwordEntriesView,
-                arguments: HeadwordEntriesViewArguments(wordSelected: recentlySearchedWords[index]),
-              );
-            },
+            onTap: () => model.navigateToHeadwordEntriesView(recentSearch[index]),
             child: ListTile(
               leading: const Icon(CustomIcons.time_icon, color: Colors.black),
-              title: Text(recentlySearchedWords[index].label, style: const TextStyle(fontSize: 16)),
+              title: Text(recentSearch[index].word.label, style: const TextStyle(fontSize: 16)),
               trailing: InkWell(
-                onTap: () => model.deleteRecentlySearchedWord(recentlySearchedWords[index]),
+                onTap: () => model.deleteRecentSearch(recentSearch[index]),
                 child: Icon(Icons.delete, color: Colors.red),
               ),
             ),
@@ -147,7 +130,7 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
     });
 
     void debounceFunction(String query) =>
-        query.isEmpty ? model.getRecentlySearchedWords() : model.getDictionaryWordSearchResults(query);
+        query.isEmpty ? model.getRecentSearches() : model.getDictionaryWordSearchResults(query);
 
     queryChangeHandler.stream.debounceTime(const Duration(milliseconds: 500)).forEach(debounceFunction);
 

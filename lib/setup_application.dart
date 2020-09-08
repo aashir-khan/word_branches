@@ -6,7 +6,7 @@ Future setupApplication() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   const environment = Env.production;
-  await configureInjection(environment);
+  configureInjection(environment);
 
   if (environment == Env.development) {
     setupMirage(isActive: true);

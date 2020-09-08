@@ -1,42 +1,45 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_local_failure.dart';
-import 'package:dr_words/domain/dictionary_word_search/dictionary_word_search_remote_failure.dart';
-import 'package:dr_words/domain/dictionary_word_search/i_dictionary_word_search_repository.dart';
+import 'package:dr_words/domain/core/entities/word_search.dart';
+import 'package:dr_words/domain/word_search/i_word_search_repository.dart';
+import 'package:dr_words/domain/word_search/word_search_local_failure.dart';
+import 'package:dr_words/domain/word_search/word_search_remote_failure.dart';
 import 'package:dr_words/injection.dart';
+import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class SearchViewModel extends BaseViewModel {
-  final _dictionaryWordSearchRepository = getIt<IDictionaryWordSearchRepository>();
+  final _dictionaryWordSearchRepository = getIt<IWordSearchRepository>();
+  final _navigationService = getIt<NavigationService>();
 
   String _query = '';
   String get query => _query;
 
-  KtList<DictionaryWord> _searchResults;
-  KtList<DictionaryWord> get searchResults => _searchResults;
+  KtList<WordSearch> _searchResults;
+  KtList<WordSearch> get searchResults => _searchResults;
   bool get hasEmptySearchResults => searchResults != null && searchResults.isEmpty();
   bool get hasSomeSearchResults => searchResults != null && !searchResults.isEmpty();
 
-  KtList<DictionaryWord> _recentlySearchedWords;
-  KtList<DictionaryWord> get recentlySearchedWords => _recentlySearchedWords;
-  bool get hasEmptyRecentlySearchedWords => recentlySearchedWords != null && recentlySearchedWords.isEmpty();
-  bool get hasSomeRecentlySearchedWords => recentlySearchedWords != null && !recentlySearchedWords.isEmpty();
+  KtList<WordSearch> _recentSearches;
+  KtList<WordSearch> get recentSearches => _recentSearches;
+  bool get hasEmptyRecentSearches => recentSearches != null && recentSearches.isEmpty();
+  bool get hasSomeRecentSearches => recentSearches != null && !recentSearches.isEmpty();
 
   Future initialise() async {
-    await getRecentlySearchedWords();
+    await getRecentSearches();
   }
 
   Future getDictionaryWordSearchResults(String query) async {
     if (query.isNotEmpty) {
       _query = query;
       setBusy(true);
-      final resultEither = await _dictionaryWordSearchRepository.getDictionaryWordSearchResults(query: query);
+      final resultEither = await _dictionaryWordSearchRepository.getWordSearchResults(query: query);
 
       resultEither.fold(
         (failure) => setError(_mapRemoteFailureToMessage(failure)),
         (results) {
           _searchResults = results;
-          _recentlySearchedWords = null;
+          _recentSearches = null;
           notifyListeners();
         },
       );
@@ -45,9 +48,9 @@ class SearchViewModel extends BaseViewModel {
     }
   }
 
-  Future<bool> addNewRecentlySearchedWord(DictionaryWord word) async {
+  Future<bool> addRecentSearch(WordSearch search) async {
     setBusy(true);
-    final resultEither = await _dictionaryWordSearchRepository.addNewRecentlySearchedWord(word);
+    final resultEither = await _dictionaryWordSearchRepository.addRecentSearch(search);
     bool isAdditionSuccessful;
 
     resultEither.fold(
@@ -62,16 +65,16 @@ class SearchViewModel extends BaseViewModel {
     return isAdditionSuccessful;
   }
 
-  Future deleteRecentlySearchedWord(DictionaryWord word) async {
-    final resultEither = await _dictionaryWordSearchRepository.deleteRecentlySearchedWord(word);
+  Future deleteRecentSearch(WordSearch search) async {
+    final resultEither = await _dictionaryWordSearchRepository.deleteRecentSearch(search);
 
     resultEither.fold(
       (failure) => setError(_mapLocalFailureToMessage(failure)),
-      (addedWord) => getRecentlySearchedWords(),
+      (addedWord) => getRecentSearches(),
     );
   }
 
-  Future getRecentlySearchedWords() async {
+  Future getRecentSearches() async {
     setBusy(true);
     final resultEither = await _dictionaryWordSearchRepository.getRecentlySearchedWords();
 
@@ -79,7 +82,7 @@ class SearchViewModel extends BaseViewModel {
       (failure) => setError(_mapLocalFailureToMessage(failure)),
       (results) {
         _searchResults = null;
-        _recentlySearchedWords = results;
+        _recentSearches = results;
         notifyListeners();
       },
     );
@@ -87,13 +90,30 @@ class SearchViewModel extends BaseViewModel {
     setBusy(false);
   }
 
+  Future viewSearchResultsForSearch(WordSearch search) async {
+    final isAdditionSuccessful = await addRecentSearch(search);
+    if (isAdditionSuccessful) {
+      await _navigationService.replaceWith(Routes.headwordEntriesView,
+          arguments: HeadwordEntriesViewArguments(wordSearch: search));
+    }
+  }
+
+  Future navigateToHomeView() async {
+    await _navigationService.replaceWith(Routes.homeView);
+  }
+
   void resetQueryText() {
     _query = '';
     notifyListeners();
   }
+
+  Future navigateToHeadwordEntriesView(WordSearch recentSearch) async {
+    await _navigationService.navigateTo(Routes.headwordEntriesView,
+        arguments: HeadwordEntriesViewArguments(wordSearch: recentSearch));
+  }
 }
 
-String _mapRemoteFailureToMessage(DictionaryWordSearchRemoteFailure failure) {
+String _mapRemoteFailureToMessage(WordSearchRemoteFailure failure) {
   return failure.when(
     networkError: () => 'Seems like you are not connected to the Internet',
     serverError: () => 'An error occurred trying to fetch search results',
@@ -101,7 +121,7 @@ String _mapRemoteFailureToMessage(DictionaryWordSearchRemoteFailure failure) {
   );
 }
 
-String _mapLocalFailureToMessage(DictionaryWordSearchLocalFailure failure) {
+String _mapLocalFailureToMessage(WordSearchLocalFailure failure) {
   return failure.when(
     localDatabaseProcessingFailure: () =>
         'An error occurred trying to access/store a recently searched word on your device for retrieving',

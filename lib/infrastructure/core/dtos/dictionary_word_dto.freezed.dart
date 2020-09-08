@@ -16,12 +16,10 @@ class _$DictionaryWordDtoTearOff {
   const _$DictionaryWordDtoTearOff();
 
 // ignore: unused_element
-  _DictionaryWordDto call(
-      {@required String id, @required String label, bool isFavorited}) {
+  _DictionaryWordDto call({@required String id, @required String label}) {
     return _DictionaryWordDto(
       id: id,
       label: label,
-      isFavorited: isFavorited,
     );
   }
 }
@@ -32,7 +30,6 @@ const $DictionaryWordDto = _$DictionaryWordDtoTearOff();
 mixin _$DictionaryWordDto {
   String get id;
   String get label;
-  bool get isFavorited;
 
   Map<String, dynamic> toJson();
   $DictionaryWordDtoCopyWith<DictionaryWordDto> get copyWith;
@@ -42,7 +39,7 @@ abstract class $DictionaryWordDtoCopyWith<$Res> {
   factory $DictionaryWordDtoCopyWith(
           DictionaryWordDto value, $Res Function(DictionaryWordDto) then) =
       _$DictionaryWordDtoCopyWithImpl<$Res>;
-  $Res call({String id, String label, bool isFavorited});
+  $Res call({String id, String label});
 }
 
 class _$DictionaryWordDtoCopyWithImpl<$Res>
@@ -57,13 +54,10 @@ class _$DictionaryWordDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object label = freezed,
-    Object isFavorited = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       label: label == freezed ? _value.label : label as String,
-      isFavorited:
-          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
     ));
   }
 }
@@ -74,7 +68,7 @@ abstract class _$DictionaryWordDtoCopyWith<$Res>
           _DictionaryWordDto value, $Res Function(_DictionaryWordDto) then) =
       __$DictionaryWordDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String label, bool isFavorited});
+  $Res call({String id, String label});
 }
 
 class __$DictionaryWordDtoCopyWithImpl<$Res>
@@ -91,13 +85,10 @@ class __$DictionaryWordDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object label = freezed,
-    Object isFavorited = freezed,
   }) {
     return _then(_DictionaryWordDto(
       id: id == freezed ? _value.id : id as String,
       label: label == freezed ? _value.label : label as String,
-      isFavorited:
-          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
     ));
   }
 }
@@ -106,8 +97,7 @@ class __$DictionaryWordDtoCopyWithImpl<$Res>
 class _$_DictionaryWordDto
     with DiagnosticableTreeMixin
     implements _DictionaryWordDto {
-  _$_DictionaryWordDto(
-      {@required this.id, @required this.label, this.isFavorited})
+  _$_DictionaryWordDto({@required this.id, @required this.label})
       : assert(id != null),
         assert(label != null);
 
@@ -118,12 +108,10 @@ class _$_DictionaryWordDto
   final String id;
   @override
   final String label;
-  @override
-  final bool isFavorited;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DictionaryWordDto(id: $id, label: $label, isFavorited: $isFavorited)';
+    return 'DictionaryWordDto(id: $id, label: $label)';
   }
 
   @override
@@ -132,8 +120,7 @@ class _$_DictionaryWordDto
     properties
       ..add(DiagnosticsProperty('type', 'DictionaryWordDto'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('label', label))
-      ..add(DiagnosticsProperty('isFavorited', isFavorited));
+      ..add(DiagnosticsProperty('label', label));
   }
 
   @override
@@ -143,18 +130,14 @@ class _$_DictionaryWordDto
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.label, label) ||
-                const DeepCollectionEquality().equals(other.label, label)) &&
-            (identical(other.isFavorited, isFavorited) ||
-                const DeepCollectionEquality()
-                    .equals(other.isFavorited, isFavorited)));
+                const DeepCollectionEquality().equals(other.label, label)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(label) ^
-      const DeepCollectionEquality().hash(isFavorited);
+      const DeepCollectionEquality().hash(label);
 
   @override
   _$DictionaryWordDtoCopyWith<_DictionaryWordDto> get copyWith =>
@@ -167,10 +150,8 @@ class _$_DictionaryWordDto
 }
 
 abstract class _DictionaryWordDto implements DictionaryWordDto {
-  factory _DictionaryWordDto(
-      {@required String id,
-      @required String label,
-      bool isFavorited}) = _$_DictionaryWordDto;
+  factory _DictionaryWordDto({@required String id, @required String label}) =
+      _$_DictionaryWordDto;
 
   factory _DictionaryWordDto.fromJson(Map<String, dynamic> json) =
       _$_DictionaryWordDto.fromJson;
@@ -179,8 +160,6 @@ abstract class _DictionaryWordDto implements DictionaryWordDto {
   String get id;
   @override
   String get label;
-  @override
-  bool get isFavorited;
   @override
   _$DictionaryWordDtoCopyWith<_DictionaryWordDto> get copyWith;
 }
