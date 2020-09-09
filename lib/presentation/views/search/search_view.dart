@@ -64,14 +64,14 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
         return ListView.builder(
           itemCount: model.searchResults.size,
           itemBuilder: (context, index) => InkWell(
-            onTap: () => model.viewSearchResultsForSearch(model.searchResults[index]),
+            onTap: () => model.viewSearchResultsForWord(model.searchResults[index]),
             child: Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 16,
                 horizontal: 24,
               ),
               child: Text(
-                model.searchResults[index].word.label,
+                model.searchResults[index].label,
                 overflow: TextOverflow.ellipsis,
               ),
             ),

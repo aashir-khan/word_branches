@@ -1,3 +1,4 @@
+import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/core/entities/word_search.dart';
 import 'package:dr_words/domain/word_search/i_word_search_repository.dart';
 import 'package:dr_words/domain/word_search/word_search_local_failure.dart';
@@ -15,8 +16,8 @@ class SearchViewModel extends BaseViewModel {
   String _query = '';
   String get query => _query;
 
-  KtList<WordSearch> _searchResults;
-  KtList<WordSearch> get searchResults => _searchResults;
+  KtList<DictionaryWord> _searchResults;
+  KtList<DictionaryWord> get searchResults => _searchResults;
   bool get hasEmptySearchResults => searchResults != null && searchResults.isEmpty();
   bool get hasSomeSearchResults => searchResults != null && !searchResults.isEmpty();
 
@@ -48,9 +49,9 @@ class SearchViewModel extends BaseViewModel {
     }
   }
 
-  Future<bool> addRecentSearch(WordSearch search) async {
+  Future<bool> addRecentSearch(DictionaryWord word) async {
     setBusy(true);
-    final resultEither = await _dictionaryWordSearchRepository.addRecentSearch(search);
+    final resultEither = await _dictionaryWordSearchRepository.addRecentSearch(word);
     bool isAdditionSuccessful;
 
     resultEither.fold(
@@ -90,11 +91,11 @@ class SearchViewModel extends BaseViewModel {
     setBusy(false);
   }
 
-  Future viewSearchResultsForSearch(WordSearch search) async {
-    final isAdditionSuccessful = await addRecentSearch(search);
+  Future viewSearchResultsForWord(DictionaryWord word) async {
+    final isAdditionSuccessful = await addRecentSearch(word);
     if (isAdditionSuccessful) {
       await _navigationService.replaceWith(Routes.headwordEntriesView,
-          arguments: HeadwordEntriesViewArguments(wordSearch: search));
+          arguments: HeadwordEntriesViewArguments(word: word));
     }
   }
 
@@ -109,7 +110,7 @@ class SearchViewModel extends BaseViewModel {
 
   Future navigateToHeadwordEntriesView(WordSearch recentSearch) async {
     await _navigationService.navigateTo(Routes.headwordEntriesView,
-        arguments: HeadwordEntriesViewArguments(wordSearch: recentSearch));
+        arguments: HeadwordEntriesViewArguments(word: recentSearch.word));
   }
 }
 

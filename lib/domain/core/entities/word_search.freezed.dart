@@ -15,10 +15,12 @@ class _$WordSearchTearOff {
 // ignore: unused_element
   _WordSearch call(
       {@required DictionaryWord word,
+      KtList<HeadwordEntry> results,
       @nullable bool isFavorited = false,
       DateTime lastSearchedAt}) {
     return _WordSearch(
       word: word,
+      results: results,
       isFavorited: isFavorited,
       lastSearchedAt: lastSearchedAt,
     );
@@ -30,6 +32,7 @@ const $WordSearch = _$WordSearchTearOff();
 
 mixin _$WordSearch {
   DictionaryWord get word;
+  KtList<HeadwordEntry> get results;
   @nullable
   bool get isFavorited;
   DateTime get lastSearchedAt;
@@ -43,6 +46,7 @@ abstract class $WordSearchCopyWith<$Res> {
       _$WordSearchCopyWithImpl<$Res>;
   $Res call(
       {DictionaryWord word,
+      KtList<HeadwordEntry> results,
       @nullable bool isFavorited,
       DateTime lastSearchedAt});
 
@@ -59,11 +63,15 @@ class _$WordSearchCopyWithImpl<$Res> implements $WordSearchCopyWith<$Res> {
   @override
   $Res call({
     Object word = freezed,
+    Object results = freezed,
     Object isFavorited = freezed,
     Object lastSearchedAt = freezed,
   }) {
     return _then(_value.copyWith(
       word: word == freezed ? _value.word : word as DictionaryWord,
+      results: results == freezed
+          ? _value.results
+          : results as KtList<HeadwordEntry>,
       isFavorited:
           isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
       lastSearchedAt: lastSearchedAt == freezed
@@ -90,6 +98,7 @@ abstract class _$WordSearchCopyWith<$Res> implements $WordSearchCopyWith<$Res> {
   @override
   $Res call(
       {DictionaryWord word,
+      KtList<HeadwordEntry> results,
       @nullable bool isFavorited,
       DateTime lastSearchedAt});
 
@@ -109,11 +118,15 @@ class __$WordSearchCopyWithImpl<$Res> extends _$WordSearchCopyWithImpl<$Res>
   @override
   $Res call({
     Object word = freezed,
+    Object results = freezed,
     Object isFavorited = freezed,
     Object lastSearchedAt = freezed,
   }) {
     return _then(_WordSearch(
       word: word == freezed ? _value.word : word as DictionaryWord,
+      results: results == freezed
+          ? _value.results
+          : results as KtList<HeadwordEntry>,
       isFavorited:
           isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
       lastSearchedAt: lastSearchedAt == freezed
@@ -126,12 +139,15 @@ class __$WordSearchCopyWithImpl<$Res> extends _$WordSearchCopyWithImpl<$Res>
 class _$_WordSearch implements _WordSearch {
   const _$_WordSearch(
       {@required this.word,
+      this.results,
       @nullable this.isFavorited = false,
       this.lastSearchedAt})
       : assert(word != null);
 
   @override
   final DictionaryWord word;
+  @override
+  final KtList<HeadwordEntry> results;
   @JsonKey(defaultValue: false)
   @override
   @nullable
@@ -141,7 +157,7 @@ class _$_WordSearch implements _WordSearch {
 
   @override
   String toString() {
-    return 'WordSearch(word: $word, isFavorited: $isFavorited, lastSearchedAt: $lastSearchedAt)';
+    return 'WordSearch(word: $word, results: $results, isFavorited: $isFavorited, lastSearchedAt: $lastSearchedAt)';
   }
 
   @override
@@ -150,6 +166,9 @@ class _$_WordSearch implements _WordSearch {
         (other is _WordSearch &&
             (identical(other.word, word) ||
                 const DeepCollectionEquality().equals(other.word, word)) &&
+            (identical(other.results, results) ||
+                const DeepCollectionEquality()
+                    .equals(other.results, results)) &&
             (identical(other.isFavorited, isFavorited) ||
                 const DeepCollectionEquality()
                     .equals(other.isFavorited, isFavorited)) &&
@@ -162,6 +181,7 @@ class _$_WordSearch implements _WordSearch {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(word) ^
+      const DeepCollectionEquality().hash(results) ^
       const DeepCollectionEquality().hash(isFavorited) ^
       const DeepCollectionEquality().hash(lastSearchedAt);
 
@@ -173,11 +193,14 @@ class _$_WordSearch implements _WordSearch {
 abstract class _WordSearch implements WordSearch {
   const factory _WordSearch(
       {@required DictionaryWord word,
+      KtList<HeadwordEntry> results,
       @nullable bool isFavorited,
       DateTime lastSearchedAt}) = _$_WordSearch;
 
   @override
   DictionaryWord get word;
+  @override
+  KtList<HeadwordEntry> get results;
   @override
   @nullable
   bool get isFavorited;

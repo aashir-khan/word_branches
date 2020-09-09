@@ -1,6 +1,6 @@
 import 'package:audioplayer/audioplayer.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
+import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
+import 'package:dr_words/domain/word_search/entities/sense.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card.dart';

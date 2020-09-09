@@ -1,10 +1,11 @@
 import 'package:dr_words/infrastructure/core/app_database.dart';
 import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/headword_entry_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
+import 'package:dr_words/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sembast/sembast.dart';
 
-@lazySingleton
+@LazySingleton(env: [Env.development])
 class HeadwordEntryDao {
   static const String storeName = 'headwordEntry';
 

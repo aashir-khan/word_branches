@@ -18,10 +18,12 @@ class _$WordSearchDtoTearOff {
 // ignore: unused_element
   _WordSearchDto call(
       {@required DictionaryWordDto word,
+      List<HeadwordEntryDto> results,
       @nullable bool isFavorited = false,
       String lastSearchedAt}) {
     return _WordSearchDto(
       word: word,
+      results: results,
       isFavorited: isFavorited,
       lastSearchedAt: lastSearchedAt,
     );
@@ -33,6 +35,7 @@ const $WordSearchDto = _$WordSearchDtoTearOff();
 
 mixin _$WordSearchDto {
   DictionaryWordDto get word;
+  List<HeadwordEntryDto> get results;
   @nullable
   bool get isFavorited;
   String get lastSearchedAt;
@@ -47,6 +50,7 @@ abstract class $WordSearchDtoCopyWith<$Res> {
       _$WordSearchDtoCopyWithImpl<$Res>;
   $Res call(
       {DictionaryWordDto word,
+      List<HeadwordEntryDto> results,
       @nullable bool isFavorited,
       String lastSearchedAt});
 
@@ -64,11 +68,15 @@ class _$WordSearchDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object word = freezed,
+    Object results = freezed,
     Object isFavorited = freezed,
     Object lastSearchedAt = freezed,
   }) {
     return _then(_value.copyWith(
       word: word == freezed ? _value.word : word as DictionaryWordDto,
+      results: results == freezed
+          ? _value.results
+          : results as List<HeadwordEntryDto>,
       isFavorited:
           isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
       lastSearchedAt: lastSearchedAt == freezed
@@ -96,6 +104,7 @@ abstract class _$WordSearchDtoCopyWith<$Res>
   @override
   $Res call(
       {DictionaryWordDto word,
+      List<HeadwordEntryDto> results,
       @nullable bool isFavorited,
       String lastSearchedAt});
 
@@ -116,11 +125,15 @@ class __$WordSearchDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object word = freezed,
+    Object results = freezed,
     Object isFavorited = freezed,
     Object lastSearchedAt = freezed,
   }) {
     return _then(_WordSearchDto(
       word: word == freezed ? _value.word : word as DictionaryWordDto,
+      results: results == freezed
+          ? _value.results
+          : results as List<HeadwordEntryDto>,
       isFavorited:
           isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
       lastSearchedAt: lastSearchedAt == freezed
@@ -134,6 +147,7 @@ class __$WordSearchDtoCopyWithImpl<$Res>
 class _$_WordSearchDto implements _WordSearchDto {
   const _$_WordSearchDto(
       {@required this.word,
+      this.results,
       @nullable this.isFavorited = false,
       this.lastSearchedAt})
       : assert(word != null);
@@ -143,6 +157,8 @@ class _$_WordSearchDto implements _WordSearchDto {
 
   @override
   final DictionaryWordDto word;
+  @override
+  final List<HeadwordEntryDto> results;
   @JsonKey(defaultValue: false)
   @override
   @nullable
@@ -152,7 +168,7 @@ class _$_WordSearchDto implements _WordSearchDto {
 
   @override
   String toString() {
-    return 'WordSearchDto(word: $word, isFavorited: $isFavorited, lastSearchedAt: $lastSearchedAt)';
+    return 'WordSearchDto(word: $word, results: $results, isFavorited: $isFavorited, lastSearchedAt: $lastSearchedAt)';
   }
 
   @override
@@ -161,6 +177,9 @@ class _$_WordSearchDto implements _WordSearchDto {
         (other is _WordSearchDto &&
             (identical(other.word, word) ||
                 const DeepCollectionEquality().equals(other.word, word)) &&
+            (identical(other.results, results) ||
+                const DeepCollectionEquality()
+                    .equals(other.results, results)) &&
             (identical(other.isFavorited, isFavorited) ||
                 const DeepCollectionEquality()
                     .equals(other.isFavorited, isFavorited)) &&
@@ -173,6 +192,7 @@ class _$_WordSearchDto implements _WordSearchDto {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(word) ^
+      const DeepCollectionEquality().hash(results) ^
       const DeepCollectionEquality().hash(isFavorited) ^
       const DeepCollectionEquality().hash(lastSearchedAt);
 
@@ -189,6 +209,7 @@ class _$_WordSearchDto implements _WordSearchDto {
 abstract class _WordSearchDto implements WordSearchDto {
   const factory _WordSearchDto(
       {@required DictionaryWordDto word,
+      List<HeadwordEntryDto> results,
       @nullable bool isFavorited,
       String lastSearchedAt}) = _$_WordSearchDto;
 
@@ -197,6 +218,8 @@ abstract class _WordSearchDto implements WordSearchDto {
 
   @override
   DictionaryWordDto get word;
+  @override
+  List<HeadwordEntryDto> get results;
   @override
   @nullable
   bool get isFavorited;

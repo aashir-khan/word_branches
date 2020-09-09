@@ -1,6 +1,4 @@
-// ignore_for_file: sort_unnamed_constructors_first
-
-import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
+import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -8,12 +6,12 @@ part 'headword_entry.freezed.dart';
 
 @freezed
 abstract class HeadwordEntry implements _$HeadwordEntry {
-  const HeadwordEntry._();
-
   const factory HeadwordEntry({
     @required String id,
     @required KtList<LexicalEntry> lexicalEntries,
   }) = _HeadwordEntry;
+
+  const HeadwordEntry._();
 
   String get audioFile {
     final firstLexicalEntry = lexicalEntries?.get(0);

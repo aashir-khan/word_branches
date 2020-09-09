@@ -1,8 +1,7 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
+import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
 import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
-import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/lexical_entry_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/lexical_entry_dto.dart';
 import 'package:dr_words/mirage/features/dictionary_word_entries/dictionary_word_entries.dart';
 import 'package:dr_words/mirage/features/dictionary_word_entries/entry.dart';
 import 'package:dr_words/mirage/features/dictionary_word_entries/lexical_entry.dart';
@@ -13,22 +12,22 @@ import 'package:faker/faker.dart';
 
 Future<void> setupMirage({bool isActive = false}) async {
   if (isActive == true) {
-    const searchesCount = 2;
+    const wordsCount = 2;
     const headwordEntriesCount = 2;
     const lexicalEntriesCount = 5;
 
-    final List<WordSearchDto> wordSearches = [];
+    final List<DictionaryWordDto> words = [];
 
-    for (var i = 0; i < searchesCount; i++) {
-      final _wordSearches = await createWordSearches(
+    for (var i = 0; i < wordsCount; i++) {
+      final _words = await createDictionaryWords(
         customFieldValues: {'word': DictionaryWordDto.fromFakeData()},
       );
-      wordSearches.add(_wordSearches[0]);
+      words.add(_words[0]);
     }
 
-    for (final search in wordSearches) {
+    for (final word in words) {
       // ignore: avoid_print
-      print(search.word.id);
+      print(word.id);
       for (var i = 0; i < headwordEntriesCount; i++) {
         final List<LexicalEntryDto> lexicalEntries = [];
         for (var j = 0; j < lexicalEntriesCount; j++) {
@@ -38,7 +37,6 @@ Future<void> setupMirage({bool isActive = false}) async {
           );
 
           final entries = await createEntries(customFieldValues: {'senses': senses}, traits: ['withEtymologies']);
-
           final lexicalCategoryEnum = faker.randomGenerator.element(LexicalCategoryEnum.values);
 
           final lexicalCategory = IdTextDto(
@@ -56,7 +54,7 @@ Future<void> setupMirage({bool isActive = false}) async {
 
         await createDictionaryHeadwordEntries(
           customFieldValues: {
-            'id': search.word.id,
+            'id': word.id,
             'lexicalEntries': lexicalEntries,
           },
         );

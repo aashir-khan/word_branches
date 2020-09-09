@@ -1,7 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:dr_words/domain/word_search/i_word_search_local_data_source.dart';
 import 'package:dr_words/infrastructure/core/daos/word_search_dao.dart';
+import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
 import 'package:dr_words/infrastructure/word_search/word_search_local_exception.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -10,28 +13,29 @@ import 'package:kt_dart/collection.dart';
 @LazySingleton(as: IWordSearchLocalDataSource)
 class DictionaryWordSearchLocalDataSource implements IWordSearchLocalDataSource {
   final WordSearchDao wordSearchDao;
-
-  static const recentlySearchedWordsDbIdentifier = 'recently_searched_words';
+  final Dio dio;
 
   DictionaryWordSearchLocalDataSource({
     @required this.wordSearchDao,
+    @required this.dio,
   });
 
   @override
   Future<KtList<WordSearchDto>> getRecentSearches() async {
     try {
-      return (await wordSearchDao.getRecentSearches()).toImmutableList();
+      final results = await wordSearchDao.getRecentSearches();
+      return results.toImmutableList();
     } catch (e) {
       throw const WordSearchLocalException.localDatabaseProcessingException();
     }
   }
 
   @override
-  Future<Unit> addRecentSearch(WordSearchDto search) async {
+  Future<Unit> addRecentSearch(DictionaryWordDto word) async {
     try {
-      final existingOrNullWordSearch = await wordSearchDao.findById(search.word.id);
+      final existingOrNullWordSearch = await wordSearchDao.findById(word.id);
       if (existingOrNullWordSearch == null) {
-        await wordSearchDao.insert(WordSearchDto(word: search.word, lastSearchedAt: DateTime.now().toIso8601String()));
+        await wordSearchDao.insert(WordSearchDto(word: word, lastSearchedAt: DateTime.now().toIso8601String()));
         return unit;
       } else {
         final updatedObj = existingOrNullWordSearch.copyWith(lastSearchedAt: DateTime.now().toIso8601String());
@@ -47,13 +51,33 @@ class DictionaryWordSearchLocalDataSource implements IWordSearchLocalDataSource 
   Future<Unit> deleteRecentSearch(WordSearchDto search) async {
     try {
       final existingSearch = await wordSearchDao.findById(search.word.id);
-      if (existingSearch.isFavorited != null) {
+      if (existingSearch.isFavorited != true) {
+        await wordSearchDao.delete(existingSearch);
+        return unit;
+      } else {
         final updatedSearch = existingSearch.copyWith(lastSearchedAt: null);
         await wordSearchDao.update(updatedSearch);
         return unit;
       }
-      await wordSearchDao.delete(existingSearch);
-      return unit;
+    } catch (e) {
+      throw const WordSearchLocalException.localDatabaseProcessingException();
+    }
+  }
+
+  @override
+  Future<WordSearchDto> mapWordAndEntriesToSearch(DictionaryWordDto word, KtList<HeadwordEntryDto> results) async {
+    final _results = results.asList();
+    try {
+      final existingOrNullWordSearch = await wordSearchDao.findById(word.id);
+      if (existingOrNullWordSearch == null) {
+        final createdSearch = WordSearchDto(word: word, results: _results);
+        await wordSearchDao.insert(createdSearch);
+        return createdSearch;
+      } else {
+        final updatedSearch = existingOrNullWordSearch.copyWith(results: _results);
+        await wordSearchDao.update(updatedSearch);
+        return updatedSearch;
+      }
     } catch (e) {
       throw const WordSearchLocalException.localDatabaseProcessingException();
     }

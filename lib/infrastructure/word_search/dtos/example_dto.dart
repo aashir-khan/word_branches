@@ -1,10 +1,10 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/example.dart';
+import 'package:dr_words/domain/word_search/entities/example.dart';
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-part 'example_dto.g.dart';
 part 'example_dto.freezed.dart';
+part 'example_dto.g.dart';
 
 @freezed
 abstract class ExampleDto with _$ExampleDto {
@@ -17,8 +17,8 @@ abstract class ExampleDto with _$ExampleDto {
   factory ExampleDto.fromDomain(Example example) {
     return ExampleDto(
       text: example.text,
-      definitions: example.definitions.asList(),
-      registers: example.registers.map((register) => IdTextDto.fromDomain(register)).asList(),
+      definitions: example?.definitions?.asList(),
+      registers: example?.registers?.map((register) => IdTextDto.fromDomain(register))?.asList(),
     );
   }
 

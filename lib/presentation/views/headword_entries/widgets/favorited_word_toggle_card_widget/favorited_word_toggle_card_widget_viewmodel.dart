@@ -15,7 +15,7 @@ class FavoritedWordToggleCardViewModel extends BaseViewModel {
   bool get isFavorited => _isFavorited;
 
   void initialise() {
-    _isFavorited = wordSearch.isFavorited ?? false;
+    _isFavorited = wordSearch.isFavorited;
     notifyListeners();
   }
 

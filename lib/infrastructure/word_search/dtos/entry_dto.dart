@@ -1,12 +1,12 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/entry.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/pronunciation_dto.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/sense_dto.dart';
+import 'package:dr_words/domain/word_search/entities/entry.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/pronunciation_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/sense_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:faker/faker.dart';
 
-part 'entry_dto.g.dart';
 part 'entry_dto.freezed.dart';
+part 'entry_dto.g.dart';
 
 @freezed
 abstract class EntryDto with _$EntryDto {
@@ -18,7 +18,7 @@ abstract class EntryDto with _$EntryDto {
 
   factory EntryDto.fromDomain(Entry entry) {
     return EntryDto(
-      etymologies: entry.etymologies.asList(),
+      etymologies: entry?.etymologies?.asList(),
       senses: entry.senses.map((sense) => SenseDto.fromDomain(sense)).asList(),
       pronunciations:
           entry?.pronunciations?.map((pronunciation) => PronunciationDto.fromDomain(pronunciation))?.asList(),

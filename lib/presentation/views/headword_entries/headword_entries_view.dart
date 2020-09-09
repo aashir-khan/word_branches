@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/domain/core/entities/word_search.dart';
+import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/presentation/core/widgets/responsive_safe_area.dart';
 import 'package:dr_words/presentation/views/headword_entries/headword_entries_viewmodel.dart';
 import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
@@ -11,9 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 class HeadwordEntriesView extends StatelessWidget {
-  final WordSearch wordSearch;
+  final DictionaryWord word;
 
-  const HeadwordEntriesView({@required this.wordSearch});
+  const HeadwordEntriesView({@required this.word});
 
   Widget buildBody(BuildContext context, HeadwordEntriesViewModel model) {
     if (model.isBusy) {
@@ -27,7 +27,7 @@ class HeadwordEntriesView extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 35,
-            child: FavoritedWordToggleCard(wordSearch: wordSearch),
+            child: FavoritedWordToggleCard(wordSearch: model.searchDetails),
           ),
           Expanded(
             flex: 65,
@@ -39,7 +39,7 @@ class HeadwordEntriesView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final currentItem = model.lexicalEntriesWithHeadwordEntryNumber[index];
                   return LexicalEntryInformationPreviewCard(
-                    headwordEntry: model.headwordEntries[currentItem.headwordNumber - 1],
+                    headwordEntry: model.searchDetails.results[currentItem.headwordNumber - 1],
                     lexicalEntry: currentItem.lexicalEntry,
                     headwordEntryNumber: currentItem.headwordNumber,
                   );
@@ -59,7 +59,7 @@ class HeadwordEntriesView extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(model.hasEntries ? '' : 'Headword Entries'),
+            title: Text(model.haSearchDetails ? '' : 'Headword Entries'),
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: model.navigateToHomeView,
@@ -81,7 +81,7 @@ class HeadwordEntriesView extends StatelessWidget {
           body: buildBody(context, model),
         );
       },
-      viewModelBuilder: () => HeadwordEntriesViewModel(wordSearch: wordSearch),
+      viewModelBuilder: () => HeadwordEntriesViewModel(word: word),
     );
   }
 }

@@ -1,7 +1,7 @@
-import 'package:dr_words/domain/core/entities/id_text.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/pronunciation.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/related_entry.dart';
+import 'package:dr_words/domain/word_search/entities/id_text.dart';
+import 'package:dr_words/domain/word_search/entities/entry.dart';
+import 'package:dr_words/domain/word_search/entities/pronunciation.dart';
+import 'package:dr_words/domain/word_search/entities/related_entry.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 

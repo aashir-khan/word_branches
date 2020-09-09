@@ -1,5 +1,5 @@
 import 'package:dr_words/infrastructure/core/daos/headword_entry_dao.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/headword_entry_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
 import 'package:dr_words/injection.dart';
 
 Future<List<HeadwordEntryDto>> createDictionaryHeadwordEntries({

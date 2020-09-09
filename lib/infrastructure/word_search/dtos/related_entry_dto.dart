@@ -1,4 +1,4 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/related_entry.dart';
+import 'package:dr_words/domain/word_search/entities/related_entry.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:faker/faker.dart';
 

@@ -1,4 +1,4 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/text_type.dart';
+import 'package:dr_words/domain/word_search/entities/text_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'text_type_dto.g.dart';

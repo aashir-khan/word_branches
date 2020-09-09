@@ -1,7 +1,7 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
+import 'package:dr_words/domain/word_search/entities/sense.dart';
 import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/example_dto.dart';
-import 'package:dr_words/infrastructure/dictionary_word_entries/dtos/text_type_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/example_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/text_type_dto.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';

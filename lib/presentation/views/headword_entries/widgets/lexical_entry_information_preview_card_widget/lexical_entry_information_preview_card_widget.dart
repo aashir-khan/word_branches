@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
+import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
+import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
+import 'package:dr_words/domain/word_search/entities/sense.dart';
 import 'package:dr_words/presentation/views/headword_entries/widgets/lexical_entry_information_preview_card_widget/lexical_entry_information_preview_card_viewmodel.dart';
 import 'package:dr_words/presentation/views/utils/ui_utils.dart';
 import 'package:flutter/material.dart';

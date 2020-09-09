@@ -9,8 +9,6 @@ import 'package:kt_dart/collection.dart';
 
 @LazySingleton(as: IFavoritedWordsLocalDataSource)
 class FavoritedWordsLocalDataSource implements IFavoritedWordsLocalDataSource {
-  static const favoritedWordsDbIdentifier = 'favorited_words';
-
   final WordSearchDao wordSearchDao;
 
   FavoritedWordsLocalDataSource({@required this.wordSearchDao});
@@ -36,12 +34,12 @@ class FavoritedWordsLocalDataSource implements IFavoritedWordsLocalDataSource {
   Future<Unit> deleteFavoritedSearch(WordSearchDto search) async {
     try {
       final existingSearch = await wordSearchDao.findById(search.word.id);
-      if (existingSearch.lastSearchedAt != null) {
-        final updatedSearch = existingSearch.copyWith(isFavorited: null);
-        await wordSearchDao.update(updatedSearch);
+      if (existingSearch.lastSearchedAt == null) {
+        await wordSearchDao.delete(existingSearch);
         return unit;
       } else {
-        await wordSearchDao.delete(existingSearch);
+        final updatedSearch = existingSearch.copyWith(isFavorited: null);
+        await wordSearchDao.update(updatedSearch);
         return unit;
       }
     } catch (e) {

@@ -1,5 +1,5 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
+import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
+import 'package:dr_words/domain/word_search/entities/sense.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flutter/foundation.dart';

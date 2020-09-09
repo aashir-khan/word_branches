@@ -10,10 +10,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../domain/core/entities/word_search.dart';
-import '../../domain/dictionary_word_entries/entities/headword_entry.dart';
-import '../../domain/dictionary_word_entries/entities/lexical_entry.dart';
-import '../../domain/dictionary_word_entries/entities/sense.dart';
+import '../../domain/core/entities/dictionary_word.dart';
+import '../../domain/word_search/entities/headword_entry.dart';
+import '../../domain/word_search/entities/lexical_entry.dart';
+import '../../domain/word_search/entities/sense.dart';
 import '../views/headword_entries/headword_entries_view.dart';
 import '../views/home/home_view.dart';
 import '../views/lexical_entry/lexical_entry_view.dart';
@@ -63,7 +63,7 @@ class Router extends RouterBase {
     HeadwordEntriesView: (data) {
       final args = data.getArgs<HeadwordEntriesViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => HeadwordEntriesView(wordSearch: args.wordSearch),
+        builder: (context) => HeadwordEntriesView(word: args.word),
         settings: data,
       );
     },
@@ -100,8 +100,8 @@ class Router extends RouterBase {
 
 /// HeadwordEntriesView arguments holder class
 class HeadwordEntriesViewArguments {
-  final WordSearch wordSearch;
-  HeadwordEntriesViewArguments({@required this.wordSearch});
+  final DictionaryWord word;
+  HeadwordEntriesViewArguments({@required this.word});
 }
 
 /// LexicalEntryView arguments holder class

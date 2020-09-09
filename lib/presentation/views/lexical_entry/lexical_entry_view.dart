@@ -1,7 +1,7 @@
 import 'package:audioplayer/audioplayer.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
+import 'package:dr_words/domain/word_search/entities/entry.dart';
+import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
+import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
 import 'package:dr_words/presentation/core/custom_icons_icons.dart';
 import 'package:dr_words/presentation/views/lexical_entry/widgets/entry_information_widget.dart';
 import 'package:dr_words/presentation/views/utils/ui_utils.dart';

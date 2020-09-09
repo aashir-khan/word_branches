@@ -1,14 +1,18 @@
 import 'package:dartz/dartz.dart';
+import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/core/entities/word_search.dart';
 import 'package:dr_words/domain/core/i_network_info.dart';
 import 'package:dr_words/domain/word_search/i_word_search_local_data_source.dart';
+import 'package:dr_words/domain/word_search/word_search_failure.dart';
 import 'package:dr_words/domain/word_search/word_search_local_failure.dart';
 import 'package:dr_words/domain/word_search/i_word_search_remote_data_source.dart';
 import 'package:dr_words/domain/word_search/word_search_remote_failure.dart';
 import 'package:dr_words/domain/word_search/i_word_search_repository.dart';
 import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
+import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
 import 'package:dr_words/infrastructure/word_search/word_search_local_exception.dart';
 import 'package:dr_words/infrastructure/word_search/word_search_remote_exception.dart';
+import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -26,7 +30,7 @@ class WordSearchRepository implements IWordSearchRepository {
   });
 
   @override
-  Future<Either<WordSearchRemoteFailure, KtList<WordSearch>>> getWordSearchResults(
+  Future<Either<WordSearchRemoteFailure, KtList<DictionaryWord>>> getWordSearchResults(
       {String query, Map<String, dynamic> options = const {}}) async {
     if (await networkInfo.isConnected) {
       try {
@@ -57,9 +61,9 @@ class WordSearchRepository implements IWordSearchRepository {
   }
 
   @override
-  Future<Either<WordSearchLocalFailure, Unit>> addRecentSearch(WordSearch search) async {
+  Future<Either<WordSearchLocalFailure, Unit>> addRecentSearch(DictionaryWord word) async {
     try {
-      await localDataSource.addRecentSearch(WordSearchDto.fromDomain(search));
+      await localDataSource.addRecentSearch(DictionaryWordDto.fromDomain(word));
       return Right(unit);
     } on WordSearchLocalException catch (e) {
       return e.when(
@@ -74,13 +78,39 @@ class WordSearchRepository implements IWordSearchRepository {
       await localDataSource.deleteRecentSearch(WordSearchDto.fromDomain(search));
       return Right(unit);
     } on WordSearchLocalException catch (e) {
-      return Left(handleLocalException(e));
+      return Left(_handleLocalException(e));
+    }
+  }
+
+  @override
+  Future<Either<WordSearchFailure, WordSearch>> getSearchForWord(DictionaryWord word) async {
+    KtList<HeadwordEntryDto> entries;
+    final wordDto = DictionaryWordDto.fromDomain(word);
+
+    try {
+      entries = await remoteDataSource.getWordEntries(wordDto);
+    } on WordSearchRemoteException catch (e) {
+      return Left(WordSearchFailure.remote(_handleRemoteException(e)));
+    }
+
+    try {
+      final search = await localDataSource.mapWordAndEntriesToSearch(wordDto, entries);
+      return Right(search.toDomain());
+    } on WordSearchLocalException catch (e) {
+      return Left(WordSearchFailure.local(_handleLocalException(e)));
     }
   }
 }
 
-WordSearchLocalFailure handleLocalException(WordSearchLocalException exception) {
+WordSearchLocalFailure _handleLocalException(WordSearchLocalException exception) {
   return exception.when(
     localDatabaseProcessingException: () => const WordSearchLocalFailure.localDatabaseProcessingFailure(),
+  );
+}
+
+WordSearchRemoteFailure _handleRemoteException(WordSearchRemoteException exception) {
+  return exception.when(
+    serverError: () => const WordSearchRemoteFailure.serverError(),
+    unexpected: () => const WordSearchRemoteFailure.unexpected(),
   );
 }

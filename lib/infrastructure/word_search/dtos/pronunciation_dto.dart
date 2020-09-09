@@ -1,4 +1,4 @@
-import 'package:dr_words/domain/dictionary_word_entries/entities/pronunciation.dart';
+import 'package:dr_words/domain/word_search/entities/pronunciation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'pronunciation_dto.g.dart';

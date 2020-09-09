@@ -1,9 +1,8 @@
 import 'package:dr_words/domain/core/entities/dictionary_word.dart';
 import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/domain/dictionary_word_entries/dictionary_word_entries_failure.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/lexical_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/i_dictionary_word_entries_repository.dart';
+import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
+import 'package:dr_words/domain/word_search/i_word_search_repository.dart';
+import 'package:dr_words/domain/word_search/word_search_failure.dart';
 import 'package:dr_words/injection.dart';
 import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flutter/foundation.dart';
@@ -12,20 +11,20 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class HeadwordEntriesViewModel extends BaseViewModel {
-  final WordSearch wordSearch;
+  final DictionaryWord word;
 
-  HeadwordEntriesViewModel({@required this.wordSearch});
+  HeadwordEntriesViewModel({@required this.word});
 
-  final _dictionaryWordEntriesRepository = getIt<IDictionaryWordEntriesRepository>();
+  final _wordSearchRepository = getIt<IWordSearchRepository>();
   final _navigationService = getIt<NavigationService>();
 
-  KtList<HeadwordEntry> _headwordEntries;
-  KtList<HeadwordEntry> get headwordEntries => _headwordEntries;
-  bool get hasEntries => headwordEntries != null && !headwordEntries.isEmpty();
+  WordSearch _searchDetails;
+  WordSearch get searchDetails => _searchDetails;
+  bool get haSearchDetails => _searchDetails != null && !_searchDetails.results.isEmpty();
 
   KtList<_LexicalEntryWithItsHeadwordNumber> get lexicalEntriesWithHeadwordEntryNumber {
     final List<_LexicalEntryWithItsHeadwordNumber> _lexicalEntriesWithHeadwordNumber = [];
-    _headwordEntries.forEachIndexed((headwordEntryIndex, headwordEntry) {
+    _searchDetails.results.forEachIndexed((headwordEntryIndex, headwordEntry) {
       headwordEntry.lexicalEntries.forEach((lexicalEntry) {
         _lexicalEntriesWithHeadwordNumber.add(
           _LexicalEntryWithItsHeadwordNumber(
@@ -41,17 +40,17 @@ class HeadwordEntriesViewModel extends BaseViewModel {
   }
 
   Future initialize() async {
-    await getWordEntries(wordSearch.word);
+    await getWordEntries(word);
   }
 
   Future getWordEntries(DictionaryWord word) async {
     setBusy(true);
-    final resultEither = await _dictionaryWordEntriesRepository.getWordEntries(word);
+    final resultEither = await _wordSearchRepository.getSearchForWord(word);
 
     resultEither.fold(
       (failure) => setError(_mapFailureToMessage(failure)),
-      (results) {
-        _headwordEntries = results;
+      (result) {
+        _searchDetails = result;
         notifyListeners();
       },
     );
@@ -64,11 +63,16 @@ class HeadwordEntriesViewModel extends BaseViewModel {
   }
 }
 
-String _mapFailureToMessage(DictionaryWordEntriesFailure failure) {
+String _mapFailureToMessage(WordSearchFailure failure) {
   return failure.when(
-    serverError: () => 'An error occurred trying to get dictionary word entries',
-    networkError: () => 'Seems like you are not connected to the Internet',
-    unexpected: () => 'Unexpected error occurred while trying to get dictionary word entries, please contact support',
+    local: (failure) => failure.when(
+      localDatabaseProcessingFailure: () => 'An error occurred trying to get dictionary word entries',
+    ),
+    remote: (failure) => failure.when(
+      serverError: () => 'An error occurred trying to get dictionary word entries',
+      networkError: () => 'Seems like you are not connected to the Internet',
+      unexpected: () => 'Unexpected error occurred while trying to get dictionary word entries, please contact support',
+    ),
   );
 }
 

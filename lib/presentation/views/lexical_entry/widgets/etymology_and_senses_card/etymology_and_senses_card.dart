@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/headword_entry.dart';
-import 'package:dr_words/domain/dictionary_word_entries/entities/sense.dart';
+import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
+import 'package:dr_words/domain/word_search/entities/sense.dart';
 import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card_viewmodel.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'id_text.freezed.dart';
+part '../../core/entities/id_text.freezed.dart';
 
 @freezed
 abstract class IdText implements _$IdText {

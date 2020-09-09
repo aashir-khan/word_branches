@@ -76,12 +76,12 @@ class FavoritedWordsViewModel extends BaseViewModel {
   }
 
   Future navigateToHeadwordEntriesView(WordSearch favoritedSearch) async {
-    final resultEither = await _wordSearchRepository.addRecentSearch(favoritedSearch);
+    final resultEither = await _wordSearchRepository.addRecentSearch(favoritedSearch.word);
 
     resultEither.fold((failure) => null, (search) async {
       await _navigationService.replaceWith(
         Routes.headwordEntriesView,
-        arguments: HeadwordEntriesViewArguments(wordSearch: favoritedSearch),
+        arguments: HeadwordEntriesViewArguments(word: favoritedSearch.word),
       );
     });
   }
