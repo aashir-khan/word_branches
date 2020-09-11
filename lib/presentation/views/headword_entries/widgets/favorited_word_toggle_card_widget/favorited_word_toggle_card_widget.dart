@@ -1,12 +1,13 @@
-import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/presentation/core/custom_icons_icons.dart';
-import 'package:dr_words/presentation/core/widgets/responsive_safe_area.dart';
-import 'package:dr_words/presentation/views/headword_entries/widgets/favorited_word_toggle_card_widget/favorited_word_toggle_card_widget_viewmodel.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
-import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
+
+import '../../../../../domain/core/entities/word_search.dart';
+import '../../../../core/constants/app_colors.dart' as colors;
+import '../../../../core/custom_icons_icons.dart';
+import '../../../../core/widgets/responsive_safe_area.dart';
+import 'favorited_word_toggle_card_widget_viewmodel.dart';
 
 class FavoritedWordToggleCard extends HookWidget {
   final WordSearch wordSearch;

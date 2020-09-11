@@ -1,11 +1,12 @@
-import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart' show ListInterop;
 
-part 'word_search_dto.g.dart';
+import '../../../domain/core/entities/word_search.dart';
+import '../../word_search/dtos/headword_entry_dto.dart';
+import 'dictionary_word_dto.dart';
+
 part 'word_search_dto.freezed.dart';
+part 'word_search_dto.g.dart';
 
 @freezed
 abstract class WordSearchDto with _$WordSearchDto {

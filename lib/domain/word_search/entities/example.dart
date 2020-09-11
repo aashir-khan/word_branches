@@ -1,6 +1,7 @@
-import 'package:dr_words/domain/word_search/entities/id_text.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
+
+import 'id_text.dart';
 
 part 'example.freezed.dart';
 

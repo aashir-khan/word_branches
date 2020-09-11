@@ -1,21 +1,22 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/domain/core/i_network_info.dart';
-import 'package:dr_words/domain/word_search/i_word_search_local_data_source.dart';
-import 'package:dr_words/domain/word_search/word_search_failure.dart';
-import 'package:dr_words/domain/word_search/word_search_local_failure.dart';
-import 'package:dr_words/domain/word_search/i_word_search_remote_data_source.dart';
-import 'package:dr_words/domain/word_search/word_search_remote_failure.dart';
-import 'package:dr_words/domain/word_search/i_word_search_repository.dart';
-import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
-import 'package:dr_words/infrastructure/word_search/word_search_local_exception.dart';
-import 'package:dr_words/infrastructure/word_search/word_search_remote_exception.dart';
-import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/core/entities/dictionary_word.dart';
+import '../../domain/core/entities/word_search.dart';
+import '../../domain/core/i_network_info.dart';
+import '../../domain/word_search/i_word_search_local_data_source.dart';
+import '../../domain/word_search/i_word_search_remote_data_source.dart';
+import '../../domain/word_search/i_word_search_repository.dart';
+import '../../domain/word_search/word_search_failure.dart';
+import '../../domain/word_search/word_search_local_failure.dart';
+import '../../domain/word_search/word_search_remote_failure.dart';
+import '../core/dtos/dictionary_word_dto.dart';
+import '../core/dtos/word_search_dto.dart';
+import 'dtos/headword_entry_dto.dart';
+import 'word_search_local_exception.dart';
+import 'word_search_remote_exception.dart';
 
 @LazySingleton(as: IWordSearchRepository)
 class WordSearchRepository implements IWordSearchRepository {

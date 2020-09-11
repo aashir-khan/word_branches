@@ -1,4 +1,4 @@
-import 'package:dr_words/infrastructure/word_search/dtos/sense_dto.dart';
+import '../../../infrastructure/word_search/dtos/sense_dto.dart';
 
 Future<List<SenseDto>> createSenses({
   Map<String, dynamic> customFieldValues = const {},

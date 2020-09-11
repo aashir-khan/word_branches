@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/domain/favorited_words/favorited_words_failure.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../core/entities/word_search.dart';
+import 'favorited_words_failure.dart';
 
 abstract class IFavoritedWordsRepository {
   Future<Either<FavoritedWordsFailure, KtList<WordSearch>>> getFavoritedSearches();

@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/presentation/core/widgets/responsive_safe_area.dart';
-import 'package:dr_words/presentation/views/headword_entries/headword_entries_viewmodel.dart';
-import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
-import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
-import 'package:dr_words/presentation/views/headword_entries/widgets/favorited_word_toggle_card_widget/favorited_word_toggle_card_widget.dart';
-import 'package:dr_words/presentation/views/headword_entries/widgets/lexical_entry_information_preview_card_widget/lexical_entry_information_preview_card_widget.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import '../../../domain/core/entities/dictionary_word.dart';
+import '../../core/constants/app_colors.dart' as colors;
+import '../../core/widgets/loading_indicator.dart';
+import '../../core/widgets/responsive_safe_area.dart';
+import 'headword_entries_viewmodel.dart';
+import 'widgets/favorited_word_toggle_card_widget/favorited_word_toggle_card_widget.dart';
+import 'widgets/lexical_entry_information_preview_card_widget/lexical_entry_information_preview_card_widget.dart';
 
 class HeadwordEntriesView extends StatelessWidget {
   final DictionaryWord word;

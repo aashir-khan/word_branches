@@ -1,4 +1,4 @@
-import 'package:dr_words/infrastructure/word_search/dtos/lexical_entry_dto.dart';
+import '../../../infrastructure/word_search/dtos/lexical_entry_dto.dart';
 
 Future<List<LexicalEntryDto>> createLexicalEntries({
   Map<String, dynamic> customFieldValues = const {},

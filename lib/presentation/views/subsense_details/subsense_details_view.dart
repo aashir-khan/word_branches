@@ -1,15 +1,16 @@
 import 'package:audioplayer/audioplayer.dart';
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
-import 'package:dr_words/domain/word_search/entities/sense.dart';
-import 'package:dr_words/injection.dart';
-import 'package:dr_words/presentation/core/custom_icons_icons.dart';
-import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card.dart';
-import 'package:dr_words/presentation/views/utils/ui_utils.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
+
+import '../../../domain/word_search/entities/headword_entry.dart';
+import '../../../domain/word_search/entities/sense.dart';
+import '../../../injection.dart';
+import '../../core/constants/app_colors.dart' as colors;
+import '../../core/custom_icons_icons.dart';
+import '../lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card.dart';
+import '../utils/ui_utils.dart';
 
 class SubsenseDetailsView extends HookWidget {
   final HeadwordEntry headwordEntry;

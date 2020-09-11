@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/domain/word_search/word_search_failure.dart';
-import 'package:dr_words/domain/word_search/word_search_local_failure.dart';
-import 'package:dr_words/domain/word_search/word_search_remote_failure.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../core/entities/dictionary_word.dart';
+import '../core/entities/word_search.dart';
+import 'word_search_failure.dart';
+import 'word_search_local_failure.dart';
+import 'word_search_remote_failure.dart';
 
 abstract class IWordSearchRepository {
   Future<Either<WordSearchRemoteFailure, KtList<DictionaryWord>>> getWordSearchResults({String query});

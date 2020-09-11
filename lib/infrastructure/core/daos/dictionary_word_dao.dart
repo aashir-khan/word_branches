@@ -1,8 +1,9 @@
-import 'package:dr_words/infrastructure/core/app_database.dart';
-import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
-import 'package:dr_words/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sembast/sembast.dart';
+
+import '../../../injection.dart';
+import '../app_database.dart';
+import '../dtos/dictionary_word_dto.dart';
 
 @LazySingleton(env: [Env.development])
 class DictionaryWordDao {

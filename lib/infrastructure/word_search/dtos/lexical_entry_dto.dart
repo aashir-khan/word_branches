@@ -1,15 +1,16 @@
-import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
-import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/entry_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/pronunciation_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/related_entry_dto.dart';
 import 'package:enum_to_string/enum_to_string.dart';
+import 'package:faker/faker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:faker/faker.dart';
 
-part 'lexical_entry_dto.g.dart';
+import '../../../domain/word_search/entities/lexical_entry.dart';
+import '../../core/dtos/id_text_dto.dart';
+import 'entry_dto.dart';
+import 'pronunciation_dto.dart';
+import 'related_entry_dto.dart';
+
 part 'lexical_entry_dto.freezed.dart';
+part 'lexical_entry_dto.g.dart';
 
 @freezed
 abstract class LexicalEntryDto with _$LexicalEntryDto {

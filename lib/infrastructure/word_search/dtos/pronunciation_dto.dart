@@ -1,8 +1,9 @@
-import 'package:dr_words/domain/word_search/entities/pronunciation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'pronunciation_dto.g.dart';
+import '../../../domain/word_search/entities/pronunciation.dart';
+
 part 'pronunciation_dto.freezed.dart';
+part 'pronunciation_dto.g.dart';
 
 @freezed
 abstract class PronunciationDto with _$PronunciationDto {

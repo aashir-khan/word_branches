@@ -1,6 +1,7 @@
-import 'package:dr_words/injection.dart';
-import 'package:dr_words/mirage/mirage.dart';
 import 'package:flutter/material.dart';
+
+import 'injection.dart';
+import 'mirage/mirage.dart';
 
 Future setupApplication() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,9 @@
-import 'package:dr_words/domain/word_search/entities/id_text.dart';
-import 'package:dr_words/domain/word_search/entities/example.dart';
-import 'package:dr_words/domain/word_search/entities/text_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
+
+import 'example.dart';
+import 'id_text.dart';
+import 'text_type.dart';
 
 part 'sense.freezed.dart';
 

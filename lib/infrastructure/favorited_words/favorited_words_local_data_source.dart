@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/domain/favorited_words/favorited_words_exception.dart';
-import 'package:dr_words/domain/favorited_words/i_favorited_words_local_data_source.dart';
-import 'package:dr_words/infrastructure/core/daos/word_search_dao.dart';
-import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/favorited_words/favorited_words_exception.dart';
+import '../../domain/favorited_words/i_favorited_words_local_data_source.dart';
+import '../core/daos/word_search_dao.dart';
+import '../core/dtos/word_search_dto.dart';
 
 @LazySingleton(as: IFavoritedWordsLocalDataSource)
 class FavoritedWordsLocalDataSource implements IFavoritedWordsLocalDataSource {

@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
-import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../infrastructure/core/dtos/dictionary_word_dto.dart';
+import '../../infrastructure/core/dtos/word_search_dto.dart';
+import '../../infrastructure/word_search/dtos/headword_entry_dto.dart';
 
 abstract class IWordSearchLocalDataSource {
   Future<KtList<WordSearchDto>> getRecentSearches();

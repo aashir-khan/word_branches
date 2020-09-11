@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
-import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
-import 'package:dr_words/domain/word_search/entities/sense.dart';
-import 'package:dr_words/presentation/views/headword_entries/widgets/lexical_entry_information_preview_card_widget/lexical_entry_information_preview_card_viewmodel.dart';
-import 'package:dr_words/presentation/views/utils/ui_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
+
+import '../../../../../domain/word_search/entities/headword_entry.dart';
+import '../../../../../domain/word_search/entities/lexical_entry.dart';
+import '../../../../../domain/word_search/entities/sense.dart';
+import '../../../../core/constants/app_colors.dart' as colors;
+import '../../../utils/ui_utils.dart';
+import 'lexical_entry_information_preview_card_viewmodel.dart';
 
 class LexicalEntryInformationPreviewCard extends StatelessWidget {
   final HeadwordEntry headwordEntry;

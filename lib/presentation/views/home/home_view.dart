@@ -1,7 +1,8 @@
-import 'package:dr_words/presentation/views/home/home_viewmodel.dart';
-import 'package:dr_words/presentation/views/home/widgets/favorited_words_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import 'home_viewmodel.dart';
+import 'widgets/favorited_words_widget.dart';
 
 class HomeView extends StatelessWidget {
   @override

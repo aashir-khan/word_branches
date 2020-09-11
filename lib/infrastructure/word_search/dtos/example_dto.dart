@@ -1,7 +1,8 @@
-import 'package:dr_words/domain/word_search/entities/example.dart';
-import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../../domain/word_search/entities/example.dart';
+import '../../core/dtos/id_text_dto.dart';
 
 part 'example_dto.freezed.dart';
 part 'example_dto.g.dart';

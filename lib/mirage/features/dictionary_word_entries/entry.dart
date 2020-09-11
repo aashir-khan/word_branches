@@ -1,4 +1,4 @@
-import 'package:dr_words/infrastructure/word_search/dtos/entry_dto.dart';
+import '../../../infrastructure/word_search/dtos/entry_dto.dart';
 
 Future<List<EntryDto>> createEntries({
   Map<String, dynamic> customFieldValues = const {},

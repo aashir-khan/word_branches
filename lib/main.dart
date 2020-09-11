@@ -1,6 +1,7 @@
-import 'package:dr_words/presentation/app_widget.dart';
-import 'package:dr_words/setup_application.dart';
 import 'package:flutter/material.dart';
+
+import 'presentation/app_widget.dart';
+import 'setup_application.dart';
 
 Future<void> main() async {
   await setupApplication();

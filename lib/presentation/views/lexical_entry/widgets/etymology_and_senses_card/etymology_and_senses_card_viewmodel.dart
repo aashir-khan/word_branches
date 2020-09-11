@@ -1,10 +1,11 @@
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
-import 'package:dr_words/domain/word_search/entities/sense.dart';
-import 'package:dr_words/injection.dart';
-import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:flutter/foundation.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import '../../../../../domain/word_search/entities/headword_entry.dart';
+import '../../../../../domain/word_search/entities/sense.dart';
+import '../../../../../injection.dart';
+import '../../../../routes/router.gr.dart';
 
 class EtymologyAndSensesCardViewModel extends BaseViewModel {
   final _navigationService = getIt<NavigationService>();

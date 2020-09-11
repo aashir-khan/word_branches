@@ -1,7 +1,8 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:faker/faker.dart';
+
+import '../../../domain/core/entities/dictionary_word.dart';
 
 part 'dictionary_word_dto.freezed.dart';
 part 'dictionary_word_dto.g.dart';

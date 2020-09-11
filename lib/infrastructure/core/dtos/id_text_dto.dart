@@ -1,7 +1,8 @@
-import 'package:dr_words/domain/word_search/entities/id_text.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:faker/faker.dart';
+
+import '../../../domain/word_search/entities/id_text.dart';
 
 part 'id_text_dto.freezed.dart';
 part 'id_text_dto.g.dart';

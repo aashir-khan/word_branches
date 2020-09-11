@@ -1,7 +1,8 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/kt.dart' show KtList;
+import 'package:kt_dart/kt.dart' hide nullable;
+
+import '../../word_search/entities/headword_entry.dart';
+import 'dictionary_word.dart';
 
 part 'word_search.freezed.dart';
 

@@ -1,8 +1,9 @@
-import 'package:dr_words/domain/word_search/entities/text_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'text_type_dto.g.dart';
+import '../../../domain/word_search/entities/text_type.dart';
+
 part 'text_type_dto.freezed.dart';
+part 'text_type_dto.g.dart';
 
 @freezed
 abstract class TextTypeDto with _$TextTypeDto {

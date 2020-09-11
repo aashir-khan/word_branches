@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route_annotations.dart';
-import 'package:dr_words/presentation/views/headword_entries/headword_entries_view.dart';
-import 'package:dr_words/presentation/views/home/home_view.dart';
-import 'package:dr_words/presentation/views/lexical_entry/lexical_entry_view.dart';
-import 'package:dr_words/presentation/views/search/search_view.dart';
-import 'package:dr_words/presentation/views/subsense_details/subsense_details_view.dart';
+
+import '../views/headword_entries/headword_entries_view.dart';
+import '../views/home/home_view.dart';
+import '../views/lexical_entry/lexical_entry_view.dart';
+import '../views/search/search_view.dart';
+import '../views/subsense_details/subsense_details_view.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[

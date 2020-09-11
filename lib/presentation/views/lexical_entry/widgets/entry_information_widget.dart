@@ -1,7 +1,8 @@
-import 'package:dr_words/domain/word_search/entities/entry.dart';
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
-import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../domain/word_search/entities/entry.dart';
+import '../../../../domain/word_search/entities/headword_entry.dart';
+import 'etymology_and_senses_card/etymology_and_senses_card.dart';
 
 class EntryInformation extends StatelessWidget {
   final Entry entry;

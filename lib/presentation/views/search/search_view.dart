@@ -1,11 +1,12 @@
-import 'package:dr_words/presentation/views/search/search_viewmodel.dart';
-import 'package:dr_words/presentation/core/custom_icons_icons.dart';
-import 'package:dr_words/presentation/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
-import 'package:rxdart/rxdart.dart';
+
+import '../../core/custom_icons_icons.dart';
+import '../../core/widgets/loading_indicator.dart';
+import 'search_viewmodel.dart';
 
 class SearchView extends StatelessWidget {
   @override

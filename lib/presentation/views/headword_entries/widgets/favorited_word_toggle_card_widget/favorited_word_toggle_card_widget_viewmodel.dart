@@ -1,8 +1,9 @@
-import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/injection.dart';
-import 'package:dr_words/presentation/views/home/widgets/favorited_words_viewmodel.dart';
 import 'package:flutter/foundation.dart';
 import 'package:stacked/stacked.dart';
+
+import '../../../../../domain/core/entities/word_search.dart';
+import '../../../../../injection.dart';
+import '../../../home/widgets/favorited_words_viewmodel.dart';
 
 class FavoritedWordToggleCardViewModel extends BaseViewModel {
   WordSearch wordSearch;

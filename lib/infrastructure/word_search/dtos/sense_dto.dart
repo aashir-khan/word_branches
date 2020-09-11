@@ -1,14 +1,15 @@
-import 'package:dr_words/domain/word_search/entities/sense.dart';
-import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/example_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/text_type_dto.dart';
 import 'package:enum_to_string/enum_to_string.dart';
+import 'package:faker/faker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:faker/faker.dart';
 
-part 'sense_dto.g.dart';
+import '../../../domain/word_search/entities/sense.dart';
+import '../../core/dtos/id_text_dto.dart';
+import 'example_dto.dart';
+import 'text_type_dto.dart';
+
 part 'sense_dto.freezed.dart';
+part 'sense_dto.g.dart';
 
 @freezed
 abstract class SenseDto with _$SenseDto {

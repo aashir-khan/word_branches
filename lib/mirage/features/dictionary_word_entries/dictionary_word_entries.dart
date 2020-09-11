@@ -1,6 +1,6 @@
-import 'package:dr_words/infrastructure/core/daos/headword_entry_dao.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
-import 'package:dr_words/injection.dart';
+import '../../../infrastructure/core/daos/headword_entry_dao.dart';
+import '../../../infrastructure/word_search/dtos/headword_entry_dto.dart';
+import '../../../injection.dart';
 
 Future<List<HeadwordEntryDto>> createDictionaryHeadwordEntries({
   Map<String, dynamic> customFieldValues = const {},

@@ -1,13 +1,14 @@
-import 'package:dr_words/domain/core/entities/dictionary_word.dart';
-import 'package:dr_words/domain/core/entities/word_search.dart';
-import 'package:dr_words/domain/word_search/i_word_search_repository.dart';
-import 'package:dr_words/domain/word_search/word_search_local_failure.dart';
-import 'package:dr_words/domain/word_search/word_search_remote_failure.dart';
-import 'package:dr_words/injection.dart';
-import 'package:dr_words/presentation/routes/router.gr.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import '../../../domain/core/entities/dictionary_word.dart';
+import '../../../domain/core/entities/word_search.dart';
+import '../../../domain/word_search/i_word_search_repository.dart';
+import '../../../domain/word_search/word_search_local_failure.dart';
+import '../../../domain/word_search/word_search_remote_failure.dart';
+import '../../../injection.dart';
+import '../../routes/router.gr.dart';
 
 class SearchViewModel extends BaseViewModel {
   final _dictionaryWordSearchRepository = getIt<IWordSearchRepository>();

@@ -1,13 +1,14 @@
 import 'package:audioplayer/audioplayer.dart';
-import 'package:dr_words/domain/word_search/entities/entry.dart';
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
-import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
-import 'package:dr_words/presentation/core/custom_icons_icons.dart';
-import 'package:dr_words/presentation/views/lexical_entry/widgets/entry_information_widget.dart';
-import 'package:dr_words/presentation/views/utils/ui_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
+
+import '../../../domain/word_search/entities/entry.dart';
+import '../../../domain/word_search/entities/headword_entry.dart';
+import '../../../domain/word_search/entities/lexical_entry.dart';
+import '../../core/constants/app_colors.dart' as colors;
+import '../../core/custom_icons_icons.dart';
+import '../utils/ui_utils.dart';
+import 'widgets/entry_information_widget.dart';
 
 class LexicalEntryView extends HookWidget {
   final HeadwordEntry headwordEntry;

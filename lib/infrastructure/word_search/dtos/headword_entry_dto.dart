@@ -1,9 +1,10 @@
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/lexical_entry_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/pronunciation_dto.dart';
+import 'package:faker/faker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:faker/faker.dart';
+
+import '../../../domain/word_search/entities/headword_entry.dart';
+import 'lexical_entry_dto.dart';
+import 'pronunciation_dto.dart';
 
 part 'headword_entry_dto.freezed.dart';
 part 'headword_entry_dto.g.dart';

@@ -1,9 +1,10 @@
-import 'package:dr_words/domain/word_search/entities/id_text.dart';
-import 'package:dr_words/domain/word_search/entities/entry.dart';
-import 'package:dr_words/domain/word_search/entities/pronunciation.dart';
-import 'package:dr_words/domain/word_search/entities/related_entry.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
+
+import 'entry.dart';
+import 'id_text.dart';
+import 'pronunciation.dart';
+import 'related_entry.dart';
 
 part 'lexical_entry.freezed.dart';
 

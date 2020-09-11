@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dr_words/domain/word_search/entities/headword_entry.dart';
-import 'package:dr_words/domain/word_search/entities/sense.dart';
-import 'package:dr_words/presentation/views/lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_card_viewmodel.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
-
-import 'package:dr_words/presentation/core/constants/app_colors.dart' as colors;
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
+
+import '../../../../../domain/word_search/entities/headword_entry.dart';
+import '../../../../../domain/word_search/entities/sense.dart';
+import '../../../../core/constants/app_colors.dart' as colors;
+import 'etymology_and_senses_card_viewmodel.dart';
 
 class EtymologyAndSensesCard extends StatelessWidget {
   final HeadwordEntry headwordEntry;

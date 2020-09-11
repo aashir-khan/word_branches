@@ -1,14 +1,15 @@
-import 'package:dr_words/domain/word_search/entities/lexical_entry.dart';
-import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
-import 'package:dr_words/infrastructure/core/dtos/id_text_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/lexical_entry_dto.dart';
-import 'package:dr_words/mirage/features/dictionary_word_entries/dictionary_word_entries.dart';
-import 'package:dr_words/mirage/features/dictionary_word_entries/entry.dart';
-import 'package:dr_words/mirage/features/dictionary_word_entries/lexical_entry.dart';
-import 'package:dr_words/mirage/features/dictionary_word_entries/sense.dart';
-import 'package:dr_words/mirage/features/word_search.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:faker/faker.dart';
+
+import '../domain/word_search/entities/lexical_entry.dart';
+import '../infrastructure/core/dtos/dictionary_word_dto.dart';
+import '../infrastructure/core/dtos/id_text_dto.dart';
+import '../infrastructure/word_search/dtos/lexical_entry_dto.dart';
+import 'features/dictionary_word_entries/dictionary_word_entries.dart';
+import 'features/dictionary_word_entries/entry.dart';
+import 'features/dictionary_word_entries/lexical_entry.dart';
+import 'features/dictionary_word_entries/sense.dart';
+import 'features/word_search.dart';
 
 Future<void> setupMirage({bool isActive = false}) async {
   if (isActive == true) {

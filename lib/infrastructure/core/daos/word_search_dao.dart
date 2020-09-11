@@ -1,7 +1,8 @@
-import 'package:dr_words/infrastructure/core/app_database.dart';
-import 'package:dr_words/infrastructure/core/dtos/word_search_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sembast/sembast.dart';
+
+import '../app_database.dart';
+import '../dtos/word_search_dto.dart';
 
 @lazySingleton
 class WordSearchDao {

@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
-import 'package:dr_words/domain/word_search/i_word_search_remote_data_source.dart';
-import 'package:dr_words/infrastructure/core/dtos/dictionary_word_dto.dart';
-import 'package:dr_words/infrastructure/word_search/dtos/headword_entry_dto.dart';
-import 'package:dr_words/infrastructure/internal/account_details/account_details.dart';
-import 'package:dr_words/infrastructure/word_search/word_search_remote_exception.dart';
-import 'package:dr_words/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/word_search/i_word_search_remote_data_source.dart';
+import '../../injection.dart';
+import '../core/dtos/dictionary_word_dto.dart';
+import '../internal/account_details/account_details.dart';
+import 'dtos/headword_entry_dto.dart';
+import 'word_search_remote_exception.dart';
 
 @LazySingleton(as: IWordSearchRemoteDataSource, env: [Env.production])
 class WordSearchRemoteDataSource implements IWordSearchRemoteDataSource {
