@@ -37,9 +37,7 @@ class SubsenseDetailsView extends HookWidget {
           backgroundColor: colors.secondaryColorDark,
           dismissDirection: FlushbarDismissDirection.HORIZONTAL,
           flushbarPosition: FlushbarPosition.TOP,
-          title: 'Subsenses Screen',
-          message:
-              'This screen lists all the subsenses (a subsidiary sense of a word defined in a dictionary) for the chosen sense.',
+          message: 'This screen lists submeanings for the chosen meaning of a word.',
         )..show(context),
       ),
     );

@@ -72,9 +72,8 @@ class HeadwordEntriesView extends StatelessWidget {
                   backgroundColor: colors.secondaryColorDark,
                   dismissDirection: FlushbarDismissDirection.HORIZONTAL,
                   flushbarPosition: FlushbarPosition.TOP,
-                  title: 'Lexical Entries',
                   message:
-                      'This screen lists all the lexical entries for the dictionary word. A lexical entry is a grouping of senses (a way in which an expression or a situation can be interpreted; a meaning) in a specific language, and a lexical category that relates to a word.',
+                      'This screen lists all the possible parts of speech for a word in one or more contexts. The superscripts define the context while the tag on the right define its part of speech.',
                 )..show(context),
               ),
             ],

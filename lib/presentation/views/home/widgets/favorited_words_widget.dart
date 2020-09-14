@@ -104,7 +104,7 @@ class FavoritedWordsListEmpty extends StatelessWidget {
               children: <Widget>[
                 FaIcon(FontAwesomeIcons.heartBroken, color: colors.primaryColorLight, size: 132),
                 const Text(
-                  'Hmm... looks like you have no favorited words. Begin searching to find some.',
+                  'Hmm... looks like you have no favorited searches. Begin searching to find some.',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 20, color: Colors.black54),
                 ),

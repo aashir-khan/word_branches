@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Favorites'),
+            title: const Text('Favorited Searches'),
             actions: <Widget>[
               IconButton(
                 icon: const Icon(Icons.search),

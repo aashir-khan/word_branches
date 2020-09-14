@@ -1,4 +1,4 @@
-package com.example.dr_words
+package com.humblecarrotstudios.wordbranches
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

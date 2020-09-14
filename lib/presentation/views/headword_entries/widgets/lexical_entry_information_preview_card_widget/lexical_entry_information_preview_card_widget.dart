@@ -111,8 +111,9 @@ class LexicalEntryInformationPreviewCard extends StatelessWidget {
             width: double.infinity,
             child: Text(
               sensesWithDefinitions.isNotEmpty
-                  ? '...And ${sensesWithoutDefinitions.length} more sense${sensesWithoutDefinitions.length > 1 ? "s" : ''}'
-                  : 'With ${sensesWithoutDefinitions.length} sense${sensesWithoutDefinitions.length > 1 ? "s" : ''}',
+                  ? '...And ${sensesWithoutDefinitions.length} more meaning${sensesWithoutDefinitions.length > 1 ? "s" : ''}'
+                  : 'With ${sensesWithoutDefinitions.length} meaning${sensesWithoutDefinitions.length > 1 ? "s" : ''}',
+              style: const TextStyle(fontStyle: FontStyle.italic),
             ),
           )
         ],
