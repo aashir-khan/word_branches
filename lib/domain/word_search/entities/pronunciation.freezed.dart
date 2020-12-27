@@ -9,6 +9,7 @@ part of 'pronunciation.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$PronunciationTearOff {
   const _$PronunciationTearOff();
 
@@ -20,15 +21,18 @@ class _$PronunciationTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Pronunciation = _$PronunciationTearOff();
 
+/// @nodoc
 mixin _$Pronunciation {
   String get audioFile;
 
   $PronunciationCopyWith<Pronunciation> get copyWith;
 }
 
+/// @nodoc
 abstract class $PronunciationCopyWith<$Res> {
   factory $PronunciationCopyWith(
           Pronunciation value, $Res Function(Pronunciation) then) =
@@ -36,6 +40,7 @@ abstract class $PronunciationCopyWith<$Res> {
   $Res call({String audioFile});
 }
 
+/// @nodoc
 class _$PronunciationCopyWithImpl<$Res>
     implements $PronunciationCopyWith<$Res> {
   _$PronunciationCopyWithImpl(this._value, this._then);
@@ -54,6 +59,7 @@ class _$PronunciationCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$PronunciationCopyWith<$Res>
     implements $PronunciationCopyWith<$Res> {
   factory _$PronunciationCopyWith(
@@ -63,6 +69,7 @@ abstract class _$PronunciationCopyWith<$Res>
   $Res call({String audioFile});
 }
 
+/// @nodoc
 class __$PronunciationCopyWithImpl<$Res>
     extends _$PronunciationCopyWithImpl<$Res>
     implements _$PronunciationCopyWith<$Res> {
@@ -83,6 +90,7 @@ class __$PronunciationCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Pronunciation implements _Pronunciation {
   const _$_Pronunciation({this.audioFile});
 

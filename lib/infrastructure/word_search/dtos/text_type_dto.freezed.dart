@@ -12,6 +12,7 @@ TextTypeDto _$TextTypeDtoFromJson(Map<String, dynamic> json) {
   return _TextTypeDto.fromJson(json);
 }
 
+/// @nodoc
 class _$TextTypeDtoTearOff {
   const _$TextTypeDtoTearOff();
 
@@ -22,11 +23,18 @@ class _$TextTypeDtoTearOff {
       type: type,
     );
   }
+
+// ignore: unused_element
+  TextTypeDto fromJson(Map<String, Object> json) {
+    return TextTypeDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $TextTypeDto = _$TextTypeDtoTearOff();
 
+/// @nodoc
 mixin _$TextTypeDto {
   String get text;
   String get type;
@@ -35,6 +43,7 @@ mixin _$TextTypeDto {
   $TextTypeDtoCopyWith<TextTypeDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $TextTypeDtoCopyWith<$Res> {
   factory $TextTypeDtoCopyWith(
           TextTypeDto value, $Res Function(TextTypeDto) then) =
@@ -42,6 +51,7 @@ abstract class $TextTypeDtoCopyWith<$Res> {
   $Res call({String text, String type});
 }
 
+/// @nodoc
 class _$TextTypeDtoCopyWithImpl<$Res> implements $TextTypeDtoCopyWith<$Res> {
   _$TextTypeDtoCopyWithImpl(this._value, this._then);
 
@@ -61,6 +71,7 @@ class _$TextTypeDtoCopyWithImpl<$Res> implements $TextTypeDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$TextTypeDtoCopyWith<$Res>
     implements $TextTypeDtoCopyWith<$Res> {
   factory _$TextTypeDtoCopyWith(
@@ -70,6 +81,7 @@ abstract class _$TextTypeDtoCopyWith<$Res>
   $Res call({String text, String type});
 }
 
+/// @nodoc
 class __$TextTypeDtoCopyWithImpl<$Res> extends _$TextTypeDtoCopyWithImpl<$Res>
     implements _$TextTypeDtoCopyWith<$Res> {
   __$TextTypeDtoCopyWithImpl(
@@ -92,6 +104,8 @@ class __$TextTypeDtoCopyWithImpl<$Res> extends _$TextTypeDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_TextTypeDto implements _TextTypeDto {
   const _$_TextTypeDto({this.text, this.type});
 

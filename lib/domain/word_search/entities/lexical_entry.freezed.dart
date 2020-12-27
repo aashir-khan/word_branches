@@ -9,6 +9,7 @@ part of 'lexical_entry.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$LexicalEntryTearOff {
   const _$LexicalEntryTearOff();
 
@@ -27,9 +28,11 @@ class _$LexicalEntryTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $LexicalEntry = _$LexicalEntryTearOff();
 
+/// @nodoc
 mixin _$LexicalEntry {
   KtList<Entry> get entries;
   IdText get lexicalCategory;
@@ -39,6 +42,7 @@ mixin _$LexicalEntry {
   $LexicalEntryCopyWith<LexicalEntry> get copyWith;
 }
 
+/// @nodoc
 abstract class $LexicalEntryCopyWith<$Res> {
   factory $LexicalEntryCopyWith(
           LexicalEntry value, $Res Function(LexicalEntry) then) =
@@ -52,6 +56,7 @@ abstract class $LexicalEntryCopyWith<$Res> {
   $IdTextCopyWith<$Res> get lexicalCategory;
 }
 
+/// @nodoc
 class _$LexicalEntryCopyWithImpl<$Res> implements $LexicalEntryCopyWith<$Res> {
   _$LexicalEntryCopyWithImpl(this._value, this._then);
 
@@ -91,6 +96,7 @@ class _$LexicalEntryCopyWithImpl<$Res> implements $LexicalEntryCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$LexicalEntryCopyWith<$Res>
     implements $LexicalEntryCopyWith<$Res> {
   factory _$LexicalEntryCopyWith(
@@ -107,6 +113,7 @@ abstract class _$LexicalEntryCopyWith<$Res>
   $IdTextCopyWith<$Res> get lexicalCategory;
 }
 
+/// @nodoc
 class __$LexicalEntryCopyWithImpl<$Res> extends _$LexicalEntryCopyWithImpl<$Res>
     implements _$LexicalEntryCopyWith<$Res> {
   __$LexicalEntryCopyWithImpl(
@@ -138,6 +145,7 @@ class __$LexicalEntryCopyWithImpl<$Res> extends _$LexicalEntryCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_LexicalEntry implements _LexicalEntry {
   const _$_LexicalEntry(
       {@required this.entries,

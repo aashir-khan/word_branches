@@ -12,6 +12,7 @@ EntryDto _$EntryDtoFromJson(Map<String, dynamic> json) {
   return _EntryDto.fromJson(json);
 }
 
+/// @nodoc
 class _$EntryDtoTearOff {
   const _$EntryDtoTearOff();
 
@@ -26,11 +27,18 @@ class _$EntryDtoTearOff {
       pronunciations: pronunciations,
     );
   }
+
+// ignore: unused_element
+  EntryDto fromJson(Map<String, Object> json) {
+    return EntryDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $EntryDto = _$EntryDtoTearOff();
 
+/// @nodoc
 mixin _$EntryDto {
   List<String> get etymologies;
   List<SenseDto> get senses;
@@ -40,6 +48,7 @@ mixin _$EntryDto {
   $EntryDtoCopyWith<EntryDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $EntryDtoCopyWith<$Res> {
   factory $EntryDtoCopyWith(EntryDto value, $Res Function(EntryDto) then) =
       _$EntryDtoCopyWithImpl<$Res>;
@@ -49,6 +58,7 @@ abstract class $EntryDtoCopyWith<$Res> {
       List<PronunciationDto> pronunciations});
 }
 
+/// @nodoc
 class _$EntryDtoCopyWithImpl<$Res> implements $EntryDtoCopyWith<$Res> {
   _$EntryDtoCopyWithImpl(this._value, this._then);
 
@@ -74,6 +84,7 @@ class _$EntryDtoCopyWithImpl<$Res> implements $EntryDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$EntryDtoCopyWith<$Res> implements $EntryDtoCopyWith<$Res> {
   factory _$EntryDtoCopyWith(_EntryDto value, $Res Function(_EntryDto) then) =
       __$EntryDtoCopyWithImpl<$Res>;
@@ -84,6 +95,7 @@ abstract class _$EntryDtoCopyWith<$Res> implements $EntryDtoCopyWith<$Res> {
       List<PronunciationDto> pronunciations});
 }
 
+/// @nodoc
 class __$EntryDtoCopyWithImpl<$Res> extends _$EntryDtoCopyWithImpl<$Res>
     implements _$EntryDtoCopyWith<$Res> {
   __$EntryDtoCopyWithImpl(_EntryDto _value, $Res Function(_EntryDto) _then)
@@ -111,6 +123,8 @@ class __$EntryDtoCopyWithImpl<$Res> extends _$EntryDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_EntryDto implements _EntryDto {
   const _$_EntryDto(
       {this.etymologies, @required this.senses, this.pronunciations})

@@ -67,7 +67,7 @@ class HeadwordEntriesView extends StatelessWidget {
             ),
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.info),
+                icon: const Icon(Icons.info),
                 onPressed: () => Flushbar(
                   backgroundColor: colors.secondaryColorDark,
                   dismissDirection: FlushbarDismissDirection.HORIZONTAL,

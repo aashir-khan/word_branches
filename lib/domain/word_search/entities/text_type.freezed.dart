@@ -9,6 +9,7 @@ part of 'text_type.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$TextTypeTearOff {
   const _$TextTypeTearOff();
 
@@ -21,9 +22,11 @@ class _$TextTypeTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $TextType = _$TextTypeTearOff();
 
+/// @nodoc
 mixin _$TextType {
   String get text;
   String get type;
@@ -31,12 +34,14 @@ mixin _$TextType {
   $TextTypeCopyWith<TextType> get copyWith;
 }
 
+/// @nodoc
 abstract class $TextTypeCopyWith<$Res> {
   factory $TextTypeCopyWith(TextType value, $Res Function(TextType) then) =
       _$TextTypeCopyWithImpl<$Res>;
   $Res call({String text, String type});
 }
 
+/// @nodoc
 class _$TextTypeCopyWithImpl<$Res> implements $TextTypeCopyWith<$Res> {
   _$TextTypeCopyWithImpl(this._value, this._then);
 
@@ -56,6 +61,7 @@ class _$TextTypeCopyWithImpl<$Res> implements $TextTypeCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$TextTypeCopyWith<$Res> implements $TextTypeCopyWith<$Res> {
   factory _$TextTypeCopyWith(_TextType value, $Res Function(_TextType) then) =
       __$TextTypeCopyWithImpl<$Res>;
@@ -63,6 +69,7 @@ abstract class _$TextTypeCopyWith<$Res> implements $TextTypeCopyWith<$Res> {
   $Res call({String text, String type});
 }
 
+/// @nodoc
 class __$TextTypeCopyWithImpl<$Res> extends _$TextTypeCopyWithImpl<$Res>
     implements _$TextTypeCopyWith<$Res> {
   __$TextTypeCopyWithImpl(_TextType _value, $Res Function(_TextType) _then)
@@ -83,6 +90,7 @@ class __$TextTypeCopyWithImpl<$Res> extends _$TextTypeCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_TextType implements _TextType {
   const _$_TextType({@required this.text, @required this.type})
       : assert(text != null),

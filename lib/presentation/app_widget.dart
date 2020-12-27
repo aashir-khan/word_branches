@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../injection.dart';
+import './routes/router.dart';
 import 'core/constants/app_colors.dart' as colors;
 import 'core/constants/theme_data.dart';
-import 'routes/router.gr.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'Dr. Words',
       theme: AppTheme.lightTheme,
-      onGenerateRoute: Router().onGenerateRoute,
+      onGenerateRoute: AppRouter().onGenerateRoute,
       navigatorKey: getIt<NavigationService>().navigatorKey as GlobalKey<NavigatorState>,
       debugShowCheckedModeBanner: false,
     );

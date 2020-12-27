@@ -6,6 +6,8 @@ import '../views/lexical_entry/lexical_entry_view.dart';
 import '../views/search/search_view.dart';
 import '../views/subsense_details/subsense_details_view.dart';
 
+export 'router.gr.dart';
+
 @MaterialAutoRouter(
   routes: <AutoRoute>[
     MaterialRoute(page: HomeView, initial: true),
@@ -15,4 +17,4 @@ import '../views/subsense_details/subsense_details_view.dart';
     MaterialRoute(page: SubsenseDetailsView)
   ],
 )
-class $Router {}
+class $AppRouter {}

@@ -12,6 +12,7 @@ IdTextDto _$IdTextDtoFromJson(Map<String, dynamic> json) {
   return _IdTextDto.fromJson(json);
 }
 
+/// @nodoc
 class _$IdTextDtoTearOff {
   const _$IdTextDtoTearOff();
 
@@ -22,11 +23,18 @@ class _$IdTextDtoTearOff {
       text: text,
     );
   }
+
+// ignore: unused_element
+  IdTextDto fromJson(Map<String, Object> json) {
+    return IdTextDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $IdTextDto = _$IdTextDtoTearOff();
 
+/// @nodoc
 mixin _$IdTextDto {
   String get id;
   String get text;
@@ -35,12 +43,14 @@ mixin _$IdTextDto {
   $IdTextDtoCopyWith<IdTextDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $IdTextDtoCopyWith<$Res> {
   factory $IdTextDtoCopyWith(IdTextDto value, $Res Function(IdTextDto) then) =
       _$IdTextDtoCopyWithImpl<$Res>;
   $Res call({String id, String text});
 }
 
+/// @nodoc
 class _$IdTextDtoCopyWithImpl<$Res> implements $IdTextDtoCopyWith<$Res> {
   _$IdTextDtoCopyWithImpl(this._value, this._then);
 
@@ -60,6 +70,7 @@ class _$IdTextDtoCopyWithImpl<$Res> implements $IdTextDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$IdTextDtoCopyWith<$Res> implements $IdTextDtoCopyWith<$Res> {
   factory _$IdTextDtoCopyWith(
           _IdTextDto value, $Res Function(_IdTextDto) then) =
@@ -68,6 +79,7 @@ abstract class _$IdTextDtoCopyWith<$Res> implements $IdTextDtoCopyWith<$Res> {
   $Res call({String id, String text});
 }
 
+/// @nodoc
 class __$IdTextDtoCopyWithImpl<$Res> extends _$IdTextDtoCopyWithImpl<$Res>
     implements _$IdTextDtoCopyWith<$Res> {
   __$IdTextDtoCopyWithImpl(_IdTextDto _value, $Res Function(_IdTextDto) _then)
@@ -89,6 +101,8 @@ class __$IdTextDtoCopyWithImpl<$Res> extends _$IdTextDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_IdTextDto with DiagnosticableTreeMixin implements _IdTextDto {
   const _$_IdTextDto({@required this.id, @required this.text})
       : assert(id != null),

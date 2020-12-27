@@ -9,6 +9,7 @@ part of 'headword_entry.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$HeadwordEntryTearOff {
   const _$HeadwordEntryTearOff();
 
@@ -22,9 +23,11 @@ class _$HeadwordEntryTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $HeadwordEntry = _$HeadwordEntryTearOff();
 
+/// @nodoc
 mixin _$HeadwordEntry {
   String get id;
   KtList<LexicalEntry> get lexicalEntries;
@@ -32,6 +35,7 @@ mixin _$HeadwordEntry {
   $HeadwordEntryCopyWith<HeadwordEntry> get copyWith;
 }
 
+/// @nodoc
 abstract class $HeadwordEntryCopyWith<$Res> {
   factory $HeadwordEntryCopyWith(
           HeadwordEntry value, $Res Function(HeadwordEntry) then) =
@@ -39,6 +43,7 @@ abstract class $HeadwordEntryCopyWith<$Res> {
   $Res call({String id, KtList<LexicalEntry> lexicalEntries});
 }
 
+/// @nodoc
 class _$HeadwordEntryCopyWithImpl<$Res>
     implements $HeadwordEntryCopyWith<$Res> {
   _$HeadwordEntryCopyWithImpl(this._value, this._then);
@@ -61,6 +66,7 @@ class _$HeadwordEntryCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$HeadwordEntryCopyWith<$Res>
     implements $HeadwordEntryCopyWith<$Res> {
   factory _$HeadwordEntryCopyWith(
@@ -70,6 +76,7 @@ abstract class _$HeadwordEntryCopyWith<$Res>
   $Res call({String id, KtList<LexicalEntry> lexicalEntries});
 }
 
+/// @nodoc
 class __$HeadwordEntryCopyWithImpl<$Res>
     extends _$HeadwordEntryCopyWithImpl<$Res>
     implements _$HeadwordEntryCopyWith<$Res> {
@@ -94,6 +101,7 @@ class __$HeadwordEntryCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_HeadwordEntry extends _HeadwordEntry {
   const _$_HeadwordEntry({@required this.id, @required this.lexicalEntries})
       : assert(id != null),

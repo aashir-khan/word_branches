@@ -9,6 +9,7 @@ part of 'sense.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SenseTearOff {
   const _$SenseTearOff();
 
@@ -33,9 +34,11 @@ class _$SenseTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Sense = _$SenseTearOff();
 
+/// @nodoc
 mixin _$Sense {
   KtList<String> get definitions;
   KtList<TextType> get notes;
@@ -48,6 +51,7 @@ mixin _$Sense {
   $SenseCopyWith<Sense> get copyWith;
 }
 
+/// @nodoc
 abstract class $SenseCopyWith<$Res> {
   factory $SenseCopyWith(Sense value, $Res Function(Sense) then) =
       _$SenseCopyWithImpl<$Res>;
@@ -61,6 +65,7 @@ abstract class $SenseCopyWith<$Res> {
       KtList<String> crossReferenceMarkers});
 }
 
+/// @nodoc
 class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
   _$SenseCopyWithImpl(this._value, this._then);
 
@@ -97,6 +102,7 @@ class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SenseCopyWith<$Res> implements $SenseCopyWith<$Res> {
   factory _$SenseCopyWith(_Sense value, $Res Function(_Sense) then) =
       __$SenseCopyWithImpl<$Res>;
@@ -111,6 +117,7 @@ abstract class _$SenseCopyWith<$Res> implements $SenseCopyWith<$Res> {
       KtList<String> crossReferenceMarkers});
 }
 
+/// @nodoc
 class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
     implements _$SenseCopyWith<$Res> {
   __$SenseCopyWithImpl(_Sense _value, $Res Function(_Sense) _then)
@@ -148,6 +155,7 @@ class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Sense implements _Sense {
   const _$_Sense(
       {this.definitions,

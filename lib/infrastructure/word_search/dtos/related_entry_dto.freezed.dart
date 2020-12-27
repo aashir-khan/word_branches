@@ -12,6 +12,7 @@ RelatedEntryDto _$RelatedEntryDtoFromJson(Map<String, dynamic> json) {
   return _RelatedEntryDto.fromJson(json);
 }
 
+/// @nodoc
 class _$RelatedEntryDtoTearOff {
   const _$RelatedEntryDtoTearOff();
 
@@ -22,11 +23,18 @@ class _$RelatedEntryDtoTearOff {
       text: text,
     );
   }
+
+// ignore: unused_element
+  RelatedEntryDto fromJson(Map<String, Object> json) {
+    return RelatedEntryDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $RelatedEntryDto = _$RelatedEntryDtoTearOff();
 
+/// @nodoc
 mixin _$RelatedEntryDto {
   String get id;
   String get text;
@@ -35,6 +43,7 @@ mixin _$RelatedEntryDto {
   $RelatedEntryDtoCopyWith<RelatedEntryDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $RelatedEntryDtoCopyWith<$Res> {
   factory $RelatedEntryDtoCopyWith(
           RelatedEntryDto value, $Res Function(RelatedEntryDto) then) =
@@ -42,6 +51,7 @@ abstract class $RelatedEntryDtoCopyWith<$Res> {
   $Res call({String id, String text});
 }
 
+/// @nodoc
 class _$RelatedEntryDtoCopyWithImpl<$Res>
     implements $RelatedEntryDtoCopyWith<$Res> {
   _$RelatedEntryDtoCopyWithImpl(this._value, this._then);
@@ -62,6 +72,7 @@ class _$RelatedEntryDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$RelatedEntryDtoCopyWith<$Res>
     implements $RelatedEntryDtoCopyWith<$Res> {
   factory _$RelatedEntryDtoCopyWith(
@@ -71,6 +82,7 @@ abstract class _$RelatedEntryDtoCopyWith<$Res>
   $Res call({String id, String text});
 }
 
+/// @nodoc
 class __$RelatedEntryDtoCopyWithImpl<$Res>
     extends _$RelatedEntryDtoCopyWithImpl<$Res>
     implements _$RelatedEntryDtoCopyWith<$Res> {
@@ -94,6 +106,8 @@ class __$RelatedEntryDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_RelatedEntryDto implements _RelatedEntryDto {
   const _$_RelatedEntryDto({@required this.id, @required this.text})
       : assert(id != null),

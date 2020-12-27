@@ -12,6 +12,7 @@ HeadwordEntryDto _$HeadwordEntryDtoFromJson(Map<String, dynamic> json) {
   return _HeadwordEntryDto.fromJson(json);
 }
 
+/// @nodoc
 class _$HeadwordEntryDtoTearOff {
   const _$HeadwordEntryDtoTearOff();
 
@@ -26,11 +27,18 @@ class _$HeadwordEntryDtoTearOff {
       pronunciations: pronunciations,
     );
   }
+
+// ignore: unused_element
+  HeadwordEntryDto fromJson(Map<String, Object> json) {
+    return HeadwordEntryDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $HeadwordEntryDto = _$HeadwordEntryDtoTearOff();
 
+/// @nodoc
 mixin _$HeadwordEntryDto {
   String get id;
   List<LexicalEntryDto> get lexicalEntries;
@@ -40,6 +48,7 @@ mixin _$HeadwordEntryDto {
   $HeadwordEntryDtoCopyWith<HeadwordEntryDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $HeadwordEntryDtoCopyWith<$Res> {
   factory $HeadwordEntryDtoCopyWith(
           HeadwordEntryDto value, $Res Function(HeadwordEntryDto) then) =
@@ -50,6 +59,7 @@ abstract class $HeadwordEntryDtoCopyWith<$Res> {
       List<PronunciationDto> pronunciations});
 }
 
+/// @nodoc
 class _$HeadwordEntryDtoCopyWithImpl<$Res>
     implements $HeadwordEntryDtoCopyWith<$Res> {
   _$HeadwordEntryDtoCopyWithImpl(this._value, this._then);
@@ -76,6 +86,7 @@ class _$HeadwordEntryDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$HeadwordEntryDtoCopyWith<$Res>
     implements $HeadwordEntryDtoCopyWith<$Res> {
   factory _$HeadwordEntryDtoCopyWith(
@@ -88,6 +99,7 @@ abstract class _$HeadwordEntryDtoCopyWith<$Res>
       List<PronunciationDto> pronunciations});
 }
 
+/// @nodoc
 class __$HeadwordEntryDtoCopyWithImpl<$Res>
     extends _$HeadwordEntryDtoCopyWithImpl<$Res>
     implements _$HeadwordEntryDtoCopyWith<$Res> {
@@ -117,6 +129,8 @@ class __$HeadwordEntryDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_HeadwordEntryDto implements _HeadwordEntryDto {
   _$_HeadwordEntryDto(
       {@required this.id, @required this.lexicalEntries, this.pronunciations})

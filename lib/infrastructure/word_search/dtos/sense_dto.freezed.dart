@@ -12,6 +12,7 @@ SenseDto _$SenseDtoFromJson(Map<String, dynamic> json) {
   return _SenseDto.fromJson(json);
 }
 
+/// @nodoc
 class _$SenseDtoTearOff {
   const _$SenseDtoTearOff();
 
@@ -34,11 +35,18 @@ class _$SenseDtoTearOff {
       crossReferenceMarkers: crossReferenceMarkers,
     );
   }
+
+// ignore: unused_element
+  SenseDto fromJson(Map<String, Object> json) {
+    return SenseDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SenseDto = _$SenseDtoTearOff();
 
+/// @nodoc
 mixin _$SenseDto {
   List<String> get definitions;
   List<TextTypeDto> get notes;
@@ -52,6 +60,7 @@ mixin _$SenseDto {
   $SenseDtoCopyWith<SenseDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $SenseDtoCopyWith<$Res> {
   factory $SenseDtoCopyWith(SenseDto value, $Res Function(SenseDto) then) =
       _$SenseDtoCopyWithImpl<$Res>;
@@ -65,6 +74,7 @@ abstract class $SenseDtoCopyWith<$Res> {
       List<String> crossReferenceMarkers});
 }
 
+/// @nodoc
 class _$SenseDtoCopyWithImpl<$Res> implements $SenseDtoCopyWith<$Res> {
   _$SenseDtoCopyWithImpl(this._value, this._then);
 
@@ -102,6 +112,7 @@ class _$SenseDtoCopyWithImpl<$Res> implements $SenseDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SenseDtoCopyWith<$Res> implements $SenseDtoCopyWith<$Res> {
   factory _$SenseDtoCopyWith(_SenseDto value, $Res Function(_SenseDto) then) =
       __$SenseDtoCopyWithImpl<$Res>;
@@ -116,6 +127,7 @@ abstract class _$SenseDtoCopyWith<$Res> implements $SenseDtoCopyWith<$Res> {
       List<String> crossReferenceMarkers});
 }
 
+/// @nodoc
 class __$SenseDtoCopyWithImpl<$Res> extends _$SenseDtoCopyWithImpl<$Res>
     implements _$SenseDtoCopyWith<$Res> {
   __$SenseDtoCopyWithImpl(_SenseDto _value, $Res Function(_SenseDto) _then)
@@ -155,6 +167,8 @@ class __$SenseDtoCopyWithImpl<$Res> extends _$SenseDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_SenseDto implements _SenseDto {
   const _$_SenseDto(
       {this.definitions,

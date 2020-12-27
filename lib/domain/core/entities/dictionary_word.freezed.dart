@@ -9,6 +9,7 @@ part of 'dictionary_word.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$DictionaryWordTearOff {
   const _$DictionaryWordTearOff();
 
@@ -21,9 +22,11 @@ class _$DictionaryWordTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $DictionaryWord = _$DictionaryWordTearOff();
 
+/// @nodoc
 mixin _$DictionaryWord {
   String get id;
   String get label;
@@ -31,6 +34,7 @@ mixin _$DictionaryWord {
   $DictionaryWordCopyWith<DictionaryWord> get copyWith;
 }
 
+/// @nodoc
 abstract class $DictionaryWordCopyWith<$Res> {
   factory $DictionaryWordCopyWith(
           DictionaryWord value, $Res Function(DictionaryWord) then) =
@@ -38,6 +42,7 @@ abstract class $DictionaryWordCopyWith<$Res> {
   $Res call({String id, String label});
 }
 
+/// @nodoc
 class _$DictionaryWordCopyWithImpl<$Res>
     implements $DictionaryWordCopyWith<$Res> {
   _$DictionaryWordCopyWithImpl(this._value, this._then);
@@ -58,6 +63,7 @@ class _$DictionaryWordCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$DictionaryWordCopyWith<$Res>
     implements $DictionaryWordCopyWith<$Res> {
   factory _$DictionaryWordCopyWith(
@@ -67,6 +73,7 @@ abstract class _$DictionaryWordCopyWith<$Res>
   $Res call({String id, String label});
 }
 
+/// @nodoc
 class __$DictionaryWordCopyWithImpl<$Res>
     extends _$DictionaryWordCopyWithImpl<$Res>
     implements _$DictionaryWordCopyWith<$Res> {
@@ -89,6 +96,7 @@ class __$DictionaryWordCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_DictionaryWord implements _DictionaryWord {
   const _$_DictionaryWord({@required this.id, @required this.label})
       : assert(id != null),

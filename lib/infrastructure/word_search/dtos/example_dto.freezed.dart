@@ -12,6 +12,7 @@ ExampleDto _$ExampleDtoFromJson(Map<String, dynamic> json) {
   return _ExampleDto.fromJson(json);
 }
 
+/// @nodoc
 class _$ExampleDtoTearOff {
   const _$ExampleDtoTearOff();
 
@@ -26,11 +27,18 @@ class _$ExampleDtoTearOff {
       registers: registers,
     );
   }
+
+// ignore: unused_element
+  ExampleDto fromJson(Map<String, Object> json) {
+    return ExampleDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ExampleDto = _$ExampleDtoTearOff();
 
+/// @nodoc
 mixin _$ExampleDto {
   String get text;
   List<String> get definitions;
@@ -40,6 +48,7 @@ mixin _$ExampleDto {
   $ExampleDtoCopyWith<ExampleDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $ExampleDtoCopyWith<$Res> {
   factory $ExampleDtoCopyWith(
           ExampleDto value, $Res Function(ExampleDto) then) =
@@ -47,6 +56,7 @@ abstract class $ExampleDtoCopyWith<$Res> {
   $Res call({String text, List<String> definitions, List<IdTextDto> registers});
 }
 
+/// @nodoc
 class _$ExampleDtoCopyWithImpl<$Res> implements $ExampleDtoCopyWith<$Res> {
   _$ExampleDtoCopyWithImpl(this._value, this._then);
 
@@ -72,6 +82,7 @@ class _$ExampleDtoCopyWithImpl<$Res> implements $ExampleDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ExampleDtoCopyWith<$Res> implements $ExampleDtoCopyWith<$Res> {
   factory _$ExampleDtoCopyWith(
           _ExampleDto value, $Res Function(_ExampleDto) then) =
@@ -80,6 +91,7 @@ abstract class _$ExampleDtoCopyWith<$Res> implements $ExampleDtoCopyWith<$Res> {
   $Res call({String text, List<String> definitions, List<IdTextDto> registers});
 }
 
+/// @nodoc
 class __$ExampleDtoCopyWithImpl<$Res> extends _$ExampleDtoCopyWithImpl<$Res>
     implements _$ExampleDtoCopyWith<$Res> {
   __$ExampleDtoCopyWithImpl(
@@ -108,6 +120,8 @@ class __$ExampleDtoCopyWithImpl<$Res> extends _$ExampleDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_ExampleDto implements _ExampleDto {
   const _$_ExampleDto({@required this.text, this.definitions, this.registers})
       : assert(text != null);

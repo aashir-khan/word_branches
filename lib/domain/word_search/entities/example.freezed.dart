@@ -9,6 +9,7 @@ part of 'example.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ExampleTearOff {
   const _$ExampleTearOff();
 
@@ -25,9 +26,11 @@ class _$ExampleTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Example = _$ExampleTearOff();
 
+/// @nodoc
 mixin _$Example {
   String get text;
   KtList<String> get definitions;
@@ -36,6 +39,7 @@ mixin _$Example {
   $ExampleCopyWith<Example> get copyWith;
 }
 
+/// @nodoc
 abstract class $ExampleCopyWith<$Res> {
   factory $ExampleCopyWith(Example value, $Res Function(Example) then) =
       _$ExampleCopyWithImpl<$Res>;
@@ -43,6 +47,7 @@ abstract class $ExampleCopyWith<$Res> {
       {String text, KtList<String> definitions, KtList<IdText> registers});
 }
 
+/// @nodoc
 class _$ExampleCopyWithImpl<$Res> implements $ExampleCopyWith<$Res> {
   _$ExampleCopyWithImpl(this._value, this._then);
 
@@ -67,6 +72,7 @@ class _$ExampleCopyWithImpl<$Res> implements $ExampleCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ExampleCopyWith<$Res> implements $ExampleCopyWith<$Res> {
   factory _$ExampleCopyWith(_Example value, $Res Function(_Example) then) =
       __$ExampleCopyWithImpl<$Res>;
@@ -75,6 +81,7 @@ abstract class _$ExampleCopyWith<$Res> implements $ExampleCopyWith<$Res> {
       {String text, KtList<String> definitions, KtList<IdText> registers});
 }
 
+/// @nodoc
 class __$ExampleCopyWithImpl<$Res> extends _$ExampleCopyWithImpl<$Res>
     implements _$ExampleCopyWith<$Res> {
   __$ExampleCopyWithImpl(_Example _value, $Res Function(_Example) _then)
@@ -100,6 +107,7 @@ class __$ExampleCopyWithImpl<$Res> extends _$ExampleCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Example implements _Example {
   const _$_Example({@required this.text, this.definitions, this.registers})
       : assert(text != null);

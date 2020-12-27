@@ -9,6 +9,7 @@ part of 'word_search_remote_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$WordSearchRemoteFailureTearOff {
   const _$WordSearchRemoteFailureTearOff();
 
@@ -28,44 +29,49 @@ class _$WordSearchRemoteFailureTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $WordSearchRemoteFailure = _$WordSearchRemoteFailureTearOff();
 
+/// @nodoc
 mixin _$WordSearchRemoteFailure {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result networkError(),
-    @required Result serverError(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult networkError(),
+    @required TResult serverError(),
+    @required TResult unexpected(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result networkError(),
-    Result serverError(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult networkError(),
+    TResult serverError(),
+    TResult unexpected(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result networkError(_WordSearchRemoteFailureNetworkError value),
-    @required Result serverError(_WordSearchRemoteFailureServerException value),
-    @required Result unexpected(_WordSearchRemoteFailureUnexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    @required
+        TResult serverError(_WordSearchRemoteFailureServerException value),
+    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result networkError(_WordSearchRemoteFailureNetworkError value),
-    Result serverError(_WordSearchRemoteFailureServerException value),
-    Result unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    TResult serverError(_WordSearchRemoteFailureServerException value),
+    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
+    @required TResult orElse(),
   });
 }
 
+/// @nodoc
 abstract class $WordSearchRemoteFailureCopyWith<$Res> {
   factory $WordSearchRemoteFailureCopyWith(WordSearchRemoteFailure value,
           $Res Function(WordSearchRemoteFailure) then) =
       _$WordSearchRemoteFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$WordSearchRemoteFailureCopyWithImpl<$Res>
     implements $WordSearchRemoteFailureCopyWith<$Res> {
   _$WordSearchRemoteFailureCopyWithImpl(this._value, this._then);
@@ -75,6 +81,7 @@ class _$WordSearchRemoteFailureCopyWithImpl<$Res>
   final $Res Function(WordSearchRemoteFailure) _then;
 }
 
+/// @nodoc
 abstract class _$WordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
   factory _$WordSearchRemoteFailureNetworkErrorCopyWith(
           _WordSearchRemoteFailureNetworkError value,
@@ -82,6 +89,7 @@ abstract class _$WordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
       __$WordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$WordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>
     extends _$WordSearchRemoteFailureCopyWithImpl<$Res>
     implements _$WordSearchRemoteFailureNetworkErrorCopyWith<$Res> {
@@ -95,6 +103,7 @@ class __$WordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>
       super._value as _WordSearchRemoteFailureNetworkError;
 }
 
+/// @nodoc
 class _$_WordSearchRemoteFailureNetworkError
     implements _WordSearchRemoteFailureNetworkError {
   const _$_WordSearchRemoteFailureNetworkError();
@@ -115,10 +124,10 @@ class _$_WordSearchRemoteFailureNetworkError
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result networkError(),
-    @required Result serverError(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult networkError(),
+    @required TResult serverError(),
+    @required TResult unexpected(),
   }) {
     assert(networkError != null);
     assert(serverError != null);
@@ -128,11 +137,11 @@ class _$_WordSearchRemoteFailureNetworkError
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result networkError(),
-    Result serverError(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult networkError(),
+    TResult serverError(),
+    TResult unexpected(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (networkError != null) {
@@ -143,10 +152,11 @@ class _$_WordSearchRemoteFailureNetworkError
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result networkError(_WordSearchRemoteFailureNetworkError value),
-    @required Result serverError(_WordSearchRemoteFailureServerException value),
-    @required Result unexpected(_WordSearchRemoteFailureUnexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    @required
+        TResult serverError(_WordSearchRemoteFailureServerException value),
+    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
     assert(serverError != null);
@@ -156,11 +166,11 @@ class _$_WordSearchRemoteFailureNetworkError
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result networkError(_WordSearchRemoteFailureNetworkError value),
-    Result serverError(_WordSearchRemoteFailureServerException value),
-    Result unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    TResult serverError(_WordSearchRemoteFailureServerException value),
+    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (networkError != null) {
@@ -176,6 +186,7 @@ abstract class _WordSearchRemoteFailureNetworkError
       _$_WordSearchRemoteFailureNetworkError;
 }
 
+/// @nodoc
 abstract class _$WordSearchRemoteFailureServerExceptionCopyWith<$Res> {
   factory _$WordSearchRemoteFailureServerExceptionCopyWith(
           _WordSearchRemoteFailureServerException value,
@@ -183,6 +194,7 @@ abstract class _$WordSearchRemoteFailureServerExceptionCopyWith<$Res> {
       __$WordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$WordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>
     extends _$WordSearchRemoteFailureCopyWithImpl<$Res>
     implements _$WordSearchRemoteFailureServerExceptionCopyWith<$Res> {
@@ -197,6 +209,7 @@ class __$WordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>
       super._value as _WordSearchRemoteFailureServerException;
 }
 
+/// @nodoc
 class _$_WordSearchRemoteFailureServerException
     implements _WordSearchRemoteFailureServerException {
   const _$_WordSearchRemoteFailureServerException();
@@ -217,10 +230,10 @@ class _$_WordSearchRemoteFailureServerException
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result networkError(),
-    @required Result serverError(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult networkError(),
+    @required TResult serverError(),
+    @required TResult unexpected(),
   }) {
     assert(networkError != null);
     assert(serverError != null);
@@ -230,11 +243,11 @@ class _$_WordSearchRemoteFailureServerException
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result networkError(),
-    Result serverError(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult networkError(),
+    TResult serverError(),
+    TResult unexpected(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serverError != null) {
@@ -245,10 +258,11 @@ class _$_WordSearchRemoteFailureServerException
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result networkError(_WordSearchRemoteFailureNetworkError value),
-    @required Result serverError(_WordSearchRemoteFailureServerException value),
-    @required Result unexpected(_WordSearchRemoteFailureUnexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    @required
+        TResult serverError(_WordSearchRemoteFailureServerException value),
+    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
     assert(serverError != null);
@@ -258,11 +272,11 @@ class _$_WordSearchRemoteFailureServerException
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result networkError(_WordSearchRemoteFailureNetworkError value),
-    Result serverError(_WordSearchRemoteFailureServerException value),
-    Result unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    TResult serverError(_WordSearchRemoteFailureServerException value),
+    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serverError != null) {
@@ -278,6 +292,7 @@ abstract class _WordSearchRemoteFailureServerException
       _$_WordSearchRemoteFailureServerException;
 }
 
+/// @nodoc
 abstract class _$WordSearchRemoteFailureUnexpectedCopyWith<$Res> {
   factory _$WordSearchRemoteFailureUnexpectedCopyWith(
           _WordSearchRemoteFailureUnexpected value,
@@ -285,6 +300,7 @@ abstract class _$WordSearchRemoteFailureUnexpectedCopyWith<$Res> {
       __$WordSearchRemoteFailureUnexpectedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$WordSearchRemoteFailureUnexpectedCopyWithImpl<$Res>
     extends _$WordSearchRemoteFailureCopyWithImpl<$Res>
     implements _$WordSearchRemoteFailureUnexpectedCopyWith<$Res> {
@@ -298,6 +314,7 @@ class __$WordSearchRemoteFailureUnexpectedCopyWithImpl<$Res>
       super._value as _WordSearchRemoteFailureUnexpected;
 }
 
+/// @nodoc
 class _$_WordSearchRemoteFailureUnexpected
     implements _WordSearchRemoteFailureUnexpected {
   const _$_WordSearchRemoteFailureUnexpected();
@@ -318,10 +335,10 @@ class _$_WordSearchRemoteFailureUnexpected
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result networkError(),
-    @required Result serverError(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult networkError(),
+    @required TResult serverError(),
+    @required TResult unexpected(),
   }) {
     assert(networkError != null);
     assert(serverError != null);
@@ -331,11 +348,11 @@ class _$_WordSearchRemoteFailureUnexpected
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result networkError(),
-    Result serverError(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult networkError(),
+    TResult serverError(),
+    TResult unexpected(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unexpected != null) {
@@ -346,10 +363,11 @@ class _$_WordSearchRemoteFailureUnexpected
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result networkError(_WordSearchRemoteFailureNetworkError value),
-    @required Result serverError(_WordSearchRemoteFailureServerException value),
-    @required Result unexpected(_WordSearchRemoteFailureUnexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    @required
+        TResult serverError(_WordSearchRemoteFailureServerException value),
+    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
   }) {
     assert(networkError != null);
     assert(serverError != null);
@@ -359,11 +377,11 @@ class _$_WordSearchRemoteFailureUnexpected
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result networkError(_WordSearchRemoteFailureNetworkError value),
-    Result serverError(_WordSearchRemoteFailureServerException value),
-    Result unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult networkError(_WordSearchRemoteFailureNetworkError value),
+    TResult serverError(_WordSearchRemoteFailureServerException value),
+    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unexpected != null) {

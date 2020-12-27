@@ -9,6 +9,7 @@ part of 'entry.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$EntryTearOff {
   const _$EntryTearOff();
 
@@ -25,9 +26,11 @@ class _$EntryTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Entry = _$EntryTearOff();
 
+/// @nodoc
 mixin _$Entry {
   KtList<String> get etymologies;
   KtList<Sense> get senses;
@@ -36,6 +39,7 @@ mixin _$Entry {
   $EntryCopyWith<Entry> get copyWith;
 }
 
+/// @nodoc
 abstract class $EntryCopyWith<$Res> {
   factory $EntryCopyWith(Entry value, $Res Function(Entry) then) =
       _$EntryCopyWithImpl<$Res>;
@@ -45,6 +49,7 @@ abstract class $EntryCopyWith<$Res> {
       KtList<Pronunciation> pronunciations});
 }
 
+/// @nodoc
 class _$EntryCopyWithImpl<$Res> implements $EntryCopyWith<$Res> {
   _$EntryCopyWithImpl(this._value, this._then);
 
@@ -70,6 +75,7 @@ class _$EntryCopyWithImpl<$Res> implements $EntryCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
   factory _$EntryCopyWith(_Entry value, $Res Function(_Entry) then) =
       __$EntryCopyWithImpl<$Res>;
@@ -80,6 +86,7 @@ abstract class _$EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
       KtList<Pronunciation> pronunciations});
 }
 
+/// @nodoc
 class __$EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res>
     implements _$EntryCopyWith<$Res> {
   __$EntryCopyWithImpl(_Entry _value, $Res Function(_Entry) _then)
@@ -106,6 +113,7 @@ class __$EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Entry implements _Entry {
   const _$_Entry({this.etymologies, @required this.senses, this.pronunciations})
       : assert(senses != null);

@@ -196,9 +196,9 @@ class EtymologyAndSensesCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 onPressed: model.navigateToSubsenseDetailsView,
                 child: Row(
-                  children: <Widget>[
-                    const Text('Subsenses'),
-                    const SizedBox(width: 8),
+                  children: const <Widget>[
+                    Text('Subsenses'),
+                    SizedBox(width: 8),
                     Icon(Icons.arrow_forward),
                   ],
                 ),

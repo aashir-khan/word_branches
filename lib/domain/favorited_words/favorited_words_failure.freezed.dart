@@ -9,6 +9,7 @@ part of 'favorited_words_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$FavoritedWordsFailureTearOff {
   const _$FavoritedWordsFailureTearOff();
 
@@ -18,39 +19,43 @@ class _$FavoritedWordsFailureTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $FavoritedWordsFailure = _$FavoritedWordsFailureTearOff();
 
+/// @nodoc
 mixin _$FavoritedWordsFailure {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result localDatabaseProcessingFailure(),
+  TResult when<TResult extends Object>({
+    @required TResult localDatabaseProcessingFailure(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result localDatabaseProcessingFailure(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult localDatabaseProcessingFailure(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result localDatabaseProcessingFailure(
+        TResult localDatabaseProcessingFailure(
             _LocalDatabaseProcessingFailure value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result localDatabaseProcessingFailure(
+  TResult maybeMap<TResult extends Object>({
+    TResult localDatabaseProcessingFailure(
         _LocalDatabaseProcessingFailure value),
-    @required Result orElse(),
+    @required TResult orElse(),
   });
 }
 
+/// @nodoc
 abstract class $FavoritedWordsFailureCopyWith<$Res> {
   factory $FavoritedWordsFailureCopyWith(FavoritedWordsFailure value,
           $Res Function(FavoritedWordsFailure) then) =
       _$FavoritedWordsFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$FavoritedWordsFailureCopyWithImpl<$Res>
     implements $FavoritedWordsFailureCopyWith<$Res> {
   _$FavoritedWordsFailureCopyWithImpl(this._value, this._then);
@@ -60,6 +65,7 @@ class _$FavoritedWordsFailureCopyWithImpl<$Res>
   final $Res Function(FavoritedWordsFailure) _then;
 }
 
+/// @nodoc
 abstract class _$LocalDatabaseProcessingFailureCopyWith<$Res> {
   factory _$LocalDatabaseProcessingFailureCopyWith(
           _LocalDatabaseProcessingFailure value,
@@ -67,6 +73,7 @@ abstract class _$LocalDatabaseProcessingFailureCopyWith<$Res> {
       __$LocalDatabaseProcessingFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$LocalDatabaseProcessingFailureCopyWithImpl<$Res>
     extends _$FavoritedWordsFailureCopyWithImpl<$Res>
     implements _$LocalDatabaseProcessingFailureCopyWith<$Res> {
@@ -80,6 +87,7 @@ class __$LocalDatabaseProcessingFailureCopyWithImpl<$Res>
       super._value as _LocalDatabaseProcessingFailure;
 }
 
+/// @nodoc
 class _$_LocalDatabaseProcessingFailure
     implements _LocalDatabaseProcessingFailure {
   const _$_LocalDatabaseProcessingFailure();
@@ -99,8 +107,8 @@ class _$_LocalDatabaseProcessingFailure
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result localDatabaseProcessingFailure(),
+  TResult when<TResult extends Object>({
+    @required TResult localDatabaseProcessingFailure(),
   }) {
     assert(localDatabaseProcessingFailure != null);
     return localDatabaseProcessingFailure();
@@ -108,9 +116,9 @@ class _$_LocalDatabaseProcessingFailure
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result localDatabaseProcessingFailure(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult localDatabaseProcessingFailure(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (localDatabaseProcessingFailure != null) {
@@ -121,9 +129,9 @@ class _$_LocalDatabaseProcessingFailure
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result localDatabaseProcessingFailure(
+        TResult localDatabaseProcessingFailure(
             _LocalDatabaseProcessingFailure value),
   }) {
     assert(localDatabaseProcessingFailure != null);
@@ -132,10 +140,10 @@ class _$_LocalDatabaseProcessingFailure
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result localDatabaseProcessingFailure(
+  TResult maybeMap<TResult extends Object>({
+    TResult localDatabaseProcessingFailure(
         _LocalDatabaseProcessingFailure value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (localDatabaseProcessingFailure != null) {

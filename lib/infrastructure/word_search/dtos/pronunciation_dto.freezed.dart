@@ -12,6 +12,7 @@ PronunciationDto _$PronunciationDtoFromJson(Map<String, dynamic> json) {
   return _PronunciationDto.fromJson(json);
 }
 
+/// @nodoc
 class _$PronunciationDtoTearOff {
   const _$PronunciationDtoTearOff();
 
@@ -21,11 +22,18 @@ class _$PronunciationDtoTearOff {
       audioFile: audioFile,
     );
   }
+
+// ignore: unused_element
+  PronunciationDto fromJson(Map<String, Object> json) {
+    return PronunciationDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $PronunciationDto = _$PronunciationDtoTearOff();
 
+/// @nodoc
 mixin _$PronunciationDto {
   String get audioFile;
 
@@ -33,6 +41,7 @@ mixin _$PronunciationDto {
   $PronunciationDtoCopyWith<PronunciationDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $PronunciationDtoCopyWith<$Res> {
   factory $PronunciationDtoCopyWith(
           PronunciationDto value, $Res Function(PronunciationDto) then) =
@@ -40,6 +49,7 @@ abstract class $PronunciationDtoCopyWith<$Res> {
   $Res call({String audioFile});
 }
 
+/// @nodoc
 class _$PronunciationDtoCopyWithImpl<$Res>
     implements $PronunciationDtoCopyWith<$Res> {
   _$PronunciationDtoCopyWithImpl(this._value, this._then);
@@ -58,6 +68,7 @@ class _$PronunciationDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$PronunciationDtoCopyWith<$Res>
     implements $PronunciationDtoCopyWith<$Res> {
   factory _$PronunciationDtoCopyWith(
@@ -67,6 +78,7 @@ abstract class _$PronunciationDtoCopyWith<$Res>
   $Res call({String audioFile});
 }
 
+/// @nodoc
 class __$PronunciationDtoCopyWithImpl<$Res>
     extends _$PronunciationDtoCopyWithImpl<$Res>
     implements _$PronunciationDtoCopyWith<$Res> {
@@ -88,6 +100,8 @@ class __$PronunciationDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_PronunciationDto implements _PronunciationDto {
   const _$_PronunciationDto({this.audioFile});
 

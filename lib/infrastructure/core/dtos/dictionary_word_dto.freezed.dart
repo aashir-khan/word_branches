@@ -12,6 +12,7 @@ DictionaryWordDto _$DictionaryWordDtoFromJson(Map<String, dynamic> json) {
   return _DictionaryWordDto.fromJson(json);
 }
 
+/// @nodoc
 class _$DictionaryWordDtoTearOff {
   const _$DictionaryWordDtoTearOff();
 
@@ -22,11 +23,18 @@ class _$DictionaryWordDtoTearOff {
       label: label,
     );
   }
+
+// ignore: unused_element
+  DictionaryWordDto fromJson(Map<String, Object> json) {
+    return DictionaryWordDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $DictionaryWordDto = _$DictionaryWordDtoTearOff();
 
+/// @nodoc
 mixin _$DictionaryWordDto {
   String get id;
   String get label;
@@ -35,6 +43,7 @@ mixin _$DictionaryWordDto {
   $DictionaryWordDtoCopyWith<DictionaryWordDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $DictionaryWordDtoCopyWith<$Res> {
   factory $DictionaryWordDtoCopyWith(
           DictionaryWordDto value, $Res Function(DictionaryWordDto) then) =
@@ -42,6 +51,7 @@ abstract class $DictionaryWordDtoCopyWith<$Res> {
   $Res call({String id, String label});
 }
 
+/// @nodoc
 class _$DictionaryWordDtoCopyWithImpl<$Res>
     implements $DictionaryWordDtoCopyWith<$Res> {
   _$DictionaryWordDtoCopyWithImpl(this._value, this._then);
@@ -62,6 +72,7 @@ class _$DictionaryWordDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$DictionaryWordDtoCopyWith<$Res>
     implements $DictionaryWordDtoCopyWith<$Res> {
   factory _$DictionaryWordDtoCopyWith(
@@ -71,6 +82,7 @@ abstract class _$DictionaryWordDtoCopyWith<$Res>
   $Res call({String id, String label});
 }
 
+/// @nodoc
 class __$DictionaryWordDtoCopyWithImpl<$Res>
     extends _$DictionaryWordDtoCopyWithImpl<$Res>
     implements _$DictionaryWordDtoCopyWith<$Res> {
@@ -94,6 +106,8 @@ class __$DictionaryWordDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_DictionaryWordDto
     with DiagnosticableTreeMixin
     implements _DictionaryWordDto {

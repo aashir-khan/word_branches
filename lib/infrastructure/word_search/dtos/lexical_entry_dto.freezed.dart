@@ -12,6 +12,7 @@ LexicalEntryDto _$LexicalEntryDtoFromJson(Map<String, dynamic> json) {
   return _LexicalEntryDto.fromJson(json);
 }
 
+/// @nodoc
 class _$LexicalEntryDtoTearOff {
   const _$LexicalEntryDtoTearOff();
 
@@ -28,11 +29,18 @@ class _$LexicalEntryDtoTearOff {
       derivativeOf: derivativeOf,
     );
   }
+
+// ignore: unused_element
+  LexicalEntryDto fromJson(Map<String, Object> json) {
+    return LexicalEntryDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $LexicalEntryDto = _$LexicalEntryDtoTearOff();
 
+/// @nodoc
 mixin _$LexicalEntryDto {
   List<EntryDto> get entries;
   IdTextDto get lexicalCategory;
@@ -43,6 +51,7 @@ mixin _$LexicalEntryDto {
   $LexicalEntryDtoCopyWith<LexicalEntryDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $LexicalEntryDtoCopyWith<$Res> {
   factory $LexicalEntryDtoCopyWith(
           LexicalEntryDto value, $Res Function(LexicalEntryDto) then) =
@@ -56,6 +65,7 @@ abstract class $LexicalEntryDtoCopyWith<$Res> {
   $IdTextDtoCopyWith<$Res> get lexicalCategory;
 }
 
+/// @nodoc
 class _$LexicalEntryDtoCopyWithImpl<$Res>
     implements $LexicalEntryDtoCopyWith<$Res> {
   _$LexicalEntryDtoCopyWithImpl(this._value, this._then);
@@ -96,6 +106,7 @@ class _$LexicalEntryDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$LexicalEntryDtoCopyWith<$Res>
     implements $LexicalEntryDtoCopyWith<$Res> {
   factory _$LexicalEntryDtoCopyWith(
@@ -112,6 +123,7 @@ abstract class _$LexicalEntryDtoCopyWith<$Res>
   $IdTextDtoCopyWith<$Res> get lexicalCategory;
 }
 
+/// @nodoc
 class __$LexicalEntryDtoCopyWithImpl<$Res>
     extends _$LexicalEntryDtoCopyWithImpl<$Res>
     implements _$LexicalEntryDtoCopyWith<$Res> {
@@ -145,6 +157,8 @@ class __$LexicalEntryDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_LexicalEntryDto implements _LexicalEntryDto {
   const _$_LexicalEntryDto(
       {@required this.entries,

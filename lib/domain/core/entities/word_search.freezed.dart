@@ -9,6 +9,7 @@ part of 'word_search.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$WordSearchTearOff {
   const _$WordSearchTearOff();
 
@@ -27,9 +28,11 @@ class _$WordSearchTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $WordSearch = _$WordSearchTearOff();
 
+/// @nodoc
 mixin _$WordSearch {
   DictionaryWord get word;
   KtList<HeadwordEntry> get results;
@@ -40,6 +43,7 @@ mixin _$WordSearch {
   $WordSearchCopyWith<WordSearch> get copyWith;
 }
 
+/// @nodoc
 abstract class $WordSearchCopyWith<$Res> {
   factory $WordSearchCopyWith(
           WordSearch value, $Res Function(WordSearch) then) =
@@ -53,6 +57,7 @@ abstract class $WordSearchCopyWith<$Res> {
   $DictionaryWordCopyWith<$Res> get word;
 }
 
+/// @nodoc
 class _$WordSearchCopyWithImpl<$Res> implements $WordSearchCopyWith<$Res> {
   _$WordSearchCopyWithImpl(this._value, this._then);
 
@@ -91,6 +96,7 @@ class _$WordSearchCopyWithImpl<$Res> implements $WordSearchCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$WordSearchCopyWith<$Res> implements $WordSearchCopyWith<$Res> {
   factory _$WordSearchCopyWith(
           _WordSearch value, $Res Function(_WordSearch) then) =
@@ -106,6 +112,7 @@ abstract class _$WordSearchCopyWith<$Res> implements $WordSearchCopyWith<$Res> {
   $DictionaryWordCopyWith<$Res> get word;
 }
 
+/// @nodoc
 class __$WordSearchCopyWithImpl<$Res> extends _$WordSearchCopyWithImpl<$Res>
     implements _$WordSearchCopyWith<$Res> {
   __$WordSearchCopyWithImpl(
@@ -136,6 +143,7 @@ class __$WordSearchCopyWithImpl<$Res> extends _$WordSearchCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_WordSearch implements _WordSearch {
   const _$_WordSearch(
       {@required this.word,

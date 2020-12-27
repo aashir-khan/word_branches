@@ -9,6 +9,7 @@ part of 'related_entry.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$RelatedEntryTearOff {
   const _$RelatedEntryTearOff();
 
@@ -21,9 +22,11 @@ class _$RelatedEntryTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $RelatedEntry = _$RelatedEntryTearOff();
 
+/// @nodoc
 mixin _$RelatedEntry {
   String get id;
   String get text;
@@ -31,6 +34,7 @@ mixin _$RelatedEntry {
   $RelatedEntryCopyWith<RelatedEntry> get copyWith;
 }
 
+/// @nodoc
 abstract class $RelatedEntryCopyWith<$Res> {
   factory $RelatedEntryCopyWith(
           RelatedEntry value, $Res Function(RelatedEntry) then) =
@@ -38,6 +42,7 @@ abstract class $RelatedEntryCopyWith<$Res> {
   $Res call({String id, String text});
 }
 
+/// @nodoc
 class _$RelatedEntryCopyWithImpl<$Res> implements $RelatedEntryCopyWith<$Res> {
   _$RelatedEntryCopyWithImpl(this._value, this._then);
 
@@ -57,6 +62,7 @@ class _$RelatedEntryCopyWithImpl<$Res> implements $RelatedEntryCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$RelatedEntryCopyWith<$Res>
     implements $RelatedEntryCopyWith<$Res> {
   factory _$RelatedEntryCopyWith(
@@ -66,6 +72,7 @@ abstract class _$RelatedEntryCopyWith<$Res>
   $Res call({String id, String text});
 }
 
+/// @nodoc
 class __$RelatedEntryCopyWithImpl<$Res> extends _$RelatedEntryCopyWithImpl<$Res>
     implements _$RelatedEntryCopyWith<$Res> {
   __$RelatedEntryCopyWithImpl(
@@ -87,6 +94,7 @@ class __$RelatedEntryCopyWithImpl<$Res> extends _$RelatedEntryCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_RelatedEntry implements _RelatedEntry {
   const _$_RelatedEntry({@required this.id, @required this.text})
       : assert(id != null),

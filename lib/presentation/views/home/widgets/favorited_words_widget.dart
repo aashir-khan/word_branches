@@ -69,7 +69,7 @@ class FavoritedWordsWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                           IconButton(
-                            icon: Icon(Icons.delete),
+                            icon: const Icon(Icons.delete),
                             onPressed: () {
                               model.deleteFavoritedSearchAndRefresh(favoritedSearch);
                             },
@@ -101,9 +101,9 @@ class FavoritedWordsListEmpty extends StatelessWidget {
           Expanded(
             flex: 70,
             child: Column(
-              children: <Widget>[
+              children: const <Widget>[
                 FaIcon(FontAwesomeIcons.heartBroken, color: colors.primaryColorLight, size: 132),
-                const Text(
+                Text(
                   'Hmm... looks like you have no favorited searches. Begin searching to find some.',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 20, color: Colors.black54),

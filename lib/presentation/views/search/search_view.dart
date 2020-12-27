@@ -84,7 +84,6 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: const <Widget>[
               Flexible(
                 child: Text(
@@ -112,7 +111,7 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
               title: Text(recentSearch[index].word.label, style: const TextStyle(fontSize: 16)),
               trailing: InkWell(
                 onTap: () => model.deleteRecentSearch(recentSearch[index]),
-                child: Icon(Icons.delete, color: Colors.red),
+                child: const Icon(Icons.delete, color: Colors.red),
               ),
             ),
           ),

@@ -20,7 +20,7 @@ class FavoritedWordsRepository implements IFavoritedWordsRepository {
   Future<Either<FavoritedWordsFailure, Unit>> addFavoritedSearch(WordSearch search) async {
     try {
       await localDataSource.addFavoritedSearch(WordSearchDto.fromDomain(search));
-      return Right(unit);
+      return const Right(unit);
     } on FavoritedWordsException catch (e) {
       return Left(handleException(e));
     }
@@ -30,7 +30,7 @@ class FavoritedWordsRepository implements IFavoritedWordsRepository {
   Future<Either<FavoritedWordsFailure, Unit>> deleteFavoritedSearch(WordSearch search) async {
     try {
       await localDataSource.deleteFavoritedSearch(WordSearchDto.fromDomain(search));
-      return Right(unit);
+      return const Right(unit);
     } on FavoritedWordsException catch (e) {
       return Left(handleException(e));
     }

@@ -12,6 +12,7 @@ WordSearchDto _$WordSearchDtoFromJson(Map<String, dynamic> json) {
   return _WordSearchDto.fromJson(json);
 }
 
+/// @nodoc
 class _$WordSearchDtoTearOff {
   const _$WordSearchDtoTearOff();
 
@@ -28,11 +29,18 @@ class _$WordSearchDtoTearOff {
       lastSearchedAt: lastSearchedAt,
     );
   }
+
+// ignore: unused_element
+  WordSearchDto fromJson(Map<String, Object> json) {
+    return WordSearchDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $WordSearchDto = _$WordSearchDtoTearOff();
 
+/// @nodoc
 mixin _$WordSearchDto {
   DictionaryWordDto get word;
   List<HeadwordEntryDto> get results;
@@ -44,6 +52,7 @@ mixin _$WordSearchDto {
   $WordSearchDtoCopyWith<WordSearchDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $WordSearchDtoCopyWith<$Res> {
   factory $WordSearchDtoCopyWith(
           WordSearchDto value, $Res Function(WordSearchDto) then) =
@@ -57,6 +66,7 @@ abstract class $WordSearchDtoCopyWith<$Res> {
   $DictionaryWordDtoCopyWith<$Res> get word;
 }
 
+/// @nodoc
 class _$WordSearchDtoCopyWithImpl<$Res>
     implements $WordSearchDtoCopyWith<$Res> {
   _$WordSearchDtoCopyWithImpl(this._value, this._then);
@@ -96,6 +106,7 @@ class _$WordSearchDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$WordSearchDtoCopyWith<$Res>
     implements $WordSearchDtoCopyWith<$Res> {
   factory _$WordSearchDtoCopyWith(
@@ -112,6 +123,7 @@ abstract class _$WordSearchDtoCopyWith<$Res>
   $DictionaryWordDtoCopyWith<$Res> get word;
 }
 
+/// @nodoc
 class __$WordSearchDtoCopyWithImpl<$Res>
     extends _$WordSearchDtoCopyWithImpl<$Res>
     implements _$WordSearchDtoCopyWith<$Res> {
@@ -144,6 +156,8 @@ class __$WordSearchDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_WordSearchDto implements _WordSearchDto {
   const _$_WordSearchDto(
       {@required this.word,
