@@ -11,10 +11,9 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-import 'infrastructure/internal/account_details/account_details.dart';
-import 'infrastructure/internal/account_details/account_details_impl.dart';
 import 'infrastructure/core/daos/dictionary_word_dao.dart';
 import 'infrastructure/word_search/word_search_local_data_source.dart';
+import 'config/env.dart';
 import 'infrastructure/favorited_words/favorited_words_local_data_source.dart';
 import 'infrastructure/favorited_words/favorited_words_repository.dart';
 import 'presentation/views/home/widgets/favorited_words_viewmodel.dart';
@@ -33,8 +32,8 @@ import 'infrastructure/word_search/word_search_remote_data_source_fake.dart';
 import 'infrastructure/word_search/word_search_repository.dart';
 
 /// Environment names
-const _production = 'production';
 const _development = 'development';
+const _production = 'production';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -46,14 +45,13 @@ GetIt $initGetIt(
 }) {
   final gh = GetItHelper(get, environment, environmentFilter);
   final injectableModule = _$InjectableModule();
-  gh.lazySingleton<AccountDetails>(() => AccountDetailsImpl(),
-      registerFor: {_production});
   gh.factory<AudioPlayer>(() => injectableModule.audioPlayer);
   gh.lazySingleton<DataConnectionChecker>(
       () => injectableModule.dataConnectionChecker);
   gh.lazySingleton<DictionaryWordDao>(() => DictionaryWordDao(),
       registerFor: {_development});
   gh.factory<Dio>(() => injectableModule.dio);
+  gh.lazySingleton<EnvVariables>(() => EnvVariables());
   gh.factory<FavoritedWordsViewModel>(() => FavoritedWordsViewModel());
   gh.lazySingleton<HeadwordEntryDao>(() => HeadwordEntryDao(),
       registerFor: {_development});
@@ -66,7 +64,7 @@ GetIt $initGetIt(
       registerFor: {_development});
   gh.lazySingleton<IWordSearchRemoteDataSource>(
       () => WordSearchRemoteDataSource(
-          dio: get<Dio>(), accountDetails: get<AccountDetails>()),
+          dio: get<Dio>(), envVariables: get<EnvVariables>()),
       registerFor: {_production});
   gh.lazySingleton<NavigationService>(() => injectableModule.navigationService);
   gh.lazySingleton<WordSearchDao>(() => WordSearchDao());
