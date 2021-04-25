@@ -380,6 +380,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.4"
+  idb_shim:
+    dependency: transitive
+    description:
+      name: idb_shim
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+2"
   injectable:
     dependency: "direct main"
     description:
@@ -625,6 +632,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
+  sembast_web:
+    dependency: "direct main"
+    description:
+      name: sembast_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+2"
   shelf:
     dependency: transitive
     description:

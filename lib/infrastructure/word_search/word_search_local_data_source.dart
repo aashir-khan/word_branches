@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -14,11 +13,9 @@ import 'word_search_local_exception.dart';
 @LazySingleton(as: IWordSearchLocalDataSource)
 class DictionaryWordSearchLocalDataSource implements IWordSearchLocalDataSource {
   final WordSearchDao wordSearchDao;
-  final Dio dio;
 
   DictionaryWordSearchLocalDataSource({
     @required this.wordSearchDao,
-    @required this.dio,
   });
 
   @override

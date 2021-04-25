@@ -74,7 +74,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
           localDataSource: get<_i17.IFavoritedWordsLocalDataSource>()));
   gh.lazySingleton<_i21.IWordSearchLocalDataSource>(() =>
       _i22.DictionaryWordSearchLocalDataSource(
-          wordSearchDao: get<_i16.WordSearchDao>(), dio: get<_i6.Dio>()));
+          wordSearchDao: get<_i16.WordSearchDao>()));
   gh.lazySingleton<_i23.IWordSearchRepository>(() => _i24.WordSearchRepository(
       remoteDataSource: get<_i12.IWordSearchRemoteDataSource>(),
       localDataSource: get<_i21.IWordSearchLocalDataSource>(),
