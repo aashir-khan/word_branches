@@ -33,19 +33,19 @@ class WordSearchRepository implements IWordSearchRepository {
   @override
   Future<Either<WordSearchRemoteFailure, KtList<DictionaryWord>>> getWordSearchResults(
       {String query, Map<String, dynamic> options = const {}}) async {
-    if (await networkInfo.isConnected) {
-      try {
-        final wordsDto = await remoteDataSource.getWordSearchResults(query: query);
-        final domainWords = wordsDto.asList().map((dto) => dto.toDomain()).toList();
-        return Right(domainWords.toImmutableList());
-      } on WordSearchRemoteException catch (e) {
-        return e.when(
-          serverError: () => const Left(WordSearchRemoteFailure.serverError()),
-          unexpected: () => const Left(WordSearchRemoteFailure.unexpected()),
-        );
-      }
-    } else {
+    if (await networkInfo.isNotConnected) {
       return const Left(WordSearchRemoteFailure.networkError());
+    }
+
+    try {
+      final wordsDto = await remoteDataSource.getWordSearchResults(query: query);
+      final domainWords = wordsDto.asList().map((dto) => dto.toDomain()).toList();
+      return Right(domainWords.toImmutableList());
+    } on WordSearchRemoteException catch (e) {
+      return e.when(
+        serverError: () => const Left(WordSearchRemoteFailure.serverError()),
+        unexpected: () => const Left(WordSearchRemoteFailure.unexpected()),
+      );
     }
   }
 

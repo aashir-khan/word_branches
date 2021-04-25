@@ -5,7 +5,7 @@
 // **************************************************************************
 
 import 'package:audioplayer/audioplayer.dart' as _i3;
-import 'package:data_connection_checker/data_connection_checker.dart' as _i4;
+import 'package:connectivity/connectivity.dart' as _i4;
 import 'package:dio/dio.dart' as _i6;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
@@ -44,8 +44,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final injectableModule = _$InjectableModule();
   gh.factory<_i3.AudioPlayer>(() => injectableModule.audioPlayer);
-  gh.lazySingleton<_i4.DataConnectionChecker>(
-      () => injectableModule.dataConnectionChecker);
+  gh.lazySingleton<_i4.Connectivity>(() => injectableModule.connectionChecker);
   gh.lazySingleton<_i5.DictionaryWordDao>(() => _i5.DictionaryWordDao(),
       registerFor: {_development});
   gh.factory<_i6.Dio>(() => injectableModule.dio);
@@ -54,7 +53,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i9.HeadwordEntryDao>(() => _i9.HeadwordEntryDao(),
       registerFor: {_development});
   gh.lazySingleton<_i10.INetworkInfo>(
-      () => _i11.NetworkInfoImpl(get<_i4.DataConnectionChecker>()));
+      () => _i11.NetworkInfoImpl(get<_i4.Connectivity>()));
   gh.lazySingleton<_i12.IWordSearchRemoteDataSource>(
       () => _i13.WordSearchRemoteDataSourceFake(
           dictionaryWordDao: get<_i5.DictionaryWordDao>(),
