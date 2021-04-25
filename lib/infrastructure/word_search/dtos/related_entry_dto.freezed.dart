@@ -40,6 +40,7 @@ mixin _$RelatedEntryDto {
   String get text;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $RelatedEntryDtoCopyWith<RelatedEntryDto> get copyWith;
 }
 
@@ -142,6 +143,7 @@ class _$_RelatedEntryDto implements _RelatedEntryDto {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(text);
 
+  @JsonKey(ignore: true)
   @override
   _$RelatedEntryDtoCopyWith<_RelatedEntryDto> get copyWith =>
       __$RelatedEntryDtoCopyWithImpl<_RelatedEntryDto>(this, _$identity);
@@ -164,5 +166,6 @@ abstract class _RelatedEntryDto implements RelatedEntryDto {
   @override
   String get text;
   @override
+  @JsonKey(ignore: true)
   _$RelatedEntryDtoCopyWith<_RelatedEntryDto> get copyWith;
 }

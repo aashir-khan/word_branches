@@ -54,8 +54,8 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
       final lexicalCategoryEnum = faker.randomGenerator.element(LexicalCategoryEnum.values);
 
       _lexicalCategory = IdTextDto(
-        id: EnumToString.parse(lexicalCategoryEnum),
-        text: EnumToString.parse(lexicalCategoryEnum),
+        id: EnumToString.convertToString(lexicalCategoryEnum),
+        text: EnumToString.convertToString(lexicalCategoryEnum),
       );
 
       for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {

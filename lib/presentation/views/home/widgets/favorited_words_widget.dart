@@ -43,10 +43,13 @@ class FavoritedWordsWidget extends StatelessWidget {
                 itemCount: favoritedSearches.size,
                 itemBuilder: (context, index) {
                   final favoritedSearch = favoritedSearches[index];
-                  return RaisedButton(
-                    padding: const EdgeInsets.all(0),
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      padding: const EdgeInsets.all(0),
+                      primary: colors.secondaryColor,
+                      onPrimary: Colors.white,
+                    ),
                     onPressed: () => model.navigateToHeadwordEntriesView(favoritedSearch),
                     child: Container(
                       width: double.infinity,
@@ -90,7 +93,7 @@ class FavoritedWordsListEmpty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         children: <Widget>[

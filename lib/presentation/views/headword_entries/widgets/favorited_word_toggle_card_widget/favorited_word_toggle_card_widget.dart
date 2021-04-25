@@ -50,7 +50,7 @@ class FavoritedWordToggleCard extends HookWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Container(
+                  SizedBox(
                     width: size.height * 0.5,
                     height: size.height * 0.5,
                     child: FloatingActionButton(

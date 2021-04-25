@@ -57,6 +57,7 @@ mixin _$SenseDto {
   List<String> get crossReferenceMarkers;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SenseDtoCopyWith<SenseDto> get copyWith;
 }
 
@@ -239,6 +240,7 @@ class _$_SenseDto implements _SenseDto {
       const DeepCollectionEquality().hash(regions) ^
       const DeepCollectionEquality().hash(crossReferenceMarkers);
 
+  @JsonKey(ignore: true)
   @override
   _$SenseDtoCopyWith<_SenseDto> get copyWith =>
       __$SenseDtoCopyWithImpl<_SenseDto>(this, _$identity);
@@ -276,5 +278,6 @@ abstract class _SenseDto implements SenseDto {
   @override
   List<String> get crossReferenceMarkers;
   @override
+  @JsonKey(ignore: true)
   _$SenseDtoCopyWith<_SenseDto> get copyWith;
 }

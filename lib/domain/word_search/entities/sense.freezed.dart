@@ -48,6 +48,7 @@ mixin _$Sense {
   KtList<IdText> get regions;
   KtList<String> get crossReferenceMarkers;
 
+  @JsonKey(ignore: true)
   $SenseCopyWith<Sense> get copyWith;
 }
 
@@ -223,6 +224,7 @@ class _$_Sense implements _Sense {
       const DeepCollectionEquality().hash(regions) ^
       const DeepCollectionEquality().hash(crossReferenceMarkers);
 
+  @JsonKey(ignore: true)
   @override
   _$SenseCopyWith<_Sense> get copyWith =>
       __$SenseCopyWithImpl<_Sense>(this, _$identity);
@@ -253,5 +255,6 @@ abstract class _Sense implements Sense {
   @override
   KtList<String> get crossReferenceMarkers;
   @override
+  @JsonKey(ignore: true)
   _$SenseCopyWith<_Sense> get copyWith;
 }

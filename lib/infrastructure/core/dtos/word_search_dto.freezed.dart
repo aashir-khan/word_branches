@@ -49,6 +49,7 @@ mixin _$WordSearchDto {
   String get lastSearchedAt;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $WordSearchDtoCopyWith<WordSearchDto> get copyWith;
 }
 
@@ -210,6 +211,7 @@ class _$_WordSearchDto implements _WordSearchDto {
       const DeepCollectionEquality().hash(isFavorited) ^
       const DeepCollectionEquality().hash(lastSearchedAt);
 
+  @JsonKey(ignore: true)
   @override
   _$WordSearchDtoCopyWith<_WordSearchDto> get copyWith =>
       __$WordSearchDtoCopyWithImpl<_WordSearchDto>(this, _$identity);
@@ -240,5 +242,6 @@ abstract class _WordSearchDto implements WordSearchDto {
   @override
   String get lastSearchedAt;
   @override
+  @JsonKey(ignore: true)
   _$WordSearchDtoCopyWith<_WordSearchDto> get copyWith;
 }

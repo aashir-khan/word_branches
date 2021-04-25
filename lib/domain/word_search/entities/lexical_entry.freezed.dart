@@ -39,6 +39,7 @@ mixin _$LexicalEntry {
   KtList<Pronunciation> get pronunciations;
   KtList<RelatedEntry> get derivativeOf;
 
+  @JsonKey(ignore: true)
   $LexicalEntryCopyWith<LexicalEntry> get copyWith;
 }
 
@@ -195,6 +196,7 @@ class _$_LexicalEntry implements _LexicalEntry {
       const DeepCollectionEquality().hash(pronunciations) ^
       const DeepCollectionEquality().hash(derivativeOf);
 
+  @JsonKey(ignore: true)
   @override
   _$LexicalEntryCopyWith<_LexicalEntry> get copyWith =>
       __$LexicalEntryCopyWithImpl<_LexicalEntry>(this, _$identity);
@@ -216,5 +218,6 @@ abstract class _LexicalEntry implements LexicalEntry {
   @override
   KtList<RelatedEntry> get derivativeOf;
   @override
+  @JsonKey(ignore: true)
   _$LexicalEntryCopyWith<_LexicalEntry> get copyWith;
 }

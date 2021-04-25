@@ -29,6 +29,7 @@ const $Pronunciation = _$PronunciationTearOff();
 mixin _$Pronunciation {
   String get audioFile;
 
+  @JsonKey(ignore: true)
   $PronunciationCopyWith<Pronunciation> get copyWith;
 }
 
@@ -115,6 +116,7 @@ class _$_Pronunciation implements _Pronunciation {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(audioFile);
 
+  @JsonKey(ignore: true)
   @override
   _$PronunciationCopyWith<_Pronunciation> get copyWith =>
       __$PronunciationCopyWithImpl<_Pronunciation>(this, _$identity);
@@ -126,5 +128,6 @@ abstract class _Pronunciation implements Pronunciation {
   @override
   String get audioFile;
   @override
+  @JsonKey(ignore: true)
   _$PronunciationCopyWith<_Pronunciation> get copyWith;
 }

@@ -40,6 +40,7 @@ mixin _$IdTextDto {
   String get text;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $IdTextDtoCopyWith<IdTextDto> get copyWith;
 }
 
@@ -146,6 +147,7 @@ class _$_IdTextDto with DiagnosticableTreeMixin implements _IdTextDto {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(text);
 
+  @JsonKey(ignore: true)
   @override
   _$IdTextDtoCopyWith<_IdTextDto> get copyWith =>
       __$IdTextDtoCopyWithImpl<_IdTextDto>(this, _$identity);
@@ -168,5 +170,6 @@ abstract class _IdTextDto implements IdTextDto {
   @override
   String get text;
   @override
+  @JsonKey(ignore: true)
   _$IdTextDtoCopyWith<_IdTextDto> get copyWith;
 }

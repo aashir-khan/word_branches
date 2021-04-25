@@ -48,6 +48,7 @@ mixin _$LexicalEntryDto {
   List<RelatedEntryDto> get derivativeOf;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $LexicalEntryDtoCopyWith<LexicalEntryDto> get copyWith;
 }
 
@@ -211,6 +212,7 @@ class _$_LexicalEntryDto implements _LexicalEntryDto {
       const DeepCollectionEquality().hash(pronunciations) ^
       const DeepCollectionEquality().hash(derivativeOf);
 
+  @JsonKey(ignore: true)
   @override
   _$LexicalEntryDtoCopyWith<_LexicalEntryDto> get copyWith =>
       __$LexicalEntryDtoCopyWithImpl<_LexicalEntryDto>(this, _$identity);
@@ -240,5 +242,6 @@ abstract class _LexicalEntryDto implements LexicalEntryDto {
   @override
   List<RelatedEntryDto> get derivativeOf;
   @override
+  @JsonKey(ignore: true)
   _$LexicalEntryDtoCopyWith<_LexicalEntryDto> get copyWith;
 }

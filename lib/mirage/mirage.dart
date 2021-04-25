@@ -41,8 +41,8 @@ Future<void> setupMirage({bool isActive = false}) async {
           final lexicalCategoryEnum = faker.randomGenerator.element(LexicalCategoryEnum.values);
 
           final lexicalCategory = IdTextDto(
-            id: EnumToString.parse(lexicalCategoryEnum),
-            text: EnumToString.parse(lexicalCategoryEnum),
+            id: EnumToString.convertToString(lexicalCategoryEnum),
+            text: EnumToString.convertToString(lexicalCategoryEnum),
           );
 
           final _lexicalEntries = await createLexicalEntries(customFieldValues: {

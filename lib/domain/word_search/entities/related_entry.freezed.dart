@@ -31,6 +31,7 @@ mixin _$RelatedEntry {
   String get id;
   String get text;
 
+  @JsonKey(ignore: true)
   $RelatedEntryCopyWith<RelatedEntry> get copyWith;
 }
 
@@ -126,6 +127,7 @@ class _$_RelatedEntry implements _RelatedEntry {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(text);
 
+  @JsonKey(ignore: true)
   @override
   _$RelatedEntryCopyWith<_RelatedEntry> get copyWith =>
       __$RelatedEntryCopyWithImpl<_RelatedEntry>(this, _$identity);
@@ -140,5 +142,6 @@ abstract class _RelatedEntry implements RelatedEntry {
   @override
   String get text;
   @override
+  @JsonKey(ignore: true)
   _$RelatedEntryCopyWith<_RelatedEntry> get copyWith;
 }

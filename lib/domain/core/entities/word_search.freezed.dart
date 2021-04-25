@@ -40,6 +40,7 @@ mixin _$WordSearch {
   bool get isFavorited;
   DateTime get lastSearchedAt;
 
+  @JsonKey(ignore: true)
   $WordSearchCopyWith<WordSearch> get copyWith;
 }
 
@@ -193,6 +194,7 @@ class _$_WordSearch implements _WordSearch {
       const DeepCollectionEquality().hash(isFavorited) ^
       const DeepCollectionEquality().hash(lastSearchedAt);
 
+  @JsonKey(ignore: true)
   @override
   _$WordSearchCopyWith<_WordSearch> get copyWith =>
       __$WordSearchCopyWithImpl<_WordSearch>(this, _$identity);
@@ -215,5 +217,6 @@ abstract class _WordSearch implements WordSearch {
   @override
   DateTime get lastSearchedAt;
   @override
+  @JsonKey(ignore: true)
   _$WordSearchCopyWith<_WordSearch> get copyWith;
 }

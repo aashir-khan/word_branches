@@ -32,6 +32,7 @@ mixin _$HeadwordEntry {
   String get id;
   KtList<LexicalEntry> get lexicalEntries;
 
+  @JsonKey(ignore: true)
   $HeadwordEntryCopyWith<HeadwordEntry> get copyWith;
 }
 
@@ -135,6 +136,7 @@ class _$_HeadwordEntry extends _HeadwordEntry {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(lexicalEntries);
 
+  @JsonKey(ignore: true)
   @override
   _$HeadwordEntryCopyWith<_HeadwordEntry> get copyWith =>
       __$HeadwordEntryCopyWithImpl<_HeadwordEntry>(this, _$identity);
@@ -151,5 +153,6 @@ abstract class _HeadwordEntry extends HeadwordEntry {
   @override
   KtList<LexicalEntry> get lexicalEntries;
   @override
+  @JsonKey(ignore: true)
   _$HeadwordEntryCopyWith<_HeadwordEntry> get copyWith;
 }

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:kt_dart/collection.dart';
@@ -116,7 +115,7 @@ class EtymologyAndSensesCard extends StatelessWidget {
 
           if (sense?.notes != null) {
             sense.notes.forEach((note) {
-              if (note.type != EnumToString.parse(NoteTypeEnum.technicalNote)) {
+              if (note.type != EnumToString.convertToString(NoteTypeEnum.technicalNote)) {
                 _mainTextWidgets.add(
                   Text(
                     '[${note.text}]',
@@ -141,7 +140,7 @@ class EtymologyAndSensesCard extends StatelessWidget {
 
         if (sense?.notes != null) {
           sense.notes.forEach((note) {
-            if (note.type == EnumToString.parse(NoteTypeEnum.technicalNote)) {
+            if (note.type == EnumToString.convertToString(NoteTypeEnum.technicalNote)) {
               widgets.add(
                 Row(
                   children: <Widget>[
@@ -191,9 +190,11 @@ class EtymologyAndSensesCard extends StatelessWidget {
           widgets.addAll([
             const SizedBox(height: 8),
             Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
-              OutlineButton(
-                borderSide: const BorderSide(color: colors.secondaryColorLight, width: 1.5),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  side: const BorderSide(color: colors.secondaryColorLight, width: 1.5),
+                ),
                 onPressed: model.navigateToSubsenseDetailsView,
                 child: Row(
                   children: const <Widget>[

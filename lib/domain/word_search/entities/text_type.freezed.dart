@@ -31,6 +31,7 @@ mixin _$TextType {
   String get text;
   String get type;
 
+  @JsonKey(ignore: true)
   $TextTypeCopyWith<TextType> get copyWith;
 }
 
@@ -122,6 +123,7 @@ class _$_TextType implements _TextType {
       const DeepCollectionEquality().hash(text) ^
       const DeepCollectionEquality().hash(type);
 
+  @JsonKey(ignore: true)
   @override
   _$TextTypeCopyWith<_TextType> get copyWith =>
       __$TextTypeCopyWithImpl<_TextType>(this, _$identity);
@@ -136,5 +138,6 @@ abstract class _TextType implements TextType {
   @override
   String get type;
   @override
+  @JsonKey(ignore: true)
   _$TextTypeCopyWith<_TextType> get copyWith;
 }

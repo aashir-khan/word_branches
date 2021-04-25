@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
@@ -55,10 +54,12 @@ class LexicalEntryInformationPreviewCard extends StatelessWidget {
                 ),
                 SizedBox(
                   width: double.infinity,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: model.navigateToLexicalEntryView,
-                    color: colors.secondaryColor,
-                    textColor: Colors.white,
+                    style: ElevatedButton.styleFrom(
+                      primary: colors.secondaryColor,
+                      onPrimary: Colors.white,
+                    ),
                     child: const Text('More Info'),
                   ),
                 ),

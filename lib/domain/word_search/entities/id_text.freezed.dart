@@ -31,6 +31,7 @@ mixin _$IdText {
   String get id;
   String get text;
 
+  @JsonKey(ignore: true)
   $IdTextCopyWith<IdText> get copyWith;
 }
 
@@ -132,6 +133,7 @@ class _$_IdText extends _IdText with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(text);
 
+  @JsonKey(ignore: true)
   @override
   _$IdTextCopyWith<_IdText> get copyWith =>
       __$IdTextCopyWithImpl<_IdText>(this, _$identity);
@@ -147,5 +149,6 @@ abstract class _IdText extends IdText {
   @override
   String get text;
   @override
+  @JsonKey(ignore: true)
   _$IdTextCopyWith<_IdText> get copyWith;
 }

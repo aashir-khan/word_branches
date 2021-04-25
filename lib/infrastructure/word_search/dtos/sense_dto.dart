@@ -60,7 +60,7 @@ abstract class SenseDto with _$SenseDto {
       for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
         _notes.add(TextTypeDto.fromFakeData(
           customFieldValues: {
-            'type': EnumToString.parse(NoteTypeEnum.technicalNote),
+            'type': EnumToString.convertToString(NoteTypeEnum.technicalNote),
             'text': faker.lorem.sentence(),
           },
         ));

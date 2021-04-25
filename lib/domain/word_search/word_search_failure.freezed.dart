@@ -140,6 +140,7 @@ class _$_WordSearchLocalFailure implements _WordSearchLocalFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
 
+  @JsonKey(ignore: true)
   @override
   _$WordSearchLocalFailureCopyWith<_WordSearchLocalFailure> get copyWith =>
       __$WordSearchLocalFailureCopyWithImpl<_WordSearchLocalFailure>(
@@ -201,6 +202,7 @@ abstract class _WordSearchLocalFailure implements WordSearchFailure {
       _$_WordSearchLocalFailure;
 
   WordSearchLocalFailure get failure;
+  @JsonKey(ignore: true)
   _$WordSearchLocalFailureCopyWith<_WordSearchLocalFailure> get copyWith;
 }
 
@@ -270,6 +272,7 @@ class _$_WordSearchRemoteFailure implements _WordSearchRemoteFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
 
+  @JsonKey(ignore: true)
   @override
   _$WordSearchRemoteFailureCopyWith<_WordSearchRemoteFailure> get copyWith =>
       __$WordSearchRemoteFailureCopyWithImpl<_WordSearchRemoteFailure>(
@@ -331,5 +334,6 @@ abstract class _WordSearchRemoteFailure implements WordSearchFailure {
       _$_WordSearchRemoteFailure;
 
   WordSearchRemoteFailure get failure;
+  @JsonKey(ignore: true)
   _$WordSearchRemoteFailureCopyWith<_WordSearchRemoteFailure> get copyWith;
 }

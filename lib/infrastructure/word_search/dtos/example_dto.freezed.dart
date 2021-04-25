@@ -45,6 +45,7 @@ mixin _$ExampleDto {
   List<IdTextDto> get registers;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ExampleDtoCopyWith<ExampleDto> get copyWith;
 }
 
@@ -162,6 +163,7 @@ class _$_ExampleDto implements _ExampleDto {
       const DeepCollectionEquality().hash(definitions) ^
       const DeepCollectionEquality().hash(registers);
 
+  @JsonKey(ignore: true)
   @override
   _$ExampleDtoCopyWith<_ExampleDto> get copyWith =>
       __$ExampleDtoCopyWithImpl<_ExampleDto>(this, _$identity);
@@ -188,5 +190,6 @@ abstract class _ExampleDto implements ExampleDto {
   @override
   List<IdTextDto> get registers;
   @override
+  @JsonKey(ignore: true)
   _$ExampleDtoCopyWith<_ExampleDto> get copyWith;
 }

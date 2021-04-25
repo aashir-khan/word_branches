@@ -40,6 +40,7 @@ mixin _$TextTypeDto {
   String get type;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $TextTypeDtoCopyWith<TextTypeDto> get copyWith;
 }
 
@@ -138,6 +139,7 @@ class _$_TextTypeDto implements _TextTypeDto {
       const DeepCollectionEquality().hash(text) ^
       const DeepCollectionEquality().hash(type);
 
+  @JsonKey(ignore: true)
   @override
   _$TextTypeDtoCopyWith<_TextTypeDto> get copyWith =>
       __$TextTypeDtoCopyWithImpl<_TextTypeDto>(this, _$identity);
@@ -159,5 +161,6 @@ abstract class _TextTypeDto implements TextTypeDto {
   @override
   String get type;
   @override
+  @JsonKey(ignore: true)
   _$TextTypeDtoCopyWith<_TextTypeDto> get copyWith;
 }

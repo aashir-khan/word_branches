@@ -36,6 +36,7 @@ mixin _$Entry {
   KtList<Sense> get senses;
   KtList<Pronunciation> get pronunciations;
 
+  @JsonKey(ignore: true)
   $EntryCopyWith<Entry> get copyWith;
 }
 
@@ -151,6 +152,7 @@ class _$_Entry implements _Entry {
       const DeepCollectionEquality().hash(senses) ^
       const DeepCollectionEquality().hash(pronunciations);
 
+  @JsonKey(ignore: true)
   @override
   _$EntryCopyWith<_Entry> get copyWith =>
       __$EntryCopyWithImpl<_Entry>(this, _$identity);
@@ -169,5 +171,6 @@ abstract class _Entry implements Entry {
   @override
   KtList<Pronunciation> get pronunciations;
   @override
+  @JsonKey(ignore: true)
   _$EntryCopyWith<_Entry> get copyWith;
 }

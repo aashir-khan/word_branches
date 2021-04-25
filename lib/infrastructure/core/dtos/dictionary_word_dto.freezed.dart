@@ -40,6 +40,7 @@ mixin _$DictionaryWordDto {
   String get label;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $DictionaryWordDtoCopyWith<DictionaryWordDto> get copyWith;
 }
 
@@ -153,6 +154,7 @@ class _$_DictionaryWordDto
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(label);
 
+  @JsonKey(ignore: true)
   @override
   _$DictionaryWordDtoCopyWith<_DictionaryWordDto> get copyWith =>
       __$DictionaryWordDtoCopyWithImpl<_DictionaryWordDto>(this, _$identity);
@@ -175,5 +177,6 @@ abstract class _DictionaryWordDto implements DictionaryWordDto {
   @override
   String get label;
   @override
+  @JsonKey(ignore: true)
   _$DictionaryWordDtoCopyWith<_DictionaryWordDto> get copyWith;
 }

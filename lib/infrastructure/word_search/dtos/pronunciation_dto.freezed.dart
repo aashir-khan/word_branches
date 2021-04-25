@@ -38,6 +38,7 @@ mixin _$PronunciationDto {
   String get audioFile;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $PronunciationDtoCopyWith<PronunciationDto> get copyWith;
 }
 
@@ -129,6 +130,7 @@ class _$_PronunciationDto implements _PronunciationDto {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(audioFile);
 
+  @JsonKey(ignore: true)
   @override
   _$PronunciationDtoCopyWith<_PronunciationDto> get copyWith =>
       __$PronunciationDtoCopyWithImpl<_PronunciationDto>(this, _$identity);
@@ -148,5 +150,6 @@ abstract class _PronunciationDto implements PronunciationDto {
   @override
   String get audioFile;
   @override
+  @JsonKey(ignore: true)
   _$PronunciationDtoCopyWith<_PronunciationDto> get copyWith;
 }

@@ -45,6 +45,7 @@ mixin _$HeadwordEntryDto {
   List<PronunciationDto> get pronunciations;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $HeadwordEntryDtoCopyWith<HeadwordEntryDto> get copyWith;
 }
 
@@ -173,6 +174,7 @@ class _$_HeadwordEntryDto implements _HeadwordEntryDto {
       const DeepCollectionEquality().hash(lexicalEntries) ^
       const DeepCollectionEquality().hash(pronunciations);
 
+  @JsonKey(ignore: true)
   @override
   _$HeadwordEntryDtoCopyWith<_HeadwordEntryDto> get copyWith =>
       __$HeadwordEntryDtoCopyWithImpl<_HeadwordEntryDto>(this, _$identity);
@@ -199,5 +201,6 @@ abstract class _HeadwordEntryDto implements HeadwordEntryDto {
   @override
   List<PronunciationDto> get pronunciations;
   @override
+  @JsonKey(ignore: true)
   _$HeadwordEntryDtoCopyWith<_HeadwordEntryDto> get copyWith;
 }

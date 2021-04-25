@@ -36,6 +36,7 @@ mixin _$Example {
   KtList<String> get definitions;
   KtList<IdText> get registers;
 
+  @JsonKey(ignore: true)
   $ExampleCopyWith<Example> get copyWith;
 }
 
@@ -145,6 +146,7 @@ class _$_Example implements _Example {
       const DeepCollectionEquality().hash(definitions) ^
       const DeepCollectionEquality().hash(registers);
 
+  @JsonKey(ignore: true)
   @override
   _$ExampleCopyWith<_Example> get copyWith =>
       __$ExampleCopyWithImpl<_Example>(this, _$identity);
@@ -163,5 +165,6 @@ abstract class _Example implements Example {
   @override
   KtList<IdText> get registers;
   @override
+  @JsonKey(ignore: true)
   _$ExampleCopyWith<_Example> get copyWith;
 }
