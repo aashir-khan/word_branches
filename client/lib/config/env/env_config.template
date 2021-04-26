@@ -1,0 +1,10 @@
+// ignore: avoid_classes_with_only_static_members
+class EnvConfig {
+  static String get baseApiUrlProd => 'https://word-branches.herokuapp.com';
+  static String get baseApiUrlDev => 'http://localhost:3000';
+
+  static Map<String, String> oxfordApiHeaders = {
+    'app_id': 'UPDATE_THIS',
+    'app_key': 'UPDATE_THIS',
+  };
+}
