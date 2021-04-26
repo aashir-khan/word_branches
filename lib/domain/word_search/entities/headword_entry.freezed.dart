@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'headword_entry.dart';
 
@@ -9,13 +9,15 @@ part of 'headword_entry.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$HeadwordEntryTearOff {
   const _$HeadwordEntryTearOff();
 
-// ignore: unused_element
   _HeadwordEntry call(
-      {@required String id, @required KtList<LexicalEntry> lexicalEntries}) {
+      {required String id, required KtList<LexicalEntry> lexicalEntries}) {
     return _HeadwordEntry(
       id: id,
       lexicalEntries: lexicalEntries,
@@ -24,16 +26,16 @@ class _$HeadwordEntryTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $HeadwordEntry = _$HeadwordEntryTearOff();
 
 /// @nodoc
 mixin _$HeadwordEntry {
-  String get id;
-  KtList<LexicalEntry> get lexicalEntries;
+  String get id => throw _privateConstructorUsedError;
+  KtList<LexicalEntry> get lexicalEntries => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HeadwordEntryCopyWith<HeadwordEntry> get copyWith;
+  $HeadwordEntryCopyWith<HeadwordEntry> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,14 +57,18 @@ class _$HeadwordEntryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object lexicalEntries = freezed,
+    Object? id = freezed,
+    Object? lexicalEntries = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       lexicalEntries: lexicalEntries == freezed
           ? _value.lexicalEntries
-          : lexicalEntries as KtList<LexicalEntry>,
+          : lexicalEntries // ignore: cast_nullable_to_non_nullable
+              as KtList<LexicalEntry>,
     ));
   }
 }
@@ -90,24 +96,27 @@ class __$HeadwordEntryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object lexicalEntries = freezed,
+    Object? id = freezed,
+    Object? lexicalEntries = freezed,
   }) {
     return _then(_HeadwordEntry(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       lexicalEntries: lexicalEntries == freezed
           ? _value.lexicalEntries
-          : lexicalEntries as KtList<LexicalEntry>,
+          : lexicalEntries // ignore: cast_nullable_to_non_nullable
+              as KtList<LexicalEntry>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_HeadwordEntry extends _HeadwordEntry {
-  const _$_HeadwordEntry({@required this.id, @required this.lexicalEntries})
-      : assert(id != null),
-        assert(lexicalEntries != null),
-        super._();
+  const _$_HeadwordEntry({required this.id, required this.lexicalEntries})
+      : super._();
 
   @override
   final String id;
@@ -143,16 +152,17 @@ class _$_HeadwordEntry extends _HeadwordEntry {
 }
 
 abstract class _HeadwordEntry extends HeadwordEntry {
-  const _HeadwordEntry._() : super._();
   const factory _HeadwordEntry(
-      {@required String id,
-      @required KtList<LexicalEntry> lexicalEntries}) = _$_HeadwordEntry;
+      {required String id,
+      required KtList<LexicalEntry> lexicalEntries}) = _$_HeadwordEntry;
+  const _HeadwordEntry._() : super._();
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  KtList<LexicalEntry> get lexicalEntries;
+  KtList<LexicalEntry> get lexicalEntries => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$HeadwordEntryCopyWith<_HeadwordEntry> get copyWith;
+  _$HeadwordEntryCopyWith<_HeadwordEntry> get copyWith =>
+      throw _privateConstructorUsedError;
 }

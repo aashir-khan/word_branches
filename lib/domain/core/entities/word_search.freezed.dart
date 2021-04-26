@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'word_search.dart';
 
@@ -9,16 +9,18 @@ part of 'word_search.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$WordSearchTearOff {
   const _$WordSearchTearOff();
 
-// ignore: unused_element
   _WordSearch call(
-      {@required DictionaryWord word,
-      KtList<HeadwordEntry> results,
-      @nullable bool isFavorited = false,
-      DateTime lastSearchedAt}) {
+      {required DictionaryWord word,
+      required KtList<HeadwordEntry> results,
+      bool? isFavorited = false,
+      DateTime? lastSearchedAt}) {
     return _WordSearch(
       word: word,
       results: results,
@@ -29,19 +31,18 @@ class _$WordSearchTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $WordSearch = _$WordSearchTearOff();
 
 /// @nodoc
 mixin _$WordSearch {
-  DictionaryWord get word;
-  KtList<HeadwordEntry> get results;
-  @nullable
-  bool get isFavorited;
-  DateTime get lastSearchedAt;
+  DictionaryWord get word => throw _privateConstructorUsedError;
+  KtList<HeadwordEntry> get results => throw _privateConstructorUsedError;
+  bool? get isFavorited => throw _privateConstructorUsedError;
+  DateTime? get lastSearchedAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $WordSearchCopyWith<WordSearch> get copyWith;
+  $WordSearchCopyWith<WordSearch> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -52,8 +53,8 @@ abstract class $WordSearchCopyWith<$Res> {
   $Res call(
       {DictionaryWord word,
       KtList<HeadwordEntry> results,
-      @nullable bool isFavorited,
-      DateTime lastSearchedAt});
+      bool? isFavorited,
+      DateTime? lastSearchedAt});
 
   $DictionaryWordCopyWith<$Res> get word;
 }
@@ -68,29 +69,33 @@ class _$WordSearchCopyWithImpl<$Res> implements $WordSearchCopyWith<$Res> {
 
   @override
   $Res call({
-    Object word = freezed,
-    Object results = freezed,
-    Object isFavorited = freezed,
-    Object lastSearchedAt = freezed,
+    Object? word = freezed,
+    Object? results = freezed,
+    Object? isFavorited = freezed,
+    Object? lastSearchedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      word: word == freezed ? _value.word : word as DictionaryWord,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as DictionaryWord,
       results: results == freezed
           ? _value.results
-          : results as KtList<HeadwordEntry>,
-      isFavorited:
-          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
+          : results // ignore: cast_nullable_to_non_nullable
+              as KtList<HeadwordEntry>,
+      isFavorited: isFavorited == freezed
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool?,
       lastSearchedAt: lastSearchedAt == freezed
           ? _value.lastSearchedAt
-          : lastSearchedAt as DateTime,
+          : lastSearchedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 
   @override
   $DictionaryWordCopyWith<$Res> get word {
-    if (_value.word == null) {
-      return null;
-    }
     return $DictionaryWordCopyWith<$Res>(_value.word, (value) {
       return _then(_value.copyWith(word: value));
     });
@@ -106,8 +111,8 @@ abstract class _$WordSearchCopyWith<$Res> implements $WordSearchCopyWith<$Res> {
   $Res call(
       {DictionaryWord word,
       KtList<HeadwordEntry> results,
-      @nullable bool isFavorited,
-      DateTime lastSearchedAt});
+      bool? isFavorited,
+      DateTime? lastSearchedAt});
 
   @override
   $DictionaryWordCopyWith<$Res> get word;
@@ -125,33 +130,40 @@ class __$WordSearchCopyWithImpl<$Res> extends _$WordSearchCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object word = freezed,
-    Object results = freezed,
-    Object isFavorited = freezed,
-    Object lastSearchedAt = freezed,
+    Object? word = freezed,
+    Object? results = freezed,
+    Object? isFavorited = freezed,
+    Object? lastSearchedAt = freezed,
   }) {
     return _then(_WordSearch(
-      word: word == freezed ? _value.word : word as DictionaryWord,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as DictionaryWord,
       results: results == freezed
           ? _value.results
-          : results as KtList<HeadwordEntry>,
-      isFavorited:
-          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
+          : results // ignore: cast_nullable_to_non_nullable
+              as KtList<HeadwordEntry>,
+      isFavorited: isFavorited == freezed
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool?,
       lastSearchedAt: lastSearchedAt == freezed
           ? _value.lastSearchedAt
-          : lastSearchedAt as DateTime,
+          : lastSearchedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_WordSearch implements _WordSearch {
   const _$_WordSearch(
-      {@required this.word,
-      this.results,
-      @nullable this.isFavorited = false,
-      this.lastSearchedAt})
-      : assert(word != null);
+      {required this.word,
+      required this.results,
+      this.isFavorited = false,
+      this.lastSearchedAt});
 
   @override
   final DictionaryWord word;
@@ -159,10 +171,9 @@ class _$_WordSearch implements _WordSearch {
   final KtList<HeadwordEntry> results;
   @JsonKey(defaultValue: false)
   @override
-  @nullable
-  final bool isFavorited;
+  final bool? isFavorited;
   @override
-  final DateTime lastSearchedAt;
+  final DateTime? lastSearchedAt;
 
   @override
   String toString() {
@@ -202,21 +213,21 @@ class _$_WordSearch implements _WordSearch {
 
 abstract class _WordSearch implements WordSearch {
   const factory _WordSearch(
-      {@required DictionaryWord word,
-      KtList<HeadwordEntry> results,
-      @nullable bool isFavorited,
-      DateTime lastSearchedAt}) = _$_WordSearch;
+      {required DictionaryWord word,
+      required KtList<HeadwordEntry> results,
+      bool? isFavorited,
+      DateTime? lastSearchedAt}) = _$_WordSearch;
 
   @override
-  DictionaryWord get word;
+  DictionaryWord get word => throw _privateConstructorUsedError;
   @override
-  KtList<HeadwordEntry> get results;
+  KtList<HeadwordEntry> get results => throw _privateConstructorUsedError;
   @override
-  @nullable
-  bool get isFavorited;
+  bool? get isFavorited => throw _privateConstructorUsedError;
   @override
-  DateTime get lastSearchedAt;
+  DateTime? get lastSearchedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WordSearchCopyWith<_WordSearch> get copyWith;
+  _$WordSearchCopyWith<_WordSearch> get copyWith =>
+      throw _privateConstructorUsedError;
 }

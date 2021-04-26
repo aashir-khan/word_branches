@@ -1,7 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:injectable/injectable.dart';
-
-import 'injection.config.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 
 abstract class Env {
   static const test = 'test';

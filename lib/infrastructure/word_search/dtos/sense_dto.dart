@@ -14,13 +14,13 @@ part 'sense_dto.g.dart';
 @freezed
 abstract class SenseDto with _$SenseDto {
   const factory SenseDto({
-    List<String> definitions,
-    List<TextTypeDto> notes,
-    List<ExampleDto> examples,
-    List<SenseDto> subsenses,
-    List<IdTextDto> registers,
-    List<IdTextDto> regions,
-    List<String> crossReferenceMarkers,
+    List<String>? definitions,
+    List<TextTypeDto>? notes,
+    List<ExampleDto>? examples,
+    List<SenseDto>? subsenses,
+    List<IdTextDto>? registers,
+    List<IdTextDto>? regions,
+    List<String>? crossReferenceMarkers,
   }) = _SenseDto;
 
   factory SenseDto.fromDomain(Sense sense) {

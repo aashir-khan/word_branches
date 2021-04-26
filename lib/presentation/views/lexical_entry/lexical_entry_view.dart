@@ -16,9 +16,9 @@ class LexicalEntryView extends HookWidget {
   final int headwordEntryNumber;
 
   const LexicalEntryView({
-    @required this.headwordEntry,
-    @required this.lexicalEntry,
-    @required this.headwordEntryNumber,
+    required this.headwordEntry,
+    required this.lexicalEntry,
+    required this.headwordEntryNumber,
   });
 
   List<Widget> buildActions(BuildContext context) {

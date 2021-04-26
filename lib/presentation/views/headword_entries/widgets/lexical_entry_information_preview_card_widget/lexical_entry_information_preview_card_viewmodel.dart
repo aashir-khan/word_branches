@@ -20,9 +20,9 @@ class LexicalEntryInformationPreviewCardViewModel extends BaseViewModel {
   int get headwordEntryNumber => _headwordEntryNumber;
 
   void initialise({
-    @required HeadwordEntry initialHeadwordEntry,
-    @required LexicalEntry initialLexicalEntry,
-    @required int initialHeadwordEntryNumber,
+    required HeadwordEntry initialHeadwordEntry,
+    required LexicalEntry initialLexicalEntry,
+    required int initialHeadwordEntryNumber,
   }) {
     _headwordEntry = initialHeadwordEntry;
     _lexicalEntry = initialLexicalEntry;

@@ -4,5 +4,5 @@ part 'pronunciation.freezed.dart';
 
 @freezed
 abstract class Pronunciation with _$Pronunciation {
-  const factory Pronunciation({String audioFile}) = _Pronunciation;
+  const factory Pronunciation({required String audioFile}) = _Pronunciation;
 }

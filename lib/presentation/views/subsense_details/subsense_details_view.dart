@@ -19,11 +19,11 @@ class SubsenseDetailsView extends HookWidget {
   final int headwordEntryNumber;
 
   const SubsenseDetailsView({
-    Key key,
-    @required this.headwordEntry,
-    @required this.subsenses,
-    @required this.parentSenseDefinition,
-    @required this.headwordEntryNumber,
+    Key? key,
+    required this.headwordEntry,
+    required this.subsenses,
+    required this.parentSenseDefinition,
+    required this.headwordEntryNumber,
   }) : super(key: key);
 
   List<Widget> buildActions(BuildContext context) {

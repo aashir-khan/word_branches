@@ -11,16 +11,16 @@ part 'word_search_dto.g.dart';
 @freezed
 abstract class WordSearchDto with _$WordSearchDto {
   const factory WordSearchDto({
-    @required DictionaryWordDto word,
-    List<HeadwordEntryDto> results,
-    @nullable @Default(false) bool isFavorited,
-    String lastSearchedAt,
+    required DictionaryWordDto word,
+    required List<HeadwordEntryDto> results,
+    @Default(false) bool? isFavorited,
+    String? lastSearchedAt,
   }) = _WordSearchDto;
 
   factory WordSearchDto.fromDomain(WordSearch wordSearch) {
     return WordSearchDto(
       word: DictionaryWordDto.fromDomain(wordSearch.word),
-      results: wordSearch?.results?.iter?.map((result) => HeadwordEntryDto.fromDomain(result))?.toList(),
+      results: wordSearch.results.iter.map((result) => HeadwordEntryDto.fromDomain(result)).toList(),
       isFavorited: wordSearch.isFavorited,
       lastSearchedAt: wordSearch.lastSearchedAt?.toIso8601String(),
     );
@@ -51,9 +51,9 @@ extension WordSearchDtoX on WordSearchDto {
   WordSearch toDomain() {
     return WordSearch(
       word: word.toDomain(),
-      results: results?.map((result) => result.toDomain())?.toList()?.toImmutableList(),
+      results: results.map((result) => result.toDomain()).toList().toImmutableList(),
       isFavorited: isFavorited,
-      lastSearchedAt: lastSearchedAt == null ? null : DateTime.parse(lastSearchedAt),
+      lastSearchedAt: lastSearchedAt == null ? null : DateTime.parse(lastSearchedAt!),
     );
   }
 }

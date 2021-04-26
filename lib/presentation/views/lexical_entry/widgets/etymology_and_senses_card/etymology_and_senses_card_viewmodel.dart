@@ -20,9 +20,9 @@ class EtymologyAndSensesCardViewModel extends BaseViewModel {
   int get headwordEntryNumber => _headwordEntryNumber;
 
   void initialise({
-    @required HeadwordEntry initialHeadwordEntry,
-    @required Sense initialSense,
-    @required int initialHeadwordEntryNumber,
+    required HeadwordEntry initialHeadwordEntry,
+    required Sense initialSense,
+    required int initialHeadwordEntryNumber,
   }) {
     _headwordEntry = initialHeadwordEntry;
     _sense = initialSense;

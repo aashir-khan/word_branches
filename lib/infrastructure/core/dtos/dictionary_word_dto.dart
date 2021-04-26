@@ -10,8 +10,8 @@ part 'dictionary_word_dto.g.dart';
 @freezed
 abstract class DictionaryWordDto with _$DictionaryWordDto {
   factory DictionaryWordDto({
-    @required String id,
-    @required String label,
+    required String id,
+    required String label,
   }) = _DictionaryWordDto;
 
   factory DictionaryWordDto.fromDomain(DictionaryWord dictionaryWord) {

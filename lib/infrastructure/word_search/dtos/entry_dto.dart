@@ -12,9 +12,9 @@ part 'entry_dto.g.dart';
 @freezed
 abstract class EntryDto with _$EntryDto {
   const factory EntryDto({
-    List<String> etymologies,
-    @required List<SenseDto> senses,
-    List<PronunciationDto> pronunciations,
+    List<String>? etymologies,
+    required List<SenseDto> senses,
+    List<PronunciationDto>? pronunciations,
   }) = _EntryDto;
 
   factory EntryDto.fromDomain(Entry entry) {

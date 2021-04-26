@@ -8,7 +8,7 @@ import '../../../home/widgets/favorited_words_viewmodel.dart';
 class FavoritedWordToggleCardViewModel extends BaseViewModel {
   WordSearch wordSearch;
 
-  FavoritedWordToggleCardViewModel({@required this.wordSearch});
+  FavoritedWordToggleCardViewModel({required this.wordSearch});
 
   final _favoritedWordsViewModel = getIt<FavoritedWordsViewModel>();
 

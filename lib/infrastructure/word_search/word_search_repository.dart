@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:injectable/injectable.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../domain/core/entities/dictionary_word.dart';
@@ -25,9 +25,9 @@ class WordSearchRepository implements IWordSearchRepository {
   final INetworkInfo networkInfo;
 
   WordSearchRepository({
-    @required this.remoteDataSource,
-    @required this.localDataSource,
-    @required this.networkInfo,
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.networkInfo,
   });
 
   @override

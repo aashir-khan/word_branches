@@ -33,9 +33,9 @@ enum LexicalCategoryEnum {
 @freezed
 abstract class LexicalEntry with _$LexicalEntry {
   const factory LexicalEntry({
-    @required KtList<Entry> entries,
-    @required IdText lexicalCategory,
-    KtList<Pronunciation> pronunciations,
-    KtList<RelatedEntry> derivativeOf,
+    required KtList<Entry> entries,
+    required IdText lexicalCategory,
+    KtList<Pronunciation>? pronunciations,
+    KtList<RelatedEntry>? derivativeOf,
   }) = _LexicalEntry;
 }

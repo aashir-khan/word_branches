@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'headword_entry_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'headword_entry_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 HeadwordEntryDto _$HeadwordEntryDtoFromJson(Map<String, dynamic> json) {
   return _HeadwordEntryDto.fromJson(json);
 }
@@ -16,37 +20,32 @@ HeadwordEntryDto _$HeadwordEntryDtoFromJson(Map<String, dynamic> json) {
 class _$HeadwordEntryDtoTearOff {
   const _$HeadwordEntryDtoTearOff();
 
-// ignore: unused_element
   _HeadwordEntryDto call(
-      {@required String id,
-      @required List<LexicalEntryDto> lexicalEntries,
-      List<PronunciationDto> pronunciations}) {
+      {required String id, required List<LexicalEntryDto> lexicalEntries}) {
     return _HeadwordEntryDto(
       id: id,
       lexicalEntries: lexicalEntries,
-      pronunciations: pronunciations,
     );
   }
 
-// ignore: unused_element
   HeadwordEntryDto fromJson(Map<String, Object> json) {
     return HeadwordEntryDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $HeadwordEntryDto = _$HeadwordEntryDtoTearOff();
 
 /// @nodoc
 mixin _$HeadwordEntryDto {
-  String get id;
-  List<LexicalEntryDto> get lexicalEntries;
-  List<PronunciationDto> get pronunciations;
+  String get id => throw _privateConstructorUsedError;
+  List<LexicalEntryDto> get lexicalEntries =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $HeadwordEntryDtoCopyWith<HeadwordEntryDto> get copyWith;
+  $HeadwordEntryDtoCopyWith<HeadwordEntryDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -54,10 +53,7 @@ abstract class $HeadwordEntryDtoCopyWith<$Res> {
   factory $HeadwordEntryDtoCopyWith(
           HeadwordEntryDto value, $Res Function(HeadwordEntryDto) then) =
       _$HeadwordEntryDtoCopyWithImpl<$Res>;
-  $Res call(
-      {String id,
-      List<LexicalEntryDto> lexicalEntries,
-      List<PronunciationDto> pronunciations});
+  $Res call({String id, List<LexicalEntryDto> lexicalEntries});
 }
 
 /// @nodoc
@@ -71,18 +67,18 @@ class _$HeadwordEntryDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object lexicalEntries = freezed,
-    Object pronunciations = freezed,
+    Object? id = freezed,
+    Object? lexicalEntries = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       lexicalEntries: lexicalEntries == freezed
           ? _value.lexicalEntries
-          : lexicalEntries as List<LexicalEntryDto>,
-      pronunciations: pronunciations == freezed
-          ? _value.pronunciations
-          : pronunciations as List<PronunciationDto>,
+          : lexicalEntries // ignore: cast_nullable_to_non_nullable
+              as List<LexicalEntryDto>,
     ));
   }
 }
@@ -94,10 +90,7 @@ abstract class _$HeadwordEntryDtoCopyWith<$Res>
           _HeadwordEntryDto value, $Res Function(_HeadwordEntryDto) then) =
       __$HeadwordEntryDtoCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String id,
-      List<LexicalEntryDto> lexicalEntries,
-      List<PronunciationDto> pronunciations});
+  $Res call({String id, List<LexicalEntryDto> lexicalEntries});
 }
 
 /// @nodoc
@@ -113,30 +106,26 @@ class __$HeadwordEntryDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object lexicalEntries = freezed,
-    Object pronunciations = freezed,
+    Object? id = freezed,
+    Object? lexicalEntries = freezed,
   }) {
     return _then(_HeadwordEntryDto(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       lexicalEntries: lexicalEntries == freezed
           ? _value.lexicalEntries
-          : lexicalEntries as List<LexicalEntryDto>,
-      pronunciations: pronunciations == freezed
-          ? _value.pronunciations
-          : pronunciations as List<PronunciationDto>,
+          : lexicalEntries // ignore: cast_nullable_to_non_nullable
+              as List<LexicalEntryDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_HeadwordEntryDto implements _HeadwordEntryDto {
-  _$_HeadwordEntryDto(
-      {@required this.id, @required this.lexicalEntries, this.pronunciations})
-      : assert(id != null),
-        assert(lexicalEntries != null);
+  _$_HeadwordEntryDto({required this.id, required this.lexicalEntries});
 
   factory _$_HeadwordEntryDto.fromJson(Map<String, dynamic> json) =>
       _$_$_HeadwordEntryDtoFromJson(json);
@@ -145,12 +134,10 @@ class _$_HeadwordEntryDto implements _HeadwordEntryDto {
   final String id;
   @override
   final List<LexicalEntryDto> lexicalEntries;
-  @override
-  final List<PronunciationDto> pronunciations;
 
   @override
   String toString() {
-    return 'HeadwordEntryDto(id: $id, lexicalEntries: $lexicalEntries, pronunciations: $pronunciations)';
+    return 'HeadwordEntryDto(id: $id, lexicalEntries: $lexicalEntries)';
   }
 
   @override
@@ -161,18 +148,14 @@ class _$_HeadwordEntryDto implements _HeadwordEntryDto {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.lexicalEntries, lexicalEntries) ||
                 const DeepCollectionEquality()
-                    .equals(other.lexicalEntries, lexicalEntries)) &&
-            (identical(other.pronunciations, pronunciations) ||
-                const DeepCollectionEquality()
-                    .equals(other.pronunciations, pronunciations)));
+                    .equals(other.lexicalEntries, lexicalEntries)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(lexicalEntries) ^
-      const DeepCollectionEquality().hash(pronunciations);
+      const DeepCollectionEquality().hash(lexicalEntries);
 
   @JsonKey(ignore: true)
   @override
@@ -187,20 +170,19 @@ class _$_HeadwordEntryDto implements _HeadwordEntryDto {
 
 abstract class _HeadwordEntryDto implements HeadwordEntryDto {
   factory _HeadwordEntryDto(
-      {@required String id,
-      @required List<LexicalEntryDto> lexicalEntries,
-      List<PronunciationDto> pronunciations}) = _$_HeadwordEntryDto;
+      {required String id,
+      required List<LexicalEntryDto> lexicalEntries}) = _$_HeadwordEntryDto;
 
   factory _HeadwordEntryDto.fromJson(Map<String, dynamic> json) =
       _$_HeadwordEntryDto.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  List<LexicalEntryDto> get lexicalEntries;
-  @override
-  List<PronunciationDto> get pronunciations;
+  List<LexicalEntryDto> get lexicalEntries =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$HeadwordEntryDtoCopyWith<_HeadwordEntryDto> get copyWith;
+  _$HeadwordEntryDtoCopyWith<_HeadwordEntryDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

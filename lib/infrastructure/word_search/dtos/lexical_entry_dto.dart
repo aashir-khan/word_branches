@@ -15,10 +15,10 @@ part 'lexical_entry_dto.g.dart';
 @freezed
 abstract class LexicalEntryDto with _$LexicalEntryDto {
   const factory LexicalEntryDto({
-    @required List<EntryDto> entries,
-    @required IdTextDto lexicalCategory,
-    List<PronunciationDto> pronunciations,
-    List<RelatedEntryDto> derivativeOf,
+    required List<EntryDto> entries,
+    required IdTextDto lexicalCategory,
+    List<PronunciationDto>? pronunciations,
+    List<RelatedEntryDto>? derivativeOf,
   }) = _LexicalEntryDto;
 
   factory LexicalEntryDto.fromDomain(LexicalEntry lexicalEntry) {

@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route_annotations.dart';
+import 'package:auto_route/annotations.dart';
 
 import '../views/headword_entries/headword_entries_view.dart';
 import '../views/home/home_view.dart';

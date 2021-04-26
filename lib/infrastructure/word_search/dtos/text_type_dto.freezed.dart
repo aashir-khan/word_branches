@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'text_type_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'text_type_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 TextTypeDto _$TextTypeDtoFromJson(Map<String, dynamic> json) {
   return _TextTypeDto.fromJson(json);
 }
@@ -16,32 +20,30 @@ TextTypeDto _$TextTypeDtoFromJson(Map<String, dynamic> json) {
 class _$TextTypeDtoTearOff {
   const _$TextTypeDtoTearOff();
 
-// ignore: unused_element
-  _TextTypeDto call({String text, String type}) {
+  _TextTypeDto call({required String text, required String type}) {
     return _TextTypeDto(
       text: text,
       type: type,
     );
   }
 
-// ignore: unused_element
   TextTypeDto fromJson(Map<String, Object> json) {
     return TextTypeDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TextTypeDto = _$TextTypeDtoTearOff();
 
 /// @nodoc
 mixin _$TextTypeDto {
-  String get text;
-  String get type;
+  String get text => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TextTypeDtoCopyWith<TextTypeDto> get copyWith;
+  $TextTypeDtoCopyWith<TextTypeDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -62,12 +64,18 @@ class _$TextTypeDtoCopyWithImpl<$Res> implements $TextTypeDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object text = freezed,
-    Object type = freezed,
+    Object? text = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed ? _value.text : text as String,
-      type: type == freezed ? _value.type : type as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -94,21 +102,26 @@ class __$TextTypeDtoCopyWithImpl<$Res> extends _$TextTypeDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object type = freezed,
+    Object? text = freezed,
+    Object? type = freezed,
   }) {
     return _then(_TextTypeDto(
-      text: text == freezed ? _value.text : text as String,
-      type: type == freezed ? _value.type : type as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_TextTypeDto implements _TextTypeDto {
-  const _$_TextTypeDto({this.text, this.type});
+  const _$_TextTypeDto({required this.text, required this.type});
 
   factory _$_TextTypeDto.fromJson(Map<String, dynamic> json) =>
       _$_$_TextTypeDtoFromJson(json);
@@ -151,16 +164,18 @@ class _$_TextTypeDto implements _TextTypeDto {
 }
 
 abstract class _TextTypeDto implements TextTypeDto {
-  const factory _TextTypeDto({String text, String type}) = _$_TextTypeDto;
+  const factory _TextTypeDto({required String text, required String type}) =
+      _$_TextTypeDto;
 
   factory _TextTypeDto.fromJson(Map<String, dynamic> json) =
       _$_TextTypeDto.fromJson;
 
   @override
-  String get text;
+  String get text => throw _privateConstructorUsedError;
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TextTypeDtoCopyWith<_TextTypeDto> get copyWith;
+  _$TextTypeDtoCopyWith<_TextTypeDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

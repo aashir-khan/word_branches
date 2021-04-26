@@ -14,7 +14,7 @@ import '../../routes/router.gr.dart';
 class HeadwordEntriesViewModel extends BaseViewModel {
   final DictionaryWord word;
 
-  HeadwordEntriesViewModel({@required this.word});
+  HeadwordEntriesViewModel({required this.word});
 
   final _wordSearchRepository = getIt<IWordSearchRepository>();
   final _navigationService = getIt<NavigationService>();
@@ -83,8 +83,8 @@ class _LexicalEntryWithItsHeadwordNumber {
   final int headwordNumber;
 
   _LexicalEntryWithItsHeadwordNumber({
-    @required this.dictionaryWordName,
-    @required this.lexicalEntry,
-    @required this.headwordNumber,
+    required this.dictionaryWordName,
+    required this.lexicalEntry,
+    required this.headwordNumber,
   });
 }

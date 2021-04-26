@@ -1,5 +1,5 @@
 import 'package:connectivity/connectivity.dart';
-import 'package:injectable/injectable.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 
 import '../../domain/core/i_network_info.dart';
 

@@ -10,8 +10,8 @@ part 'id_text_dto.g.dart';
 @freezed
 abstract class IdTextDto with _$IdTextDto {
   const factory IdTextDto({
-    @required String id,
-    @required String text,
+    required String id,
+    required String text,
   }) = _IdTextDto;
 
   factory IdTextDto.fromDomain(IdText idText) {

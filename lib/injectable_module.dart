@@ -1,7 +1,7 @@
 import 'package:audioplayer/audioplayer.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 @module

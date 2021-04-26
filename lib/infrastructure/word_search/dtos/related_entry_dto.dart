@@ -9,8 +9,8 @@ part 'related_entry_dto.g.dart';
 @freezed
 abstract class RelatedEntryDto with _$RelatedEntryDto {
   const factory RelatedEntryDto({
-    @required String id,
-    @required String text,
+    required String id,
+    required String text,
   }) = _RelatedEntryDto;
 
   factory RelatedEntryDto.fromDomain(RelatedEntry relatedEntry) {

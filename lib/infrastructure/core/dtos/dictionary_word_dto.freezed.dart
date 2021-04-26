@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'dictionary_word_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'dictionary_word_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 DictionaryWordDto _$DictionaryWordDtoFromJson(Map<String, dynamic> json) {
   return _DictionaryWordDto.fromJson(json);
 }
@@ -16,32 +20,30 @@ DictionaryWordDto _$DictionaryWordDtoFromJson(Map<String, dynamic> json) {
 class _$DictionaryWordDtoTearOff {
   const _$DictionaryWordDtoTearOff();
 
-// ignore: unused_element
-  _DictionaryWordDto call({@required String id, @required String label}) {
+  _DictionaryWordDto call({required String id, required String label}) {
     return _DictionaryWordDto(
       id: id,
       label: label,
     );
   }
 
-// ignore: unused_element
   DictionaryWordDto fromJson(Map<String, Object> json) {
     return DictionaryWordDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $DictionaryWordDto = _$DictionaryWordDtoTearOff();
 
 /// @nodoc
 mixin _$DictionaryWordDto {
-  String get id;
-  String get label;
+  String get id => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DictionaryWordDtoCopyWith<DictionaryWordDto> get copyWith;
+  $DictionaryWordDtoCopyWith<DictionaryWordDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -63,12 +65,18 @@ class _$DictionaryWordDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object label = freezed,
+    Object? id = freezed,
+    Object? label = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      label: label == freezed ? _value.label : label as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: label == freezed
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -96,25 +104,28 @@ class __$DictionaryWordDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object label = freezed,
+    Object? id = freezed,
+    Object? label = freezed,
   }) {
     return _then(_DictionaryWordDto(
-      id: id == freezed ? _value.id : id as String,
-      label: label == freezed ? _value.label : label as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: label == freezed
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_DictionaryWordDto
     with DiagnosticableTreeMixin
     implements _DictionaryWordDto {
-  _$_DictionaryWordDto({@required this.id, @required this.label})
-      : assert(id != null),
-        assert(label != null);
+  _$_DictionaryWordDto({required this.id, required this.label});
 
   factory _$_DictionaryWordDto.fromJson(Map<String, dynamic> json) =>
       _$_$_DictionaryWordDtoFromJson(json);
@@ -166,17 +177,18 @@ class _$_DictionaryWordDto
 }
 
 abstract class _DictionaryWordDto implements DictionaryWordDto {
-  factory _DictionaryWordDto({@required String id, @required String label}) =
+  factory _DictionaryWordDto({required String id, required String label}) =
       _$_DictionaryWordDto;
 
   factory _DictionaryWordDto.fromJson(Map<String, dynamic> json) =
       _$_DictionaryWordDto.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get label;
+  String get label => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DictionaryWordDtoCopyWith<_DictionaryWordDto> get copyWith;
+  _$DictionaryWordDtoCopyWith<_DictionaryWordDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

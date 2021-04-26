@@ -15,10 +15,10 @@ class LexicalEntryInformationPreviewCard extends StatelessWidget {
   final int headwordEntryNumber;
 
   const LexicalEntryInformationPreviewCard({
-    Key key,
-    @required this.headwordEntry,
-    @required this.headwordEntryNumber,
-    @required this.lexicalEntry,
+    Key? key,
+    required this.headwordEntry,
+    required this.headwordEntryNumber,
+    required this.lexicalEntry,
   }) : super(key: key);
 
   @override

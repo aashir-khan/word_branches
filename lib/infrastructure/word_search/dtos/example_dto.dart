@@ -10,9 +10,9 @@ part 'example_dto.g.dart';
 @freezed
 abstract class ExampleDto with _$ExampleDto {
   const factory ExampleDto({
-    @required String text,
-    List<String> definitions,
-    List<IdTextDto> registers,
+    required String text,
+    List<String>? definitions,
+    List<IdTextDto>? registers,
   }) = _ExampleDto;
 
   factory ExampleDto.fromDomain(Example example) {

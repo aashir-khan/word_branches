@@ -10,9 +10,9 @@ class EntryInformation extends StatelessWidget {
   final int headwordEntryNumber;
 
   const EntryInformation({
-    Key key,
-    @required this.headwordEntry,
-    @required this.headwordEntryNumber,
+    Key? key,
+    required this.headwordEntry,
+    required this.headwordEntryNumber,
     this.entry,
   }) : super(key: key);
 

@@ -13,7 +13,7 @@ import 'widgets/lexical_entry_information_preview_card_widget/lexical_entry_info
 class HeadwordEntriesView extends StatelessWidget {
   final DictionaryWord word;
 
-  const HeadwordEntriesView({@required this.word});
+  const HeadwordEntriesView({required this.word});
 
   Widget buildBody(BuildContext context, HeadwordEntriesViewModel model) {
     if (model.isBusy) {

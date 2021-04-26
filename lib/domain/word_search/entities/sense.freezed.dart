@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'sense.dart';
 
@@ -9,19 +9,21 @@ part of 'sense.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SenseTearOff {
   const _$SenseTearOff();
 
-// ignore: unused_element
   _Sense call(
-      {KtList<String> definitions,
-      KtList<TextType> notes,
-      KtList<Example> examples,
-      KtList<Sense> subsenses,
-      KtList<IdText> registers,
-      KtList<IdText> regions,
-      KtList<String> crossReferenceMarkers}) {
+      {KtList<String>? definitions,
+      KtList<TextType>? notes,
+      KtList<Example>? examples,
+      KtList<Sense>? subsenses,
+      KtList<IdText>? registers,
+      KtList<IdText>? regions,
+      KtList<String>? crossReferenceMarkers}) {
     return _Sense(
       definitions: definitions,
       notes: notes,
@@ -35,21 +37,21 @@ class _$SenseTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Sense = _$SenseTearOff();
 
 /// @nodoc
 mixin _$Sense {
-  KtList<String> get definitions;
-  KtList<TextType> get notes;
-  KtList<Example> get examples;
-  KtList<Sense> get subsenses;
-  KtList<IdText> get registers;
-  KtList<IdText> get regions;
-  KtList<String> get crossReferenceMarkers;
+  KtList<String>? get definitions => throw _privateConstructorUsedError;
+  KtList<TextType>? get notes => throw _privateConstructorUsedError;
+  KtList<Example>? get examples => throw _privateConstructorUsedError;
+  KtList<Sense>? get subsenses => throw _privateConstructorUsedError;
+  KtList<IdText>? get registers => throw _privateConstructorUsedError;
+  KtList<IdText>? get regions => throw _privateConstructorUsedError;
+  KtList<String>? get crossReferenceMarkers =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SenseCopyWith<Sense> get copyWith;
+  $SenseCopyWith<Sense> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -57,13 +59,13 @@ abstract class $SenseCopyWith<$Res> {
   factory $SenseCopyWith(Sense value, $Res Function(Sense) then) =
       _$SenseCopyWithImpl<$Res>;
   $Res call(
-      {KtList<String> definitions,
-      KtList<TextType> notes,
-      KtList<Example> examples,
-      KtList<Sense> subsenses,
-      KtList<IdText> registers,
-      KtList<IdText> regions,
-      KtList<String> crossReferenceMarkers});
+      {KtList<String>? definitions,
+      KtList<TextType>? notes,
+      KtList<Example>? examples,
+      KtList<Sense>? subsenses,
+      KtList<IdText>? registers,
+      KtList<IdText>? regions,
+      KtList<String>? crossReferenceMarkers});
 }
 
 /// @nodoc
@@ -76,29 +78,43 @@ class _$SenseCopyWithImpl<$Res> implements $SenseCopyWith<$Res> {
 
   @override
   $Res call({
-    Object definitions = freezed,
-    Object notes = freezed,
-    Object examples = freezed,
-    Object subsenses = freezed,
-    Object registers = freezed,
-    Object regions = freezed,
-    Object crossReferenceMarkers = freezed,
+    Object? definitions = freezed,
+    Object? notes = freezed,
+    Object? examples = freezed,
+    Object? subsenses = freezed,
+    Object? registers = freezed,
+    Object? regions = freezed,
+    Object? crossReferenceMarkers = freezed,
   }) {
     return _then(_value.copyWith(
       definitions: definitions == freezed
           ? _value.definitions
-          : definitions as KtList<String>,
-      notes: notes == freezed ? _value.notes : notes as KtList<TextType>,
-      examples:
-          examples == freezed ? _value.examples : examples as KtList<Example>,
-      subsenses:
-          subsenses == freezed ? _value.subsenses : subsenses as KtList<Sense>,
-      registers:
-          registers == freezed ? _value.registers : registers as KtList<IdText>,
-      regions: regions == freezed ? _value.regions : regions as KtList<IdText>,
+          : definitions // ignore: cast_nullable_to_non_nullable
+              as KtList<String>?,
+      notes: notes == freezed
+          ? _value.notes
+          : notes // ignore: cast_nullable_to_non_nullable
+              as KtList<TextType>?,
+      examples: examples == freezed
+          ? _value.examples
+          : examples // ignore: cast_nullable_to_non_nullable
+              as KtList<Example>?,
+      subsenses: subsenses == freezed
+          ? _value.subsenses
+          : subsenses // ignore: cast_nullable_to_non_nullable
+              as KtList<Sense>?,
+      registers: registers == freezed
+          ? _value.registers
+          : registers // ignore: cast_nullable_to_non_nullable
+              as KtList<IdText>?,
+      regions: regions == freezed
+          ? _value.regions
+          : regions // ignore: cast_nullable_to_non_nullable
+              as KtList<IdText>?,
       crossReferenceMarkers: crossReferenceMarkers == freezed
           ? _value.crossReferenceMarkers
-          : crossReferenceMarkers as KtList<String>,
+          : crossReferenceMarkers // ignore: cast_nullable_to_non_nullable
+              as KtList<String>?,
     ));
   }
 }
@@ -109,13 +125,13 @@ abstract class _$SenseCopyWith<$Res> implements $SenseCopyWith<$Res> {
       __$SenseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtList<String> definitions,
-      KtList<TextType> notes,
-      KtList<Example> examples,
-      KtList<Sense> subsenses,
-      KtList<IdText> registers,
-      KtList<IdText> regions,
-      KtList<String> crossReferenceMarkers});
+      {KtList<String>? definitions,
+      KtList<TextType>? notes,
+      KtList<Example>? examples,
+      KtList<Sense>? subsenses,
+      KtList<IdText>? registers,
+      KtList<IdText>? regions,
+      KtList<String>? crossReferenceMarkers});
 }
 
 /// @nodoc
@@ -129,34 +145,49 @@ class __$SenseCopyWithImpl<$Res> extends _$SenseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object definitions = freezed,
-    Object notes = freezed,
-    Object examples = freezed,
-    Object subsenses = freezed,
-    Object registers = freezed,
-    Object regions = freezed,
-    Object crossReferenceMarkers = freezed,
+    Object? definitions = freezed,
+    Object? notes = freezed,
+    Object? examples = freezed,
+    Object? subsenses = freezed,
+    Object? registers = freezed,
+    Object? regions = freezed,
+    Object? crossReferenceMarkers = freezed,
   }) {
     return _then(_Sense(
       definitions: definitions == freezed
           ? _value.definitions
-          : definitions as KtList<String>,
-      notes: notes == freezed ? _value.notes : notes as KtList<TextType>,
-      examples:
-          examples == freezed ? _value.examples : examples as KtList<Example>,
-      subsenses:
-          subsenses == freezed ? _value.subsenses : subsenses as KtList<Sense>,
-      registers:
-          registers == freezed ? _value.registers : registers as KtList<IdText>,
-      regions: regions == freezed ? _value.regions : regions as KtList<IdText>,
+          : definitions // ignore: cast_nullable_to_non_nullable
+              as KtList<String>?,
+      notes: notes == freezed
+          ? _value.notes
+          : notes // ignore: cast_nullable_to_non_nullable
+              as KtList<TextType>?,
+      examples: examples == freezed
+          ? _value.examples
+          : examples // ignore: cast_nullable_to_non_nullable
+              as KtList<Example>?,
+      subsenses: subsenses == freezed
+          ? _value.subsenses
+          : subsenses // ignore: cast_nullable_to_non_nullable
+              as KtList<Sense>?,
+      registers: registers == freezed
+          ? _value.registers
+          : registers // ignore: cast_nullable_to_non_nullable
+              as KtList<IdText>?,
+      regions: regions == freezed
+          ? _value.regions
+          : regions // ignore: cast_nullable_to_non_nullable
+              as KtList<IdText>?,
       crossReferenceMarkers: crossReferenceMarkers == freezed
           ? _value.crossReferenceMarkers
-          : crossReferenceMarkers as KtList<String>,
+          : crossReferenceMarkers // ignore: cast_nullable_to_non_nullable
+              as KtList<String>?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Sense implements _Sense {
   const _$_Sense(
       {this.definitions,
@@ -168,19 +199,19 @@ class _$_Sense implements _Sense {
       this.crossReferenceMarkers});
 
   @override
-  final KtList<String> definitions;
+  final KtList<String>? definitions;
   @override
-  final KtList<TextType> notes;
+  final KtList<TextType>? notes;
   @override
-  final KtList<Example> examples;
+  final KtList<Example>? examples;
   @override
-  final KtList<Sense> subsenses;
+  final KtList<Sense>? subsenses;
   @override
-  final KtList<IdText> registers;
+  final KtList<IdText>? registers;
   @override
-  final KtList<IdText> regions;
+  final KtList<IdText>? regions;
   @override
-  final KtList<String> crossReferenceMarkers;
+  final KtList<String>? crossReferenceMarkers;
 
   @override
   String toString() {
@@ -232,29 +263,30 @@ class _$_Sense implements _Sense {
 
 abstract class _Sense implements Sense {
   const factory _Sense(
-      {KtList<String> definitions,
-      KtList<TextType> notes,
-      KtList<Example> examples,
-      KtList<Sense> subsenses,
-      KtList<IdText> registers,
-      KtList<IdText> regions,
-      KtList<String> crossReferenceMarkers}) = _$_Sense;
+      {KtList<String>? definitions,
+      KtList<TextType>? notes,
+      KtList<Example>? examples,
+      KtList<Sense>? subsenses,
+      KtList<IdText>? registers,
+      KtList<IdText>? regions,
+      KtList<String>? crossReferenceMarkers}) = _$_Sense;
 
   @override
-  KtList<String> get definitions;
+  KtList<String>? get definitions => throw _privateConstructorUsedError;
   @override
-  KtList<TextType> get notes;
+  KtList<TextType>? get notes => throw _privateConstructorUsedError;
   @override
-  KtList<Example> get examples;
+  KtList<Example>? get examples => throw _privateConstructorUsedError;
   @override
-  KtList<Sense> get subsenses;
+  KtList<Sense>? get subsenses => throw _privateConstructorUsedError;
   @override
-  KtList<IdText> get registers;
+  KtList<IdText>? get registers => throw _privateConstructorUsedError;
   @override
-  KtList<IdText> get regions;
+  KtList<IdText>? get regions => throw _privateConstructorUsedError;
   @override
-  KtList<String> get crossReferenceMarkers;
+  KtList<String>? get crossReferenceMarkers =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SenseCopyWith<_Sense> get copyWith;
+  _$SenseCopyWith<_Sense> get copyWith => throw _privateConstructorUsedError;
 }

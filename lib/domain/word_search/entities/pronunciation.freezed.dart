@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'pronunciation.dart';
 
@@ -9,12 +9,14 @@ part of 'pronunciation.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$PronunciationTearOff {
   const _$PronunciationTearOff();
 
-// ignore: unused_element
-  _Pronunciation call({String audioFile}) {
+  _Pronunciation call({required String audioFile}) {
     return _Pronunciation(
       audioFile: audioFile,
     );
@@ -22,15 +24,15 @@ class _$PronunciationTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Pronunciation = _$PronunciationTearOff();
 
 /// @nodoc
 mixin _$Pronunciation {
-  String get audioFile;
+  String get audioFile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PronunciationCopyWith<Pronunciation> get copyWith;
+  $PronunciationCopyWith<Pronunciation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -52,10 +54,13 @@ class _$PronunciationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object audioFile = freezed,
+    Object? audioFile = freezed,
   }) {
     return _then(_value.copyWith(
-      audioFile: audioFile == freezed ? _value.audioFile : audioFile as String,
+      audioFile: audioFile == freezed
+          ? _value.audioFile
+          : audioFile // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -83,17 +88,21 @@ class __$PronunciationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object audioFile = freezed,
+    Object? audioFile = freezed,
   }) {
     return _then(_Pronunciation(
-      audioFile: audioFile == freezed ? _value.audioFile : audioFile as String,
+      audioFile: audioFile == freezed
+          ? _value.audioFile
+          : audioFile // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Pronunciation implements _Pronunciation {
-  const _$_Pronunciation({this.audioFile});
+  const _$_Pronunciation({required this.audioFile});
 
   @override
   final String audioFile;
@@ -123,11 +132,12 @@ class _$_Pronunciation implements _Pronunciation {
 }
 
 abstract class _Pronunciation implements Pronunciation {
-  const factory _Pronunciation({String audioFile}) = _$_Pronunciation;
+  const factory _Pronunciation({required String audioFile}) = _$_Pronunciation;
 
   @override
-  String get audioFile;
+  String get audioFile => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PronunciationCopyWith<_Pronunciation> get copyWith;
+  _$PronunciationCopyWith<_Pronunciation> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'example_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'example_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ExampleDto _$ExampleDtoFromJson(Map<String, dynamic> json) {
   return _ExampleDto.fromJson(json);
 }
@@ -16,11 +20,10 @@ ExampleDto _$ExampleDtoFromJson(Map<String, dynamic> json) {
 class _$ExampleDtoTearOff {
   const _$ExampleDtoTearOff();
 
-// ignore: unused_element
   _ExampleDto call(
-      {@required String text,
-      List<String> definitions,
-      List<IdTextDto> registers}) {
+      {required String text,
+      List<String>? definitions,
+      List<IdTextDto>? registers}) {
     return _ExampleDto(
       text: text,
       definitions: definitions,
@@ -28,25 +31,24 @@ class _$ExampleDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ExampleDto fromJson(Map<String, Object> json) {
     return ExampleDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ExampleDto = _$ExampleDtoTearOff();
 
 /// @nodoc
 mixin _$ExampleDto {
-  String get text;
-  List<String> get definitions;
-  List<IdTextDto> get registers;
+  String get text => throw _privateConstructorUsedError;
+  List<String>? get definitions => throw _privateConstructorUsedError;
+  List<IdTextDto>? get registers => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ExampleDtoCopyWith<ExampleDto> get copyWith;
+  $ExampleDtoCopyWith<ExampleDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -54,7 +56,8 @@ abstract class $ExampleDtoCopyWith<$Res> {
   factory $ExampleDtoCopyWith(
           ExampleDto value, $Res Function(ExampleDto) then) =
       _$ExampleDtoCopyWithImpl<$Res>;
-  $Res call({String text, List<String> definitions, List<IdTextDto> registers});
+  $Res call(
+      {String text, List<String>? definitions, List<IdTextDto>? registers});
 }
 
 /// @nodoc
@@ -67,18 +70,23 @@ class _$ExampleDtoCopyWithImpl<$Res> implements $ExampleDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object text = freezed,
-    Object definitions = freezed,
-    Object registers = freezed,
+    Object? text = freezed,
+    Object? definitions = freezed,
+    Object? registers = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed ? _value.text : text as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
       definitions: definitions == freezed
           ? _value.definitions
-          : definitions as List<String>,
+          : definitions // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       registers: registers == freezed
           ? _value.registers
-          : registers as List<IdTextDto>,
+          : registers // ignore: cast_nullable_to_non_nullable
+              as List<IdTextDto>?,
     ));
   }
 }
@@ -89,7 +97,8 @@ abstract class _$ExampleDtoCopyWith<$Res> implements $ExampleDtoCopyWith<$Res> {
           _ExampleDto value, $Res Function(_ExampleDto) then) =
       __$ExampleDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String text, List<String> definitions, List<IdTextDto> registers});
+  $Res call(
+      {String text, List<String>? definitions, List<IdTextDto>? registers});
 }
 
 /// @nodoc
@@ -104,28 +113,31 @@ class __$ExampleDtoCopyWithImpl<$Res> extends _$ExampleDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object definitions = freezed,
-    Object registers = freezed,
+    Object? text = freezed,
+    Object? definitions = freezed,
+    Object? registers = freezed,
   }) {
     return _then(_ExampleDto(
-      text: text == freezed ? _value.text : text as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
       definitions: definitions == freezed
           ? _value.definitions
-          : definitions as List<String>,
+          : definitions // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       registers: registers == freezed
           ? _value.registers
-          : registers as List<IdTextDto>,
+          : registers // ignore: cast_nullable_to_non_nullable
+              as List<IdTextDto>?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ExampleDto implements _ExampleDto {
-  const _$_ExampleDto({@required this.text, this.definitions, this.registers})
-      : assert(text != null);
+  const _$_ExampleDto({required this.text, this.definitions, this.registers});
 
   factory _$_ExampleDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ExampleDtoFromJson(json);
@@ -133,9 +145,9 @@ class _$_ExampleDto implements _ExampleDto {
   @override
   final String text;
   @override
-  final List<String> definitions;
+  final List<String>? definitions;
   @override
-  final List<IdTextDto> registers;
+  final List<IdTextDto>? registers;
 
   @override
   String toString() {
@@ -176,20 +188,21 @@ class _$_ExampleDto implements _ExampleDto {
 
 abstract class _ExampleDto implements ExampleDto {
   const factory _ExampleDto(
-      {@required String text,
-      List<String> definitions,
-      List<IdTextDto> registers}) = _$_ExampleDto;
+      {required String text,
+      List<String>? definitions,
+      List<IdTextDto>? registers}) = _$_ExampleDto;
 
   factory _ExampleDto.fromJson(Map<String, dynamic> json) =
       _$_ExampleDto.fromJson;
 
   @override
-  String get text;
+  String get text => throw _privateConstructorUsedError;
   @override
-  List<String> get definitions;
+  List<String>? get definitions => throw _privateConstructorUsedError;
   @override
-  List<IdTextDto> get registers;
+  List<IdTextDto>? get registers => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ExampleDtoCopyWith<_ExampleDto> get copyWith;
+  _$ExampleDtoCopyWith<_ExampleDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

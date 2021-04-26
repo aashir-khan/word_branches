@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'lexical_entry.dart';
 
@@ -9,16 +9,18 @@ part of 'lexical_entry.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$LexicalEntryTearOff {
   const _$LexicalEntryTearOff();
 
-// ignore: unused_element
   _LexicalEntry call(
-      {@required KtList<Entry> entries,
-      @required IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations,
-      KtList<RelatedEntry> derivativeOf}) {
+      {required KtList<Entry> entries,
+      required IdText lexicalCategory,
+      KtList<Pronunciation>? pronunciations,
+      KtList<RelatedEntry>? derivativeOf}) {
     return _LexicalEntry(
       entries: entries,
       lexicalCategory: lexicalCategory,
@@ -29,18 +31,19 @@ class _$LexicalEntryTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LexicalEntry = _$LexicalEntryTearOff();
 
 /// @nodoc
 mixin _$LexicalEntry {
-  KtList<Entry> get entries;
-  IdText get lexicalCategory;
-  KtList<Pronunciation> get pronunciations;
-  KtList<RelatedEntry> get derivativeOf;
+  KtList<Entry> get entries => throw _privateConstructorUsedError;
+  IdText get lexicalCategory => throw _privateConstructorUsedError;
+  KtList<Pronunciation>? get pronunciations =>
+      throw _privateConstructorUsedError;
+  KtList<RelatedEntry>? get derivativeOf => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LexicalEntryCopyWith<LexicalEntry> get copyWith;
+  $LexicalEntryCopyWith<LexicalEntry> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,8 +54,8 @@ abstract class $LexicalEntryCopyWith<$Res> {
   $Res call(
       {KtList<Entry> entries,
       IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations,
-      KtList<RelatedEntry> derivativeOf});
+      KtList<Pronunciation>? pronunciations,
+      KtList<RelatedEntry>? derivativeOf});
 
   $IdTextCopyWith<$Res> get lexicalCategory;
 }
@@ -67,30 +70,33 @@ class _$LexicalEntryCopyWithImpl<$Res> implements $LexicalEntryCopyWith<$Res> {
 
   @override
   $Res call({
-    Object entries = freezed,
-    Object lexicalCategory = freezed,
-    Object pronunciations = freezed,
-    Object derivativeOf = freezed,
+    Object? entries = freezed,
+    Object? lexicalCategory = freezed,
+    Object? pronunciations = freezed,
+    Object? derivativeOf = freezed,
   }) {
     return _then(_value.copyWith(
-      entries: entries == freezed ? _value.entries : entries as KtList<Entry>,
+      entries: entries == freezed
+          ? _value.entries
+          : entries // ignore: cast_nullable_to_non_nullable
+              as KtList<Entry>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as IdText,
+          : lexicalCategory // ignore: cast_nullable_to_non_nullable
+              as IdText,
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
-          : pronunciations as KtList<Pronunciation>,
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as KtList<Pronunciation>?,
       derivativeOf: derivativeOf == freezed
           ? _value.derivativeOf
-          : derivativeOf as KtList<RelatedEntry>,
+          : derivativeOf // ignore: cast_nullable_to_non_nullable
+              as KtList<RelatedEntry>?,
     ));
   }
 
   @override
   $IdTextCopyWith<$Res> get lexicalCategory {
-    if (_value.lexicalCategory == null) {
-      return null;
-    }
     return $IdTextCopyWith<$Res>(_value.lexicalCategory, (value) {
       return _then(_value.copyWith(lexicalCategory: value));
     });
@@ -107,8 +113,8 @@ abstract class _$LexicalEntryCopyWith<$Res>
   $Res call(
       {KtList<Entry> entries,
       IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations,
-      KtList<RelatedEntry> derivativeOf});
+      KtList<Pronunciation>? pronunciations,
+      KtList<RelatedEntry>? derivativeOf});
 
   @override
   $IdTextCopyWith<$Res> get lexicalCategory;
@@ -126,44 +132,49 @@ class __$LexicalEntryCopyWithImpl<$Res> extends _$LexicalEntryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object entries = freezed,
-    Object lexicalCategory = freezed,
-    Object pronunciations = freezed,
-    Object derivativeOf = freezed,
+    Object? entries = freezed,
+    Object? lexicalCategory = freezed,
+    Object? pronunciations = freezed,
+    Object? derivativeOf = freezed,
   }) {
     return _then(_LexicalEntry(
-      entries: entries == freezed ? _value.entries : entries as KtList<Entry>,
+      entries: entries == freezed
+          ? _value.entries
+          : entries // ignore: cast_nullable_to_non_nullable
+              as KtList<Entry>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as IdText,
+          : lexicalCategory // ignore: cast_nullable_to_non_nullable
+              as IdText,
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
-          : pronunciations as KtList<Pronunciation>,
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as KtList<Pronunciation>?,
       derivativeOf: derivativeOf == freezed
           ? _value.derivativeOf
-          : derivativeOf as KtList<RelatedEntry>,
+          : derivativeOf // ignore: cast_nullable_to_non_nullable
+              as KtList<RelatedEntry>?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_LexicalEntry implements _LexicalEntry {
   const _$_LexicalEntry(
-      {@required this.entries,
-      @required this.lexicalCategory,
+      {required this.entries,
+      required this.lexicalCategory,
       this.pronunciations,
-      this.derivativeOf})
-      : assert(entries != null),
-        assert(lexicalCategory != null);
+      this.derivativeOf});
 
   @override
   final KtList<Entry> entries;
   @override
   final IdText lexicalCategory;
   @override
-  final KtList<Pronunciation> pronunciations;
+  final KtList<Pronunciation>? pronunciations;
   @override
-  final KtList<RelatedEntry> derivativeOf;
+  final KtList<RelatedEntry>? derivativeOf;
 
   @override
   String toString() {
@@ -204,20 +215,22 @@ class _$_LexicalEntry implements _LexicalEntry {
 
 abstract class _LexicalEntry implements LexicalEntry {
   const factory _LexicalEntry(
-      {@required KtList<Entry> entries,
-      @required IdText lexicalCategory,
-      KtList<Pronunciation> pronunciations,
-      KtList<RelatedEntry> derivativeOf}) = _$_LexicalEntry;
+      {required KtList<Entry> entries,
+      required IdText lexicalCategory,
+      KtList<Pronunciation>? pronunciations,
+      KtList<RelatedEntry>? derivativeOf}) = _$_LexicalEntry;
 
   @override
-  KtList<Entry> get entries;
+  KtList<Entry> get entries => throw _privateConstructorUsedError;
   @override
-  IdText get lexicalCategory;
+  IdText get lexicalCategory => throw _privateConstructorUsedError;
   @override
-  KtList<Pronunciation> get pronunciations;
+  KtList<Pronunciation>? get pronunciations =>
+      throw _privateConstructorUsedError;
   @override
-  KtList<RelatedEntry> get derivativeOf;
+  KtList<RelatedEntry>? get derivativeOf => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$LexicalEntryCopyWith<_LexicalEntry> get copyWith;
+  _$LexicalEntryCopyWith<_LexicalEntry> get copyWith =>
+      throw _privateConstructorUsedError;
 }

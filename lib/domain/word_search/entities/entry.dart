@@ -9,8 +9,8 @@ part 'entry.freezed.dart';
 @freezed
 abstract class Entry with _$Entry {
   const factory Entry({
-    KtList<String> etymologies,
-    @required KtList<Sense> senses,
-    KtList<Pronunciation> pronunciations,
+    KtList<String>? etymologies,
+    required KtList<Sense> senses,
+    KtList<Pronunciation>? pronunciations,
   }) = _Entry;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'word_search_failure.dart';
 
@@ -9,18 +9,19 @@ part of 'word_search_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$WordSearchFailureTearOff {
   const _$WordSearchFailureTearOff();
 
-// ignore: unused_element
   _WordSearchLocalFailure local(WordSearchLocalFailure failure) {
     return _WordSearchLocalFailure(
       failure,
     );
   }
 
-// ignore: unused_element
   _WordSearchRemoteFailure remote(WordSearchRemoteFailure failure) {
     return _WordSearchRemoteFailure(
       failure,
@@ -29,33 +30,36 @@ class _$WordSearchFailureTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $WordSearchFailure = _$WordSearchFailureTearOff();
 
 /// @nodoc
 mixin _$WordSearchFailure {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult local(WordSearchLocalFailure failure),
-    @required TResult remote(WordSearchRemoteFailure failure),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(WordSearchLocalFailure failure) local,
+    required TResult Function(WordSearchRemoteFailure failure) remote,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult local(WordSearchLocalFailure failure),
-    TResult remote(WordSearchRemoteFailure failure),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WordSearchLocalFailure failure)? local,
+    TResult Function(WordSearchRemoteFailure failure)? remote,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult local(_WordSearchLocalFailure value),
-    @required TResult remote(_WordSearchRemoteFailure value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WordSearchLocalFailure value) local,
+    required TResult Function(_WordSearchRemoteFailure value) remote,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult local(_WordSearchLocalFailure value),
-    TResult remote(_WordSearchRemoteFailure value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WordSearchLocalFailure value)? local,
+    TResult Function(_WordSearchRemoteFailure value)? remote,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -98,18 +102,18 @@ class __$WordSearchLocalFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failure = freezed,
+    Object? failure = freezed,
   }) {
     return _then(_WordSearchLocalFailure(
-      failure == freezed ? _value.failure : failure as WordSearchLocalFailure,
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as WordSearchLocalFailure,
     ));
   }
 
   @override
   $WordSearchLocalFailureCopyWith<$Res> get failure {
-    if (_value.failure == null) {
-      return null;
-    }
     return $WordSearchLocalFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
     });
@@ -117,8 +121,9 @@ class __$WordSearchLocalFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WordSearchLocalFailure implements _WordSearchLocalFailure {
-  const _$_WordSearchLocalFailure(this.failure) : assert(failure != null);
+  const _$_WordSearchLocalFailure(this.failure);
 
   @override
   final WordSearchLocalFailure failure;
@@ -148,23 +153,20 @@ class _$_WordSearchLocalFailure implements _WordSearchLocalFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult local(WordSearchLocalFailure failure),
-    @required TResult remote(WordSearchRemoteFailure failure),
+  TResult when<TResult extends Object?>({
+    required TResult Function(WordSearchLocalFailure failure) local,
+    required TResult Function(WordSearchRemoteFailure failure) remote,
   }) {
-    assert(local != null);
-    assert(remote != null);
     return local(failure);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult local(WordSearchLocalFailure failure),
-    TResult remote(WordSearchRemoteFailure failure),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WordSearchLocalFailure failure)? local,
+    TResult Function(WordSearchRemoteFailure failure)? remote,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (local != null) {
       return local(failure);
     }
@@ -173,23 +175,20 @@ class _$_WordSearchLocalFailure implements _WordSearchLocalFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult local(_WordSearchLocalFailure value),
-    @required TResult remote(_WordSearchRemoteFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WordSearchLocalFailure value) local,
+    required TResult Function(_WordSearchRemoteFailure value) remote,
   }) {
-    assert(local != null);
-    assert(remote != null);
     return local(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult local(_WordSearchLocalFailure value),
-    TResult remote(_WordSearchRemoteFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WordSearchLocalFailure value)? local,
+    TResult Function(_WordSearchRemoteFailure value)? remote,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (local != null) {
       return local(this);
     }
@@ -201,9 +200,10 @@ abstract class _WordSearchLocalFailure implements WordSearchFailure {
   const factory _WordSearchLocalFailure(WordSearchLocalFailure failure) =
       _$_WordSearchLocalFailure;
 
-  WordSearchLocalFailure get failure;
+  WordSearchLocalFailure get failure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WordSearchLocalFailureCopyWith<_WordSearchLocalFailure> get copyWith;
+  _$WordSearchLocalFailureCopyWith<_WordSearchLocalFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -230,18 +230,18 @@ class __$WordSearchRemoteFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failure = freezed,
+    Object? failure = freezed,
   }) {
     return _then(_WordSearchRemoteFailure(
-      failure == freezed ? _value.failure : failure as WordSearchRemoteFailure,
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as WordSearchRemoteFailure,
     ));
   }
 
   @override
   $WordSearchRemoteFailureCopyWith<$Res> get failure {
-    if (_value.failure == null) {
-      return null;
-    }
     return $WordSearchRemoteFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
     });
@@ -249,8 +249,9 @@ class __$WordSearchRemoteFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WordSearchRemoteFailure implements _WordSearchRemoteFailure {
-  const _$_WordSearchRemoteFailure(this.failure) : assert(failure != null);
+  const _$_WordSearchRemoteFailure(this.failure);
 
   @override
   final WordSearchRemoteFailure failure;
@@ -280,23 +281,20 @@ class _$_WordSearchRemoteFailure implements _WordSearchRemoteFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult local(WordSearchLocalFailure failure),
-    @required TResult remote(WordSearchRemoteFailure failure),
+  TResult when<TResult extends Object?>({
+    required TResult Function(WordSearchLocalFailure failure) local,
+    required TResult Function(WordSearchRemoteFailure failure) remote,
   }) {
-    assert(local != null);
-    assert(remote != null);
     return remote(failure);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult local(WordSearchLocalFailure failure),
-    TResult remote(WordSearchRemoteFailure failure),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WordSearchLocalFailure failure)? local,
+    TResult Function(WordSearchRemoteFailure failure)? remote,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (remote != null) {
       return remote(failure);
     }
@@ -305,23 +303,20 @@ class _$_WordSearchRemoteFailure implements _WordSearchRemoteFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult local(_WordSearchLocalFailure value),
-    @required TResult remote(_WordSearchRemoteFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WordSearchLocalFailure value) local,
+    required TResult Function(_WordSearchRemoteFailure value) remote,
   }) {
-    assert(local != null);
-    assert(remote != null);
     return remote(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult local(_WordSearchLocalFailure value),
-    TResult remote(_WordSearchRemoteFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WordSearchLocalFailure value)? local,
+    TResult Function(_WordSearchRemoteFailure value)? remote,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (remote != null) {
       return remote(this);
     }
@@ -333,7 +328,8 @@ abstract class _WordSearchRemoteFailure implements WordSearchFailure {
   const factory _WordSearchRemoteFailure(WordSearchRemoteFailure failure) =
       _$_WordSearchRemoteFailure;
 
-  WordSearchRemoteFailure get failure;
+  WordSearchRemoteFailure get failure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WordSearchRemoteFailureCopyWith<_WordSearchRemoteFailure> get copyWith;
+  _$WordSearchRemoteFailureCopyWith<_WordSearchRemoteFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }

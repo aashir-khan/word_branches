@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'id_text_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'id_text_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 IdTextDto _$IdTextDtoFromJson(Map<String, dynamic> json) {
   return _IdTextDto.fromJson(json);
 }
@@ -16,32 +20,30 @@ IdTextDto _$IdTextDtoFromJson(Map<String, dynamic> json) {
 class _$IdTextDtoTearOff {
   const _$IdTextDtoTearOff();
 
-// ignore: unused_element
-  _IdTextDto call({@required String id, @required String text}) {
+  _IdTextDto call({required String id, required String text}) {
     return _IdTextDto(
       id: id,
       text: text,
     );
   }
 
-// ignore: unused_element
   IdTextDto fromJson(Map<String, Object> json) {
     return IdTextDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $IdTextDto = _$IdTextDtoTearOff();
 
 /// @nodoc
 mixin _$IdTextDto {
-  String get id;
-  String get text;
+  String get id => throw _privateConstructorUsedError;
+  String get text => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $IdTextDtoCopyWith<IdTextDto> get copyWith;
+  $IdTextDtoCopyWith<IdTextDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,12 +63,18 @@ class _$IdTextDtoCopyWithImpl<$Res> implements $IdTextDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object text = freezed,
+    Object? id = freezed,
+    Object? text = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      text: text == freezed ? _value.text : text as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -91,23 +99,26 @@ class __$IdTextDtoCopyWithImpl<$Res> extends _$IdTextDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object text = freezed,
+    Object? id = freezed,
+    Object? text = freezed,
   }) {
     return _then(_IdTextDto(
-      id: id == freezed ? _value.id : id as String,
-      text: text == freezed ? _value.text : text as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_IdTextDto with DiagnosticableTreeMixin implements _IdTextDto {
-  const _$_IdTextDto({@required this.id, @required this.text})
-      : assert(id != null),
-        assert(text != null);
+  const _$_IdTextDto({required this.id, required this.text});
 
   factory _$_IdTextDto.fromJson(Map<String, dynamic> json) =>
       _$_$_IdTextDtoFromJson(json);
@@ -159,17 +170,18 @@ class _$_IdTextDto with DiagnosticableTreeMixin implements _IdTextDto {
 }
 
 abstract class _IdTextDto implements IdTextDto {
-  const factory _IdTextDto({@required String id, @required String text}) =
+  const factory _IdTextDto({required String id, required String text}) =
       _$_IdTextDto;
 
   factory _IdTextDto.fromJson(Map<String, dynamic> json) =
       _$_IdTextDto.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get text;
+  String get text => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$IdTextDtoCopyWith<_IdTextDto> get copyWith;
+  _$IdTextDtoCopyWith<_IdTextDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -8,7 +8,7 @@ part 'pronunciation_dto.g.dart';
 @freezed
 abstract class PronunciationDto with _$PronunciationDto {
   const factory PronunciationDto({
-    String audioFile,
+    required String audioFile,
   }) = _PronunciationDto;
 
   factory PronunciationDto.fromDomain(Pronunciation pronunciation) {

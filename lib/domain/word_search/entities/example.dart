@@ -8,8 +8,8 @@ part 'example.freezed.dart';
 @freezed
 abstract class Example with _$Example {
   const factory Example({
-    @required String text,
-    KtList<String> definitions,
-    KtList<IdText> registers,
+    required String text,
+    KtList<String>? definitions,
+    KtList<IdText>? registers,
   }) = _Example;
 }

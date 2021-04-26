@@ -18,10 +18,10 @@ class EtymologyAndSensesCard extends StatelessWidget {
   final int headwordEntryNumber;
 
   const EtymologyAndSensesCard({
-    Key key,
-    @required this.headwordEntry,
+    Key? key,
+    required this.headwordEntry,
     this.sense,
-    @required this.headwordEntryNumber,
+    required this.headwordEntryNumber,
     this.senseNumber,
     this.totalSenses,
     this.heading,

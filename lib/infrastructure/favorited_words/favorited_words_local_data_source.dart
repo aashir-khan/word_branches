@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:injectable/injectable.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../domain/favorited_words/favorited_words_exception.dart';
@@ -12,7 +12,7 @@ import '../core/dtos/word_search_dto.dart';
 class FavoritedWordsLocalDataSource implements IFavoritedWordsLocalDataSource {
   final WordSearchDao wordSearchDao;
 
-  FavoritedWordsLocalDataSource({@required this.wordSearchDao});
+  FavoritedWordsLocalDataSource({required this.wordSearchDao});
 
   @override
   Future<Unit> addFavoritedSearch(WordSearchDto search) async {

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'word_search_remote_failure.dart';
 
@@ -9,59 +9,65 @@ part of 'word_search_remote_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$WordSearchRemoteFailureTearOff {
   const _$WordSearchRemoteFailureTearOff();
 
-// ignore: unused_element
   _WordSearchRemoteFailureNetworkError networkError() {
     return const _WordSearchRemoteFailureNetworkError();
   }
 
-// ignore: unused_element
   _WordSearchRemoteFailureServerException serverError() {
     return const _WordSearchRemoteFailureServerException();
   }
 
-// ignore: unused_element
   _WordSearchRemoteFailureUnexpected unexpected() {
     return const _WordSearchRemoteFailureUnexpected();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $WordSearchRemoteFailure = _$WordSearchRemoteFailureTearOff();
 
 /// @nodoc
 mixin _$WordSearchRemoteFailure {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult networkError(),
-    @required TResult serverError(),
-    @required TResult unexpected(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() networkError,
+    required TResult Function() serverError,
+    required TResult Function() unexpected,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult networkError(),
-    TResult serverError(),
-    TResult unexpected(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? networkError,
+    TResult Function()? serverError,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    @required
-        TResult serverError(_WordSearchRemoteFailureServerException value),
-    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WordSearchRemoteFailureNetworkError value)
+        networkError,
+    required TResult Function(_WordSearchRemoteFailureServerException value)
+        serverError,
+    required TResult Function(_WordSearchRemoteFailureUnexpected value)
+        unexpected,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    TResult serverError(_WordSearchRemoteFailureServerException value),
-    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WordSearchRemoteFailureNetworkError value)? networkError,
+    TResult Function(_WordSearchRemoteFailureServerException value)?
+        serverError,
+    TResult Function(_WordSearchRemoteFailureUnexpected value)? unexpected,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -104,6 +110,7 @@ class __$WordSearchRemoteFailureNetworkErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WordSearchRemoteFailureNetworkError
     implements _WordSearchRemoteFailureNetworkError {
   const _$_WordSearchRemoteFailureNetworkError();
@@ -124,26 +131,22 @@ class _$_WordSearchRemoteFailureNetworkError
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult networkError(),
-    @required TResult serverError(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() networkError,
+    required TResult Function() serverError,
+    required TResult Function() unexpected,
   }) {
-    assert(networkError != null);
-    assert(serverError != null);
-    assert(unexpected != null);
     return networkError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult networkError(),
-    TResult serverError(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? networkError,
+    TResult Function()? serverError,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (networkError != null) {
       return networkError();
     }
@@ -152,27 +155,26 @@ class _$_WordSearchRemoteFailureNetworkError
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    @required
-        TResult serverError(_WordSearchRemoteFailureServerException value),
-    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WordSearchRemoteFailureNetworkError value)
+        networkError,
+    required TResult Function(_WordSearchRemoteFailureServerException value)
+        serverError,
+    required TResult Function(_WordSearchRemoteFailureUnexpected value)
+        unexpected,
   }) {
-    assert(networkError != null);
-    assert(serverError != null);
-    assert(unexpected != null);
     return networkError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    TResult serverError(_WordSearchRemoteFailureServerException value),
-    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WordSearchRemoteFailureNetworkError value)? networkError,
+    TResult Function(_WordSearchRemoteFailureServerException value)?
+        serverError,
+    TResult Function(_WordSearchRemoteFailureUnexpected value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (networkError != null) {
       return networkError(this);
     }
@@ -210,6 +212,7 @@ class __$WordSearchRemoteFailureServerExceptionCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WordSearchRemoteFailureServerException
     implements _WordSearchRemoteFailureServerException {
   const _$_WordSearchRemoteFailureServerException();
@@ -230,26 +233,22 @@ class _$_WordSearchRemoteFailureServerException
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult networkError(),
-    @required TResult serverError(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() networkError,
+    required TResult Function() serverError,
+    required TResult Function() unexpected,
   }) {
-    assert(networkError != null);
-    assert(serverError != null);
-    assert(unexpected != null);
     return serverError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult networkError(),
-    TResult serverError(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? networkError,
+    TResult Function()? serverError,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError();
     }
@@ -258,27 +257,26 @@ class _$_WordSearchRemoteFailureServerException
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    @required
-        TResult serverError(_WordSearchRemoteFailureServerException value),
-    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WordSearchRemoteFailureNetworkError value)
+        networkError,
+    required TResult Function(_WordSearchRemoteFailureServerException value)
+        serverError,
+    required TResult Function(_WordSearchRemoteFailureUnexpected value)
+        unexpected,
   }) {
-    assert(networkError != null);
-    assert(serverError != null);
-    assert(unexpected != null);
     return serverError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    TResult serverError(_WordSearchRemoteFailureServerException value),
-    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WordSearchRemoteFailureNetworkError value)? networkError,
+    TResult Function(_WordSearchRemoteFailureServerException value)?
+        serverError,
+    TResult Function(_WordSearchRemoteFailureUnexpected value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError(this);
     }
@@ -315,6 +313,7 @@ class __$WordSearchRemoteFailureUnexpectedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WordSearchRemoteFailureUnexpected
     implements _WordSearchRemoteFailureUnexpected {
   const _$_WordSearchRemoteFailureUnexpected();
@@ -335,26 +334,22 @@ class _$_WordSearchRemoteFailureUnexpected
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult networkError(),
-    @required TResult serverError(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() networkError,
+    required TResult Function() serverError,
+    required TResult Function() unexpected,
   }) {
-    assert(networkError != null);
-    assert(serverError != null);
-    assert(unexpected != null);
     return unexpected();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult networkError(),
-    TResult serverError(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? networkError,
+    TResult Function()? serverError,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected();
     }
@@ -363,27 +358,26 @@ class _$_WordSearchRemoteFailureUnexpected
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    @required
-        TResult serverError(_WordSearchRemoteFailureServerException value),
-    @required TResult unexpected(_WordSearchRemoteFailureUnexpected value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WordSearchRemoteFailureNetworkError value)
+        networkError,
+    required TResult Function(_WordSearchRemoteFailureServerException value)
+        serverError,
+    required TResult Function(_WordSearchRemoteFailureUnexpected value)
+        unexpected,
   }) {
-    assert(networkError != null);
-    assert(serverError != null);
-    assert(unexpected != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult networkError(_WordSearchRemoteFailureNetworkError value),
-    TResult serverError(_WordSearchRemoteFailureServerException value),
-    TResult unexpected(_WordSearchRemoteFailureUnexpected value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WordSearchRemoteFailureNetworkError value)? networkError,
+    TResult Function(_WordSearchRemoteFailureServerException value)?
+        serverError,
+    TResult Function(_WordSearchRemoteFailureUnexpected value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }
