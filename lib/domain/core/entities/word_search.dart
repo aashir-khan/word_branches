@@ -11,7 +11,7 @@ abstract class WordSearch with _$WordSearch {
   const factory WordSearch({
     @required DictionaryWord word,
     KtList<HeadwordEntry> results,
-    @nullable @Default(false) bool isFavorited,
+    @Default(false) bool isFavorited,
     DateTime lastSearchedAt,
   }) = _WordSearch;
 }

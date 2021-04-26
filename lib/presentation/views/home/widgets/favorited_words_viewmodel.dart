@@ -1,4 +1,4 @@
-import 'package:injectable/injectable.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';

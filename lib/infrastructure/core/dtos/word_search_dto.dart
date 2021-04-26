@@ -13,7 +13,7 @@ abstract class WordSearchDto with _$WordSearchDto {
   const factory WordSearchDto({
     @required DictionaryWordDto word,
     List<HeadwordEntryDto> results,
-    @nullable @Default(false) bool isFavorited,
+    @Default(false) bool isFavorited,
     String lastSearchedAt,
   }) = _WordSearchDto;
 

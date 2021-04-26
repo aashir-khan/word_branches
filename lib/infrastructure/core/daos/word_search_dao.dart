@@ -1,4 +1,4 @@
-import 'package:injectable/injectable.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 import 'package:sembast/sembast.dart';
 
 import '../app_database.dart';

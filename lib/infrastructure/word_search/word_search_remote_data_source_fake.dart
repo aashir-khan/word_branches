@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:injectable/injectable.dart';
+import 'package:injectable_micropackages/injectable_micropackages.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../domain/word_search/i_word_search_remote_data_source.dart';
