@@ -6,7 +6,7 @@ class UIUtils {
     return RichText(
       text: TextSpan(
         children: [
-          TextSpan(text: text, style: Theme.of(context).textTheme.headline6.copyWith(color: textColor ?? Colors.black)),
+          TextSpan(text: text, style: Theme.of(context).textTheme.headline6!.copyWith(color: textColor)),
           WidgetSpan(
             child: Transform.translate(
               offset: const Offset(2, -4),

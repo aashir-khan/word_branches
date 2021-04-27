@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -14,12 +13,12 @@ class WordSearchRemoteDataSourceFake implements IWordSearchRemoteDataSource {
   final HeadwordEntryDao headwordEntryDao;
 
   WordSearchRemoteDataSourceFake({
-    @required this.dictionaryWordDao,
-    @required this.headwordEntryDao,
+    required this.dictionaryWordDao,
+    required this.headwordEntryDao,
   });
 
   @override
-  Future<KtList<DictionaryWordDto>> getWordSearchResults({String query}) async {
+  Future<KtList<DictionaryWordDto>> getWordSearchResults({required String query}) async {
     final allResults = await dictionaryWordDao.getSearchesForQuery(query);
     return allResults.toImmutableList();
   }

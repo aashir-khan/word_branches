@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'entry.dart';
 
@@ -9,15 +9,17 @@ part of 'entry.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$EntryTearOff {
   const _$EntryTearOff();
 
-// ignore: unused_element
   _Entry call(
-      {KtList<String> etymologies,
-      @required KtList<Sense> senses,
-      KtList<Pronunciation> pronunciations}) {
+      {KtList<String>? etymologies,
+      required KtList<Sense> senses,
+      KtList<Pronunciation>? pronunciations}) {
     return _Entry(
       etymologies: etymologies,
       senses: senses,
@@ -27,17 +29,17 @@ class _$EntryTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Entry = _$EntryTearOff();
 
 /// @nodoc
 mixin _$Entry {
-  KtList<String> get etymologies;
-  KtList<Sense> get senses;
-  KtList<Pronunciation> get pronunciations;
+  KtList<String>? get etymologies => throw _privateConstructorUsedError;
+  KtList<Sense> get senses => throw _privateConstructorUsedError;
+  KtList<Pronunciation>? get pronunciations =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $EntryCopyWith<Entry> get copyWith;
+  $EntryCopyWith<Entry> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -45,9 +47,9 @@ abstract class $EntryCopyWith<$Res> {
   factory $EntryCopyWith(Entry value, $Res Function(Entry) then) =
       _$EntryCopyWithImpl<$Res>;
   $Res call(
-      {KtList<String> etymologies,
+      {KtList<String>? etymologies,
       KtList<Sense> senses,
-      KtList<Pronunciation> pronunciations});
+      KtList<Pronunciation>? pronunciations});
 }
 
 /// @nodoc
@@ -60,18 +62,23 @@ class _$EntryCopyWithImpl<$Res> implements $EntryCopyWith<$Res> {
 
   @override
   $Res call({
-    Object etymologies = freezed,
-    Object senses = freezed,
-    Object pronunciations = freezed,
+    Object? etymologies = freezed,
+    Object? senses = freezed,
+    Object? pronunciations = freezed,
   }) {
     return _then(_value.copyWith(
       etymologies: etymologies == freezed
           ? _value.etymologies
-          : etymologies as KtList<String>,
-      senses: senses == freezed ? _value.senses : senses as KtList<Sense>,
+          : etymologies // ignore: cast_nullable_to_non_nullable
+              as KtList<String>?,
+      senses: senses == freezed
+          ? _value.senses
+          : senses // ignore: cast_nullable_to_non_nullable
+              as KtList<Sense>,
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
-          : pronunciations as KtList<Pronunciation>,
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as KtList<Pronunciation>?,
     ));
   }
 }
@@ -82,9 +89,9 @@ abstract class _$EntryCopyWith<$Res> implements $EntryCopyWith<$Res> {
       __$EntryCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtList<String> etymologies,
+      {KtList<String>? etymologies,
       KtList<Sense> senses,
-      KtList<Pronunciation> pronunciations});
+      KtList<Pronunciation>? pronunciations});
 }
 
 /// @nodoc
@@ -98,33 +105,38 @@ class __$EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object etymologies = freezed,
-    Object senses = freezed,
-    Object pronunciations = freezed,
+    Object? etymologies = freezed,
+    Object? senses = freezed,
+    Object? pronunciations = freezed,
   }) {
     return _then(_Entry(
       etymologies: etymologies == freezed
           ? _value.etymologies
-          : etymologies as KtList<String>,
-      senses: senses == freezed ? _value.senses : senses as KtList<Sense>,
+          : etymologies // ignore: cast_nullable_to_non_nullable
+              as KtList<String>?,
+      senses: senses == freezed
+          ? _value.senses
+          : senses // ignore: cast_nullable_to_non_nullable
+              as KtList<Sense>,
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
-          : pronunciations as KtList<Pronunciation>,
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as KtList<Pronunciation>?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Entry implements _Entry {
-  const _$_Entry({this.etymologies, @required this.senses, this.pronunciations})
-      : assert(senses != null);
+  const _$_Entry({this.etymologies, required this.senses, this.pronunciations});
 
   @override
-  final KtList<String> etymologies;
+  final KtList<String>? etymologies;
   @override
   final KtList<Sense> senses;
   @override
-  final KtList<Pronunciation> pronunciations;
+  final KtList<Pronunciation>? pronunciations;
 
   @override
   String toString() {
@@ -160,17 +172,18 @@ class _$_Entry implements _Entry {
 
 abstract class _Entry implements Entry {
   const factory _Entry(
-      {KtList<String> etymologies,
-      @required KtList<Sense> senses,
-      KtList<Pronunciation> pronunciations}) = _$_Entry;
+      {KtList<String>? etymologies,
+      required KtList<Sense> senses,
+      KtList<Pronunciation>? pronunciations}) = _$_Entry;
 
   @override
-  KtList<String> get etymologies;
+  KtList<String>? get etymologies => throw _privateConstructorUsedError;
   @override
-  KtList<Sense> get senses;
+  KtList<Sense> get senses => throw _privateConstructorUsedError;
   @override
-  KtList<Pronunciation> get pronunciations;
+  KtList<Pronunciation>? get pronunciations =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$EntryCopyWith<_Entry> get copyWith;
+  _$EntryCopyWith<_Entry> get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,10 +6,10 @@ part 'text_type_dto.freezed.dart';
 part 'text_type_dto.g.dart';
 
 @freezed
-abstract class TextTypeDto with _$TextTypeDto {
+class TextTypeDto with _$TextTypeDto {
   const factory TextTypeDto({
-    String text,
-    String type,
+    required String text,
+    required String type,
   }) = _TextTypeDto;
 
   factory TextTypeDto.fromDomain(TextType textType) {

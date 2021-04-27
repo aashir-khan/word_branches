@@ -8,7 +8,7 @@ import 'word_search_local_failure.dart';
 import 'word_search_remote_failure.dart';
 
 abstract class IWordSearchRepository {
-  Future<Either<WordSearchRemoteFailure, KtList<DictionaryWord>>> getWordSearchResults({String query});
+  Future<Either<WordSearchRemoteFailure, KtList<DictionaryWord>>> getWordSearchResults({required String query});
 
   Future<Either<WordSearchLocalFailure, KtList<WordSearch>>> getRecentlySearchedWords();
 

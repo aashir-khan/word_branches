@@ -12,26 +12,26 @@ part 'sense_dto.freezed.dart';
 part 'sense_dto.g.dart';
 
 @freezed
-abstract class SenseDto with _$SenseDto {
+class SenseDto with _$SenseDto {
   const factory SenseDto({
-    List<String> definitions,
-    List<TextTypeDto> notes,
-    List<ExampleDto> examples,
-    List<SenseDto> subsenses,
-    List<IdTextDto> registers,
-    List<IdTextDto> regions,
-    List<String> crossReferenceMarkers,
+    List<String>? definitions,
+    List<TextTypeDto>? notes,
+    List<ExampleDto>? examples,
+    List<SenseDto>? subsenses,
+    List<IdTextDto>? registers,
+    List<IdTextDto>? regions,
+    List<String>? crossReferenceMarkers,
   }) = _SenseDto;
 
   factory SenseDto.fromDomain(Sense sense) {
     return SenseDto(
-        definitions: sense?.definitions?.asList(),
-        notes: sense?.notes?.map((textType) => TextTypeDto.fromDomain(textType))?.asList(),
-        examples: sense?.examples?.map((example) => ExampleDto.fromDomain(example))?.asList(),
-        subsenses: sense?.subsenses?.map((sense) => SenseDto.fromDomain(sense))?.asList(),
-        registers: sense?.registers?.map((register) => IdTextDto.fromDomain(register))?.asList(),
-        regions: sense?.regions?.map((region) => IdTextDto.fromDomain(region))?.asList(),
-        crossReferenceMarkers: sense?.crossReferenceMarkers?.asList());
+        definitions: sense.definitions?.asList(),
+        notes: sense.notes?.map((textType) => TextTypeDto.fromDomain(textType)).asList(),
+        examples: sense.examples?.map((example) => ExampleDto.fromDomain(example)).asList(),
+        subsenses: sense.subsenses?.map((sense) => SenseDto.fromDomain(sense)).asList(),
+        registers: sense.registers?.map((register) => IdTextDto.fromDomain(register)).asList(),
+        regions: sense.regions?.map((region) => IdTextDto.fromDomain(region)).asList(),
+        crossReferenceMarkers: sense.crossReferenceMarkers?.asList());
   }
 
   factory SenseDto.fromJson(Map<String, dynamic> json) => _$SenseDtoFromJson(json);
@@ -102,11 +102,11 @@ extension SenseDtoX on SenseDto {
   Sense toDomain() {
     return Sense(
       definitions: definitions?.toImmutableList(),
-      notes: notes?.map((note) => note.toDomain())?.toImmutableList(),
-      examples: examples?.map((example) => example.toDomain())?.toImmutableList(),
-      subsenses: subsenses?.map((subsense) => subsense.toDomain())?.toImmutableList(),
-      registers: registers?.map((register) => register.toDomain())?.toImmutableList(),
-      regions: regions?.map((region) => region.toDomain())?.toImmutableList(),
+      notes: notes?.map((note) => note.toDomain()).toImmutableList(),
+      examples: examples?.map((example) => example.toDomain()).toImmutableList(),
+      subsenses: subsenses?.map((subsense) => subsense.toDomain()).toImmutableList(),
+      registers: registers?.map((register) => register.toDomain()).toImmutableList(),
+      regions: regions?.map((region) => region.toDomain()).toImmutableList(),
       crossReferenceMarkers: crossReferenceMarkers?.toImmutableList(),
     );
   }

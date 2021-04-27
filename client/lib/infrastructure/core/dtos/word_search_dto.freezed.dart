@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'word_search_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'word_search_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 WordSearchDto _$WordSearchDtoFromJson(Map<String, dynamic> json) {
   return _WordSearchDto.fromJson(json);
 }
@@ -16,12 +20,11 @@ WordSearchDto _$WordSearchDtoFromJson(Map<String, dynamic> json) {
 class _$WordSearchDtoTearOff {
   const _$WordSearchDtoTearOff();
 
-// ignore: unused_element
   _WordSearchDto call(
-      {@required DictionaryWordDto word,
-      List<HeadwordEntryDto> results,
-      @nullable bool isFavorited = false,
-      String lastSearchedAt}) {
+      {required DictionaryWordDto word,
+      required List<HeadwordEntryDto> results,
+      bool isFavorited = false,
+      String? lastSearchedAt}) {
     return _WordSearchDto(
       word: word,
       results: results,
@@ -30,27 +33,25 @@ class _$WordSearchDtoTearOff {
     );
   }
 
-// ignore: unused_element
   WordSearchDto fromJson(Map<String, Object> json) {
     return WordSearchDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $WordSearchDto = _$WordSearchDtoTearOff();
 
 /// @nodoc
 mixin _$WordSearchDto {
-  DictionaryWordDto get word;
-  List<HeadwordEntryDto> get results;
-  @nullable
-  bool get isFavorited;
-  String get lastSearchedAt;
+  DictionaryWordDto get word => throw _privateConstructorUsedError;
+  List<HeadwordEntryDto> get results => throw _privateConstructorUsedError;
+  bool get isFavorited => throw _privateConstructorUsedError;
+  String? get lastSearchedAt => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WordSearchDtoCopyWith<WordSearchDto> get copyWith;
+  $WordSearchDtoCopyWith<WordSearchDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,8 +62,8 @@ abstract class $WordSearchDtoCopyWith<$Res> {
   $Res call(
       {DictionaryWordDto word,
       List<HeadwordEntryDto> results,
-      @nullable bool isFavorited,
-      String lastSearchedAt});
+      bool isFavorited,
+      String? lastSearchedAt});
 
   $DictionaryWordDtoCopyWith<$Res> get word;
 }
@@ -78,29 +79,33 @@ class _$WordSearchDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object word = freezed,
-    Object results = freezed,
-    Object isFavorited = freezed,
-    Object lastSearchedAt = freezed,
+    Object? word = freezed,
+    Object? results = freezed,
+    Object? isFavorited = freezed,
+    Object? lastSearchedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      word: word == freezed ? _value.word : word as DictionaryWordDto,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as DictionaryWordDto,
       results: results == freezed
           ? _value.results
-          : results as List<HeadwordEntryDto>,
-      isFavorited:
-          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<HeadwordEntryDto>,
+      isFavorited: isFavorited == freezed
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool,
       lastSearchedAt: lastSearchedAt == freezed
           ? _value.lastSearchedAt
-          : lastSearchedAt as String,
+          : lastSearchedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
   @override
   $DictionaryWordDtoCopyWith<$Res> get word {
-    if (_value.word == null) {
-      return null;
-    }
     return $DictionaryWordDtoCopyWith<$Res>(_value.word, (value) {
       return _then(_value.copyWith(word: value));
     });
@@ -117,8 +122,8 @@ abstract class _$WordSearchDtoCopyWith<$Res>
   $Res call(
       {DictionaryWordDto word,
       List<HeadwordEntryDto> results,
-      @nullable bool isFavorited,
-      String lastSearchedAt});
+      bool isFavorited,
+      String? lastSearchedAt});
 
   @override
   $DictionaryWordDtoCopyWith<$Res> get word;
@@ -137,35 +142,40 @@ class __$WordSearchDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object word = freezed,
-    Object results = freezed,
-    Object isFavorited = freezed,
-    Object lastSearchedAt = freezed,
+    Object? word = freezed,
+    Object? results = freezed,
+    Object? isFavorited = freezed,
+    Object? lastSearchedAt = freezed,
   }) {
     return _then(_WordSearchDto(
-      word: word == freezed ? _value.word : word as DictionaryWordDto,
+      word: word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as DictionaryWordDto,
       results: results == freezed
           ? _value.results
-          : results as List<HeadwordEntryDto>,
-      isFavorited:
-          isFavorited == freezed ? _value.isFavorited : isFavorited as bool,
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<HeadwordEntryDto>,
+      isFavorited: isFavorited == freezed
+          ? _value.isFavorited
+          : isFavorited // ignore: cast_nullable_to_non_nullable
+              as bool,
       lastSearchedAt: lastSearchedAt == freezed
           ? _value.lastSearchedAt
-          : lastSearchedAt as String,
+          : lastSearchedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_WordSearchDto implements _WordSearchDto {
   const _$_WordSearchDto(
-      {@required this.word,
-      this.results,
-      @nullable this.isFavorited = false,
-      this.lastSearchedAt})
-      : assert(word != null);
+      {required this.word,
+      required this.results,
+      this.isFavorited = false,
+      this.lastSearchedAt});
 
   factory _$_WordSearchDto.fromJson(Map<String, dynamic> json) =>
       _$_$_WordSearchDtoFromJson(json);
@@ -176,10 +186,9 @@ class _$_WordSearchDto implements _WordSearchDto {
   final List<HeadwordEntryDto> results;
   @JsonKey(defaultValue: false)
   @override
-  @nullable
   final bool isFavorited;
   @override
-  final String lastSearchedAt;
+  final String? lastSearchedAt;
 
   @override
   String toString() {
@@ -224,24 +233,24 @@ class _$_WordSearchDto implements _WordSearchDto {
 
 abstract class _WordSearchDto implements WordSearchDto {
   const factory _WordSearchDto(
-      {@required DictionaryWordDto word,
-      List<HeadwordEntryDto> results,
-      @nullable bool isFavorited,
-      String lastSearchedAt}) = _$_WordSearchDto;
+      {required DictionaryWordDto word,
+      required List<HeadwordEntryDto> results,
+      bool isFavorited,
+      String? lastSearchedAt}) = _$_WordSearchDto;
 
   factory _WordSearchDto.fromJson(Map<String, dynamic> json) =
       _$_WordSearchDto.fromJson;
 
   @override
-  DictionaryWordDto get word;
+  DictionaryWordDto get word => throw _privateConstructorUsedError;
   @override
-  List<HeadwordEntryDto> get results;
+  List<HeadwordEntryDto> get results => throw _privateConstructorUsedError;
   @override
-  @nullable
-  bool get isFavorited;
+  bool get isFavorited => throw _privateConstructorUsedError;
   @override
-  String get lastSearchedAt;
+  String? get lastSearchedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$WordSearchDtoCopyWith<_WordSearchDto> get copyWith;
+  _$WordSearchDtoCopyWith<_WordSearchDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

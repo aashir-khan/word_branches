@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -14,7 +13,7 @@ import '../core/dtos/word_search_dto.dart';
 class FavoritedWordsRepository implements IFavoritedWordsRepository {
   final IFavoritedWordsLocalDataSource localDataSource;
 
-  FavoritedWordsRepository({@required this.localDataSource});
+  FavoritedWordsRepository({required this.localDataSource});
 
   @override
   Future<Either<FavoritedWordsFailure, Unit>> addFavoritedSearch(WordSearch search) async {

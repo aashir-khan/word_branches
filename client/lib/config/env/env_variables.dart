@@ -3,8 +3,8 @@ import 'package:word_branches/config/env/env_config.dart';
 
 @LazySingleton(env: [Environment.dev, Environment.prod])
 class EnvVariables {
-  String baseApiUrl;
-  Map<String, String> oxfordApiHeaders;
+  late final String baseApiUrl;
+  late final Map<String, String> oxfordApiHeaders;
 
   EnvVariables(Environment environment) {
     if (environment.name == Environment.prod) {

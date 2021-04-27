@@ -63,16 +63,16 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
         );
       } else if (model.hasSomeSearchResults) {
         return ListView.builder(
-          itemCount: model.searchResults.size,
+          itemCount: model.searchResults!.size,
           itemBuilder: (context, index) => InkWell(
-            onTap: () => model.viewSearchResultsForWord(model.searchResults[index]),
+            onTap: () => model.viewSearchResultsForWord(model.searchResults![index]),
             child: Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 16,
                 horizontal: 24,
               ),
               child: Text(
-                model.searchResults[index].label,
+                model.searchResults![index].label,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -103,7 +103,7 @@ class _SearchViewWidget extends HookViewModelWidget<SearchViewModel> {
       } else if (model.hasSomeRecentSearches) {
         final recentSearch = model.recentSearches;
         return ListView.builder(
-          itemCount: recentSearch.size,
+          itemCount: recentSearch!.size,
           itemBuilder: (context, index) => InkWell(
             onTap: () => model.navigateToHeadwordEntriesView(recentSearch[index]),
             child: ListTile(

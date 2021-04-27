@@ -1,6 +1,7 @@
-import 'package:audioplayer/audioplayer.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
 
 import '../../../domain/word_search/entities/entry.dart';
 import '../../../domain/word_search/entities/headword_entry.dart';
@@ -12,19 +13,9 @@ import '../utils/ui_utils.dart';
 import 'widgets/entry_information_widget.dart';
 
 class LexicalEntryView extends HookWidget {
-  final HeadwordEntry headwordEntry;
-  final LexicalEntry lexicalEntry;
-  final int headwordEntryNumber;
-
-  const LexicalEntryView({
-    @required this.headwordEntry,
-    @required this.lexicalEntry,
-    @required this.headwordEntryNumber,
-  });
-
-  List<Widget> buildActions(BuildContext context) {
+  List<Widget> buildActions(BuildContext context, LexicalEntryViewRouteArgs arguments) {
     final List<Widget> widgets = [];
-    final audioFile = headwordEntry.audioFile;
+    final audioFile = arguments.headwordEntry.audioFile;
 
     if (audioFile != null) {
       widgets.add(
@@ -41,6 +32,9 @@ class LexicalEntryView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final tooltipKey = GlobalKey();
+    final arguments = Get.arguments as LexicalEntryViewRouteArgs;
+    final headwordEntry = arguments.headwordEntry;
+    final headwordEntryNumber = arguments.headwordEntryNumber;
 
     return Scaffold(
       appBar: AppBar(
@@ -57,38 +51,38 @@ class LexicalEntryView extends HookWidget {
                 textColor: Colors.white),
           ),
         ),
-        actions: buildActions(context),
+        actions: buildActions(context, arguments),
       ),
-      body: _buildBody(),
+      body: _buildBody(arguments),
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(LexicalEntryViewRouteArgs arguments) {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          ListTile(title: _buildWidgetHeaderContent()),
-          _buildSingleEntryWidget(lexicalEntry.entries[0]),
+          ListTile(title: _buildWidgetHeaderContent(arguments)),
+          _buildSingleEntryWidget(arguments.lexicalEntry.entries[0], arguments),
         ],
       ),
     );
   }
 
-  Widget _buildWidgetHeaderContent() {
+  Widget _buildWidgetHeaderContent(LexicalEntryViewRouteArgs arguments) {
     final List<Widget> _wrapWidgets = [];
     _wrapWidgets.add(
       Text(
-        lexicalEntry.lexicalCategory.text,
+        arguments.lexicalEntry.lexicalCategory.text,
         style: const TextStyle(color: colors.secondaryColor, fontWeight: FontWeight.bold),
       ),
     );
 
-    if (lexicalEntry.derivativeOf != null) {
+    if (arguments.lexicalEntry.derivativeOf != null && !arguments.lexicalEntry.derivativeOf!.isEmpty()) {
       _wrapWidgets.addAll(
         [
           const SizedBox(width: 5),
           Text(
-            "(Derivative of ${lexicalEntry.derivativeOf[0].text})",
+            "(Derivative of ${arguments.lexicalEntry.derivativeOf![0].text})",
             style: const TextStyle(
               fontStyle: FontStyle.italic,
               color: colors.secondaryColorLight,
@@ -101,14 +95,25 @@ class LexicalEntryView extends HookWidget {
     return Wrap(children: _wrapWidgets);
   }
 
-  Widget _buildSingleEntryWidget(Entry entry) {
+  Widget _buildSingleEntryWidget(Entry entry, LexicalEntryViewRouteArgs arguments) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       child: EntryInformation(
         entry: entry,
-        headwordEntry: headwordEntry,
-        headwordEntryNumber: headwordEntryNumber,
+        headwordEntry: arguments.headwordEntry,
+        headwordEntryNumber: arguments.headwordEntryNumber,
       ),
     );
   }
+}
+
+class LexicalEntryViewRouteArgs {
+  final HeadwordEntry headwordEntry;
+  final LexicalEntry lexicalEntry;
+  final int headwordEntryNumber;
+  LexicalEntryViewRouteArgs({
+    required this.headwordEntry,
+    required this.lexicalEntry,
+    required this.headwordEntryNumber,
+  });
 }

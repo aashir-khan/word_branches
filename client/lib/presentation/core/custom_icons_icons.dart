@@ -25,12 +25,10 @@ class CustomIcons {
   CustomIcons._();
 
   static const _kFontFam = 'CustomIcons';
-  static const _kFontPkg = null as String;
-
-  static const IconData checkmark_circle_icon = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData time_icon = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData sound_on_icon = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData heart_outline_icon = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData heart_filled_icon = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData heart_broken = IconData(0xf7a9, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData checkmark_circle_icon = IconData(0xe800, fontFamily: _kFontFam);
+  static const IconData time_icon = IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData sound_on_icon = IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData heart_outline_icon = IconData(0xe804, fontFamily: _kFontFam);
+  static const IconData heart_filled_icon = IconData(0xe805, fontFamily: _kFontFam);
+  static const IconData heart_broken = IconData(0xf7a9, fontFamily: _kFontFam);
 }

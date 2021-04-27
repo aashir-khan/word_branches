@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:get/route_manager.dart';
+import 'package:word_branches/presentation/routes/app_pages.dart';
 
-import './routes/router.dart';
 import 'core/constants/app_colors.dart' as colors;
 import 'core/constants/theme_data.dart';
 
@@ -11,12 +11,12 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: colors.primaryColorDark));
 
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Dr. Words',
       theme: AppTheme.lightTheme,
-      onGenerateRoute: AppRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
       debugShowCheckedModeBanner: false,
+      initialRoute: AppPages.initial,
+      getPages: AppPages.routes,
     );
   }
 }

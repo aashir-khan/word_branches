@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'lexical_entry_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'lexical_entry_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 LexicalEntryDto _$LexicalEntryDtoFromJson(Map<String, dynamic> json) {
   return _LexicalEntryDto.fromJson(json);
 }
@@ -16,12 +20,11 @@ LexicalEntryDto _$LexicalEntryDtoFromJson(Map<String, dynamic> json) {
 class _$LexicalEntryDtoTearOff {
   const _$LexicalEntryDtoTearOff();
 
-// ignore: unused_element
   _LexicalEntryDto call(
-      {@required List<EntryDto> entries,
-      @required IdTextDto lexicalCategory,
-      List<PronunciationDto> pronunciations,
-      List<RelatedEntryDto> derivativeOf}) {
+      {required List<EntryDto> entries,
+      required IdTextDto lexicalCategory,
+      List<PronunciationDto>? pronunciations,
+      List<RelatedEntryDto>? derivativeOf}) {
     return _LexicalEntryDto(
       entries: entries,
       lexicalCategory: lexicalCategory,
@@ -30,26 +33,26 @@ class _$LexicalEntryDtoTearOff {
     );
   }
 
-// ignore: unused_element
   LexicalEntryDto fromJson(Map<String, Object> json) {
     return LexicalEntryDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LexicalEntryDto = _$LexicalEntryDtoTearOff();
 
 /// @nodoc
 mixin _$LexicalEntryDto {
-  List<EntryDto> get entries;
-  IdTextDto get lexicalCategory;
-  List<PronunciationDto> get pronunciations;
-  List<RelatedEntryDto> get derivativeOf;
+  List<EntryDto> get entries => throw _privateConstructorUsedError;
+  IdTextDto get lexicalCategory => throw _privateConstructorUsedError;
+  List<PronunciationDto>? get pronunciations =>
+      throw _privateConstructorUsedError;
+  List<RelatedEntryDto>? get derivativeOf => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LexicalEntryDtoCopyWith<LexicalEntryDto> get copyWith;
+  $LexicalEntryDtoCopyWith<LexicalEntryDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,8 +63,8 @@ abstract class $LexicalEntryDtoCopyWith<$Res> {
   $Res call(
       {List<EntryDto> entries,
       IdTextDto lexicalCategory,
-      List<PronunciationDto> pronunciations,
-      List<RelatedEntryDto> derivativeOf});
+      List<PronunciationDto>? pronunciations,
+      List<RelatedEntryDto>? derivativeOf});
 
   $IdTextDtoCopyWith<$Res> get lexicalCategory;
 }
@@ -77,30 +80,33 @@ class _$LexicalEntryDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object entries = freezed,
-    Object lexicalCategory = freezed,
-    Object pronunciations = freezed,
-    Object derivativeOf = freezed,
+    Object? entries = freezed,
+    Object? lexicalCategory = freezed,
+    Object? pronunciations = freezed,
+    Object? derivativeOf = freezed,
   }) {
     return _then(_value.copyWith(
-      entries: entries == freezed ? _value.entries : entries as List<EntryDto>,
+      entries: entries == freezed
+          ? _value.entries
+          : entries // ignore: cast_nullable_to_non_nullable
+              as List<EntryDto>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as IdTextDto,
+          : lexicalCategory // ignore: cast_nullable_to_non_nullable
+              as IdTextDto,
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
-          : pronunciations as List<PronunciationDto>,
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as List<PronunciationDto>?,
       derivativeOf: derivativeOf == freezed
           ? _value.derivativeOf
-          : derivativeOf as List<RelatedEntryDto>,
+          : derivativeOf // ignore: cast_nullable_to_non_nullable
+              as List<RelatedEntryDto>?,
     ));
   }
 
   @override
   $IdTextDtoCopyWith<$Res> get lexicalCategory {
-    if (_value.lexicalCategory == null) {
-      return null;
-    }
     return $IdTextDtoCopyWith<$Res>(_value.lexicalCategory, (value) {
       return _then(_value.copyWith(lexicalCategory: value));
     });
@@ -117,8 +123,8 @@ abstract class _$LexicalEntryDtoCopyWith<$Res>
   $Res call(
       {List<EntryDto> entries,
       IdTextDto lexicalCategory,
-      List<PronunciationDto> pronunciations,
-      List<RelatedEntryDto> derivativeOf});
+      List<PronunciationDto>? pronunciations,
+      List<RelatedEntryDto>? derivativeOf});
 
   @override
   $IdTextDtoCopyWith<$Res> get lexicalCategory;
@@ -137,37 +143,40 @@ class __$LexicalEntryDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object entries = freezed,
-    Object lexicalCategory = freezed,
-    Object pronunciations = freezed,
-    Object derivativeOf = freezed,
+    Object? entries = freezed,
+    Object? lexicalCategory = freezed,
+    Object? pronunciations = freezed,
+    Object? derivativeOf = freezed,
   }) {
     return _then(_LexicalEntryDto(
-      entries: entries == freezed ? _value.entries : entries as List<EntryDto>,
+      entries: entries == freezed
+          ? _value.entries
+          : entries // ignore: cast_nullable_to_non_nullable
+              as List<EntryDto>,
       lexicalCategory: lexicalCategory == freezed
           ? _value.lexicalCategory
-          : lexicalCategory as IdTextDto,
+          : lexicalCategory // ignore: cast_nullable_to_non_nullable
+              as IdTextDto,
       pronunciations: pronunciations == freezed
           ? _value.pronunciations
-          : pronunciations as List<PronunciationDto>,
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as List<PronunciationDto>?,
       derivativeOf: derivativeOf == freezed
           ? _value.derivativeOf
-          : derivativeOf as List<RelatedEntryDto>,
+          : derivativeOf // ignore: cast_nullable_to_non_nullable
+              as List<RelatedEntryDto>?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_LexicalEntryDto implements _LexicalEntryDto {
   const _$_LexicalEntryDto(
-      {@required this.entries,
-      @required this.lexicalCategory,
+      {required this.entries,
+      required this.lexicalCategory,
       this.pronunciations,
-      this.derivativeOf})
-      : assert(entries != null),
-        assert(lexicalCategory != null);
+      this.derivativeOf});
 
   factory _$_LexicalEntryDto.fromJson(Map<String, dynamic> json) =>
       _$_$_LexicalEntryDtoFromJson(json);
@@ -177,9 +186,9 @@ class _$_LexicalEntryDto implements _LexicalEntryDto {
   @override
   final IdTextDto lexicalCategory;
   @override
-  final List<PronunciationDto> pronunciations;
+  final List<PronunciationDto>? pronunciations;
   @override
-  final List<RelatedEntryDto> derivativeOf;
+  final List<RelatedEntryDto>? derivativeOf;
 
   @override
   String toString() {
@@ -225,23 +234,25 @@ class _$_LexicalEntryDto implements _LexicalEntryDto {
 
 abstract class _LexicalEntryDto implements LexicalEntryDto {
   const factory _LexicalEntryDto(
-      {@required List<EntryDto> entries,
-      @required IdTextDto lexicalCategory,
-      List<PronunciationDto> pronunciations,
-      List<RelatedEntryDto> derivativeOf}) = _$_LexicalEntryDto;
+      {required List<EntryDto> entries,
+      required IdTextDto lexicalCategory,
+      List<PronunciationDto>? pronunciations,
+      List<RelatedEntryDto>? derivativeOf}) = _$_LexicalEntryDto;
 
   factory _LexicalEntryDto.fromJson(Map<String, dynamic> json) =
       _$_LexicalEntryDto.fromJson;
 
   @override
-  List<EntryDto> get entries;
+  List<EntryDto> get entries => throw _privateConstructorUsedError;
   @override
-  IdTextDto get lexicalCategory;
+  IdTextDto get lexicalCategory => throw _privateConstructorUsedError;
   @override
-  List<PronunciationDto> get pronunciations;
+  List<PronunciationDto>? get pronunciations =>
+      throw _privateConstructorUsedError;
   @override
-  List<RelatedEntryDto> get derivativeOf;
+  List<RelatedEntryDto>? get derivativeOf => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$LexicalEntryDtoCopyWith<_LexicalEntryDto> get copyWith;
+  _$LexicalEntryDtoCopyWith<_LexicalEntryDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

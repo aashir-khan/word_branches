@@ -1,5 +1,4 @@
 import 'package:faker/faker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/core/entities/dictionary_word.dart';
@@ -8,10 +7,10 @@ part 'dictionary_word_dto.freezed.dart';
 part 'dictionary_word_dto.g.dart';
 
 @freezed
-abstract class DictionaryWordDto with _$DictionaryWordDto {
+class DictionaryWordDto with _$DictionaryWordDto {
   factory DictionaryWordDto({
-    @required String id,
-    @required String label,
+    required String id,
+    required String label,
   }) = _DictionaryWordDto;
 
   factory DictionaryWordDto.fromDomain(DictionaryWord dictionaryWord) {

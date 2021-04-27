@@ -4,17 +4,15 @@ import 'package:kt_dart/collection.dart';
 
 import '../../../domain/word_search/entities/headword_entry.dart';
 import 'lexical_entry_dto.dart';
-import 'pronunciation_dto.dart';
 
 part 'headword_entry_dto.freezed.dart';
 part 'headword_entry_dto.g.dart';
 
 @freezed
-abstract class HeadwordEntryDto with _$HeadwordEntryDto {
+class HeadwordEntryDto with _$HeadwordEntryDto {
   factory HeadwordEntryDto({
-    @required String id,
-    @required List<LexicalEntryDto> lexicalEntries,
-    List<PronunciationDto> pronunciations,
+    required String id,
+    required List<LexicalEntryDto> lexicalEntries,
   }) = _HeadwordEntryDto;
 
   factory HeadwordEntryDto.fromDomain(HeadwordEntry headwordEntry) {
@@ -40,10 +38,6 @@ abstract class HeadwordEntryDto with _$HeadwordEntryDto {
       for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
         _lexicalEntries.add(LexicalEntryDto.fromFakeData());
       }
-    }
-
-    if (_lexicalEntries == null) {
-      throw Exception();
     }
 
     return HeadwordEntryDto(

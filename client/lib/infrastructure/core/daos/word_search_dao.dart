@@ -24,7 +24,7 @@ class WordSearchDao {
     await _store.delete(await AppDatabase.instance.database, finder: finder);
   }
 
-  Future<WordSearchDto> findById(String id) async {
+  Future<WordSearchDto?> findById(String id) async {
     final finder = Finder(filter: Filter.equals('word.id', id));
     final recordOrNull = await _store.findFirst(await AppDatabase.instance.database, finder: finder);
     return recordOrNull == null ? null : WordSearchDto.fromJson(recordOrNull.value);

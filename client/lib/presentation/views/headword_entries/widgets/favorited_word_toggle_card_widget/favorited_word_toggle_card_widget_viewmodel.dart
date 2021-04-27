@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../../domain/core/entities/word_search.dart';
@@ -8,11 +7,11 @@ import '../../../home/widgets/favorited_words_viewmodel.dart';
 class FavoritedWordToggleCardViewModel extends BaseViewModel {
   WordSearch wordSearch;
 
-  FavoritedWordToggleCardViewModel({@required this.wordSearch});
+  FavoritedWordToggleCardViewModel({required this.wordSearch});
 
   final _favoritedWordsViewModel = getIt<FavoritedWordsViewModel>();
 
-  bool _isFavorited;
+  late bool _isFavorited;
   bool get isFavorited => _isFavorited;
 
   void initialise() {

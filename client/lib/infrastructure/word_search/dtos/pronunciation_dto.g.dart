@@ -8,7 +8,7 @@ part of 'pronunciation_dto.dart';
 
 _$_PronunciationDto _$_$_PronunciationDtoFromJson(Map<String, dynamic> json) {
   return _$_PronunciationDto(
-    audioFile: json['audioFile'] as String,
+    audioFile: json['audioFile'] as String?,
   );
 }
 

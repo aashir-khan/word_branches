@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'word_search_local_failure.dart';
 
@@ -9,43 +9,47 @@ part of 'word_search_local_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$WordSearchLocalFailureTearOff {
   const _$WordSearchLocalFailureTearOff();
 
-// ignore: unused_element
   _LocalDatabaseProcessingFailure localDatabaseProcessingFailure() {
     return const _LocalDatabaseProcessingFailure();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $WordSearchLocalFailure = _$WordSearchLocalFailureTearOff();
 
 /// @nodoc
 mixin _$WordSearchLocalFailure {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult localDatabaseProcessingFailure(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() localDatabaseProcessingFailure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult localDatabaseProcessingFailure(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? localDatabaseProcessingFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult localDatabaseProcessingFailure(
-            _LocalDatabaseProcessingFailure value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LocalDatabaseProcessingFailure value)
+        localDatabaseProcessingFailure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult localDatabaseProcessingFailure(
-        _LocalDatabaseProcessingFailure value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LocalDatabaseProcessingFailure value)?
+        localDatabaseProcessingFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -88,6 +92,7 @@ class __$LocalDatabaseProcessingFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LocalDatabaseProcessingFailure
     implements _LocalDatabaseProcessingFailure {
   const _$_LocalDatabaseProcessingFailure();
@@ -107,20 +112,18 @@ class _$_LocalDatabaseProcessingFailure
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult localDatabaseProcessingFailure(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() localDatabaseProcessingFailure,
   }) {
-    assert(localDatabaseProcessingFailure != null);
     return localDatabaseProcessingFailure();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult localDatabaseProcessingFailure(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? localDatabaseProcessingFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (localDatabaseProcessingFailure != null) {
       return localDatabaseProcessingFailure();
     }
@@ -129,23 +132,20 @@ class _$_LocalDatabaseProcessingFailure
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult localDatabaseProcessingFailure(
-            _LocalDatabaseProcessingFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LocalDatabaseProcessingFailure value)
+        localDatabaseProcessingFailure,
   }) {
-    assert(localDatabaseProcessingFailure != null);
     return localDatabaseProcessingFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult localDatabaseProcessingFailure(
-        _LocalDatabaseProcessingFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LocalDatabaseProcessingFailure value)?
+        localDatabaseProcessingFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (localDatabaseProcessingFailure != null) {
       return localDatabaseProcessingFailure(this);
     }

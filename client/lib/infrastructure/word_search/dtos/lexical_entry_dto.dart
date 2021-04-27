@@ -13,28 +13,28 @@ part 'lexical_entry_dto.freezed.dart';
 part 'lexical_entry_dto.g.dart';
 
 @freezed
-abstract class LexicalEntryDto with _$LexicalEntryDto {
+class LexicalEntryDto with _$LexicalEntryDto {
   const factory LexicalEntryDto({
-    @required List<EntryDto> entries,
-    @required IdTextDto lexicalCategory,
-    List<PronunciationDto> pronunciations,
-    List<RelatedEntryDto> derivativeOf,
+    required List<EntryDto> entries,
+    required IdTextDto lexicalCategory,
+    List<PronunciationDto>? pronunciations,
+    List<RelatedEntryDto>? derivativeOf,
   }) = _LexicalEntryDto;
 
   factory LexicalEntryDto.fromDomain(LexicalEntry lexicalEntry) {
     return LexicalEntryDto(
       entries: lexicalEntry.entries.map((entry) => EntryDto.fromDomain(entry)).asList(),
       lexicalCategory: IdTextDto.fromDomain(lexicalEntry.lexicalCategory),
-      pronunciations: lexicalEntry?.pronunciations
+      pronunciations: lexicalEntry.pronunciations
           ?.map(
             (pronunciation) => PronunciationDto.fromDomain(pronunciation),
           )
-          ?.asList(),
-      derivativeOf: lexicalEntry?.derivativeOf
+          .asList(),
+      derivativeOf: lexicalEntry.derivativeOf
           ?.map(
             (relatedEntry) => RelatedEntryDto.fromDomain(relatedEntry),
           )
-          ?.asList(),
+          .asList(),
     );
   }
 
@@ -80,10 +80,6 @@ abstract class LexicalEntryDto with _$LexicalEntryDto {
       }
     }
 
-    if (_entries == null || _lexicalCategory == null) {
-      throw Exception();
-    }
-
     return LexicalEntryDto(
       entries: _entries,
       pronunciations: _pronunciations,
@@ -97,9 +93,9 @@ extension LexicalEntryDtoX on LexicalEntryDto {
   LexicalEntry toDomain() {
     return LexicalEntry(
       entries: entries.map((entry) => entry.toDomain()).toImmutableList(),
-      pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain())?.toImmutableList(),
+      pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain()).toImmutableList(),
       lexicalCategory: lexicalCategory.toDomain(),
-      derivativeOf: derivativeOf?.map((relatedEntry) => relatedEntry.toDomain())?.toImmutableList(),
+      derivativeOf: derivativeOf?.map((relatedEntry) => relatedEntry.toDomain()).toImmutableList(),
     );
   }
 }

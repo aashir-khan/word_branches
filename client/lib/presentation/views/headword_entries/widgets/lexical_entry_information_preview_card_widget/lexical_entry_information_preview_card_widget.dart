@@ -15,10 +15,10 @@ class LexicalEntryInformationPreviewCard extends StatelessWidget {
   final int headwordEntryNumber;
 
   const LexicalEntryInformationPreviewCard({
-    Key key,
-    @required this.headwordEntry,
-    @required this.headwordEntryNumber,
-    @required this.lexicalEntry,
+    Key? key,
+    required this.headwordEntry,
+    required this.headwordEntryNumber,
+    required this.lexicalEntry,
   }) : super(key: key);
 
   @override
@@ -91,17 +91,19 @@ class LexicalEntryInformationPreviewCard extends StatelessWidget {
       sense.definitions != null ? sensesWithDefinitions.add(sense) : sensesWithoutDefinitions.add(sense);
     }
 
-    final _definitionsTextStyle = Theme.of(context).textTheme.subtitle1.copyWith(height: 1.5);
+    final _definitionsTextStyle = Theme.of(context).textTheme.subtitle1!.copyWith(height: 1.5);
 
     for (final senseWithDefinition in sensesWithDefinitions) {
-      widgets.add(
-        Text(
-          '- ${senseWithDefinition.definitions[0].capitalize()}',
-          style: _definitionsTextStyle,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-      );
+      if (senseWithDefinition.definitions != null && senseWithDefinition.definitions!.isNotEmpty()) {
+        widgets.add(
+          Text(
+            '- ${senseWithDefinition.definitions![0].capitalize()}',
+            style: _definitionsTextStyle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        );
+      }
     }
 
     if (sensesWithoutDefinitions.isNotEmpty) {

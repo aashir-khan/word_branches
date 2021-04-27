@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'text_type.dart';
 
@@ -9,12 +9,14 @@ part of 'text_type.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$TextTypeTearOff {
   const _$TextTypeTearOff();
 
-// ignore: unused_element
-  _TextType call({@required String text, @required String type}) {
+  _TextType call({required String text, required String type}) {
     return _TextType(
       text: text,
       type: type,
@@ -23,16 +25,16 @@ class _$TextTypeTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TextType = _$TextTypeTearOff();
 
 /// @nodoc
 mixin _$TextType {
-  String get text;
-  String get type;
+  String get text => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TextTypeCopyWith<TextType> get copyWith;
+  $TextTypeCopyWith<TextType> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -52,12 +54,18 @@ class _$TextTypeCopyWithImpl<$Res> implements $TextTypeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object text = freezed,
-    Object type = freezed,
+    Object? text = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed ? _value.text : text as String,
-      type: type == freezed ? _value.type : type as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -81,21 +89,26 @@ class __$TextTypeCopyWithImpl<$Res> extends _$TextTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object type = freezed,
+    Object? text = freezed,
+    Object? type = freezed,
   }) {
     return _then(_TextType(
-      text: text == freezed ? _value.text : text as String,
-      type: type == freezed ? _value.type : type as String,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_TextType implements _TextType {
-  const _$_TextType({@required this.text, @required this.type})
-      : assert(text != null),
-        assert(type != null);
+  const _$_TextType({required this.text, required this.type});
 
   @override
   final String text;
@@ -130,14 +143,15 @@ class _$_TextType implements _TextType {
 }
 
 abstract class _TextType implements TextType {
-  const factory _TextType({@required String text, @required String type}) =
+  const factory _TextType({required String text, required String type}) =
       _$_TextType;
 
   @override
-  String get text;
+  String get text => throw _privateConstructorUsedError;
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TextTypeCopyWith<_TextType> get copyWith;
+  _$TextTypeCopyWith<_TextType> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ import 'favorited_word_toggle_card_widget_viewmodel.dart';
 class FavoritedWordToggleCard extends HookWidget {
   final WordSearch wordSearch;
 
-  const FavoritedWordToggleCard({Key key, @required this.wordSearch}) : super(key: key);
+  const FavoritedWordToggleCard({Key? key, required this.wordSearch}) : super(key: key);
 
   void _handleError(BuildContext context, String error) {
     Flushbar(
@@ -39,7 +39,7 @@ class FavoritedWordToggleCard extends HookWidget {
       builder: (context, model, child) => ResponsiveSafeArea(
         builder: (context, size) {
           if (model.hasError) {
-            WidgetsBinding.instance.addPostFrameCallback((_) => _handleError(context, model.modelError as String));
+            WidgetsBinding.instance!.addPostFrameCallback((_) => _handleError(context, model.modelError as String));
           }
 
           return Container(

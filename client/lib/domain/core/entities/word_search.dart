@@ -7,11 +7,11 @@ import 'dictionary_word.dart';
 part 'word_search.freezed.dart';
 
 @freezed
-abstract class WordSearch with _$WordSearch {
+class WordSearch with _$WordSearch {
   const factory WordSearch({
-    @required DictionaryWord word,
-    KtList<HeadwordEntry> results,
-    @nullable @Default(false) bool isFavorited,
-    DateTime lastSearchedAt,
+    required DictionaryWord word,
+    required KtList<HeadwordEntry> results,
+    @Default(false) bool isFavorited,
+    DateTime? lastSearchedAt,
   }) = _WordSearch;
 }

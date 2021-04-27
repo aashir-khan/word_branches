@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -15,7 +14,7 @@ class DictionaryWordSearchLocalDataSource implements IWordSearchLocalDataSource 
   final WordSearchDao wordSearchDao;
 
   DictionaryWordSearchLocalDataSource({
-    @required this.wordSearchDao,
+    required this.wordSearchDao,
   });
 
   @override
@@ -33,7 +32,11 @@ class DictionaryWordSearchLocalDataSource implements IWordSearchLocalDataSource 
     try {
       final existingOrNullWordSearch = await wordSearchDao.findById(word.id);
       if (existingOrNullWordSearch == null) {
-        await wordSearchDao.insert(WordSearchDto(word: word, lastSearchedAt: DateTime.now().toIso8601String()));
+        await wordSearchDao.insert(WordSearchDto(
+          word: word,
+          lastSearchedAt: DateTime.now().toIso8601String(),
+          results: [],
+        ));
         return unit;
       } else {
         final updatedObj = existingOrNullWordSearch.copyWith(lastSearchedAt: DateTime.now().toIso8601String());
@@ -49,6 +52,11 @@ class DictionaryWordSearchLocalDataSource implements IWordSearchLocalDataSource 
   Future<Unit> deleteRecentSearch(WordSearchDto search) async {
     try {
       final existingSearch = await wordSearchDao.findById(search.word.id);
+
+      if (existingSearch == null) {
+        throw const WordSearchLocalException.localDatabaseProcessingException();
+      }
+
       if (existingSearch.isFavorited != true) {
         await wordSearchDao.delete(existingSearch);
         return unit;

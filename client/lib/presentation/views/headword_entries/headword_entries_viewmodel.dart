@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:word_branches/presentation/routes/app_pages.dart';
 
 import '../../../domain/core/entities/dictionary_word.dart';
 import '../../../domain/core/entities/word_search.dart';
@@ -9,23 +9,20 @@ import '../../../domain/word_search/entities/lexical_entry.dart';
 import '../../../domain/word_search/i_word_search_repository.dart';
 import '../../../domain/word_search/word_search_failure.dart';
 import '../../../injection.dart';
-import '../../routes/router.gr.dart';
 
 class HeadwordEntriesViewModel extends BaseViewModel {
   final DictionaryWord word;
 
-  HeadwordEntriesViewModel({@required this.word});
+  HeadwordEntriesViewModel({required this.word});
 
   final _wordSearchRepository = getIt<IWordSearchRepository>();
-  final _navigationService = getIt<NavigationService>();
 
-  WordSearch _searchDetails;
-  WordSearch get searchDetails => _searchDetails;
-  bool get haSearchDetails => _searchDetails != null && !_searchDetails.results.isEmpty();
+  WordSearch? _searchDetails;
+  WordSearch? get searchDetails => _searchDetails;
 
   KtList<_LexicalEntryWithItsHeadwordNumber> get lexicalEntriesWithHeadwordEntryNumber {
     final List<_LexicalEntryWithItsHeadwordNumber> _lexicalEntriesWithHeadwordNumber = [];
-    _searchDetails.results.forEachIndexed((headwordEntryIndex, headwordEntry) {
+    _searchDetails!.results.forEachIndexed((headwordEntryIndex, headwordEntry) {
       headwordEntry.lexicalEntries.forEach((lexicalEntry) {
         _lexicalEntriesWithHeadwordNumber.add(
           _LexicalEntryWithItsHeadwordNumber(
@@ -60,7 +57,7 @@ class HeadwordEntriesViewModel extends BaseViewModel {
   }
 
   Future navigateToHomeView() async {
-    await _navigationService.replaceWith(Routes.homeView);
+    await Get.offNamed(Routes.home);
   }
 }
 
@@ -83,8 +80,8 @@ class _LexicalEntryWithItsHeadwordNumber {
   final int headwordNumber;
 
   _LexicalEntryWithItsHeadwordNumber({
-    @required this.dictionaryWordName,
-    @required this.lexicalEntry,
-    @required this.headwordNumber,
+    required this.dictionaryWordName,
+    required this.lexicalEntry,
+    required this.headwordNumber,
   });
 }

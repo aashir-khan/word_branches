@@ -10,10 +10,10 @@ class EntryInformation extends StatelessWidget {
   final int headwordEntryNumber;
 
   const EntryInformation({
-    Key key,
-    @required this.headwordEntry,
-    @required this.headwordEntryNumber,
-    this.entry,
+    Key? key,
+    required this.headwordEntry,
+    required this.headwordEntryNumber,
+    required this.entry,
   }) : super(key: key);
 
   @override
@@ -30,7 +30,7 @@ class EntryInformation extends StatelessWidget {
       itemBuilder: (context, index) {
         final sense = senses[index];
 
-        return EtymologyAndSensesCard(
+        return SensesCard(
           headwordEntry: headwordEntry,
           senseNumber: index + 1,
           sense: sense,
@@ -40,14 +40,12 @@ class EntryInformation extends StatelessWidget {
       },
     ));
 
-    if (entry?.etymologies != null) {
+    if (entry.etymologies != null && !entry.etymologies!.isEmpty()) {
       widgets.addAll([
         const SizedBox(height: 16),
-        EtymologyAndSensesCard(
-          headwordEntry: headwordEntry,
+        EtymologyCard(
           heading: 'Etymologies',
-          etymologyText: entry.etymologies[0],
-          headwordEntryNumber: headwordEntryNumber,
+          etymologyText: entry.etymologies![0],
         )
       ]);
     }

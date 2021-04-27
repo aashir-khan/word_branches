@@ -4,10 +4,10 @@ import 'package:faker/faker.dart';
 part 'dictionary_word.freezed.dart';
 
 @freezed
-abstract class DictionaryWord with _$DictionaryWord {
+class DictionaryWord with _$DictionaryWord {
   const factory DictionaryWord({
-    @required String id,
-    @required String label,
+    required String id,
+    required String label,
   }) = _DictionaryWord;
 
   factory DictionaryWord.fromFakeData() {

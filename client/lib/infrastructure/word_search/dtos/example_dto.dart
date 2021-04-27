@@ -8,18 +8,18 @@ part 'example_dto.freezed.dart';
 part 'example_dto.g.dart';
 
 @freezed
-abstract class ExampleDto with _$ExampleDto {
+class ExampleDto with _$ExampleDto {
   const factory ExampleDto({
-    @required String text,
-    List<String> definitions,
-    List<IdTextDto> registers,
+    required String text,
+    List<String>? definitions,
+    List<IdTextDto>? registers,
   }) = _ExampleDto;
 
   factory ExampleDto.fromDomain(Example example) {
     return ExampleDto(
       text: example.text,
-      definitions: example?.definitions?.asList(),
-      registers: example?.registers?.map((register) => IdTextDto.fromDomain(register))?.asList(),
+      definitions: example.definitions?.asList(),
+      registers: example.registers?.map((register) => IdTextDto.fromDomain(register)).asList(),
     );
   }
 
@@ -29,10 +29,6 @@ abstract class ExampleDto with _$ExampleDto {
     final definitions = customFieldValues['definitions'] as List<String>;
     final registers = customFieldValues['registers'] as List<IdTextDto>;
     final text = customFieldValues['text'] as String;
-
-    if (text == null) {
-      throw Exception();
-    }
 
     return ExampleDto(
       definitions: definitions,
@@ -47,7 +43,7 @@ extension ExampleDtoX on ExampleDto {
     return Example(
       text: text,
       definitions: definitions?.toImmutableList(),
-      registers: registers?.map((register) => register.toDomain())?.toImmutableList(),
+      registers: registers?.map((register) => register.toDomain()).toImmutableList(),
     );
   }
 }

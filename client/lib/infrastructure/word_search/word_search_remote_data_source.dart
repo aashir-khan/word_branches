@@ -14,12 +14,12 @@ class WordSearchRemoteDataSource implements IWordSearchRemoteDataSource {
   final EnvVariables envVariables;
 
   WordSearchRemoteDataSource({
-    this.dio,
-    this.envVariables,
+    required this.dio,
+    required this.envVariables,
   });
 
   @override
-  Future<KtList<DictionaryWordDto>> getWordSearchResults({String query}) async {
+  Future<KtList<DictionaryWordDto>> getWordSearchResults({required String query}) async {
     final response = await dio.get(
       '/api/word-search?q=$query',
       options: Options(headers: envVariables.oxfordApiHeaders),

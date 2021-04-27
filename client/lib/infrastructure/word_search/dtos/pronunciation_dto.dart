@@ -6,9 +6,9 @@ part 'pronunciation_dto.freezed.dart';
 part 'pronunciation_dto.g.dart';
 
 @freezed
-abstract class PronunciationDto with _$PronunciationDto {
+class PronunciationDto with _$PronunciationDto {
   const factory PronunciationDto({
-    String audioFile,
+    String? audioFile,
   }) = _PronunciationDto;
 
   factory PronunciationDto.fromDomain(Pronunciation pronunciation) {

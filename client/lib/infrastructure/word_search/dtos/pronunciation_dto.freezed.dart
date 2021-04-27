@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'pronunciation_dto.dart';
 
@@ -8,6 +8,10 @@ part of 'pronunciation_dto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PronunciationDto _$PronunciationDtoFromJson(Map<String, dynamic> json) {
   return _PronunciationDto.fromJson(json);
 }
@@ -16,30 +20,28 @@ PronunciationDto _$PronunciationDtoFromJson(Map<String, dynamic> json) {
 class _$PronunciationDtoTearOff {
   const _$PronunciationDtoTearOff();
 
-// ignore: unused_element
-  _PronunciationDto call({String audioFile}) {
+  _PronunciationDto call({String? audioFile}) {
     return _PronunciationDto(
       audioFile: audioFile,
     );
   }
 
-// ignore: unused_element
   PronunciationDto fromJson(Map<String, Object> json) {
     return PronunciationDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PronunciationDto = _$PronunciationDtoTearOff();
 
 /// @nodoc
 mixin _$PronunciationDto {
-  String get audioFile;
+  String? get audioFile => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PronunciationDtoCopyWith<PronunciationDto> get copyWith;
+  $PronunciationDtoCopyWith<PronunciationDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -47,7 +49,7 @@ abstract class $PronunciationDtoCopyWith<$Res> {
   factory $PronunciationDtoCopyWith(
           PronunciationDto value, $Res Function(PronunciationDto) then) =
       _$PronunciationDtoCopyWithImpl<$Res>;
-  $Res call({String audioFile});
+  $Res call({String? audioFile});
 }
 
 /// @nodoc
@@ -61,10 +63,13 @@ class _$PronunciationDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object audioFile = freezed,
+    Object? audioFile = freezed,
   }) {
     return _then(_value.copyWith(
-      audioFile: audioFile == freezed ? _value.audioFile : audioFile as String,
+      audioFile: audioFile == freezed
+          ? _value.audioFile
+          : audioFile // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -76,7 +81,7 @@ abstract class _$PronunciationDtoCopyWith<$Res>
           _PronunciationDto value, $Res Function(_PronunciationDto) then) =
       __$PronunciationDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String audioFile});
+  $Res call({String? audioFile});
 }
 
 /// @nodoc
@@ -92,17 +97,19 @@ class __$PronunciationDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object audioFile = freezed,
+    Object? audioFile = freezed,
   }) {
     return _then(_PronunciationDto(
-      audioFile: audioFile == freezed ? _value.audioFile : audioFile as String,
+      audioFile: audioFile == freezed
+          ? _value.audioFile
+          : audioFile // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_PronunciationDto implements _PronunciationDto {
   const _$_PronunciationDto({this.audioFile});
 
@@ -110,7 +117,7 @@ class _$_PronunciationDto implements _PronunciationDto {
       _$_$_PronunciationDtoFromJson(json);
 
   @override
-  final String audioFile;
+  final String? audioFile;
 
   @override
   String toString() {
@@ -142,14 +149,15 @@ class _$_PronunciationDto implements _PronunciationDto {
 }
 
 abstract class _PronunciationDto implements PronunciationDto {
-  const factory _PronunciationDto({String audioFile}) = _$_PronunciationDto;
+  const factory _PronunciationDto({String? audioFile}) = _$_PronunciationDto;
 
   factory _PronunciationDto.fromJson(Map<String, dynamic> json) =
       _$_PronunciationDto.fromJson;
 
   @override
-  String get audioFile;
+  String? get audioFile => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PronunciationDtoCopyWith<_PronunciationDto> get copyWith;
+  _$PronunciationDtoCopyWith<_PronunciationDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

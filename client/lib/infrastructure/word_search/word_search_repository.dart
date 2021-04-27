@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -25,14 +24,14 @@ class WordSearchRepository implements IWordSearchRepository {
   final INetworkInfo networkInfo;
 
   WordSearchRepository({
-    @required this.remoteDataSource,
-    @required this.localDataSource,
-    @required this.networkInfo,
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.networkInfo,
   });
 
   @override
   Future<Either<WordSearchRemoteFailure, KtList<DictionaryWord>>> getWordSearchResults(
-      {String query, Map<String, dynamic> options = const {}}) async {
+      {required String query, Map<String, dynamic> options = const {}}) async {
     if (await networkInfo.isNotConnected) {
       return const Left(WordSearchRemoteFailure.networkError());
     }

@@ -1,6 +1,8 @@
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:get/get.dart';
+import 'package:word_branches/presentation/routes/app_pages.dart';
+import 'package:word_branches/presentation/views/headword_entries/headword_entries_view.dart';
 
 import '../../../domain/core/entities/dictionary_word.dart';
 import '../../../domain/core/entities/word_search.dart';
@@ -8,24 +10,22 @@ import '../../../domain/word_search/i_word_search_repository.dart';
 import '../../../domain/word_search/word_search_local_failure.dart';
 import '../../../domain/word_search/word_search_remote_failure.dart';
 import '../../../injection.dart';
-import '../../routes/router.gr.dart';
 
 class SearchViewModel extends BaseViewModel {
   final _dictionaryWordSearchRepository = getIt<IWordSearchRepository>();
-  final _navigationService = getIt<NavigationService>();
 
   String _query = '';
   String get query => _query;
 
-  KtList<DictionaryWord> _searchResults;
-  KtList<DictionaryWord> get searchResults => _searchResults;
-  bool get hasEmptySearchResults => searchResults != null && searchResults.isEmpty();
-  bool get hasSomeSearchResults => searchResults != null && !searchResults.isEmpty();
+  KtList<DictionaryWord>? _searchResults;
+  KtList<DictionaryWord>? get searchResults => _searchResults;
+  bool get hasEmptySearchResults => searchResults != null && searchResults!.isEmpty();
+  bool get hasSomeSearchResults => searchResults != null && !searchResults!.isEmpty();
 
-  KtList<WordSearch> _recentSearches;
-  KtList<WordSearch> get recentSearches => _recentSearches;
-  bool get hasEmptyRecentSearches => recentSearches != null && recentSearches.isEmpty();
-  bool get hasSomeRecentSearches => recentSearches != null && !recentSearches.isEmpty();
+  KtList<WordSearch>? _recentSearches;
+  KtList<WordSearch>? get recentSearches => _recentSearches;
+  bool get hasEmptyRecentSearches => recentSearches != null && recentSearches!.isEmpty();
+  bool get hasSomeRecentSearches => recentSearches != null && !recentSearches!.isEmpty();
 
   Future initialise() async {
     await getRecentSearches();
@@ -53,7 +53,7 @@ class SearchViewModel extends BaseViewModel {
   Future<bool> addRecentSearch(DictionaryWord word) async {
     setBusy(true);
     final resultEither = await _dictionaryWordSearchRepository.addRecentSearch(word);
-    bool isAdditionSuccessful;
+    late bool isAdditionSuccessful;
 
     resultEither.fold(
       (failure) {
@@ -95,13 +95,15 @@ class SearchViewModel extends BaseViewModel {
   Future viewSearchResultsForWord(DictionaryWord word) async {
     final isAdditionSuccessful = await addRecentSearch(word);
     if (isAdditionSuccessful) {
-      await _navigationService.replaceWith(Routes.headwordEntriesView,
-          arguments: HeadwordEntriesViewArguments(word: word));
+      await Get.toNamed(
+        Routes.headwordEntriesView,
+        arguments: HeadwordEntriesViewRouteArgs(word: word),
+      );
     }
   }
 
   Future navigateToHomeView() async {
-    await _navigationService.replaceWith(Routes.homeView);
+    await Get.offNamed(Routes.home);
   }
 
   void resetQueryText() {
@@ -110,8 +112,10 @@ class SearchViewModel extends BaseViewModel {
   }
 
   Future navigateToHeadwordEntriesView(WordSearch recentSearch) async {
-    await _navigationService.navigateTo(Routes.headwordEntriesView,
-        arguments: HeadwordEntriesViewArguments(word: recentSearch.word));
+    await Get.toNamed(
+      Routes.headwordEntriesView,
+      arguments: HeadwordEntriesViewRouteArgs(word: recentSearch.word),
+    );
   }
 }
 

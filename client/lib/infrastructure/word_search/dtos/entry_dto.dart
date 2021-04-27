@@ -10,19 +10,18 @@ part 'entry_dto.freezed.dart';
 part 'entry_dto.g.dart';
 
 @freezed
-abstract class EntryDto with _$EntryDto {
+class EntryDto with _$EntryDto {
   const factory EntryDto({
-    List<String> etymologies,
-    @required List<SenseDto> senses,
-    List<PronunciationDto> pronunciations,
+    List<String>? etymologies,
+    required List<SenseDto> senses,
+    List<PronunciationDto>? pronunciations,
   }) = _EntryDto;
 
   factory EntryDto.fromDomain(Entry entry) {
     return EntryDto(
-      etymologies: entry?.etymologies?.asList(),
+      etymologies: entry.etymologies?.asList(),
       senses: entry.senses.map((sense) => SenseDto.fromDomain(sense)).asList(),
-      pronunciations:
-          entry?.pronunciations?.map((pronunciation) => PronunciationDto.fromDomain(pronunciation))?.asList(),
+      pronunciations: entry.pronunciations?.map((pronunciation) => PronunciationDto.fromDomain(pronunciation)).asList(),
     );
   }
 
@@ -59,10 +58,6 @@ abstract class EntryDto with _$EntryDto {
       }
     }
 
-    if (_senses == null) {
-      throw Exception();
-    }
-
     return EntryDto(
       etymologies: _etymologies,
       senses: _senses,
@@ -75,8 +70,8 @@ extension EntryDtoX on EntryDto {
   Entry toDomain() {
     return Entry(
       etymologies: etymologies?.toImmutableList(),
-      senses: senses?.map((sense) => sense.toDomain())?.toImmutableList(),
-      pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain())?.toImmutableList(),
+      senses: senses.map((sense) => sense.toDomain()).toImmutableList(),
+      pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain()).toImmutableList(),
     );
   }
 }

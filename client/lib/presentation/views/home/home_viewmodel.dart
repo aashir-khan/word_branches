@@ -1,13 +1,9 @@
+import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
-
-import '../../../injection.dart';
-import '../../routes/router.gr.dart';
+import 'package:word_branches/presentation/routes/app_pages.dart';
 
 class HomeViewModel extends BaseViewModel {
-  final _navigationService = getIt<NavigationService>();
-
   void navigateToSearch() {
-    _navigationService.replaceWith(Routes.searchView);
+    Get.offNamed(Routes.searchView);
   }
 }

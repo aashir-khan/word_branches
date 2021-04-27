@@ -30,13 +30,13 @@ class FavoritedWordsWidget extends StatelessWidget {
         if (model.isBusy) {
           return LoadingIndicator();
         } else if (model.hasError) {
-          WidgetsBinding.instance.addPostFrameCallback((_) => _handleError(context, model.modelError as String));
+          WidgetsBinding.instance!.addPostFrameCallback((_) => _handleError(context, model.modelError as String));
           return Container();
         }
 
         final favoritedSearches = model.favoritedSearches;
 
-        return favoritedSearches == null || favoritedSearches.isEmpty()
+        return favoritedSearches.isEmpty()
             ? const FavoritedWordsListEmpty()
             : ListView.separated(
                 separatorBuilder: (_, __) => const SizedBox(height: 12),
