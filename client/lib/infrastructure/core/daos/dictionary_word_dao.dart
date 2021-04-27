@@ -1,11 +1,10 @@
 import 'package:injectable/injectable.dart';
 import 'package:sembast/sembast.dart';
 
-import '../../../injection.dart';
 import '../app_database.dart';
 import '../dtos/dictionary_word_dto.dart';
 
-@LazySingleton(env: [Env.development])
+@LazySingleton(env: [Environment.dev])
 class DictionaryWordDao {
   static const String storeName = 'dictionaryWord';
 

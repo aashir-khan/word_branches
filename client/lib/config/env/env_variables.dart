@@ -1,17 +1,15 @@
 import 'package:injectable/injectable.dart';
 import 'package:word_branches/config/env/env_config.dart';
 
-import '../../injection.dart';
-
-@LazySingleton()
+@LazySingleton(env: [Environment.dev, Environment.prod])
 class EnvVariables {
   String baseApiUrl;
   Map<String, String> oxfordApiHeaders;
 
-  EnvVariables(String environment) {
-    if (environment == Env.production) {
+  EnvVariables(Environment environment) {
+    if (environment.name == Environment.prod) {
       baseApiUrl = EnvConfig.baseApiUrlProd;
-    } else if (environment == Env.development) {
+    } else if (environment.name == Environment.dev) {
       baseApiUrl = EnvConfig.baseApiUrlDev;
     }
 

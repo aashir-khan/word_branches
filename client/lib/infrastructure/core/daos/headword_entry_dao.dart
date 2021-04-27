@@ -1,12 +1,11 @@
 import 'package:injectable/injectable.dart';
 import 'package:sembast/sembast.dart';
 
-import '../../../injection.dart';
 import '../../word_search/dtos/headword_entry_dto.dart';
 import '../app_database.dart';
 import '../dtos/dictionary_word_dto.dart';
 
-@LazySingleton(env: [Env.development])
+@LazySingleton(env: [Environment.dev])
 class HeadwordEntryDao {
   static const String storeName = 'headwordEntry';
 

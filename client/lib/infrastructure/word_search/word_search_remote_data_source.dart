@@ -4,12 +4,11 @@ import 'package:kt_dart/collection.dart';
 import 'package:word_branches/config/env/env_variables.dart';
 
 import '../../domain/word_search/i_word_search_remote_data_source.dart';
-import '../../injection.dart';
 import '../core/dtos/dictionary_word_dto.dart';
 import 'dtos/headword_entry_dto.dart';
 import 'word_search_remote_exception.dart';
 
-@LazySingleton(as: IWordSearchRemoteDataSource, env: [Env.production, Env.development])
+@LazySingleton(as: IWordSearchRemoteDataSource, env: [Environment.prod, Environment.dev])
 class WordSearchRemoteDataSource implements IWordSearchRemoteDataSource {
   final Dio dio;
   final EnvVariables envVariables;
@@ -22,7 +21,7 @@ class WordSearchRemoteDataSource implements IWordSearchRemoteDataSource {
   @override
   Future<KtList<DictionaryWordDto>> getWordSearchResults({String query}) async {
     final response = await dio.get(
-      '${envVariables.baseApiUrl}/api/word-search?q=$query',
+      '/api/word-search?q=$query',
       options: Options(headers: envVariables.oxfordApiHeaders),
     );
 
@@ -41,8 +40,8 @@ class WordSearchRemoteDataSource implements IWordSearchRemoteDataSource {
 
   @override
   Future<KtList<HeadwordEntryDto>> getWordEntries(DictionaryWordDto word) async {
-    final response = await dio.get('${envVariables.baseApiUrl}/api/word-entries/${word.id}',
-        options: Options(headers: envVariables.oxfordApiHeaders));
+    final response =
+        await dio.get('/api/word-entries/${word.id}', options: Options(headers: envVariables.oxfordApiHeaders));
 
     if (response.statusCode == 200) {
       final List<HeadwordEntryDto> entries = [];

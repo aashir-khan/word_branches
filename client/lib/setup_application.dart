@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:word_branches/config/env/env_variables.dart';
+import 'package:injectable/injectable.dart';
 
 import 'injection.dart';
 import 'mirage/mirage.dart';
@@ -7,10 +7,9 @@ import 'mirage/mirage.dart';
 Future setupApplication(String environment) async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  configureInjection(environment);
-  getIt.registerLazySingleton<EnvVariables>(() => EnvVariables(environment));
+  configureInjection(Environment(environment));
 
-  if (environment == Env.test) {
+  if (environment == Environment.test) {
     setupMirage();
   }
 }
