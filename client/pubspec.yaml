@@ -29,7 +29,6 @@ dependencies:
       url: https://github.com/hurshi/dio-http-cache.git
   another_flushbar: ^1.10.20
   audioplayers: ^0.18.3
-  auto_route: ^2.0.1
   connectivity: ^3.0.3
   cupertino_icons: ^1.0.2
   dartz: 0.10.0-nullsafety.1
@@ -53,7 +52,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  auto_route_generator: ^2.0.1
   build_runner: ^2.0.1
   faker: ^2.0.0-rc.2
   freezed: ^0.14.1+3
