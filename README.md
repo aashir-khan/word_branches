@@ -4,6 +4,8 @@
 
 [Web Demo](https://word-branches.web.app/)
 
+macOS (requires v10.11+) binary available as well in Releases tab
+
 Get access to the largest and most trusted online dictionary (Oxford Dictionary) in the palm of your hand. With information on more than 600,000 words in the English language, get ready to level up your English game, whether you are preparing for an English exam, improving your proficiency of the language, or just trying to figure out what that word you heard someone say means. What does proficiency mean you ask? What better way to find out than to download the app and search it!
 
 Features:
