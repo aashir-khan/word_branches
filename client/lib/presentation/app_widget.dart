@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: colors.primaryColorDark));
 
     return GetMaterialApp(
-      title: 'Dr. Words',
+      title: 'Word Branches',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: AppPages.initial,
