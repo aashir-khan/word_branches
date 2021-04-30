@@ -1,7 +1,7 @@
-import 'package:get/get.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:stacked/stacked.dart';
-import 'package:word_branches/presentation/routes/app_pages.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:word_branches/presentation/router/app_router.router.dart';
 
 import '../../../domain/core/entities/dictionary_word.dart';
 import '../../../domain/core/entities/word_search.dart';
@@ -16,6 +16,7 @@ class HeadwordEntriesViewModel extends BaseViewModel {
   HeadwordEntriesViewModel({required this.word});
 
   final _wordSearchRepository = getIt<IWordSearchRepository>();
+  final _navigationService = getIt<NavigationService>();
 
   WordSearch? _searchDetails;
   WordSearch? get searchDetails => _searchDetails;
@@ -57,7 +58,7 @@ class HeadwordEntriesViewModel extends BaseViewModel {
   }
 
   Future navigateToHomeView() async {
-    await Get.offNamed(Routes.home);
+    await _navigationService.replaceWith(Routes.homeView);
   }
 }
 

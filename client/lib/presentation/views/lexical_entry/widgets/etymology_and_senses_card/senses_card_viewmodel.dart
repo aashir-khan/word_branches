@@ -1,13 +1,15 @@
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
-import 'package:get/get.dart';
-import 'package:word_branches/presentation/routes/app_pages.dart';
-import 'package:word_branches/presentation/views/subsense_details/subsense_details_view.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:word_branches/presentation/router/app_router.router.dart';
 
 import '../../../../../domain/word_search/entities/headword_entry.dart';
 import '../../../../../domain/word_search/entities/sense.dart';
+import '../../../../../injection.dart';
 
 class SensesCardViewModel extends BaseViewModel {
+  final _navigationService = getIt<NavigationService>();
+
   late HeadwordEntry _headwordEntry;
   HeadwordEntry get headwordEntry => _headwordEntry;
 
@@ -29,12 +31,11 @@ class SensesCardViewModel extends BaseViewModel {
   }
 
   Future navigateToSubsenseDetailsView() async {
-    await Get.toNamed(
+    await _navigationService.navigateTo(
       Routes.subsenseDetailsView,
-      arguments: SubsenseDetailsViewRouteArgs(
+      arguments: SubsenseDetailsViewArguments(
         headwordEntry: _headwordEntry,
         parentSenseDefinition: _sense.definitions![0],
-        // null operator not working here so using emptyList() to get compiler to cooperate
         subsenses: _sense.subsenses ?? emptyList(),
         headwordEntryNumber: _headwordEntryNumber,
       ),

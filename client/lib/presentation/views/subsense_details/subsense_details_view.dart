@@ -2,7 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:get/get.dart';
+
 import 'package:kt_dart/collection.dart';
 
 import '../../../domain/word_search/entities/headword_entry.dart';
@@ -14,9 +14,22 @@ import '../lexical_entry/widgets/etymology_and_senses_card/etymology_and_senses_
 import '../utils/ui_utils.dart';
 
 class SubsenseDetailsView extends HookWidget {
-  List<Widget> buildActions(BuildContext context, SubsenseDetailsViewRouteArgs arguments) {
+  final HeadwordEntry headwordEntry;
+  final KtList<Sense> subsenses;
+  final String parentSenseDefinition;
+  final int headwordEntryNumber;
+
+  const SubsenseDetailsView({
+    Key? key,
+    required this.headwordEntry,
+    required this.subsenses,
+    required this.parentSenseDefinition,
+    required this.headwordEntryNumber,
+  }) : super(key: key);
+
+  List<Widget> buildActions(BuildContext context) {
     final List<Widget> widgets = [];
-    final audioFile = arguments.headwordEntry.audioFile;
+    final audioFile = headwordEntry.audioFile;
 
     widgets.add(
       IconButton(
@@ -44,8 +57,7 @@ class SubsenseDetailsView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final arguments = Get.arguments as SubsenseDetailsViewRouteArgs;
-    final senses = arguments.subsenses;
+    final senses = subsenses;
     final tooltipKey = GlobalKey();
     return Scaffold(
       appBar: AppBar(
@@ -56,14 +68,13 @@ class SubsenseDetailsView extends HookWidget {
           },
           child: Tooltip(
             key: tooltipKey,
-            message: arguments.headwordEntry.wordLabel,
+            message: headwordEntry.wordLabel,
             showDuration: Duration.zero,
-            child: UIUtils.buildTextWithSuperscript(
-                context, arguments.headwordEntry.wordLabel, arguments.headwordEntryNumber.toString(),
+            child: UIUtils.buildTextWithSuperscript(context, headwordEntry.wordLabel, headwordEntryNumber.toString(),
                 textColor: Colors.white),
           ),
         ),
-        actions: buildActions(context, arguments),
+        actions: buildActions(context),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -75,7 +86,7 @@ class SubsenseDetailsView extends HookWidget {
               width: double.infinity,
               color: colors.primaryColorLight,
               child: Text(
-                arguments.parentSenseDefinition,
+                parentSenseDefinition,
                 style: const TextStyle(
                   fontSize: 18,
                   color: Colors.white,
@@ -94,11 +105,11 @@ class SubsenseDetailsView extends HookWidget {
                   final sense = senses.get(index);
 
                   return SensesCard(
-                    headwordEntry: arguments.headwordEntry,
+                    headwordEntry: headwordEntry,
                     senseNumber: index + 1,
                     sense: sense,
                     totalSenses: senses.size,
-                    headwordEntryNumber: arguments.headwordEntryNumber,
+                    headwordEntryNumber: headwordEntryNumber,
                   );
                 },
               ),
@@ -108,19 +119,4 @@ class SubsenseDetailsView extends HookWidget {
       ),
     );
   }
-}
-
-class SubsenseDetailsViewRouteArgs {
-  final Key? key;
-  final HeadwordEntry headwordEntry;
-  final KtList<Sense> subsenses;
-  final String parentSenseDefinition;
-  final int headwordEntryNumber;
-  SubsenseDetailsViewRouteArgs({
-    this.key,
-    required this.headwordEntry,
-    required this.subsenses,
-    required this.parentSenseDefinition,
-    required this.headwordEntryNumber,
-  });
 }

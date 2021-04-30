@@ -1,9 +1,8 @@
-import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
-import 'package:word_branches/presentation/routes/app_pages.dart';
-import 'package:word_branches/presentation/views/headword_entries/headword_entries_view.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:word_branches/presentation/router/app_router.router.dart';
 
 import '../../../../domain/core/entities/word_search.dart';
 import '../../../../domain/favorited_words/favorited_words_failure.dart';
@@ -15,6 +14,7 @@ import '../../../../injection.dart';
 class FavoritedWordsViewModel extends BaseViewModel {
   final _favoritedWordsRepository = getIt<IFavoritedWordsRepository>();
   final _wordSearchRepository = getIt<IWordSearchRepository>();
+  final _navigationService = getIt<NavigationService>();
 
   late KtList<WordSearch> _favoritedSearches;
   KtList<WordSearch> get favoritedSearches => _favoritedSearches;
@@ -80,9 +80,9 @@ class FavoritedWordsViewModel extends BaseViewModel {
     final resultEither = await _wordSearchRepository.addRecentSearch(favoritedSearch.word);
 
     resultEither.fold((failure) => null, (search) async {
-      await Get.offNamed(
+      await _navigationService.replaceWith(
         Routes.headwordEntriesView,
-        arguments: HeadwordEntriesViewRouteArgs(word: favoritedSearch.word),
+        arguments: HeadwordEntriesViewArguments(word: favoritedSearch.word),
       );
     });
   }

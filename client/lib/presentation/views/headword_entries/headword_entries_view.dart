@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:stacked/stacked.dart';
 import 'package:word_branches/domain/core/entities/dictionary_word.dart';
 import '../../core/constants/app_colors.dart' as colors;
@@ -11,6 +11,10 @@ import 'widgets/favorited_word_toggle_card_widget/favorited_word_toggle_card_wid
 import 'widgets/lexical_entry_information_preview_card_widget/lexical_entry_information_preview_card_widget.dart';
 
 class HeadwordEntriesView extends StatelessWidget {
+  final DictionaryWord word;
+
+  const HeadwordEntriesView({required this.word});
+
   Widget buildBody(BuildContext context, HeadwordEntriesViewModel model) {
     if (model.isBusy) {
       return LoadingIndicator();
@@ -78,11 +82,7 @@ class HeadwordEntriesView extends StatelessWidget {
           body: buildBody(context, model),
         );
       },
-      viewModelBuilder: () {
-        final arguments = Get.arguments as HeadwordEntriesViewRouteArgs;
-        final word = arguments.word;
-        return HeadwordEntriesViewModel(word: word);
-      },
+      viewModelBuilder: () => HeadwordEntriesViewModel(word: word),
     );
   }
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
-import 'package:word_branches/presentation/routes/app_pages.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 import 'core/constants/app_colors.dart' as colors;
 import 'core/constants/theme_data.dart';
+import 'router/app_router.router.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -15,8 +16,8 @@ class AppWidget extends StatelessWidget {
       title: 'Word Branches',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }

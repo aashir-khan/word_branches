@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 @module
 abstract class InjectableModule {
@@ -13,4 +14,7 @@ abstract class InjectableModule {
 
   @lazySingleton
   AudioPlayer get audioPlayer => AudioPlayer();
+
+  @lazySingleton
+  NavigationService get navigationService => NavigationService();
 }

@@ -1,12 +1,14 @@
-import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
-import 'package:word_branches/presentation/routes/app_pages.dart';
-import 'package:word_branches/presentation/views/lexical_entry/lexical_entry_view.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:word_branches/presentation/router/app_router.router.dart';
 
 import '../../../../../domain/word_search/entities/headword_entry.dart';
 import '../../../../../domain/word_search/entities/lexical_entry.dart';
+import '../../../../../injection.dart';
 
 class LexicalEntryInformationPreviewCardViewModel extends BaseViewModel {
+  final _navigationService = getIt<NavigationService>();
+
   late HeadwordEntry _headwordEntry;
   HeadwordEntry get headwordEntry => _headwordEntry;
 
@@ -28,9 +30,9 @@ class LexicalEntryInformationPreviewCardViewModel extends BaseViewModel {
   }
 
   Future navigateToLexicalEntryView() async {
-    await Get.toNamed(
+    await _navigationService.navigateTo(
       Routes.lexicalEntryView,
-      arguments: LexicalEntryViewRouteArgs(
+      arguments: LexicalEntryViewArguments(
         headwordEntry: _headwordEntry,
         lexicalEntry: _lexicalEntry,
         headwordEntryNumber: _headwordEntryNumber,

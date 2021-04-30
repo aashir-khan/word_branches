@@ -1,7 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:get/get.dart';
 
 import '../../../domain/word_search/entities/entry.dart';
 import '../../../domain/word_search/entities/headword_entry.dart';
@@ -13,9 +12,19 @@ import '../utils/ui_utils.dart';
 import 'widgets/entry_information_widget.dart';
 
 class LexicalEntryView extends HookWidget {
-  List<Widget> buildActions(BuildContext context, LexicalEntryViewRouteArgs arguments) {
+  final HeadwordEntry headwordEntry;
+  final LexicalEntry lexicalEntry;
+  final int headwordEntryNumber;
+
+  const LexicalEntryView({
+    required this.headwordEntry,
+    required this.lexicalEntry,
+    required this.headwordEntryNumber,
+  });
+
+  List<Widget> buildActions(BuildContext context) {
     final List<Widget> widgets = [];
-    final audioFile = arguments.headwordEntry.audioFile;
+    final audioFile = headwordEntry.audioFile;
 
     if (audioFile != null) {
       widgets.add(
@@ -32,9 +41,6 @@ class LexicalEntryView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final tooltipKey = GlobalKey();
-    final arguments = Get.arguments as LexicalEntryViewRouteArgs;
-    final headwordEntry = arguments.headwordEntry;
-    final headwordEntryNumber = arguments.headwordEntryNumber;
 
     return Scaffold(
       appBar: AppBar(
@@ -51,38 +57,38 @@ class LexicalEntryView extends HookWidget {
                 textColor: Colors.white),
           ),
         ),
-        actions: buildActions(context, arguments),
+        actions: buildActions(context),
       ),
-      body: _buildBody(arguments),
+      body: _buildBody(),
     );
   }
 
-  Widget _buildBody(LexicalEntryViewRouteArgs arguments) {
+  Widget _buildBody() {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          ListTile(title: _buildWidgetHeaderContent(arguments)),
-          _buildSingleEntryWidget(arguments.lexicalEntry.entries[0], arguments),
+          ListTile(title: _buildWidgetHeaderContent()),
+          _buildSingleEntryWidget(lexicalEntry.entries[0]),
         ],
       ),
     );
   }
 
-  Widget _buildWidgetHeaderContent(LexicalEntryViewRouteArgs arguments) {
+  Widget _buildWidgetHeaderContent() {
     final List<Widget> _wrapWidgets = [];
     _wrapWidgets.add(
       Text(
-        arguments.lexicalEntry.lexicalCategory.text,
+        lexicalEntry.lexicalCategory.text,
         style: const TextStyle(color: colors.secondaryColor, fontWeight: FontWeight.bold),
       ),
     );
 
-    if (arguments.lexicalEntry.derivativeOf != null && !arguments.lexicalEntry.derivativeOf!.isEmpty()) {
+    if (lexicalEntry.derivativeOf != null) {
       _wrapWidgets.addAll(
         [
           const SizedBox(width: 5),
           Text(
-            "(Derivative of ${arguments.lexicalEntry.derivativeOf![0].text})",
+            "(Derivative of ${lexicalEntry.derivativeOf![0].text})",
             style: const TextStyle(
               fontStyle: FontStyle.italic,
               color: colors.secondaryColorLight,
@@ -95,25 +101,14 @@ class LexicalEntryView extends HookWidget {
     return Wrap(children: _wrapWidgets);
   }
 
-  Widget _buildSingleEntryWidget(Entry entry, LexicalEntryViewRouteArgs arguments) {
+  Widget _buildSingleEntryWidget(Entry entry) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       child: EntryInformation(
         entry: entry,
-        headwordEntry: arguments.headwordEntry,
-        headwordEntryNumber: arguments.headwordEntryNumber,
+        headwordEntry: headwordEntry,
+        headwordEntryNumber: headwordEntryNumber,
       ),
     );
   }
-}
-
-class LexicalEntryViewRouteArgs {
-  final HeadwordEntry headwordEntry;
-  final LexicalEntry lexicalEntry;
-  final int headwordEntryNumber;
-  LexicalEntryViewRouteArgs({
-    required this.headwordEntry,
-    required this.lexicalEntry,
-    required this.headwordEntryNumber,
-  });
 }

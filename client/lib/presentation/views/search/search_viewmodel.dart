@@ -1,8 +1,7 @@
 import 'package:kt_dart/collection.dart';
 import 'package:stacked/stacked.dart';
-import 'package:get/get.dart';
-import 'package:word_branches/presentation/routes/app_pages.dart';
-import 'package:word_branches/presentation/views/headword_entries/headword_entries_view.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:word_branches/presentation/router/app_router.router.dart';
 
 import '../../../domain/core/entities/dictionary_word.dart';
 import '../../../domain/core/entities/word_search.dart';
@@ -13,6 +12,7 @@ import '../../../injection.dart';
 
 class SearchViewModel extends BaseViewModel {
   final _dictionaryWordSearchRepository = getIt<IWordSearchRepository>();
+  final _navigationService = getIt<NavigationService>();
 
   String _query = '';
   String get query => _query;
@@ -95,15 +95,13 @@ class SearchViewModel extends BaseViewModel {
   Future viewSearchResultsForWord(DictionaryWord word) async {
     final isAdditionSuccessful = await addRecentSearch(word);
     if (isAdditionSuccessful) {
-      await Get.toNamed(
-        Routes.headwordEntriesView,
-        arguments: HeadwordEntriesViewRouteArgs(word: word),
-      );
+      await _navigationService.replaceWith(Routes.headwordEntriesView,
+          arguments: HeadwordEntriesViewArguments(word: word));
     }
   }
 
   Future navigateToHomeView() async {
-    await Get.offNamed(Routes.home);
+    await _navigationService.replaceWith(Routes.homeView);
   }
 
   void resetQueryText() {
@@ -112,9 +110,9 @@ class SearchViewModel extends BaseViewModel {
   }
 
   Future navigateToHeadwordEntriesView(WordSearch recentSearch) async {
-    await Get.toNamed(
+    await _navigationService.navigateTo(
       Routes.headwordEntriesView,
-      arguments: HeadwordEntriesViewRouteArgs(word: recentSearch.word),
+      arguments: HeadwordEntriesViewArguments(word: recentSearch.word),
     );
   }
 }
