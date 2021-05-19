@@ -24,3 +24,25 @@ Features:
 4. Go deeper on your quest to increase your knowledge by viewing submeanings to specific meaning of a word. Not sure what we mean? Take a look at the screenshots!
 
 5. Save those word searches you want to have quick access to in the future by favoriting them, allowing you to see all your favorited searches at a glance.
+
+To run the client:
+
+1.
+Rename `lib/config/env/env_config.dart.template` to `lib/config/env/env_config.dart` and configure secrets.
+
+2.
+
+Inside `client` directory, run:
+
+```bash
+flutter pub get
+flutter pub run build_runner --delete-conflicting-outputs
+flutter run -t lib/main/main_{production/development/test}.dart # depending on which environment you wish to run it
+```
+
+To run the server, inside the `server` directory, run:
+
+```bash
+yarn
+yarn run start:dev
+```
