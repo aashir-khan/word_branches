@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 
 import '../../../domain/word_search/entities/example.dart';
 import '../../core/dtos/id_text_dto.dart';
@@ -24,18 +25,6 @@ class ExampleDto with _$ExampleDto {
   }
 
   factory ExampleDto.fromJson(Map<String, dynamic> json) => _$ExampleDtoFromJson(json);
-
-  factory ExampleDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    final definitions = customFieldValues['definitions'] as List<String>;
-    final registers = customFieldValues['registers'] as List<IdTextDto>;
-    final text = customFieldValues['text'] as String;
-
-    return ExampleDto(
-      definitions: definitions,
-      registers: registers,
-      text: text,
-    );
-  }
 }
 
 extension ExampleDtoX on ExampleDto {
@@ -46,4 +35,32 @@ extension ExampleDtoX on ExampleDto {
       registers: registers?.map((register) => register.toDomain()).toImmutableList(),
     );
   }
+}
+
+extension ExampleDtoFixture on ExampleDto {
+  static _ExampleDtoFixtureFactory factory() => _ExampleDtoFixtureFactory();
+}
+
+class _ExampleDtoFixtureFactory extends FixtureFactory<ExampleDto> {
+  @override
+  FixtureDefinition<ExampleDto> definition() => define(
+        (faker) {
+          return ExampleDto(
+            text: faker.lorem.word(),
+          );
+        },
+      );
+
+  FixtureDefinition<ExampleDto> withCustomFields({
+    String? text,
+    List<String>? definitions,
+    List<IdTextDto>? registers,
+  }) =>
+      redefine(
+        (dto) => dto.copyWith(
+          text: text ?? dto.text,
+          definitions: definitions ?? dto.definitions,
+          registers: registers ?? dto.registers,
+        ),
+      );
 }

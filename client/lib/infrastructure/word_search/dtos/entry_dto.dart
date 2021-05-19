@@ -1,4 +1,4 @@
-import 'package:faker/faker.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -26,44 +26,6 @@ class EntryDto with _$EntryDto {
   }
 
   factory EntryDto.fromJson(Map<String, dynamic> json) => _$EntryDtoFromJson(json);
-
-  factory EntryDto.fromFakeData({
-    Map<String, dynamic> customFieldValues = const {},
-    List<String> traits = const [],
-  }) {
-    var _etymologies = customFieldValues['etymologies'] as List<String>;
-    var _senses = customFieldValues['senses'] as List<SenseDto>;
-    var _pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
-
-    if (traits.contains('withEtymologies')) {
-      _etymologies = [];
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _etymologies.add(faker.lorem.sentence());
-      }
-    }
-    if (traits.contains('withSenses')) {
-      _senses = [];
-
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _senses.add(SenseDto.fromFakeData());
-      }
-    }
-
-    if (traits.contains('withPronunciations')) {
-      _pronunciations = [];
-
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _pronunciations
-            .add(const PronunciationDto(audioFile: 'https://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'));
-      }
-    }
-
-    return EntryDto(
-      etymologies: _etymologies,
-      senses: _senses,
-      pronunciations: _pronunciations,
-    );
-  }
 }
 
 extension EntryDtoX on EntryDto {
@@ -74,4 +36,61 @@ extension EntryDtoX on EntryDto {
       pronunciations: pronunciations?.map((pronunciation) => pronunciation.toDomain()).toImmutableList(),
     );
   }
+}
+
+extension EntryDtoFixture on EntryDto {
+  static _EntryDtoFixtureFactory factory() => _EntryDtoFixtureFactory();
+}
+
+class _EntryDtoFixtureFactory extends FixtureFactory<EntryDto> {
+  @override
+  FixtureDefinition<EntryDto> definition() => define(
+        (faker) => const EntryDto(
+          senses: [],
+        ),
+      );
+
+  FixtureDefinition<EntryDto> withEtymologies({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            etymologies: Iterable<int>.generate(totalCount)
+                .map(
+                  (_) => faker.lorem.sentence(),
+                )
+                .toList(),
+          );
+        },
+      );
+
+  FixtureDefinition<EntryDto> withSenses({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            senses: SenseDtoFixture.factory().makeMany(totalCount),
+          );
+        },
+      );
+
+  FixtureDefinition<EntryDto> withPronunciations({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            pronunciations: Iterable<int>.generate(totalCount)
+                .map(
+                  (_) =>
+                      const PronunciationDto(audioFile: 'https://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'),
+                )
+                .toList(),
+          );
+        },
+      );
+
+  FixtureDefinition<EntryDto> withCustomFields({
+    List<SenseDto>? senses,
+    List<String>? etymologies,
+  }) =>
+      redefine(
+        (dto) => dto.copyWith(
+          senses: senses ?? dto.senses,
+          etymologies: etymologies ?? dto.etymologies,
+        ),
+      );
 }

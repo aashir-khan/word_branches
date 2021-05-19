@@ -1,5 +1,5 @@
 import 'package:enum_to_string/enum_to_string.dart';
-import 'package:faker/faker.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -39,54 +39,6 @@ class LexicalEntryDto with _$LexicalEntryDto {
   }
 
   factory LexicalEntryDto.fromJson(Map<String, dynamic> json) => _$LexicalEntryDtoFromJson(json);
-
-  factory LexicalEntryDto.fromFakeData({
-    Map<String, dynamic> customFieldValues = const {},
-    List<String> traits = const [],
-  }) {
-    var _entries = customFieldValues['entries'] as List<EntryDto>;
-    var _pronunciations = customFieldValues['pronunciations'] as List<PronunciationDto>;
-    var _lexicalCategory = customFieldValues['lexicalCategory'] as IdTextDto;
-    var _derivativeOf = customFieldValues['derivativeOf'] as List<RelatedEntryDto>;
-
-    if (traits.contains('withEntries')) {
-      _entries = [];
-      final lexicalCategoryEnum = faker.randomGenerator.element(LexicalCategoryEnum.values);
-
-      _lexicalCategory = IdTextDto(
-        id: EnumToString.convertToString(lexicalCategoryEnum),
-        text: EnumToString.convertToString(lexicalCategoryEnum),
-      );
-
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _entries.add(EntryDto.fromFakeData());
-      }
-    }
-
-    if (traits.contains('withPronunciations')) {
-      _pronunciations = [];
-
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _pronunciations
-            .add(const PronunciationDto(audioFile: 'https://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'));
-      }
-    }
-
-    if (traits.contains('withDerivateOf')) {
-      _derivativeOf = [];
-
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _derivativeOf.add(RelatedEntryDto.fromFakeData());
-      }
-    }
-
-    return LexicalEntryDto(
-      entries: _entries,
-      pronunciations: _pronunciations,
-      lexicalCategory: _lexicalCategory,
-      derivativeOf: _derivativeOf,
-    );
-  }
 }
 
 extension LexicalEntryDtoX on LexicalEntryDto {
@@ -98,4 +50,67 @@ extension LexicalEntryDtoX on LexicalEntryDto {
       derivativeOf: derivativeOf?.map((relatedEntry) => relatedEntry.toDomain()).toImmutableList(),
     );
   }
+}
+
+extension LexicalEntryDtoFixture on LexicalEntryDto {
+  static _LexicalEntryDtoFixtureFactory factory() => _LexicalEntryDtoFixtureFactory();
+}
+
+class _LexicalEntryDtoFixtureFactory extends FixtureFactory<LexicalEntryDto> {
+  @override
+  FixtureDefinition<LexicalEntryDto> definition() => define(
+        (faker) {
+          final lexicalCategoryEnum = faker.randomGenerator.element(LexicalCategoryEnum.values);
+
+          final lexicalCategory = IdTextDto(
+            id: EnumToString.convertToString(lexicalCategoryEnum),
+            text: EnumToString.convertToString(lexicalCategoryEnum),
+          );
+
+          return LexicalEntryDto(
+            entries: [],
+            lexicalCategory: lexicalCategory,
+          );
+        },
+      );
+
+  FixtureDefinition<LexicalEntryDto> withEntries({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            entries: EntryDtoFixture.factory().makeMany(totalCount),
+          );
+        },
+      );
+
+  FixtureDefinition<LexicalEntryDto> withPronunciations({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            pronunciations: Iterable<int>.generate(totalCount)
+                .map(
+                  (_) =>
+                      const PronunciationDto(audioFile: 'https://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3'),
+                )
+                .toList(),
+          );
+        },
+      );
+
+  FixtureDefinition<LexicalEntryDto> withDerivativeOf({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            derivativeOf: RelatedEntryDtoFixture.factory().makeMany(totalCount),
+          );
+        },
+      );
+
+  FixtureDefinition<LexicalEntryDto> withCustomFields({
+    List<EntryDto>? entries,
+    IdTextDto? lexicalCategory,
+  }) =>
+      redefine(
+        (dto) => dto.copyWith(
+          entries: entries ?? dto.entries,
+          lexicalCategory: lexicalCategory ?? dto.lexicalCategory,
+        ),
+      );
 }

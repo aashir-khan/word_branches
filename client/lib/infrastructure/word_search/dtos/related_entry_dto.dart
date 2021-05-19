@@ -1,4 +1,4 @@
-import 'package:faker/faker.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/word_search/entities/related_entry.dart';
@@ -21,18 +21,6 @@ class RelatedEntryDto with _$RelatedEntryDto {
   }
 
   factory RelatedEntryDto.fromJson(Map<String, dynamic> json) => _$RelatedEntryDtoFromJson(json);
-
-  factory RelatedEntryDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    final defaultText = faker.lorem.word();
-
-    final _id = customFieldValues['id'] as String?;
-    final _text = customFieldValues['text'] as String?;
-
-    return RelatedEntryDto(
-      id: _id ?? defaultText,
-      text: _text ?? defaultText,
-    );
-  }
 }
 
 extension RelatedEntryDtoX on RelatedEntryDto {
@@ -42,4 +30,22 @@ extension RelatedEntryDtoX on RelatedEntryDto {
       text: text,
     );
   }
+}
+
+extension RelatedEntryDtoFixture on RelatedEntryDto {
+  static _RelatedEntryDtoFixtureFactory factory() => _RelatedEntryDtoFixtureFactory();
+}
+
+class _RelatedEntryDtoFixtureFactory extends FixtureFactory<RelatedEntryDto> {
+  @override
+  FixtureDefinition<RelatedEntryDto> definition() => define(
+        (faker) {
+          final fakeText = faker.lorem.word();
+
+          return RelatedEntryDto(
+            id: fakeText,
+            text: fakeText,
+          );
+        },
+      );
 }

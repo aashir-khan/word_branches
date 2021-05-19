@@ -4,7 +4,7 @@ import 'package:sembast/sembast.dart';
 import '../app_database.dart';
 import '../dtos/dictionary_word_dto.dart';
 
-@LazySingleton(env: [Environment.dev])
+@LazySingleton(env: [Environment.test])
 class DictionaryWordDao {
   static const String storeName = 'dictionaryWord';
 

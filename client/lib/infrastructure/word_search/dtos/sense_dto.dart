@@ -1,5 +1,5 @@
 import 'package:enum_to_string/enum_to_string.dart';
-import 'package:faker/faker.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -35,67 +35,6 @@ class SenseDto with _$SenseDto {
   }
 
   factory SenseDto.fromJson(Map<String, dynamic> json) => _$SenseDtoFromJson(json);
-
-  factory SenseDto.fromFakeData({
-    Map<String, dynamic> customFieldValues = const {},
-    List<String> traits = const [],
-  }) {
-    List<String> _definitions = customFieldValues['definitions'] as List<String>;
-    List<TextTypeDto> _notes = customFieldValues['notes'] as List<TextTypeDto>;
-    List<ExampleDto> _examples = customFieldValues['examples'] as List<ExampleDto>;
-    List<SenseDto> _subsenses = customFieldValues['subsenses'] as List<SenseDto>;
-    final List<IdTextDto> _registers = customFieldValues['registers'] as List<IdTextDto>;
-    final List<IdTextDto> _regions = customFieldValues['regions'] as List<IdTextDto>;
-    final List<String> _crossReferenceMarkers = customFieldValues['crossReferenceMarkers'] as List<String>;
-
-    if (traits.contains('withDefinitions')) {
-      _definitions = [];
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _definitions.add(faker.lorem.sentence());
-      }
-    }
-
-    if (traits.contains('withNotes')) {
-      _notes = [];
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _notes.add(TextTypeDto.fromFakeData(
-          customFieldValues: {
-            'type': EnumToString.convertToString(NoteTypeEnum.technicalNote),
-            'text': faker.lorem.sentence(),
-          },
-        ));
-      }
-    }
-
-    if (traits.contains('withExamples')) {
-      _examples = [];
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        _examples.add(ExampleDto.fromFakeData(
-          customFieldValues: {'text': faker.lorem.sentence()},
-        ));
-      }
-    }
-
-    if (traits.contains('withSubsenses')) {
-      _subsenses = [];
-
-      for (var i = 0; i < faker.randomGenerator.integer(10, min: 1); i++) {
-        final _subsensesTraitsList = List<String>.from(traits);
-        _subsensesTraitsList.remove('withSubsenses');
-        _subsenses.add(SenseDto.fromFakeData(customFieldValues: customFieldValues, traits: _subsensesTraitsList));
-      }
-    }
-
-    return SenseDto(
-      definitions: _definitions,
-      notes: _notes,
-      examples: _examples,
-      subsenses: _subsenses,
-      registers: _registers,
-      regions: _regions,
-      crossReferenceMarkers: _crossReferenceMarkers,
-    );
-  }
 }
 
 extension SenseDtoX on SenseDto {
@@ -110,4 +49,60 @@ extension SenseDtoX on SenseDto {
       crossReferenceMarkers: crossReferenceMarkers?.toImmutableList(),
     );
   }
+}
+
+extension SenseDtoFixture on SenseDto {
+  static _SenseDtoFixtureFactory factory() => _SenseDtoFixtureFactory();
+}
+
+class _SenseDtoFixtureFactory extends FixtureFactory<SenseDto> {
+  @override
+  FixtureDefinition<SenseDto> definition() => define(
+        (faker) => const SenseDto(),
+      );
+
+  FixtureDefinition<SenseDto> withDefinitions({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            definitions: Iterable<int>.generate(totalCount)
+                .map(
+                  (_) => faker.lorem.sentence(),
+                )
+                .toList(),
+          );
+        },
+      );
+
+  FixtureDefinition<SenseDto> withNotes({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            notes: TextTypeDtoFixture.factory()
+                .withCustomFields(
+                  type: EnumToString.convertToString(NoteTypeEnum.technicalNote),
+                  text: faker.lorem.sentence(),
+                )
+                .makeMany(totalCount),
+          );
+        },
+      );
+
+  FixtureDefinition<SenseDto> withExamples({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            examples: ExampleDtoFixture.factory()
+                .withCustomFields(
+                  text: faker.lorem.sentence(),
+                )
+                .makeMany(totalCount),
+          );
+        },
+      );
+
+  FixtureDefinition<SenseDto> withSubsenses({int totalCount = 1}) => redefine(
+        (dto) {
+          return dto.copyWith(
+            subsenses: SenseDtoFixture.factory().makeMany(totalCount),
+          );
+        },
+      );
 }

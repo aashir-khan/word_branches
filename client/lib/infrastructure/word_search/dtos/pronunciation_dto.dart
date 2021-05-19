@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 
 import '../../../domain/word_search/entities/pronunciation.dart';
 
@@ -18,10 +19,6 @@ class PronunciationDto with _$PronunciationDto {
   }
 
   factory PronunciationDto.fromJson(Map<String, dynamic> json) => _$PronunciationDtoFromJson(json);
-
-  factory PronunciationDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    return PronunciationDto(audioFile: customFieldValues['audioFile'] as String);
-  }
 }
 
 extension PronunciationDtoX on PronunciationDto {
@@ -30,4 +27,19 @@ extension PronunciationDtoX on PronunciationDto {
       audioFile: audioFile,
     );
   }
+}
+
+extension PronunciationDtoFixture on PronunciationDto {
+  static _PronunciationDtoFixtureFactory factory() => _PronunciationDtoFixtureFactory();
+}
+
+class _PronunciationDtoFixtureFactory extends FixtureFactory<PronunciationDto> {
+  @override
+  FixtureDefinition<PronunciationDto> definition() => define(
+        (faker) {
+          return const PronunciationDto(
+            audioFile: 'https://audio.oxforddictionaries.com/en/mp3/pop_1_gb_1.mp3',
+          );
+        },
+      );
 }

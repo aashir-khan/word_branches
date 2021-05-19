@@ -34,9 +34,9 @@ import 'infrastructure/word_search/word_search_repository.dart' as _i24;
 import 'injectable_module.dart' as _i25;
 import 'presentation/views/home/widgets/favorited_words_viewmodel.dart' as _i8;
 
+const String _test = 'test';
 const String _dev = 'dev';
 const String _prod = 'prod';
-const String _test = 'test';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -47,14 +47,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i3.AudioPlayer>(() => injectableModule.audioPlayer);
   gh.lazySingleton<_i4.Connectivity>(() => injectableModule.connectionChecker);
   gh.lazySingleton<_i5.DictionaryWordDao>(() => _i5.DictionaryWordDao(),
-      registerFor: {_dev});
+      registerFor: {_test});
   gh.lazySingleton<_i6.Dio>(() => injectableModule.dio);
   gh.lazySingleton<_i7.EnvVariables>(
       () => _i7.EnvVariables(get<_i2.Environment>()),
       registerFor: {_dev, _prod});
   gh.factory<_i8.FavoritedWordsViewModel>(() => _i8.FavoritedWordsViewModel());
   gh.lazySingleton<_i9.HeadwordEntryDao>(() => _i9.HeadwordEntryDao(),
-      registerFor: {_dev});
+      registerFor: {_test});
   gh.lazySingleton<_i10.INetworkInfo>(
       () => _i11.NetworkInfoImpl(get<_i4.Connectivity>()));
   gh.lazySingleton<_i12.IWordSearchRemoteDataSource>(

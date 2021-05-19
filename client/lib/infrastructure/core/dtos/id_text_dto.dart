@@ -1,4 +1,4 @@
-import 'package:faker/faker.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/word_search/entities/id_text.dart';
@@ -18,19 +18,28 @@ class IdTextDto with _$IdTextDto {
   }
 
   factory IdTextDto.fromJson(Map<String, dynamic> json) => _$IdTextDtoFromJson(json);
-
-  factory IdTextDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    final defaultText = faker.lorem.word();
-
-    final id = (customFieldValues['id'] ?? defaultText) as String;
-    final text = (customFieldValues['text'] ?? defaultText) as String;
-
-    return IdTextDto(id: id, text: text);
-  }
 }
 
 extension IdTextDtoX on IdTextDto {
   IdText toDomain() {
     return IdText(id: id, text: text);
   }
+}
+
+extension IdTextDtoFixture on IdTextDto {
+  static _IdTextDtoFixtureFactory factory() => _IdTextDtoFixtureFactory();
+}
+
+class _IdTextDtoFixtureFactory extends FixtureFactory<IdTextDto> {
+  @override
+  FixtureDefinition<IdTextDto> definition() => define(
+        (faker) {
+          final fakeText = faker.lorem.word();
+
+          return IdTextDto(
+            id: fakeText,
+            text: fakeText,
+          );
+        },
+      );
 }

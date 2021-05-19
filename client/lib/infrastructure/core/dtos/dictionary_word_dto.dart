@@ -1,5 +1,5 @@
-import 'package:faker/faker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 
 import '../../../domain/core/entities/dictionary_word.dart';
 
@@ -21,23 +21,6 @@ class DictionaryWordDto with _$DictionaryWordDto {
   }
 
   factory DictionaryWordDto.fromJson(Map<String, dynamic> json) => _$DictionaryWordDtoFromJson(json);
-
-  factory DictionaryWordDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    final defaultLabel = faker.lorem.word();
-
-    final Map<String, dynamic> defaultFieldValues = {
-      'id': defaultLabel,
-      'label': defaultLabel,
-    };
-
-    final id = (customFieldValues['id'] ?? defaultFieldValues['id']) as String;
-    final label = (customFieldValues['label'] ?? defaultFieldValues['label']) as String;
-
-    return DictionaryWordDto(
-      id: id,
-      label: label,
-    );
-  }
 }
 
 extension DictionaryWordDtoX on DictionaryWordDto {
@@ -47,4 +30,22 @@ extension DictionaryWordDtoX on DictionaryWordDto {
       label: label,
     );
   }
+}
+
+extension DictionaryWordDtoFixture on DictionaryWordDto {
+  static _DictionaryWordDtoFixtureFactory factory() => _DictionaryWordDtoFixtureFactory();
+}
+
+class _DictionaryWordDtoFixtureFactory extends FixtureFactory<DictionaryWordDto> {
+  @override
+  FixtureDefinition<DictionaryWordDto> definition() => define(
+        (faker) {
+          final fakeLabel = faker.lorem.word();
+
+          return DictionaryWordDto(
+            id: fakeLabel,
+            label: fakeLabel,
+          );
+        },
+      );
 }

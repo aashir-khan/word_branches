@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 
 import '../../../domain/word_search/entities/text_type.dart';
 
@@ -20,16 +21,6 @@ class TextTypeDto with _$TextTypeDto {
   }
 
   factory TextTypeDto.fromJson(Map<String, dynamic> json) => _$TextTypeDtoFromJson(json);
-
-  factory TextTypeDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    final text = customFieldValues['text'] as String;
-    final type = customFieldValues['type'] as String;
-
-    return TextTypeDto(
-      text: text,
-      type: type,
-    );
-  }
 }
 
 extension TextTypeDtoX on TextTypeDto {
@@ -39,4 +30,29 @@ extension TextTypeDtoX on TextTypeDto {
       type: type,
     );
   }
+}
+
+extension TextTypeDtoFixture on TextTypeDto {
+  static _TextTypeDtoFixtureFactory factory() => _TextTypeDtoFixtureFactory();
+}
+
+class _TextTypeDtoFixtureFactory extends FixtureFactory<TextTypeDto> {
+  @override
+  FixtureDefinition<TextTypeDto> definition() => define(
+        (faker) {
+          final fakeText = faker.lorem.word();
+
+          return TextTypeDto(
+            text: fakeText,
+            type: fakeText,
+          );
+        },
+      );
+
+  FixtureDefinition<TextTypeDto> withCustomFields({String? text, String? type}) => redefine(
+        (dto) => dto.copyWith(
+          text: text ?? dto.text,
+          type: type ?? dto.type,
+        ),
+      );
 }

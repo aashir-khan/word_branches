@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart' show ListInterop;
+import 'package:data_fixture_dart/data_fixture_dart.dart';
 
 import '../../../domain/core/entities/word_search.dart';
 import '../../word_search/dtos/headword_entry_dto.dart';
@@ -27,20 +28,6 @@ class WordSearchDto with _$WordSearchDto {
   }
 
   factory WordSearchDto.fromJson(Map<String, dynamic> json) => _$WordSearchDtoFromJson(json);
-
-  factory WordSearchDto.fromFakeData({Map<String, dynamic> customFieldValues = const {}}) {
-    final _word = customFieldValues['word'] as DictionaryWordDto;
-    final _results = customFieldValues['results'] as List<HeadwordEntryDto>;
-    final _isFavorited = customFieldValues['isFavorited'] as bool;
-    final _lastSearchedAt = customFieldValues['lastSearchedAt'] as String;
-
-    return WordSearchDto(
-      word: _word,
-      results: _results,
-      isFavorited: _isFavorited,
-      lastSearchedAt: _lastSearchedAt,
-    );
-  }
 }
 
 extension WordSearchDtoX on WordSearchDto {
@@ -52,4 +39,20 @@ extension WordSearchDtoX on WordSearchDto {
       lastSearchedAt: lastSearchedAt == null ? null : DateTime.parse(lastSearchedAt!),
     );
   }
+}
+
+extension WordSearchDtoFixture on WordSearchDto {
+  static _WordSearchDtoFixtureFactory factory() => _WordSearchDtoFixtureFactory();
+}
+
+class _WordSearchDtoFixtureFactory extends FixtureFactory<WordSearchDto> {
+  @override
+  FixtureDefinition<WordSearchDto> definition() => define(
+        (faker) {
+          return WordSearchDto(
+            word: DictionaryWordDtoFixture.factory().makeSingle(),
+            results: [],
+          );
+        },
+      );
 }

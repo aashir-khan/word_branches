@@ -5,7 +5,7 @@ import '../../word_search/dtos/headword_entry_dto.dart';
 import '../app_database.dart';
 import '../dtos/dictionary_word_dto.dart';
 
-@LazySingleton(env: [Environment.dev])
+@LazySingleton(env: [Environment.test])
 class HeadwordEntryDao {
   static const String storeName = 'headwordEntry';
 
